@@ -4,4 +4,9 @@
 //   return(<div><Tabs/><RadioGroup/></div>);
 // };
 
-// export default TestView;
+
+const TestView = () => {
+  return();
+};
+
+export default TestView;
