@@ -30,11 +30,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/full-page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/full-page.js"
-    ],
     "/test-builds/grid-layout": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
