@@ -1,5 +1,5 @@
-import HomePagePhoto from "../components/orig_ui_mock/HomePagePhoto.js";
-import NewsFeed from "../components/orig_ui_mock/NewsFeed.js";
+import HomePagePhoto from "../components/ui_prototype/HomePagePhoto.js";
+import NewsFeed from "../components/ui_prototype/NewsFeed.js";
 //          <li class="col-span-1 bg-white rounded-lg shadow-xl"><div class="h-24"></div></li>
 const GridView = () => {
   return(
