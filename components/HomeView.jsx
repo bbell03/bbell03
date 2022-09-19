@@ -1,5 +1,5 @@
-import HomePagePhoto from "./orig_ui_mock/HomePagePhoto.js";
-import NewsFeed from "./orig_ui_mock/NewsFeed.js";
+import HomePagePhoto from "./ui_prototype/HomePagePhoto.js";
+import NewsFeed from "./ui_prototype/NewsFeed.js";
 
 
 //Second Try Based on Test Layouts
