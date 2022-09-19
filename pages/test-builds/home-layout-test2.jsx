@@ -1,5 +1,5 @@
-import HomePagePhoto from "../components/ui_prototype/HomePagePhoto.js";
-import NewsFeed from "../components/ui_prototype/NewsFeed.js";
+import HomePagePhoto from "../.././components/ui_prototype/HomePagePhoto.js";
+import NewsFeed from "../.././components/ui_prototype/NewsFeed.js";
 
 const GridView = () => {
   return(
