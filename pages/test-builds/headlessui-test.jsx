@@ -6,7 +6,7 @@
 
 
 const TestView = () => {
-  return();
+  return(<div></div>);
 };
 
 export default TestView;
