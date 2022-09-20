@@ -5,5 +5,5 @@
 - ReactJS
 - TailwindCSS
 
-## Working Version (deployed on Vercel)
+## Working Version *prototype v0.00* (deployed on Vercel)
 ### https://bbell03-qyogtzzbh-bbell03.vercel.app
