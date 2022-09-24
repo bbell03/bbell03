@@ -6,4 +6,4 @@
 - TailwindCSS
 
 ## Working Version (deployed on Vercel)
-### https://bbell03-qyogtzzbh-bbell03.vercel.app
+### https://bbell03.vercel.app
