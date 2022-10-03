@@ -1,6 +1,6 @@
 const BlogPost = () => {
   return (
-    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden w-full md:max-w-2xl">
+    <div class="max-w-lg mx-auto bg-white rounded-xl shadow-md overflow-hidden w-full lg:max-w-2xl">
       <div class="md:flex">
         <div class="p-8">
           <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
