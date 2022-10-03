@@ -5,7 +5,7 @@ import NewsFeed from "./ui_prototype/NewsFeed.js";
 //Second Try Based on Test Layouts
 const HomeView = () => {
   return(
-    <div class = "sm:mt-8 flex items-center">
+    <div class = "sm:mt-8 mt-4 flex items-center">
       <div class="flex-1 max-w-full max-w-4xl mx-auto items-center">
             <ul class="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-5 gap-x-72 justify-center place-items-center">
               <li class="sm:col-start-2 md:col-start-2 lg:col-start-2 col-span-1"><HomePagePhoto/></li>

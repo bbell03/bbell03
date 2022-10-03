@@ -33,7 +33,7 @@ const Tails = () => {
   </div>
 </nav><section class="py-8 bg-white tails-selected-element" contenteditable="true">
     <div class="px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
-        <h3 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-4xl md:text-5xl xl:text-6xl">
+        <h3 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl md:text-5xl xl:text-6xl">
             welcome.
         </h3>
         <HomeView/>
