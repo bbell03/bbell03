@@ -7,7 +7,7 @@ const Tails = () => {
   <div className="container flex flex-wrap justify-between items-center mx-auto">
     <a href="https://flowbite.com/" className="flex items-center">
         <img src="https://flowbite.com/docs/images/logo.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
-        <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-black">repo</span>
+        <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-black">Brandon Bell</span>
     </a>
     <button data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
       <span className="sr-only">Open main menu</span>
@@ -35,9 +35,6 @@ const Tails = () => {
   </div>
 </nav><section className="py-4 bg-white tails-selected-element">
     <div className="px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
-        <h4 className="text-3xl tracking-tight text-gray-900 sm:text-4xl md:text-5xl xl:text-6xl">
-            Brandon D. Bell
-        </h4>
         <HomeView/>
         <div className="flex justify-center mt-8 space-x-3">
         </div>
