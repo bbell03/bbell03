@@ -12,4 +12,4 @@ const HomePagePhoto = () => {
   )
 }
 
-export default HomeP
+export default HomePagePhoto;
