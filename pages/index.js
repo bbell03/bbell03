@@ -42,7 +42,7 @@ const Tails = () => {
         <div className="flex justify-center mt-8 space-x-3">
         </div>
     </div>
-</section><section className="py-24 bg-white tails-selected-element" contenteditable="true">
+</section><section className="py-8 bg-white tails-selected-element" contenteditable="true">
     <div className="px-8 mx-auto max-w-7xl lg:px-16">
         <h2 className="mb-4 text-xl font-bold md:text-3xl">Frequently Asked Questions</h2>
         <div className="grid grid-cols-1 gap-0 text-gray-600 md:grid-cols-2 md:gap-16">
