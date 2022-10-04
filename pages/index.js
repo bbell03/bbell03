@@ -33,7 +33,7 @@ const Tails = () => {
       </ul>
     </div>
   </div>
-</nav><section className="py-8 bg-white tails-selected-element">
+</nav><section className="py-4 bg-white tails-selected-element">
     <div className="px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
         <h3 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl md:text-5xl xl:text-6xl">
             Brandon D. Bell
