@@ -4,10 +4,14 @@
 const HomePagePhoto = () => {
   return (
     <div class="sm:mt-2 xs:mt-2 grid grid-col-1 justify-center object-fit">
-      <img class="md:mt-12 lg:max-w-md md:max-w-md max-w-sm object-center rounded-full shadow-xl" src="/img/store.jpg" alt="Man looking at item at a store"></img>
-      <div className="flex justify-center mt-8 mb-8 space-x-3">
-
-      </div>
+      <img class="md:mt-12 lg:max-w-md md:max-w-sm max-w-sm object-center rounded-full shadow-xl" src="/img/store.jpg" alt="Man looking at item at a store"></img>
+      <div className="flex object-center justify-center mt-8 mb-8 space-x-3">
+          <label for="toggle-example" class="flex items-center cursor-pointer relative mb-4">
+            <input type="checkbox" id="toggle-example" class="sr-only" />
+            <div class="toggle-bg bg-purple-500 border-2 border-purple-500 h-6 w-11 rounded-full  shadow-inner inset-y-0"></div>
+            <span class="ml-3 text-gray-900 text-sm font-medium">Dark Mode</span>
+          </label>
+        </div>
     </div>
   )
 }
