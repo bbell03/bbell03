@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     screens: {
       'xs':'500px',
-      
+
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
 
@@ -25,7 +25,6 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [   
-    require('flowbite/plugin')
+  plugins: [
 ],
 };
