@@ -19,7 +19,7 @@ const Footer = () => {
             <a href="#" class="mr-4 hover:underline md:mr-6">Projects</a>
         </li>
         <li>
-            <a href="#" class="hover:underline">Blog</a>
+            <a href="#" class="mr-2 hover:underline">Blog</a>
         </li>
     </ul>
 </footer>
