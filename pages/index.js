@@ -95,7 +95,7 @@ const Index = () => (
             <div>
                 <h4 className="mt-10 mb-3 font-semibold text-gray-900">What have I done?</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <h4 className="mt-10 mb-3 font-semibold text-gray-900">Who am?</h4>
+                <h4 className="mt-10 mb-3 font-semibold text-gray-900">Who am I?</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
             </div>
             <div className="">
