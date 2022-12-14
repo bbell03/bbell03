@@ -121,16 +121,16 @@ const Index = () => (
         <h2 className="mb-4 text-2xl font-bold md:text-3xl"></h2>
         <div className="grid grid-cols-1 gap-0 text-gray-600 md:grid-cols-2 md:gap-16">
             <div>
-                <h5 className="mt-10 mb-3 font-semibold text-gray-900">What have you done?</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <h5 className="mt-10 mb-3 font-semibold text-gray-900">Who are you?</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h4 className="mt-10 mb-3 font-semibold text-gray-900">What have I done?</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h4 className="mt-10 mb-3 font-semibold text-gray-900">Who am?</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
             </div>
             <div className="">
-                <h5 className="mt-10 mb-3 font-semibold text-gray-900">How do you do?</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <h5 className="mt-10 mb-3 font-semibold text-gray-900">What is the meaning of this?</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h4 className="mt-10 mb-3 font-semibold text-gray-900">How do I do?</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h4 className="mt-10 mb-3 font-semibold text-gray-900">What is the meaning of this?</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
             </div>
         </div>
 
