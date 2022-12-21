@@ -1,5 +1,5 @@
-const Nav = () => {
-  return (<nav class="min-w-200 rounded-lg align-center shadow backdrop-blur bg-white/50">
+const Nav = () => (
+  <nav class="min-w-200 rounded-lg align-center shadow backdrop-blur bg-white/50">
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -59,8 +59,8 @@ const Nav = () => {
   <div class="sm:hidden" id="mobile-menu">
 
   </div>
-</nav>)
-};
+</nav>
+);
 
 export default Nav;
 
