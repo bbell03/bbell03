@@ -1,8 +1,10 @@
+
+//make transparent
+//soften top line
+
 const Footer = () => {
   return (
-
-
-<footer class="fixed bottom-0 left-0 z-20 p-4 w-full bg-white border-t border-white-200 shadow sm:flex sm:items-center sm:justify-between sm:p-6 dark:bg-white-800 dark:border-gray-600">
+<footer class="fixed bottom-0 left-0 z-20 p-4 w-full bg-white border-white-200 shadow sm:flex sm:items-center sm:justify-between sm:p-6 dark:bg-white-800 ">
     <span class="text-sm text-black-500 sm:text-center dark:text-black-400">© 2022
     </span>
     <ul class="flex flex-wrap items-center mt-3 text-sm text-black-500 dark:text-black-400 sm:mt-0">
