@@ -2,8 +2,8 @@ import HomePagePhoto from "./ui_prototype/HomePagePhoto.js";
 import NewsFeed from "./ui_prototype/NewsFeed.js";
 import IntroModule from ".././pages/Intro.jsx";
 
-
-//Second Try Based on Test Layouts
+//Second Try Based on Test Layouts... made with Grid
+//Flex might be better you might be able to avoid all of the manual spanning
 const HomeView = () => {
   return(
     <div class = "mb-4 mt-8 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 flex items-center object-scale-down">
@@ -16,12 +16,6 @@ const HomeView = () => {
     </div>
   );
 };
-
-
-
-//wrapper
-//    <div class = "max-h-screen flex items-center bg-purple-500">
-//    </div>
 
 //First Try Modular View Component
 // const HomeView = () => {
