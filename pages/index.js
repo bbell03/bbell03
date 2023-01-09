@@ -2,9 +2,6 @@ import HomeView from '.././components/HomeView';
 import AppBar from '.././components/material/appbar';
 import Footer from '.././components/ui_prototype/Footer';
 import Nav from '.././components/Nav';
-// <a href="#" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow hover:bg-indigo-700" data-primary="indigo-600" data-rounded="rounded-md">Learn More</a>
-// <a href="#" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-indigo-700 bg-indigo-100 border border-transparent rounded-md hover:bg-indigo-200" data-primary="indigo-600" data-rounded="rounded-md">Contact</a>
-
 //General Directions
 //Separate out into more discrete components and then expand on them
 //Think about page layouts
@@ -19,26 +16,26 @@ import Nav from '.././components/Nav';
 const Index = () => (
   <div className = "min-w-xs pt-4 px-8 mx-auto max-w-7xl lg:px-16"><section className="py-4 bg-white tails-selected-element">
     <Nav/>
-    <div className="pt-4 px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
+    <div className=" pt-0 sm:pt-4 px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
         <HomeView/>
     </div>
-</section><section className="mb-6 py-4 pb-20" contenteditable="true">
+</section><section className="mb-6 py-2 pb-20" contenteditable="true">
     <div className="px-8 mx-auto max-w-7xl lg:px-16">
-        <h1 className="mb-4 text-4xl font-bold text-center sm:text-left">Hi I'm Brandon.</h1>
+        <h1 className="mb-4 text-5xl font-bold text-center sm:text-left">Hi I'm Brandon.</h1>
         <hr/>
         <h2 className="mb-4 text-2xl font-bold md:text-3xl"></h2>
         <div className="grid grid-cols-1 gap-0 text-gray-600 md:grid-cols-2 md:gap-16">
             <div>
-                <h4 className="mt-10 mb-3 font-semibold text-gray-900">What have I done?</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h2 className="mt-10 mb-3 font-semibold text-gray-900">What have I done?</h2>
+                <p className = "text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <h4 className="mt-10 mb-3 font-semibold text-gray-900">Who am I?</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+                <p  className = "text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
             </div>
             <div className="">
                 <h4 className="mt-10 mb-3 font-semibold text-gray-900">How do I do?</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p  className = "text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <h4 className="mt-10 mb-3 font-semibold text-gray-900">What is the meaning of this?</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+                <p  className = "text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
             </div>
         </div>
 
