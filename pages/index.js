@@ -21,7 +21,7 @@ const Index = () => (
     </div>
 </section><section className="mb-6 py-2 pb-20" contenteditable="true">
     <div className="px-8 mx-auto max-w-7xl lg:px-16">
-        <h1 className="mb-4 text-5xl font-bold text-center sm:text-left">Hi I'm Brandon.</h1>
+        <h1 className="mb-4 text-5xl font-bold text-left">Hi I'm Brandon.</h1>
         <hr/>
         <h2 className="mb-4 text-2xl font-bold md:text-3xl"></h2>
         <div className="grid grid-cols-1 gap-0 text-gray-600 md:grid-cols-2 md:gap-16">
