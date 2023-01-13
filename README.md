@@ -8,4 +8,4 @@
 ## Working Version (deployed on Vercel)
 ### https://bbell03.vercel.app
 
-### I am prototyping this site as a personal repository
+### I am prototyping this site as a personal repository.
