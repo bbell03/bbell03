@@ -16,11 +16,11 @@ import Nav from '.././components/Nav';
 const Index = () => (
 
   <div className = "min-w-xs pt-4 px-8 mx-auto max-w-7xl lg:px-16"><section className="py-2 bg-white tails-selected-element">
-    <Nav/>
-    <div className=" pt-0 sm:pt-4 px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
+    <div className=" pt-0 px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
+        <Nav/>
         <HomeView/>
     </div>
-</section><section className="mb-6 py-2 pb-20" contenteditable="true">
+</section><section className="mb-6 pb-20" contenteditable="true">
     <div className="px-8 mx-auto max-w-7xl lg:px-16">
           <img class="sm:hidden object-scale-down h-16 w-16 rounded-full shadow-xl" src="/img/store.jpg" alt="Man looking at item at a store"></img>
         <h1 className="mt-2 mb-4 text-5xl font-bold text-left">Hi I'm Brandon.</h1>

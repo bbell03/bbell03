@@ -1,6 +1,6 @@
 const BlogPost = () => {
   return (
-    <div class="mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+    <div class="mx-auto bg-white rounded-xl shadow-xl overflow-hidden">
       <div class="md:flex">
         <div class="p-8">
           <div class="uppercase tracking-wide text-md text-indigo-500 font-semibold">Item</div>
