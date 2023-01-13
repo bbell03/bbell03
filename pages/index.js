@@ -14,6 +14,7 @@ import Nav from '.././components/Nav';
   //pass children to navbar for different site contexts
 
 const Index = () => (
+
   <div className = "min-w-xs pt-4 px-8 mx-auto max-w-7xl lg:px-16"><section className="py-2 bg-white tails-selected-element">
     <Nav/>
     <div className=" pt-0 sm:pt-4 px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
