@@ -29,7 +29,7 @@ const Index = () => (
         <div className="px-4 mx-auto max-w-7xl lg:px-8">
             <hr className="sm:hidden pb-5"/>
             <img class="sm:hidden object-scale-down h-16 w-16 rounded-full shadow-xl" src="/img/store.jpg" alt="Man looking at item at a store"></img>
-            <h1 className="flex sm:hidden mt-4 sm:mt-2 mb-4 text-5xl font-bold text-left">Hi I'm Brandon.</h1>
+            <h1 className="flex sm:hidden mt-4 sm:mt-2 mb-4 text-5xl text-left">Hi I'm Brandon.</h1>
             <hr className="mt-6 sm:hidden hidden sm:block"/>
             <h2 className="mb-4 text-2xl font-bold md:text-3xl"></h2>
             <div className="grid grid-cols-1 gap-0 text-gray-600 md:grid-cols-2 md:gap-16">
