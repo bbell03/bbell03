@@ -16,7 +16,7 @@ import Nav from '.././components/Nav';
 
 const Index = () => (
 
-  <div className = "font-sans min-w-xs pt-2 bg-white px-8 mx-auto max-w-7xl lg:px-16">
+  <div className = "font-mono min-w-xs pt-2 bg-white px-8 mx-auto max-w-7xl lg:px-16">
       <Nav/>
     <section className="pt-4 bg-white tails-selected-element">
         <div className="px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
