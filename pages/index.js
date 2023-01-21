@@ -17,9 +17,9 @@ import Nav from '.././components/Nav';
 const Index = () => (
 
   <div className = "min-w-xs bg-white px-8 mx-auto max-w-7xl lg:px-16">
+      <Nav/>
     <section className="py-2 bg-white tails-selected-element">
         <div className="px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
-            <Nav/>
             <div className="sm:pt-16 md:pt-0">
             <HomeView/>
             </div>
