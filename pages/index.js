@@ -16,17 +16,17 @@ import Nav from '.././components/Nav';
 
 const Index = () => (
 
-  <div className = "min-w-xs pt-2 bg-white px-8 mx-auto max-w-7xl lg:px-16">
+  <div className = "font-mono min-w-xs pt-2 bg-white px-8 mx-auto max-w-7xl lg:px-16">
       <Nav/>
-    <section className="py-2 bg-white tails-selected-element">
+    <section className="pt-4 bg-white tails-selected-element">
         <div className="px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
-            <div className="sm:pt-16 md:pt-0">
+            <div className="sm:pt-6 md:pt-0">
             <HomeView/>
             </div>
         </div>
     </section>
     <section className="mb-6 pb-20" contenteditable="true">
-        <div className="px-6 mx-auto max-w-7xl lg:px-8">
+        <div className="px-4 mx-auto max-w-7xl lg:px-8">
             <hr className="sm:hidden pb-5"/>
             <img class="sm:hidden object-scale-down h-16 w-16 rounded-full shadow-xl" src="/img/store.jpg" alt="Man looking at item at a store"></img>
             <h1 className="flex sm:hidden mt-4 sm:mt-2 mb-4 text-5xl font-bold text-left">Hi I'm Brandon.</h1>
@@ -34,16 +34,17 @@ const Index = () => (
             <h2 className="mb-4 text-2xl font-bold md:text-3xl"></h2>
             <div className="grid grid-cols-1 gap-0 text-gray-600 md:grid-cols-2 md:gap-16">
               <div>
-                <h2 className="mt-10 mb-3 font-semibold text-gray-900">What have I done?</h2>
-                <p className = "text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <h4 className="mt-10 mb-3 font-semibold text-gray-900">Who am I?</h4>
-                <p  className = "text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+                <p  className = "text-lg">I am a software developer currently based in NYC. I graduated from Tufts University with a degree in Computer Science. I also have interests in Spanish,real estate, investment, food, fitness, and design.</p>
+                <h2 className="mt-10 mb-3 font-semibold text-gray-900">What have I done?</h2>
+                <p className = "text-lg">Work ranging from full-stack web development in Javascript, HTML and CSS, to Data Structures and Algorithms in C++, to Artificial Intelligence work in Python, to low level implementations in C. Most notably, I have implemented a ride sharing service using Google Maps, a 2020 campaign tracker,
+                                        an image compressor, a MERN stack, and a simple virtual machine. </p>
               </div>
             <div className="">
-                <h4 className="mt-10 mb-3 font-semibold text-gray-900">How do I do?</h4>
-                <p  className = "text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h4 className="mt-10 mb-3 font-semibold text-gray-900">What am I looking for?</h4>
+                <p  className = "text-lg">I am looking for  opportunities in software engineering that value a well principled and iterative workflow, healthy challenge, good code, and strong design ideals. I am looking for ways to grow and improve through the work that I do so as to bridge my own interests.</p>
                 <h4 className="mt-10 mb-3 font-semibold text-gray-900">What is the meaning of this?</h4>
-                <p  className = "text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+                <p  className = "text-lg">This site is a place to share my interests, and how I look to develop them. I would ask that you take care while looking through as there may yet be inconsistencies, points of improvement or possible directions to consider.</p>
             </div>
         </div>
 
