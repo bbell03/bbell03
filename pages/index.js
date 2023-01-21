@@ -16,7 +16,7 @@ import Nav from '.././components/Nav';
 
 const Index = () => (
 
-  <div className = "min-w-xs bg-white px-8 mx-auto max-w-7xl lg:px-16">
+  <div className = "min-w-xs pt-4 bg-white px-8 mx-auto max-w-7xl lg:px-16">
       <Nav/>
     <section className="py-2 bg-white tails-selected-element">
         <div className="px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
@@ -26,8 +26,8 @@ const Index = () => (
         </div>
     </section>
     <section className="mb-6 pb-20" contenteditable="true">
-        <div className="px-8 mx-auto max-w-7xl lg:px-16">
-            <hr className="sm:hidden pb-6"/>
+        <div className="px-6 mx-auto max-w-7xl lg:px-16">
+            <hr className="sm:hidden pb-5"/>
             <img class="sm:hidden object-scale-down h-16 w-16 rounded-full shadow-xl" src="/img/store.jpg" alt="Man looking at item at a store"></img>
             <h1 className="flex sm:hidden mt-4 sm:mt-2 mb-4 text-5xl font-bold text-left">Hi I'm Brandon.</h1>
             <hr className="mt-6 sm:hidden hidden sm:block"/>
