@@ -12,7 +12,7 @@ const HomeView = () => {
               <li class="sm:col-start-2 md:col-start-2 lg:col-start-2 col-span-1"><HomePagePhoto/></li>
               <li class="col-span-1 sm:col-span-3 md:col-span-3 lg:col-span-3"><NewsFeed/></li>
             </ul>
-                        <h1 className="hidden sm:block sm:mt-2 mb-4 text-5xl text-left">Hi I'm Brandon.</h1>
+                        <h1 className="hidden sm:block sm:mt-2 mb-4 text-5xl text-left">Hi, I'm Brandon.</h1>
                         <hr className="mt-4 hidden sm:block"/>
       </div>
     </div>
