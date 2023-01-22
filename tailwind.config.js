@@ -25,7 +25,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Sofia Sans']
+        sofia: ['Sofia Sans']
       },
     },
   },
