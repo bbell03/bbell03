@@ -37,7 +37,7 @@ const Index = () => (
                 <h4 className="mt-10 mb-3 font-semibold text-gray-900">Who am I?</h4>
                 <p  className = "text-lg">I am a software developer currently based in NYC. I graduated from Tufts University with a degree in Computer Science. I also have interests in Spanish, real estate, investment, food, chemistry, fitness, and design.</p>
                 <h2 className="mt-10 mb-3 font-semibold text-gray-900">What have I done?</h2>
-                <p className = "text-lg">Work ranging from full-stack web development in Javascript, HTML and CSS, to Data Structures and Algorithms in C++, to Artificial Intelligence in Python, to low level implementations in C. Most notably, I have implemented a ride sharing service using Google Maps, a 2020 campaign tracker,
+                <p className = "text-lg">Work ranging from full-stack web development in Javascript, HTML and CSS, to Data Structures and Algorithms in C++, to Artificial Intelligence in Python, to low level implementations in C. Most notably, I have implemented a ride sharing service using Google Maps, a presidential campaign tracker,
                                         an image compressor, a MERN stack, and a simple virtual machine. </p>
               </div>
             <div className="">

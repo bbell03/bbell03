@@ -23,7 +23,11 @@ module.exports = {
       '2xl': '3000px',
       // => @media (min-width: 1536px) { ... }
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Sofia Sans']
+      },
+    },
   },
   variants: {
     extend: {},
