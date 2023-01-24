@@ -53,7 +53,7 @@ const Index = () => (
                 <h4 className="mt-10 mb-3 font-semibold text-gray-900">What am I looking for?</h4>
                 <p  className = "text-lg sm:text-xl">
                   I am looking for  opportunities in software engineering that value a
-                  well principled and iterative workflow, healthy challenge, good code, and strong design ideals. \
+                  well principled and iterative workflow, healthy challenge, good code, and strong design ideals.
                   I am looking for ways to grow and improve through the work that I do so as to bridge my own interests.
                 </p>
                 <h4 className="mt-10 mb-3 font-semibold text-gray-900">What is the meaning of this?</h4>
