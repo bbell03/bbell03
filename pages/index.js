@@ -25,7 +25,7 @@ const Index = () => (
         </div>
     </section>
     <section className="mb-6 pb-20" contenteditable="true">
-        <div className="px-4 mx-auto max-w-7xl lg:px-8">
+        <div className="px-4 sm:px-7 mx-auto max-w-7xl lg:px-8">
             <hr className="sm:hidden pb-5"/>
             <img class="sm:hidden object-scale-down h-16 w-16 rounded-full shadow-xl" src="/img/store.jpg" alt="Man looking at item at a store"></img>
             <h1 className="flex sm:hidden mt-4 sm:mt-2 mb-4 text-5xl text-left">Hi, I'm Brandon.</h1>
