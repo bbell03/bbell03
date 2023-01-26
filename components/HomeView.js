@@ -13,7 +13,7 @@ const HomeView = () => {
               <li class="col-span-1 sm:col-span-3 md:col-span-3 lg:col-span-3"><NewsFeed/></li>
             </ul>
                         <h1 className="pt-5 hidden sm:block sm:mt-2 mb-4 text-6xl text-left">Hi, I'm Brandon.</h1>
-                        <hr className="mt-4 hidden sm:block"/>
+                        <hr className="mt-3 hidden sm:block"/>
       </div>
     </div>
   );
