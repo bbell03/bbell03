@@ -56,8 +56,8 @@ const Index = () => (
                   well principled and iterative workflow, healthy challenge, good code, and strong design ideals.
                   I am looking for ways to grow and improve through the work that I do so as to bridge my own interests.
                 </p>
-                <h4 className="mt-6 mb-6 font-semibold text-gray-900 sm:text-xl">What is the meaning of this?</h4>
-                <p  className = "text-lg sm:text-xl">
+                <h4 className="mt-6 mb-3 font-semibold text-gray-900 sm:text-xl">What is the meaning of this?</h4>
+                <p  className = "mb-6 text-lg sm:text-xl">
                   This site is a place to share my interests, and how I look to
                   develop them. I would ask that you take care while looking through as there may yet be inconsistencies,
                    points of improvement or possible directions to consider.
