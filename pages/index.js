@@ -24,7 +24,7 @@ const Index = () => (
             </div>
         </div>
     </section>
-    <section className="mb-6 pb-20" contenteditable="true">
+    <section className="mb-12 pb-12" contenteditable="true">
         <div className="px-4 sm:px-7 mx-auto max-w-7xl lg:px-8">
             <hr className="sm:hidden pb-5"/>
             <img class="sm:hidden object-scale-down h-16 w-16 rounded-full shadow-xl" src="/img/store.jpg" alt="Man looking at item at a store"></img>
@@ -64,8 +64,6 @@ const Index = () => (
                 </p>
             </div>
         </div>
-
-
     </div>
 
 </section><Footer/></div>
