@@ -33,7 +33,7 @@ const Index = () => (
             <h2 className="mb-4 text-2xl font-bold md:text-3xl"></h2>
             <div className="grid grid-cols-1 gap-0 text-gray-600">
               <div>
-                <h4 className="sm:mt-2 mb-3 font-semibold text-gray-900 sm:text-xl">Who am I?</h4>
+                <h4 className="mt-6 sm:mt-2 mb-3 font-semibold text-gray-900 sm:text-xl">Who am I?</h4>
                 <p  className = "text-lg sm:text-xl">
                   I am a software developer currently based in NYC.
                   I graduated from Tufts University with a Bachelor of Arts in Computer Science.
