@@ -25,22 +25,22 @@ const Index = () => (
         </div>
     </section>
     <section className="mb-12 pb-12" contenteditable="true">
-        <div className="px-4 sm:px-7 mx-auto max-w-7xl lg:px-8">
+        <div className="px-4 sm:px-7 mx-auto max-w-7xl">
             <hr className="sm:hidden pb-5"/>
             <img class="sm:hidden object-scale-down h-16 w-16 rounded-full shadow-xl" src="/img/store.jpg" alt="Man looking at item at a store"></img>
             <h1 className="flex sm:hidden mt-4 sm:mt-2 mb-4 text-5xl text-left">Hi, I'm Brandon.</h1>
             <hr className="mt-6 sm:hidden hidden sm:block"/>
             <h2 className="mb-4 text-2xl font-bold md:text-3xl"></h2>
-            <div className="grid grid-cols-1 gap-0 text-gray-600 md:grid-cols-2 md:gap-16">
+            <div className="grid grid-cols-1 gap-0 text-gray-600">
               <div>
-                <h4 className="mt-10 mb-3 font-semibold text-gray-900 sm:text-xl">Who am I?</h4>
+                <h4 className="mt-6 mb-3 font-semibold text-gray-900 sm:text-xl">Who am I?</h4>
                 <p  className = "text-lg sm:text-xl">
                   I am a software developer currently based in NYC.
                   I graduated from Tufts University with a Bachelor of Arts in Computer Science.
                   I also have interests in Spanish, real estate, investment, food, chemistry,
                   fitness, and design.
                 </p>
-                <h2 className="mt-10 mb-3 font-semibold text-gray-900 sm:text-xl">What have I done?</h2>
+                <h2 className="mt-6 mb-3 font-semibold text-gray-900 sm:text-xl">What have I done?</h2>
                 <p className = "text-lg sm:text-xl">
                   Work ranging from full-stack web development in Javascript,
                   HTML and CSS, to data structures and algorithms in C++, to artificial intelligence in Python,
@@ -50,13 +50,13 @@ const Index = () => (
                 </p>
               </div>
             <div className="">
-                <h4 className="mt-10 mb-3 font-semibold text-gray-900 sm:text-xl">What am I looking for?</h4>
+                <h4 className="mt-6 mb-3 font-semibold text-gray-900 sm:text-xl">What am I looking for?</h4>
                 <p  className = "text-lg sm:text-xl">
                   I am looking for  opportunities in software engineering that value a
                   well principled and iterative workflow, healthy challenge, good code, and strong design ideals.
                   I am looking for ways to grow and improve through the work that I do so as to bridge my own interests.
                 </p>
-                <h4 className="mt-10 mb-3 font-semibold text-gray-900 sm:text-xl">What is the meaning of this?</h4>
+                <h4 className="mt-6 mb-3 font-semibold text-gray-900 sm:text-xl">What is the meaning of this?</h4>
                 <p  className = "text-lg sm:text-xl">
                   This site is a place to share my interests, and how I look to
                   develop them. I would ask that you take care while looking through as there may yet be inconsistencies,
