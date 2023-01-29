@@ -1,4 +1,4 @@
-import HomePagePhoto from "./ui_prototype/HomePagePhoto1.js";
+import HomePagePhoto from "./ui_prototype/HomePagePhoto.js";
 import NewsFeed from "./ui_prototype/NewsFeed0.js";
 import IntroModule from ".././pages/Intro.jsx";
 
