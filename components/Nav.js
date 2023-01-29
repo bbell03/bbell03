@@ -24,8 +24,6 @@ const Nav = () => (
           <div class="flex space-x-4">
           <a href="#" class="bg-gray-700 text-white px-3 py-2 rounded-md text-md font-medium" aria-current="page">Home</a>
 
-          <a href="#" class="text-black hover:bg-indigo-500 hover:text-white px-3 py-2 rounded-md text-md font-medium">About</a>
-
           <a href="#" class="text-black hover:bg-indigo-500 hover:text-white px-3 py-2 rounded-md text-md font-medium">Resume</a>
 
           <a href="#" class="text-black hover:bg-indigo-500 hover:text-white px-3 py-2 rounded-md text-md font-medium">Projects</a>
