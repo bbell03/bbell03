@@ -1,4 +1,4 @@
-import HomeView from '.././components/HomeView1';
+import HomeView from '.././components/HomeView';
 import AppBar from '.././components/material/appbar';
 import Footer from '.././components/ui_prototype/Footer';
 import Nav from '.././components/Nav';
@@ -15,18 +15,25 @@ import Nav from '.././components/Nav';
   //pass children to navbar for different site contexts
 
 const Index = () => (
-  <div className = "grid font-sofia min-w-xs pt-2 bg-white px-8 mx-auto max-w-7xl lg:px-16">
+  <div className = "font-sofia min-w-xs pt-2 bg-white px-8 mx-auto max-w-7xl lg:px-16">
       <Nav/>
+    <section className="pt-2 bg-white tails-selected-element">
+        <div className="px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
+            <div className="sm:pt-6 md:pt-0">
+            <HomeView/>
+            </div>
+        </div>
+    </section>
     <section className="mb-12 pb-12" contenteditable="true">
         <div className="px-4 sm:px-7 mx-auto max-w-7xl">
-            <hr className="pb-5 mb-4"/>
-            <img class="sm:hidden object-scale-down h-24 w-24 rounded-full shadow-xl" src="/img/bb.jpg" alt="Man looking at item at a store"></img>
-            <h1 className=" flex mt-4 sm:mt-2 mb-4 text-5xl text-center">Hi, I'm Brandon.</h1>
+            <hr className="sm:hidden pb-5"/>
+            <img class="sm:hidden object-scale-down h-16 w-16 rounded-full shadow-xl" src="/img/bb.jpg" alt="Man looking at item at a store"></img>
+            <h1 className="flex sm:hidden mt-4 sm:mt-2 mb-4 text-5xl text-left">Hi, I'm Brandon.</h1>
             <hr className="mt-6 sm:hidden hidden sm:block"/>
             <h2 className="mb-4 text-2xl font-bold md:text-3xl"></h2>
             <div className="grid grid-cols-1 gap-0 text-gray-600">
               <div>
-                <h4 className="mt-6 mb-3 font-semibold text-gray-900 sm:text-xl">Who am I?</h4>
+                <h4 className="mt-6 pt-2 sm:mt-3 mb-3 font-semibold text-gray-900 sm:text-xl">Who am I?</h4>
                 <p  className = "text-lg sm:text-xl">
                   I am a software developer currently based in NYC.
                   I graduated from Tufts University with a Bachelor of Arts in Computer Science.
