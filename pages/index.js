@@ -14,15 +14,20 @@ import Nav from '.././components/Nav';
 //In Progress: Modular Nav -> look into how to get it to persist across pages
   //pass children to navbar for different site contexts
 
+//inline photo and text
+//            <div className="flex mt-4 sm:mt-2 mb-4 text-5xl text-left"><img class="hidden sm:flex object-fit h-48 w-48 rounded-full shadow-xl" src="/img/bb.jpg" alt="Man looking at item at a store"></img><h1 className="hidden sm:flex align-middle text-semibold text-6xl text-left align middle ml-6 mt-16">Hi, I'm Brandon.</h1></div>
+
 const Index = () => (
   <div className = "grid font-sofia min-w-xs pt-2 bg-white px-8 mx-auto max-w-7xl lg:px-16">
       <Nav/>
     <section className="mb-12 pb-12" contenteditable="true">
         <div className="px-4 sm:px-7 mx-auto max-w-7xl">
             <hr className="pb-5 mb-4"/>
-            <img class="sm:hidden object-scale-down h-24 w-24 rounded-full shadow-xl" src="/img/bb.jpg" alt="Man looking at item at a store"></img>
-            <h1 className=" flex mt-4 sm:mt-2 mb-4 text-5xl text-left">Hi, I'm Brandon.</h1>
-            <hr className="mt-6 sm:hidden hidden sm:block"/>
+            <div className="w-full grid grid-cols-1 place-items-start sm:place-items-center">
+              <img class="object-fit h-24 w-24 sm:h-48 sm:w-48 rounded-full shadow-xl" src="/img/bb.jpg" alt="Man looking at item at a store"></img>
+              <h1 className="pt-4 sm:pt-6 text-5xl sm:text-6xl">Hi, I'm Brandon.</h1>
+            </div>
+            <hr className="hidden mt-4 sm:block"/>
             <h2 className="mb-4 text-2xl font-bold md:text-3xl"></h2>
             <div className="grid grid-cols-1 gap-0 text-gray-600">
               <div>
