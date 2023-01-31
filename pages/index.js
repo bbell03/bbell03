@@ -26,7 +26,7 @@ const Index = () => (
             <div className="w-full grid grid-cols-1 place-items-start sm:place-items-center">
               <img class="object-fit h-24 w-24 sm:h-48 sm:w-48 rounded-full shadow-xl" src="/img/bb.jpg" alt="Man looking at item at a store"></img>
               <h1 className="pt-4 sm:pt-8 text-5xl sm:text-6xl sm:font-bold">Brandon Bell</h1>
-              <h2 className="hidden sm:block ml-1 mb-4 text-2xl sm:text-3xl">Personal Repository</h2>
+              <h2 className="hidden sm:block ml-1 mb-4 text-2xl sm:text-3xl">Personal Website & Repository</h2>
             </div>
             <hr className="hidden mt-4"/>
 
