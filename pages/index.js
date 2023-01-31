@@ -25,10 +25,11 @@ const Index = () => (
             <hr className="pb-5 mb-4"/>
             <div className="w-full grid grid-cols-1 place-items-start sm:place-items-center">
               <img class="object-fit h-24 w-24 sm:h-48 sm:w-48 rounded-full shadow-xl" src="/img/bb.jpg" alt="Man looking at item at a store"></img>
-              <h1 className="pt-4 sm:pt-6 text-5xl sm:text-6xl">Hi, I'm Brandon.</h1>
+              <h1 className="pt-4 sm:pt-8 text-5xl sm:text-6xl sm:font-bold">Brandon Bell</h1>
+              <h2 className="hidden sm:block ml-1 mb-4 text-2xl sm:text-3xl">Personal Repository</h2>
             </div>
-            <hr className="hidden mt-4 sm:block"/>
-            <h2 className="mb-4 text-2xl font-bold md:text-3xl"></h2>
+            <hr className="hidden mt-4"/>
+
             <div className="grid grid-cols-1 gap-0 text-gray-600">
               <div>
                 <h4 className="mt-6 mb-3 font-semibold text-gray-900 sm:text-xl">Who am I?</h4>
