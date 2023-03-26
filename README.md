@@ -10,9 +10,6 @@
 
 ### I am prototyping this site as a personal repository.
 
-
-[React & Tailwind](https://www.notion.so/React-Tailwind-796b3ad4df5d452c80005f251cf629c6)
-
 ****Nav****
 
 - simple logo? ********
@@ -30,10 +27,6 @@ make some dashboards?
 - dev extreme *
     - material ui dark mode
     - write another pivot grid diff
-
-[README](https://www.notion.so/README-7996971915984b108725a0c9b50d096f)
-
-[COMPONENTS](https://www.notion.so/COMPONENTS-e176e3a8701e41829f8c0826302e0722)
 
 - Consider simplifying the navigation by using a simple logo and cleaner components.
 - Add loading components with shadows for a polished look.
