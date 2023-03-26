@@ -29,8 +29,9 @@ make some dashboards?
     - write another pivot grid diff
 
 - Consider simplifying the navigation by using a simple logo and cleaner components.
-- Add loading components with shadows for a polished look.
+- Add loading modals with shadows for a polished look.
 - In the example projects section, consider adding graphs in one view and including a map with geo-points on data.
 - For dashboards, consider using Dev Extreme, and adding more polish to the interface.
 - Consider adding a dark mode using Tailwind Material UI.
 - Write another pivot grid diff.
+- dark mode
