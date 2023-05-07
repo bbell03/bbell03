@@ -11,14 +11,14 @@
   ],
   "lowPriorityFiles": [
     "static/development/_buildManifest.js",
-    "static/development/_ssgManifest.js",
-    "static/development/_middlewareManifest.js"
+    "static/development/_ssgManifest.js"
   ],
+  "rootMainFiles": [],
   "pages": {
-    "/": [
+    "/Intro": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/index.js"
+      "static/chunks/pages/Intro.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
@@ -29,6 +29,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
+    ],
+    "/index1": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index1.js"
     ]
   },
   "ampFirstPages": []
