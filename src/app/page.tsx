@@ -41,7 +41,7 @@ export default function Home() {
         <Image
             src="/name1.png"
             alt="Vercel Logo"
-            className="dark:invert relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+            className="dark:invert dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
             width={300}
             height={72}
             priority
