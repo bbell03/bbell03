@@ -70,9 +70,9 @@ export default function Home() {
               -&gt;
             </span>
           </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+          {/* <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
             Find my resume and learn a little more about me.
-          </p>
+          </p> */}
         </a>
 
         <a
@@ -87,9 +87,9 @@ export default function Home() {
               -&gt;
             </span>
           </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+          {/* <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
             Learn more about my interests and hobbies!
-          </p>
+          </p> */}
         </a>
 
         <a
@@ -104,9 +104,9 @@ export default function Home() {
               -&gt;
             </span>
           </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+          {/* <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
             Explore the Next.js 13 playground.
-          </p>
+          </p> */}
         </a>
 
         <a
@@ -121,9 +121,9 @@ export default function Home() {
               -&gt;
             </span>
           </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+          {/* <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
             Get in touch!
-          </p>
+          </p> */}
         </a>
       </div>
     </main>
