@@ -66,9 +66,9 @@ export default function Home() {
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
             About{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+            {/* <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
-            </span>
+            </span> */}
           </h2>
           {/* <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
             Find my resume and learn a little more about me.
@@ -83,9 +83,9 @@ export default function Home() {
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
             Blog{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+            {/* <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
-            </span>
+            </span> */}
           </h2>
           {/* <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
             Learn more about my interests and hobbies!
@@ -100,9 +100,9 @@ export default function Home() {
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
             Projects{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+            {/* <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
-            </span>
+            </span> */}
           </h2>
           {/* <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
             Explore the Next.js 13 playground.
@@ -117,9 +117,9 @@ export default function Home() {
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
             Contact{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+            {/* <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
-            </span>
+            </span> */}
           </h2>
           {/* <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
             Get in touch!
