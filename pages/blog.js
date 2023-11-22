@@ -1,6 +1,6 @@
 const Blog = () => {
     return (
-        <main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 h-screen antialiased">
+        <main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-black h-screen antialiased">
   <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
       <article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
           <header class="mb-4 lg:mb-6 not-format">
@@ -35,13 +35,13 @@ const Blog = () => {
           <br/>
           <section class="not-format">
               <div class="flex justify-between items-center mb-6">
-                  <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Discussion (20)</h2>
+                  <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Discussion (0)</h2>
               </div>
               <form class="mb-6">
-                  <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                  <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-200 dark:border-gray-200">
                       <label for="comment" class="sr-only">Your comment</label>
                       <textarea id="comment" rows="6"
-                          class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
+                          class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 dark:text-white dark:placeholder-200-400 dark:bg-gray-200"
                           placeholder="Write a comment..." required></textarea>
                   </div>
                   <button type="submit"
