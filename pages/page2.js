@@ -2,8 +2,8 @@ import './styles.css'
 import Image from 'next/image'
 const Resume = () => {
     return(
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
+    <main className="font-mono flex min-h-screen flex-col items-center justify-between p-24">
+        <div className="z-10 w-full max-w-5xl items-center justify-between text-sm lg:flex">
             <div className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-4 pt-4 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
             <Image
                     src="/logo.png"
@@ -15,30 +15,30 @@ const Resume = () => {
                 />
             </div>
             <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-                <a
+              <a
                 className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
                 href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
                 target="_blank"
                 rel="noopener noreferrer"
-                >
+              >
                 <p>Software Engineering & Design</p>
 
                 {/* By{' '} */}
                 {/* <Image
-                    src="/vercel.svg"
-                    alt="Vercel Logo"
-                    className="dark:invert"
-                    width={100}
-                    height={24}
-                    priority
+                  src="/vercel.svg"
+                  alt="Vercel Logo"
+                  className="dark:invert"
+                  width={100}
+                  height={24}
+                  priority
                 /> */}
-                </a>
+              </a>
             </div>
         </div>
 
         <div className="pt-12 pb-5 lg:pt-0 md:pb-0 lg:pt-0 relative flex place-items-center before:absolute before:h-[500px] before:w-[500px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
   <div>
-  <div>
+  <div className="font-family-roboto">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -49,29 +49,29 @@ const Resume = () => {
     <meta name="description" content="Laura Cooper - Resume" />
 
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="" />
     <link
       rel="preconnect"
-      href="https://fonts.gstatic.com"
+      href=""
       crossorigin="anonymous"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lora:wght@400;700&display=swap"
+      href=""
     />
 
     <link href="styles.css" rel="stylesheet" />
   </div>
 
   <div>
-    <main class="bg-black text-white-600 min-h-screen">
+    <main class="bg-white-100 dark:bg-black text-black-600 dark:text-white-600 min-h-screen">
       <div class="py-12 lg:pt-20 px-6 mx-auto max-w-7xl">
 
-        <h1><span class="font-bold text-white-700">Brandon</span> Bell</h1>
+        <h1><span class="font-bold text-black-700 dark:text-white-700">Brandon</span> Bell</h1>
 
-        <div class="my-12 lg:my-20 py-3 border-t-2 border-b-2">
+        <div class="border-black-300 dark:invert my-12 lg:my-20 py-3 border-t-2 border-b-2">
 
-          <h2>Professional Title</h2>
+          <h2 class = "dark:invert">Professional Title</h2>
         </div>
 
         <div class="grid-4">
@@ -133,7 +133,7 @@ const Resume = () => {
                 </a>
               </p>
             </div>
-            <div class="flex items-center gap-4 mt-3">
+            <div class="dark:invert flex items-center gap-4 mt-3">
      
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -176,8 +176,7 @@ const Resume = () => {
           </div>
         </div>
 
-        <hr class="my-12 lg:my-20 border-t-2" />
-
+        <hr class="border-black-300 dark:invert lg:my-20 border-t-2" />
         <div class="grid-4">
           <div class="order-last lg:order-first">
             <hr class="lg:hidden mb-12 border-t-2" />
@@ -203,7 +202,7 @@ const Resume = () => {
               <li>Gatsby.js</li>
             </ul>
 
-            <hr class="left-hr" />
+            <hr class="border-black-300 dark:invert left-hr" />
 
 
             <h3>Education</h3>
@@ -213,7 +212,7 @@ const Resume = () => {
             <p class="mb-1">Name Of University</p>
             <p>2004 - 2008</p>
 
-            <hr class="left-hr" />
+            <hr class="border-black-300 dark:invert left-hr" />
 
   
             <h3>References</h3>
