@@ -1,5 +1,6 @@
 import './styles.css'
 import Image from 'next/image'
+
 const Resume = () => {
     return(
     <main className="font-mono flex min-h-screen flex-col items-center justify-between p-24">
@@ -67,7 +68,14 @@ const Resume = () => {
     <main class="bg-white-100 dark:bg-black text-black-600 dark:text-white-600 min-h-screen">
       <div class="py-12 lg:pt-20 px-6 mx-auto max-w-7xl">
 
-        <h1><span class="font-bold text-black-700 dark:text-white-700">Brandon</span> Bell</h1>
+        <span class="font-bold text-black-700 dark:text-white-700">   <Image
+          src="/name1.png"
+          alt="Vercel Logo"
+          className="dark:invert dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+          width={240}
+          height={150}
+          priority
+        /></span>
 
         <div class="border-black-300 dark:invert my-12 lg:my-20 py-3 border-t-2 border-b-2">
 
