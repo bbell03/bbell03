@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import BlogEntry from '../../components/blog_entry'
 //abstract out
 export default function Home_Layout({children}) {
   return (
