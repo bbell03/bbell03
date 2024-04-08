@@ -24,7 +24,7 @@ class App extends React.Component {
       sectionsColor: [...originalColors],
       fullpages: [
         {
-          text: <Layout children=" "/>
+          text: <Layout children={" "}/>
         },
         {
           text: "Section 2"
