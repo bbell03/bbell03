@@ -2,7 +2,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import ReactFullpage from "@fullpage/react-fullpage";
-
+import Layout from "../.././components/layout";
 
 const SEL = "custom-section";
 const SECTION_SEL = `.${SEL}`;
@@ -15,14 +15,6 @@ const pluginWrapper = () => {
 };
 
 const originalColors = [
-  "#ff5f45",
-  "#0798ec",
-  "#fc6c7c",
-  "#435b71",
-  "orange",
-  "blue",
-  "purple",
-  "yellow"
 ];
 
 class App extends React.Component {
@@ -32,7 +24,7 @@ class App extends React.Component {
       sectionsColor: [...originalColors],
       fullpages: [
         {
-          text: "Section 1"
+          text: <Layout/>
         },
         {
           text: "Section 2"
@@ -90,7 +82,7 @@ class App extends React.Component {
                     <h3>{text}</h3>
                   </div>
                   <div className="slide">
-                    <h3>{text}</h3>
+                    <h3>pages</h3>
                   </div>
                 </div>
               ))}

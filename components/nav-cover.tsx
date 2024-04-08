@@ -1,11 +1,10 @@
 import Image from 'next/image'
-import BlogEntry from '../.././components/blog_entry'
 //abstract out
-export default function Home() {
+export default function NavCover() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <div className="inline fixed left-0 top-0 flex w-full justify-center  pb-4 pt-4  dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl  lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
+        <div className="inline fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-4 pt-4 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
         <Image
               src="/logo.png"
               alt="logo-adobe-express"
@@ -22,7 +21,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <p>Software Engineering & Design</p>
+            <h1>Software Engineering & Design</h1>
 
             {/* By{' '} */}
             {/* <Image
@@ -38,8 +37,16 @@ export default function Home() {
       </div>
 
       <div className="pt-12 pb-5 lg:pt-0 md:pb-0 lg:pt-0 relative flex place-items-center before:absolute before:h-[500px] before:w-[500px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
-
-      <BlogEntry/>
+      <h1>how to inject page content</h1>
+      {/*   Insert Page Content Here  
+            <Image
+            src="/name1.png"
+            alt="Vercel Logo"
+            className="dark:invert dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+            width={350}
+            height={72}
+            priority
+        />*/}
 
         {/* <Image
           className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
