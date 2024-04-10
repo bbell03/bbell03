@@ -1,7 +1,7 @@
 import NameLogo from './nameLogoModal';
 
-export default function top_nav() {
-    return (<nav class="bg-white border-gray-200 dark:bg-black">
+export default function nav() {
+    return (<nav class="absolute bg-white border-gray-200 dark:bg-black">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <NameLogo/>
       <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">

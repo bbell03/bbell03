@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 export default function Nav() {
-    return <nav class="flex items-center justify-between flex-wrap bg-black-500 p-6">
+    return <nav class="absolute flex items-center justify-between flex-wrap bg-black-500 p-6">
   <div class="flex items-center flex-shrink-0 text-white mr-6">
   <Image
     src="/logo.png"

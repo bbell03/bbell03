@@ -4,7 +4,7 @@ import Nav from './nav1';
 
 const Layout = ({ children, title }) => {
   return (
-    <div class = "h-screen font-mono">
+    <div class = "font-mono">
       <Nav/>
     </div>
   )
