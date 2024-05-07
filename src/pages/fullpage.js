@@ -4,6 +4,8 @@ import ReactDOM from "react-dom";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Layout from '../.././components/layout';
 
+import Blog from '../.././components/blogcopy.js';
+
 const SEL = "custom-section";
 const SECTION_SEL = `.${SEL}`;
 
@@ -26,7 +28,7 @@ class App extends React.Component {
       sectionsColor: [...originalColors],
       fullpages: [
         {
-          text: "Section 1"
+          text: <Blog/>
         },
         {
           text: "Section 2"
