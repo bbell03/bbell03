@@ -4,7 +4,7 @@ import { ArrowUp } from "lucide-react";
 import { motion } from "framer-motion"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 
-import { Moon, Sun, Mail, Linkedin, Globe, Phone, ChevronDown } from "lucide-react"
+import {Mail, Linkedin, Globe, Phone } from "lucide-react"
 const Index = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -95,7 +95,7 @@ const Index = () => {
 
         {/* Experience Section */}
         <section id="experience" className="text-foreground/70 section-padding">
-          <h2 className="numbered-heading mb-12">Where I've Worked</h2>
+          <h2 className="numbered-heading mb-12">Where I Have Worked</h2>
           <div className="max-w-3xl">
           <h4 className="title-dot">Market Research Intern</h4>
           <hr/>
@@ -135,7 +135,7 @@ Collaborated with startup LiquidMortgage to deliver a custom application.
 
         {/* Projects Section */}
         <section id="projects" className="section-padding">
-          <h2 className="numbered-heading mb-12">Some Things I've Built</h2>
+          <h2 className="numbered-heading mb-12">Some Things I Have Built</h2>
           <div className="max-w-3xl">
             <p className="text-foreground/70">
               LALALALALALALALALALALAL
