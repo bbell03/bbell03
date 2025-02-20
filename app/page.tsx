@@ -96,7 +96,7 @@ const Index = () => {
         {/* Experience Section */}
         <br></br>
         <section id="experience" className="text-foreground/70 section-padding">
-          <h2 className="numbered-heading mb-12">Where I Have Worked</h2>
+          <h2 className="numbered-heading mb-6">Where I Have Worked</h2>
           <div className="max-w-3xl">
           <h4 className="title-dot">Market Research Intern</h4>
           <hr/>
