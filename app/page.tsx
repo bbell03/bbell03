@@ -94,6 +94,7 @@ const Index = () => {
         </section>
 
         {/* Experience Section */}
+        <br></br>
         <section id="experience" className="text-foreground/70 section-padding">
           <h2 className="numbered-heading mb-12">Where I Have Worked</h2>
           <div className="max-w-3xl">
