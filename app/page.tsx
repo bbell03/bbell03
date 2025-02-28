@@ -1,15 +1,23 @@
 "use client"
 import { useState, useEffect } from "react";
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, Moon, Sun } from "lucide-react";
 import { motion } from "framer-motion"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import { Button } from "@/components/ui/button"
+
 
 import {Mail, Linkedin, Globe, Phone } from "lucide-react"
 const Index = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false)
   const [activeSection, setActiveSection] = useState("home");
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode)
+    document.documentElement.classList.toggle("dark")
+  }
+
   useEffect(() => {
     const updateMousePosition = (ev: MouseEvent) => {
       setMousePosition({ x: ev.clientX, y: ev.clientY })
@@ -49,6 +57,12 @@ const Index = () => {
   return (
     <div className="min-h-screen relative">
       {/* Side Navigation */}
+      <div className="fixed top-4 right-4 flex gap-2">
+          <Button variant="ghost" size="icon" onClick={toggleDarkMode} className="rounded-full">
+            {isDarkMode ? <Sun className="h-6 w-6" /> : <Moon className="h-6 w-6" />}
+            {/* <span className="sr-only">{language === "en" ? "Toggle dark mode" : "Alternar modo oscuro"}</span> */}
+          </Button>
+        </div>
       <nav className="fixed left-10 top-1/2 -translate-y-1/2 z-50 hidden lg:block">
         <div className="space-y-5">
           {sections.map((section) => (
