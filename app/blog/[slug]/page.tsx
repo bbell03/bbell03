@@ -2,6 +2,7 @@ import { notFound } from "next/navigation"
 import { allBlogs } from "contentlayer/generated"
 import { format } from "date-fns"
 import { Mdx } from "@/components/mdx-components"
+import { serialize } from "next-mdx-remote/serialize"
 
 interface PostPageProps {
   params: {
@@ -28,6 +29,8 @@ export default async function PostPage({ params }: PostPageProps) {
     notFound()
   }
 
+  const mdxSource = await serialize(post.body.raw)
+
   return (
     <article className="prose prose-lg mx-auto">
       <div className="mb-8">
@@ -50,7 +53,7 @@ export default async function PostPage({ params }: PostPageProps) {
           )}
         </div>
       </div>
-      <Mdx code={post.body} />
+      <Mdx code={mdxSource} />
     </article>
   )
 } 
