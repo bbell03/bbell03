@@ -1,17 +1,17 @@
 'use client'
 
-import { ReactNode } from 'react'
+import { ReactNode, ElementType, ComponentPropsWithoutRef } from 'react'
 
 // Generic props type for any element
 // T is the element type (e.g., 'div', 'svg', etc.)
-type InteractiveElementProps<T extends keyof JSX.IntrinsicElements = 'div'> = {
+type InteractiveElementProps<T extends ElementType = 'div'> = {
   as?: T
   children: ReactNode
   className?: string
   onClick?: () => void
-} & JSX.IntrinsicElements[T]
+} & ComponentPropsWithoutRef<T>
 
-export default function InteractiveElement<T extends keyof JSX.IntrinsicElements = 'div'>({
+export default function InteractiveElement<T extends ElementType = 'div'>({
   as,
   children,
   className = '',
