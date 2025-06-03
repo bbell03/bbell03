@@ -1,0 +1,42 @@
+{
+  "title": "Rewards",
+  "date": "1970-01-01T00:00:00.000Z",
+  "tags": [],
+  "draft": false,
+  "summary": "",
+  "authors": [],
+  "layout": "PostLayout",
+  "body": {
+    "raw": "\nThinking through what kinds of rewards make sense at a given time for completing a given task such as food drink vice activity rest or refresh\n\nRe Maslow's Hierarchy of Needs",
+    "code": "var Component=(()=>{var f=Object.create;var o=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var p=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),_=(t,e)=>{for(var r in e)o(t,r,{get:e[r],enumerable:!0})},i=(t,e,r,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of l(e))!g.call(t,s)&&s!==r&&o(t,s,{get:()=>e[s],enumerable:!(a=h(e,s))||a.enumerable});return t};var y=(t,e,r)=>(r=t!=null?f(x(t)):{},i(e||!t||!t.__esModule?o(r,\"default\",{value:t,enumerable:!0}):r,t)),j=t=>i(o({},\"__esModule\",{value:!0}),t);var d=p((M,c)=>{c.exports=_jsx_runtime});var v={};_(v,{default:()=>u,frontmatter:()=>k});var n=y(d()),k={title:\"Rewards\",date:\"1970-01-01\",tags:[],draft:!1,summary:\"\",layout:\"PostLayout\",authors:[],cover:\"\"};function m(t){let e={p:\"p\",...t.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"Thinking through what kinds of rewards make sense at a given time for completing a given task such as food drink vice activity rest or refresh\"}),(0,n.jsx)(e.p,{children:\"Re Maslow's Hierarchy of Needs\"})]})}function u(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(m,{...t})}):m(t)}return j(v);})();\n;return Component;"
+  },
+  "_id": "blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127.mdx",
+    "sourceFileName": "notion-20536850-c0a3-80a5-8494-e657db8af127.mdx",
+    "sourceFileDir": "blog/notion",
+    "contentType": "mdx",
+    "flattenedPath": "blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "1 min read",
+    "minutes": 0.155,
+    "time": 9300,
+    "words": 31
+  },
+  "slug": "notion/notion-20536850-c0a3-80a5-8494-e657db8af127",
+  "path": "blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127",
+  "filePath": "blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127.mdx",
+  "toc": [],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Rewards",
+    "datePublished": "1970-01-01T00:00:00.000Z",
+    "dateModified": "1970-01-01T00:00:00.000Z",
+    "description": "",
+    "image": "/static/images/twitter-card.png",
+    "url": "https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127"
+  }
+}

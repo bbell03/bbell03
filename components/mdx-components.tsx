@@ -1,6 +1,7 @@
 'use client'
 
 import { MDXRemote } from 'next-mdx-remote'
+import type { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import Image from './Image'
 import Link from './Link'
 import TableWrapper from './TableWrapper'
@@ -11,6 +12,6 @@ const components = {
   table: TableWrapper,
 }
 
-export function Mdx({ code }: { code: string }) {
+export function Mdx({ code }: { code: MDXRemoteSerializeResult }) {
   return <MDXRemote {...code} components={components} />
 } 

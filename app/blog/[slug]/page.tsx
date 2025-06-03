@@ -50,7 +50,7 @@ export default async function PostPage({ params }: PostPageProps) {
           )}
         </div>
       </div>
-      <Mdx code={post.body.code} />
+      <Mdx code={post.body} />
     </article>
   )
 } 

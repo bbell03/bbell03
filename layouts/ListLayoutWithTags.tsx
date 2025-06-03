@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 'use client'
 
+import React from 'react'
 import { usePathname } from 'next/navigation'
 import { slug } from 'github-slugger'
 import { formatDate } from 'pliny/utils/formatDate'
@@ -69,7 +70,12 @@ export default function ListLayoutWithTags({
   pagination,
 }: ListLayoutProps) {
   const pathname = usePathname()
-  const tagCounts = tagData as Record<string, number>
+  let tagCounts: Record<string, number> = {}
+  if (typeof tagData === 'object' && tagData !== null && !Array.isArray(tagData)) {
+    tagCounts = tagData as Record<string, number>
+  } else {
+    console.warn('tagData is not a valid Record<string, number>', tagData)
+  }
   const tagKeys = Object.keys(tagCounts)
   const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
 

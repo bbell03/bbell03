@@ -1,0 +1,25 @@
+{
+  "name": "Brandon Bell",
+  "avatar": "/static/images/avatar.png",
+  "occupation": "Designer, Creative Coder & Software Engineer",
+  "email": "address@yoursite.com",
+  "twitter": "https://twitter.com/Twitter",
+  "linkedin": "https://www.linkedin.com",
+  "github": "https://github.com",
+  "body": {
+    "raw": "\nBrandon Bell is a creative coder, designer and software engineer based in NYC. With a Bachelor of Arts degree in Computer Science from Tufts University his focus is on full stack web development, and next generation user interfaces. He hopes to make an influential mark on the internet through thoughtful meaningful and intentional standards for design and engineering toward web3 and iot enabled systems. Catering to customer needs and allowing for flexibility in workflow and dynamic choice of technologies.\n\nHe has a background in Real Estate having had various internships in property and construction management as well as market research. He hopes to somehow contribute to the culture at home by fostering and promoting spaces through which to share community, ideas, and the self with others.\n\nCurrently looking for freelance, contract or startup work in the short term, and eventually a more sustainable long term software engineering job, he is interested in getting hired for the 2025 fiscal year and is excited to work in the domains of React, Javascript, C & C++, and learn more about Swift, Python, Rust, and systems development.",
+    "code": "var Component=(()=>{var m=Object.create;var o=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var w=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),y=(e,t)=>{for(var r in t)o(e,r,{get:t[r],enumerable:!0})},s=(e,t,r,i)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let a of g(t))!p.call(e,a)&&a!==r&&o(e,a,{get:()=>t[a],enumerable:!(i=u(t,a))||i.enumerable});return e};var b=(e,t,r)=>(r=e!=null?m(f(e)):{},s(t||!e||!e.__esModule?o(r,\"default\",{value:e,enumerable:!0}):r,e)),v=e=>s(o({},\"__esModule\",{value:!0}),e);var d=w((_,c)=>{c.exports=_jsx_runtime});var k={};y(k,{default:()=>l,frontmatter:()=>x});var n=b(d()),x={name:\"Brandon Bell\",avatar:\"/static/images/avatar.png\",occupation:\"Designer, Creative Coder & Software Engineer\",degree:\"Tufts University\",email:\"address@yoursite.com\",twitter:\"https://twitter.com/Twitter\",linkedin:\"https://www.linkedin.com\",github:\"https://github.com\"};function h(e){let t={p:\"p\",...e.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.p,{children:\"Brandon Bell is a creative coder, designer and software engineer based in NYC. With a Bachelor of Arts degree in Computer Science from Tufts University his focus is on full stack web development, and next generation user interfaces. He hopes to make an influential mark on the internet through thoughtful meaningful and intentional standards for design and engineering toward web3 and iot enabled systems. Catering to customer needs and allowing for flexibility in workflow and dynamic choice of technologies.\"}),(0,n.jsx)(t.p,{children:\"He has a background in Real Estate having had various internships in property and construction management as well as market research. He hopes to somehow contribute to the culture at home by fostering and promoting spaces through which to share community, ideas, and the self with others.\"}),(0,n.jsx)(t.p,{children:\"Currently looking for freelance, contract or startup work in the short term, and eventually a more sustainable long term software engineering job, he is interested in getting hired for the 2025 fiscal year and is excited to work in the domains of React, Javascript, C & C++, and learn more about Swift, Python, Rust, and systems development.\"})]})}function l(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(h,{...e})}):h(e)}return v(k);})();\n;return Component;"
+  },
+  "_id": "authors/default.mdx",
+  "_raw": {
+    "sourceFilePath": "authors/default.mdx",
+    "sourceFileName": "default.mdx",
+    "sourceFileDir": "authors",
+    "contentType": "mdx",
+    "flattenedPath": "authors/default"
+  },
+  "type": "Authors",
+  "slug": "default",
+  "path": "authors/default",
+  "filePath": "authors/default.mdx"
+}
