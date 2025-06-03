@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react'
 
-interface InteractiveElementProps {
+interface InteractiveElementProps extends React.HTMLAttributes<HTMLElement> {
   children: ReactNode
   className?: string
   as?: keyof JSX.IntrinsicElements
