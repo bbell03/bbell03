@@ -1,0 +1,404 @@
+[
+  {
+    "object": {
+      "object": "page",
+      "id": "1e936850-c0a3-8052-8cd5-dd05e59e7ea8",
+      "created_time": "2025-05-04T01:30:00.000Z",
+      "last_edited_time": "2025-05-04T01:31:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "5c11d5e6-b5f4-44f2-b37f-fd7138415f4e"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "5c11d5e6-b5f4-44f2-b37f-fd7138415f4e"
+      },
+      "cover": {
+        "type": "external",
+        "external": {
+          "url": "https://www.notion.so/images/page-cover/rijksmuseum_claesz_1628.jpg"
+        }
+      },
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "1e636850-c0a3-80c6-835f-e20dee96f99f"
+      },
+      "archived": false,
+      "in_trash": false,
+      "properties": {
+        "Excerpt": {
+          "id": "C%3Ch%3E",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "asdfad",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "asdfad",
+              "href": null
+            }
+          ]
+        },
+        "Slug": {
+          "id": "G%3Bvj",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "asdfasdf",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "asdfasdf",
+              "href": null
+            }
+          ]
+        },
+        "Date": {
+          "id": "XA~f",
+          "type": "date",
+          "date": {
+            "start": "2025-05-01",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Status": {
+          "id": "%5EL%3D%3F",
+          "type": "status",
+          "status": {
+            "id": "c7b4c713-f652-45d7-8d31-77dc56029540",
+            "name": "In progress",
+            "color": "blue"
+          }
+        },
+        "Title": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "blog-plan",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "blog-plan",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://www.notion.so/blog-plan-1e936850c0a380528cd5dd05e59e7ea8",
+      "public_url": null
+    },
+    "id": "1e936850-c0a3-8052-8cd5-dd05e59e7ea8",
+    "title": "blog-plan",
+    "slug": "asdfasdf",
+    "date": "2025-05-01",
+    "tags": [],
+    "summary": "",
+    "draft": false,
+    "layout": "PostLayout",
+    "authors": [],
+    "images": [],
+    "bibliography": "",
+    "canonicalUrl": "",
+    "content": "",
+    "lastModified": "2025-05-10T00:35:06.749Z"
+  },
+  {
+    "object": {
+      "object": "page",
+      "id": "1e636850-c0a3-8075-bf49-cf4fec06625b",
+      "created_time": "2025-05-01T14:41:00.000Z",
+      "last_edited_time": "2025-05-10T00:19:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "5c11d5e6-b5f4-44f2-b37f-fd7138415f4e"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "5c11d5e6-b5f4-44f2-b37f-fd7138415f4e"
+      },
+      "cover": {
+        "type": "external",
+        "external": {
+          "url": "https://www.notion.so/images/page-cover/webb2.jpg"
+        }
+      },
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "1e636850-c0a3-80c6-835f-e20dee96f99f"
+      },
+      "archived": false,
+      "in_trash": false,
+      "properties": {
+        "Excerpt": {
+          "id": "C%3Ch%3E",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "lalalalalalala",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "lalalalalalala",
+              "href": null
+            }
+          ]
+        },
+        "Slug": {
+          "id": "G%3Bvj",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "page1",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "page1",
+              "href": null
+            }
+          ]
+        },
+        "Date": {
+          "id": "XA~f",
+          "type": "date",
+          "date": {
+            "start": "2025-04-30",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Status": {
+          "id": "%5EL%3D%3F",
+          "type": "status",
+          "status": {
+            "id": "e351e1b6-804a-485b-b1b0-1e3045126077",
+            "name": "Done",
+            "color": "green"
+          }
+        },
+        "Title": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "page1",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "page1",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://www.notion.so/page1-1e636850c0a38075bf49cf4fec06625b",
+      "public_url": null
+    },
+    "id": "1e636850-c0a3-8075-bf49-cf4fec06625b",
+    "title": "page1",
+    "slug": "page1",
+    "date": "2025-04-30",
+    "tags": [],
+    "summary": "",
+    "draft": false,
+    "layout": "PostLayout",
+    "authors": [],
+    "images": [],
+    "bibliography": "",
+    "canonicalUrl": "",
+    "content": "als;hdfasjdhfakls jdfa bgoasdgaldgalskjdg aklsjdbg lkasjbg lkjsdbaglkajsbglkdjab glkjsdbakjgklasjgkja",
+    "lastModified": "2025-05-10T00:35:06.942Z"
+  },
+  {
+    "object": {
+      "object": "page",
+      "id": "14636850-c0a3-80e3-bdd1-e8ee6d186923",
+      "created_time": "2024-11-22T16:24:00.000Z",
+      "last_edited_time": "2025-05-08T11:27:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "5c11d5e6-b5f4-44f2-b37f-fd7138415f4e"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "5c11d5e6-b5f4-44f2-b37f-fd7138415f4e"
+      },
+      "cover": {
+        "type": "external",
+        "external": {
+          "url": "https://www.notion.so/images/page-cover/woodcuts_8.jpg"
+        }
+      },
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "1e636850-c0a3-80c6-835f-e20dee96f99f"
+      },
+      "archived": false,
+      "in_trash": false,
+      "properties": {
+        "Excerpt": {
+          "id": "C%3Ch%3E",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "asdfasdfa",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "asdfasdfa",
+              "href": null
+            }
+          ]
+        },
+        "Slug": {
+          "id": "G%3Bvj",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "work",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "work",
+              "href": null
+            }
+          ]
+        },
+        "Date": {
+          "id": "XA~f",
+          "type": "date",
+          "date": {
+            "start": "2025-05-01",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Status": {
+          "id": "%5EL%3D%3F",
+          "type": "status",
+          "status": {
+            "id": "c7b4c713-f652-45d7-8d31-77dc56029540",
+            "name": "In progress",
+            "color": "blue"
+          }
+        },
+        "Title": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Work",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Work",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://www.notion.so/Work-14636850c0a380e3bdd1e8ee6d186923",
+      "public_url": null
+    },
+    "id": "14636850-c0a3-80e3-bdd1-e8ee6d186923",
+    "title": "Work",
+    "slug": "work",
+    "date": "2025-05-01",
+    "tags": [],
+    "summary": "",
+    "draft": false,
+    "layout": "PostLayout",
+    "authors": [],
+    "images": [],
+    "bibliography": "",
+    "canonicalUrl": "",
+    "content": "Toward Employment\n\n- Goals\n\n- Tasks\n\n- Objectives\n\nThings I want to get done…\n\n- … machine learning and ai\n\n- … web dev\n\n- … graphics modeling design & animation\n\n- … technical prep\n\nTypes of work…\n\n- Input\n\n- Output\n\nThings I need to get done to get a job…\n\n- website\n\n- 2-3 substantial projects… so that means wrapping up or completing 2-3 project design and implementations\n\n- \n\nThings that interest me…\n\nThings that …",
+    "lastModified": "2025-05-10T00:35:08.630Z"
+  }
+]

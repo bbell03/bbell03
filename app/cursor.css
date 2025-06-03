@@ -1,0 +1,47 @@
+/* Base cursor styles */
+* {
+  cursor: none;
+}
+
+/* Custom cursor styles */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  background: color-mix(in srgb, hsl(var(--cursor-accent, 214 85% 52%)) 20%, transparent 80%);
+  border: 2px solid hsl(var(--cursor-accent, 214 85% 52%));
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+/* Cursor states */
+.custom-cursor.hover {
+  background: hsl(var(--cursor-accent, 214 85% 52%));
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.custom-cursor.click {
+  background: hsl(var(--cursor-accent, 214 85% 52%));
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* Interactive element styles */
+.interactive {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.interactive:hover {
+  color: hsl(var(--cursor-accent, 214 85% 52%));
+}
+
+/* Focus states */
+.interactive:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, hsl(var(--cursor-accent, 214 85% 52%)) 20%, transparent 80%);
+  border-color: hsl(var(--cursor-accent, 214 85% 52%));
+} 
