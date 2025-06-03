@@ -4,7 +4,14 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __commonJS = (cb, mod) => function __require() {
+var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
+  get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
+}) : x)(function(x) {
+  if (typeof require !== "undefined")
+    return require.apply(this, arguments);
+  throw Error('Dynamic require of "' + x + '" is not supported');
+});
+var __commonJS = (cb, mod) => function __require2() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
 var __copyProps = (to, from, except, desc) => {
@@ -157,18 +164,20 @@ import rehypeCitation from "rehype-citation";
 import rehypePrismPlus from "rehype-prism-plus";
 import rehypePresetMinify from "rehype-preset-minify";
 import { allCoreContent, sortPosts } from "pliny/utils/contentlayer.js";
-import { NotionToMarkdown } from "notion-to-md";
-import { Client } from "@notionhq/client";
-var outputDir = path.join(process.cwd(), "./data/blog/notion");
-var filePath = path.join(outputDir, "example.mdx");
-if (!process.env.NOTION_API_KEY) {
-  throw new Error("NOTION_API_KEY is not defined in the environment variables.");
+var NOTION_ENABLED = process.env.NOTION_API_KEY && process.env.NOTION_DATABASE_ID;
+var notion;
+var n2m;
+if (NOTION_ENABLED) {
+  const { Client } = __require("@notionhq/client");
+  const { NotionToMarkdown } = __require("notion-to-md");
+  notion = new Client({ auth: process.env.NOTION_API_KEY });
+  n2m = new NotionToMarkdown({ notionClient: notion });
 }
-var notion = new Client({ auth: process.env.NOTION_API_KEY });
-var n2m = new NotionToMarkdown({ notionClient: notion });
-async function translateNotionBlogsToMDX(databaseId, outputDir2) {
-  if (!fs.existsSync(outputDir2)) {
-    fs.mkdirSync(outputDir2, { recursive: true });
+async function translateNotionBlogsToMDX(databaseId, outputDir) {
+  if (!NOTION_ENABLED)
+    return;
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
   }
   const notionBlogs = await fetchNotionBlogs(databaseId);
   for (const blog of notionBlogs) {
@@ -180,7 +189,7 @@ async function translateNotionBlogsToMDX(databaseId, outputDir2) {
       const pageContent = await notion.blocks.children.list({
         block_id: blog.id
       });
-      const coverImage = blog.object.cover?.type === "external" ? blog.object.cover.external.url : blog.object.cover?.file?.url || "";
+      const coverImage = blog.object?.cover?.type === "external" ? blog.object.cover.external.url : blog.object?.cover?.file?.url || "";
       const content = pageContent.results.map((block) => {
         switch (block.type) {
           case "paragraph":
@@ -230,14 +239,16 @@ cover: "${coverImage}"
 
 ${content}
       `.trim();
-      const filePath2 = path.join(outputDir2, `${blog.slug}.mdx`);
-      fs.writeFileSync(filePath2, mdxContent, "utf8");
+      const filePath = path.join(outputDir, `${blog.slug}.mdx`);
+      fs.writeFileSync(filePath, mdxContent, "utf8");
     } catch (error) {
       console.error(`Failed to fetch or save content for page: ${blog.id}`, error);
     }
   }
 }
 async function fetchNotionBlogs(databaseId) {
+  if (!NOTION_ENABLED)
+    return [];
   const response = await notion.databases.query({ database_id: databaseId });
   return response.results.filter((page) => "properties" in page).map((page) => {
     const properties = page.properties;
@@ -405,10 +416,9 @@ var contentlayer_config_default = makeSource({
   onSuccess: async (importData) => {
     const { allBlogs: importedBlogs } = await importData();
     const allBlogs = importedBlogs.map((blog, index) => ({
-      object: {},
-      // Provide a default or meaningful value for 'object'
+      object: void 0,
+      // No Notion object for non-Notion blogs
       id: blog.slug || `default-id-${index}`,
-      // Generate a unique ID using the slug or a fallback
       title: blog.title,
       slug: blog.slug,
       date: blog.date,
@@ -423,12 +433,13 @@ var contentlayer_config_default = makeSource({
     }));
     allBlogs.forEach((blog) => {
     });
-    if (!process.env.NOTION_DATABASE_ID) {
-      throw new Error("NOTION_DATABASE_ID is not defined in the environment variables.");
+    if (NOTION_ENABLED) {
+      const notionOutputDir = path.join(process.cwd(), "data/blog/notion");
+      await translateNotionBlogsToMDX(process.env.NOTION_DATABASE_ID || "", notionOutputDir);
+      console.log("Notion blogs have been translated to MDX and saved.");
+    } else {
+      console.log("Notion integration is disabled. Skipping Notion blog import.");
     }
-    const notionOutputDir = path.join(process.cwd(), "data/blog/notion");
-    await translateNotionBlogsToMDX(process.env.NOTION_DATABASE_ID, notionOutputDir);
-    console.log("Notion blogs have been translated to MDX and saved.");
   }
 });
 export {
@@ -438,4 +449,4 @@ export {
   fetchNotionBlogs,
   translateNotionBlogsToMDX
 };
-//# sourceMappingURL=compiled-contentlayer-config-MNS6MN5C.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-NZNXYJZP.mjs.map

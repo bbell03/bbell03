@@ -24,6 +24,7 @@ import rehypePrismPlus from 'rehype-prism-plus';
 import rehypePresetMinify from 'rehype-preset-minify';
 import siteMetadata from './data/siteMetadata';
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js';
+import type { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-endpoints"
 // --- Notion integration DISABLED for now ---
 const NOTION_ENABLED = process.env.NOTION_API_KEY && process.env.NOTION_DATABASE_ID;
 
@@ -36,7 +37,7 @@ if (NOTION_ENABLED) {
 }
 
 type Blog = {
-  object: PageObjectResponse;
+  object?: PageObjectResponse;
   id?: string;
   title: string;
   slug: string;
@@ -79,9 +80,9 @@ export async function translateNotionBlogsToMDX(databaseId: string, outputDir: s
       });
 
       // Get cover image if it exists
-      const coverImage = blog.object.cover?.type === 'external' 
+      const coverImage = blog.object?.cover?.type === 'external' 
         ? blog.object.cover.external.url 
-        : blog.object.cover?.file?.url || '';
+        : blog.object?.cover?.file?.url || '';
 
       const content = pageContent.results
       .map((block: any) => {
@@ -380,7 +381,7 @@ export default makeSource({
   onSuccess: async (importData) => {
     const { allBlogs: importedBlogs } = await importData();
     const allBlogs: Blog[] = importedBlogs.map((blog, index) => ({
-      object: {}, // Provide a default or meaningful value for 'object'
+      object: undefined, // No Notion object for non-Notion blogs
       id: blog.slug || `default-id-${index}`,
       title: blog.title,
       slug: blog.slug,
@@ -403,7 +404,7 @@ export default makeSource({
     if (NOTION_ENABLED) {
       // Translate Notion blogs to MDX and save them
       const notionOutputDir = path.join(process.cwd(), 'data/blog/notion');
-      await translateNotionBlogsToMDX(process.env.NOTION_DATABASE_ID, notionOutputDir);
+      await translateNotionBlogsToMDX(process.env.NOTION_DATABASE_ID || '', notionOutputDir);
       console.log('Notion blogs have been translated to MDX and saved.');
     } else {
       console.log('Notion integration is disabled. Skipping Notion blog import.');
