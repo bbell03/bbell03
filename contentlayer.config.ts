@@ -24,17 +24,16 @@ import rehypePrismPlus from 'rehype-prism-plus';
 import rehypePresetMinify from 'rehype-preset-minify';
 import siteMetadata from './data/siteMetadata';
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js';
-import { NotionToMarkdown } from 'notion-to-md'; // Install this library: npm install notion-to-md
-import { Client, PageObjectResponse, RichTextItemResponse } from '@notionhq/client';
+// --- Notion integration DISABLED for now ---
+const NOTION_ENABLED = process.env.NOTION_API_KEY && process.env.NOTION_DATABASE_ID;
 
-const outputDir = path.join(process.cwd(), './data/blog/notion');
-const filePath = path.join(outputDir, 'example.mdx');
-
-if (!process.env.NOTION_API_KEY) {
-  throw new Error('NOTION_API_KEY is not defined in the environment variables.');
+let notion, n2m;
+if (NOTION_ENABLED) {
+  const { Client } = require('@notionhq/client');
+  const { NotionToMarkdown } = require('notion-to-md');
+  notion = new Client({ auth: process.env.NOTION_API_KEY });
+  n2m = new NotionToMarkdown({ notionClient: notion });
 }
-const notion = new Client({ auth: process.env.NOTION_API_KEY });
-const n2m = new NotionToMarkdown({ notionClient: notion });
 
 type Blog = {
   object: PageObjectResponse;
@@ -53,6 +52,7 @@ type Blog = {
 };
 
 export async function translateNotionBlogsToMDX(databaseId: string, outputDir: string) {
+  if (!NOTION_ENABLED) return; // Notion integration disabled
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
   }
@@ -150,6 +150,7 @@ ${content}
 }
 
 export async function fetchNotionBlogs(databaseId: string): Promise<Blog[]> {
+  if (!NOTION_ENABLED) return [];
   const response = await notion.databases.query({ database_id: databaseId });
 
   // console.log('Fetched Notion Blogs:', response.results);
@@ -380,7 +381,7 @@ export default makeSource({
     const { allBlogs: importedBlogs } = await importData();
     const allBlogs: Blog[] = importedBlogs.map((blog, index) => ({
       object: {}, // Provide a default or meaningful value for 'object'
-      id: blog.slug || `default-id-${index}`, // Generate a unique ID using the slug or a fallback
+      id: blog.slug || `default-id-${index}`,
       title: blog.title,
       slug: blog.slug,
       date: blog.date,
@@ -399,14 +400,13 @@ export default makeSource({
       // console.log(`Blog Title: ${blog.title}, ID: ${blog.id}`);
     });
 
-    if (!process.env.NOTION_DATABASE_ID) {
-      throw new Error('NOTION_DATABASE_ID is not defined in the environment variables.');
+    if (NOTION_ENABLED) {
+      // Translate Notion blogs to MDX and save them
+      const notionOutputDir = path.join(process.cwd(), 'data/blog/notion');
+      await translateNotionBlogsToMDX(process.env.NOTION_DATABASE_ID, notionOutputDir);
+      console.log('Notion blogs have been translated to MDX and saved.');
+    } else {
+      console.log('Notion integration is disabled. Skipping Notion blog import.');
     }
-
-    // Translate Notion blogs to MDX and save them
-    const notionOutputDir = path.join(process.cwd(), 'data/blog/notion');
-    await translateNotionBlogsToMDX(process.env.NOTION_DATABASE_ID, notionOutputDir);
-
-    console.log('Notion blogs have been translated to MDX and saved.');
   },
 });
