@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { allPosts } from "contentlayer/generated"
+import { allBlogs } from "contentlayer/generated"
 import { format } from "date-fns"
 import { Mdx } from "@/components/mdx-components"
 
@@ -10,13 +10,13 @@ interface PostPageProps {
 }
 
 async function getPostFromParams(params: PostPageProps["params"]) {
-  const post = allPosts.find((post) => post.slug === params.slug)
+  const post = allBlogs.find((post) => post.slug === params.slug)
   if (!post) return null
   return post
 }
 
 export async function generateStaticParams(): Promise<PostPageProps["params"][]> {
-  return allPosts.map((post) => ({
+  return allBlogs.map((post) => ({
     slug: post.slug,
   }))
 }
