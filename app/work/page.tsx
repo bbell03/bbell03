@@ -190,7 +190,7 @@ export default function Work() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light mb-4 gradient-text">work</h1>
             <p className="text-sm md:text-base mb-8 text-balance leading-relaxed">
               A selection of projects I've worked on as a product designer and developer. Each project represents a
-              unique challenge and solution. (Placeholders unless otherwise noted). 
+              unique challenge and solution. (Placeholders unless otherwise noted). Looking into staging some projects I have on hand at current -- 
             </p>
           </div>
 
