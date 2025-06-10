@@ -13,9 +13,92 @@ const CanvasComponent = dynamic(() => import('@react-three/fiber').then(mod => m
 const useFrameComponent = dynamic(() => import('@react-three/fiber').then(mod => mod.useFrame), { ssr: false })
 const OrbitControlsComponent = dynamic(() => import('@react-three/drei').then(mod => mod.OrbitControls), { ssr: false })
 
-function GLBModel({ url }: { url: string }) {
+function GLBModel({ url, speed = 1 }: { url: string, speed?: number }) {
   const { scene } = useGLTF(url)
-  return <primitive object={scene} scale={1.0} position={[0, -1, 0]} />
+  const modelRef = useRef<THREE.Group>(null)
+  const [hovered, setHovered] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const [scale, setScale] = useState(1.0)
+  const { theme } = useTheme()
+
+  useEffect(() => {
+    setMounted(true)
+    // Calculate scale based on viewport width with smooth transitions
+    const calculateScale = () => {
+      const width = window.innerWidth
+      const minScale = 0.8
+      const maxScale = 1.2
+      const minWidth = 320
+      const maxWidth = 1024
+      
+      if (width <= minWidth) return minScale
+      if (width >= maxWidth) return maxScale
+      
+      const progress = (width - minWidth) / (maxWidth - minWidth)
+      return minScale + (maxScale - minScale) * progress
+    }
+    setScale(calculateScale())
+    
+    const handleResize = () => {
+      setScale(calculateScale())
+    }
+    
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      setMounted(false)
+    }
+  }, [])
+
+  useFrame((state, delta) => {
+    if (modelRef.current && mounted) {
+      modelRef.current.rotation.y += delta * speed
+    }
+  })
+
+  // Apply highlight effect to all materials in the model
+  useEffect(() => {
+    if (scene) {
+      scene.traverse((child) => {
+        if (child instanceof THREE.Mesh) {
+          if (child.material) {
+            const originalMaterial = child.material;
+            if (Array.isArray(originalMaterial)) {
+              child.material = originalMaterial.map(mat => {
+                const newMat = mat.clone();
+                // Neutral emissive so color doesn't change
+                newMat.emissive = new THREE.Color('#000000');
+                newMat.emissiveIntensity = 0;
+                newMat.metalness = hovered ? 0.8 : 0.5;
+                newMat.roughness = hovered ? 0.2 : 0.5;
+                return newMat;
+              });
+            } else {
+              const newMat = originalMaterial.clone();
+              // Neutral emissive so color doesn't change
+              newMat.emissive = new THREE.Color('#000000');
+              newMat.emissiveIntensity = 0;
+              newMat.metalness = hovered ? 0.8 : 0.5;
+              newMat.roughness = hovered ? 0.2 : 0.5;
+              child.material = newMat;
+            }
+          }
+        }
+      });
+    }
+  }, [hovered, scene]);
+
+  return (
+    <group
+      ref={modelRef}
+      onPointerOver={() => setHovered(true)}
+      onPointerOut={() => setHovered(false)}
+      scale={hovered ? scale * 1.1 : scale}
+      position={[0, 0, 0]} // Center the model
+    >
+      <primitive object={scene} />
+    </group>
+  )
 }
 
 function AnimatedSphere({ color = '#ffffff', speed = 1 }) {
@@ -143,7 +226,7 @@ export default function CircularThreeScene({
         <pointLight position={[10, 10, 10]} />
         <Suspense fallback={null}>
           {useModel && glbUrl ? (
-            <GLBModel url={glbUrl} />
+            <GLBModel url={glbUrl} speed={speed} />
           ) : (
             <AnimatedSphere color={color} speed={speed} />
           )}
