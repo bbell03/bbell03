@@ -44,7 +44,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col dark:bg-[#040a1d] bg-white transition-colors duration-300">
+    <div className="max-h-screen flex flex-col dark:bg-[#040a1d] bg-white transition-colors duration-300">
       <GradientBackground />
       <CustomCursor />
 
@@ -80,7 +80,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="max-w-2xl w-full text-center md:text-left"
+                className="max-w-2xl w-full text-left"
               >
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-light mb-3 md:mb-4 gradient-text">
                   {slides[currentSlide].title}
@@ -105,7 +105,7 @@ export default function Home() {
                   </Link>
                 </div>
 
-                <div className="text-xs uppercase tracking-wider font-light accent-font">
+                <div className="text-xs uppercase tracking-wider font-light accent-font w-full md:text-left text-center">
                   {slides[currentSlide].tagline}
                 </div>
               </motion.div>
