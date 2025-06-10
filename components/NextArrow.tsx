@@ -32,7 +32,7 @@ export default function NextArrow({ currentPath, className = '' }: NextArrowProp
   return (
     <motion.button
       onClick={() => router.push(nextPath)}
-      className={`fixed bottom-8 right-8 z-50 p-4 rounded-full border border-current hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors ${className}`}
+      className={`fixed bottom-8 right-8 z-50 p-4 rounded-full border border-gray-300 dark:border-white/40 bg-white/80 dark:bg-white/10 text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors backdrop-blur ${className}`}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       initial={{ opacity: 0, y: 20 }}
