@@ -280,6 +280,7 @@
   .animated-underline {
     position: relative;
     display: inline-block;
+    color: #111;
   }
 
   .animated-underline::after {
@@ -290,14 +291,19 @@
     height: 1px;
     bottom: -2px;
     left: 0;
-    background-color: currentColor;
+    background-color: #111;
     transform-origin: bottom right;
-    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, background-color 0.2s;
+  }
+
+  .animated-underline:hover {
+    color: hsl(var(--accent));
   }
 
   .animated-underline:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
+    background-color: hsl(var(--accent));
   }
 
   .button-hover-effect {
@@ -369,10 +375,11 @@ textarea:hover ~ .cursor-glow {
 /* Add blue highlight to interactive elements */
 a, button, [role="button"] {
   @apply transition-colors duration-200;
+  color: #111;
 }
 
 a:hover, button:hover, [role="button"]:hover {
-  color: hsl(214, 85%, 52%);
+  color: hsl(var(--accent));
 }
 
 /* Add blue border glow to focused elements */

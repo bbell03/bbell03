@@ -24,7 +24,7 @@ export default function NavModal() {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed top-6 right-6 z-50 w-8 h-8 flex flex-col justify-center items-center space-y-1 group text-gray-900 dark:text-white hover:text-accent focus:text-accent transition-colors"
+        className="z-50 w-8 h-8 flex flex-col justify-center items-center space-y-1 group text-black dark:text-white hover:text-accent focus:text-accent transition-colors"
         aria-label="Open navigation"
       >
         <span className="w-5 h-px bg-current transition-all group-hover:w-6"></span>

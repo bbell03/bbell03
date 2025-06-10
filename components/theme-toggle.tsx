@@ -31,7 +31,7 @@ export default function ThemeToggle() {
         variant="ghost"
         size="icon"
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        className="rounded-full w-8 h-8 relative"
+        className="rounded-full w-8 h-8 relative text-black dark:text-white"
         aria-label="Toggle theme"
       >
         <span className="sr-only">Toggle theme</span>
@@ -66,7 +66,7 @@ export default function ThemeToggle() {
         variant="ghost"
         size="icon"
         onClick={() => setShowPicker((v) => !v)}
-        className={`rounded-full w-8 h-8 relative ${showPicker ? 'bg-accent/20' : ''}`}
+        className={`rounded-full w-8 h-8 relative text-black dark:text-white ${showPicker ? 'bg-accent/20' : ''}`}
         aria-label="Cursor color picker"
       >
         <Palette className="h-4 w-4" />

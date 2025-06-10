@@ -6,6 +6,7 @@ import { OrbitControls, useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 import { useTheme } from 'next-themes'
 import dynamic from "next/dynamic"
+import { useState as useReactState } from 'react'
 // import Logo from "@/components/Logo"
 
 // Dynamically import Three.js components to avoid SSR issues
@@ -13,13 +14,12 @@ const CanvasComponent = dynamic(() => import('@react-three/fiber').then(mod => m
 const useFrameComponent = dynamic(() => import('@react-three/fiber').then(mod => mod.useFrame), { ssr: false })
 const OrbitControlsComponent = dynamic(() => import('@react-three/drei').then(mod => mod.OrbitControls), { ssr: false })
 
-function GLBModel({ url, speed = 1 }: { url: string, speed?: number }) {
+function GLBModel({ url, speed = 1, onPointerOver, onPointerOut, hovered }: { url: string, speed?: number, onPointerOver?: () => void, onPointerOut?: () => void, hovered?: boolean }) {
   const { scene } = useGLTF(url)
   const modelRef = useRef<THREE.Group>(null)
-  const [hovered, setHovered] = useState(false)
   const [mounted, setMounted] = useState(false)
   const [scale, setScale] = useState(1.0)
-  const { theme } = useTheme()
+  const [accentColor, setAccentColor] = useReactState('#2563eb')
 
   useEffect(() => {
     setMounted(true)
@@ -50,6 +50,15 @@ function GLBModel({ url, speed = 1 }: { url: string, speed?: number }) {
     }
   }, [])
 
+  useEffect(() => {
+    // Get the accent color from CSS variable
+    const root = window.getComputedStyle(document.documentElement)
+    const accent = root.getPropertyValue('--accent')
+    if (accent && accent.trim().length > 0) {
+      setAccentColor(accent.trim())
+    }
+  }, [])
+
   useFrame((state, delta) => {
     if (modelRef.current && mounted) {
       modelRef.current.rotation.y += delta * speed
@@ -66,44 +75,43 @@ function GLBModel({ url, speed = 1 }: { url: string, speed?: number }) {
             if (Array.isArray(originalMaterial)) {
               child.material = originalMaterial.map(mat => {
                 const newMat = mat.clone();
-                // Neutral emissive so color doesn't change
+                // Remove emissive effect
                 newMat.emissive = new THREE.Color('#000000');
                 newMat.emissiveIntensity = 0;
-                newMat.metalness = hovered ? 0.8 : 0.5;
-                newMat.roughness = hovered ? 0.2 : 0.5;
+                newMat.metalness = 0.5;
+                newMat.roughness = 0.5;
                 return newMat;
               });
             } else {
               const newMat = originalMaterial.clone();
-              // Neutral emissive so color doesn't change
+              // Remove emissive effect
               newMat.emissive = new THREE.Color('#000000');
               newMat.emissiveIntensity = 0;
-              newMat.metalness = hovered ? 0.8 : 0.5;
-              newMat.roughness = hovered ? 0.2 : 0.5;
+              newMat.metalness = 0.5;
+              newMat.roughness = 0.5;
               child.material = newMat;
             }
           }
         }
       });
     }
-  }, [hovered, scene]);
+  }, [scene]);
 
   return (
     <group
       ref={modelRef}
-      onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}
+      onPointerOver={onPointerOver}
+      onPointerOut={onPointerOut}
       scale={hovered ? scale * 1.1 : scale}
-      position={[0, 0, 0]} // Center the model
+      position={[0, 0, 0]}
     >
       <primitive object={scene} />
     </group>
   )
 }
 
-function AnimatedSphere({ color = '#ffffff', speed = 1 }) {
+function AnimatedSphere({ color = '#ffffff', speed = 1, onPointerOver, onPointerOut, hovered }: { color?: string, speed?: number, onPointerOver?: () => void, onPointerOut?: () => void, hovered?: boolean }) {
   const meshRef = useRef<THREE.Mesh>(null)
-  const [hovered, setHovered] = useState(false)
   const [mounted, setMounted] = useState(false)
   const { viewport } = useThree()
   const [scale, setScale] = useState(1.2)
@@ -149,8 +157,8 @@ function AnimatedSphere({ color = '#ffffff', speed = 1 }) {
   return (
     <mesh
       ref={meshRef}
-      onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}
+      onPointerOver={onPointerOver}
+      onPointerOut={onPointerOut}
       scale={hovered ? scale * 1.1 : scale}
     >
       <sphereGeometry args={[1, 64, 64]} />
@@ -182,6 +190,8 @@ export default function CircularThreeScene({
   const [mounted, setMounted] = useState(false)
   const { theme } = useTheme()
   const [cameraPosition, setCameraPosition] = useState(3.5)
+  const [hovered, setHovered] = useState(false)
+  const [accentColor, setAccentColor] = useReactState('214 85% 52%') // default HSL
 
   useEffect(() => {
     setMounted(true)
@@ -211,6 +221,15 @@ export default function CircularThreeScene({
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+  useEffect(() => {
+    // Get the accent color from CSS variable
+    const root = window.getComputedStyle(document.documentElement)
+    const accent = root.getPropertyValue('--accent')
+    if (accent && accent.trim().length > 0) {
+      setAccentColor(accent.trim())
+    }
+  }, [])
+
   if (!mounted) {
     return (
       <div className={`w-full h-full ${className} flex items-center justify-center`}>
@@ -220,15 +239,19 @@ export default function CircularThreeScene({
   }
 
   return (
-    <div className={`w-full h-full ${className}`}>
-      <Canvas camera={{ position: [0, 0, cameraPosition] }}>
+    <div className={`w-full h-full ${className} relative`}>
+      <Canvas
+        camera={{ position: [0, 0, cameraPosition] }}
+        onPointerOver={() => setHovered(true)}
+        onPointerOut={() => setHovered(false)}
+      >
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
         <Suspense fallback={null}>
           {useModel && glbUrl ? (
-            <GLBModel url={glbUrl} speed={speed} />
+            <GLBModel url={glbUrl} speed={speed} hovered={hovered} />
           ) : (
-            <AnimatedSphere color={color} speed={speed} />
+            <AnimatedSphere color={color} speed={speed} hovered={hovered} />
           )}
         </Suspense>
         <OrbitControls 

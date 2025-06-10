@@ -54,13 +54,13 @@ export default function CursorColorPicker() {
 
   return (
     <div className="flex flex-col items-center gap-2 p-2 bg-white/80 dark:bg-black/60 rounded-lg shadow border border-gray-200 dark:border-gray-700">
-      <label className="text-xs mb-1">Cursor Color</label>
+      <label className="text-xs mb-1">Accent Color</label>
       <button
         type="button"
         className="w-8 h-8 rounded-full border-2 border-gray-300 mb-1 focus:outline-none focus:ring-2 focus:ring-accent"
         style={{ backgroundColor: color }}
         onClick={() => inputRef.current && inputRef.current.click()}
-        aria-label="Pick cursor color"
+        aria-label="Pick accent color"
       />
       <input
         ref={inputRef}
