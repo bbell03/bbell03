@@ -126,6 +126,7 @@ export default function RootLayout({
           <ClientNextArrow />
           <CustomCursor />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
