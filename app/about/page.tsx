@@ -38,13 +38,16 @@ export default function About() {
     <div className="min-h-screen flex flex-col dark:bg-[#040a1d] bg-white transition-colors duration-300">
       <GradientBackground />
       <CustomCursor />
-      <header className="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
-        <Logo />
-        <div className="flex items-center space-x-4">
+      <header className="w-full max-w-6xl mx-auto px-4 py-6 flex justify-between items-center">
+        <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 flex-shrink-0 flex items-center justify-center">
+          <Logo />
+        </div>
+        <div className="flex items-center gap-2">
           <span className="text-xs uppercase tracking-wider hidden sm:inline-block accent-font">
             {"About"}
           </span>
           <ThemeToggle />
+          <NavModal />
         </div>
       </header>
       {/* Hero Section */}
@@ -114,7 +117,6 @@ export default function About() {
         </div>
       </section>
       <Navigation currentPath={pathname} />
-      <NavModal />
       <CornerDots />
     </div>
   )

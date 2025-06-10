@@ -174,11 +174,12 @@ export default function Work() {
 
       <header className="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
         <Logo />
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center gap-2">
           <span className="text-xs uppercase tracking-wider hidden sm:inline-block accent-font">
-            {"Software Engineering & Design"}
+            {"Work"}
           </span>
           <ThemeToggle />
+          <NavModal />
         </div>
       </header>
 
@@ -303,7 +304,6 @@ export default function Work() {
       </main>
 
       <Navigation currentPath={pathname} />
-      <NavModal />
       <CornerDots />
     </div>
   )
