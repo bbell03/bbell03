@@ -47,8 +47,8 @@ export default function Home() {
       <GradientBackground />
       <CustomCursor />
 
-      <header className="w-full max-w-6xl mx-auto px-4 py-1 sm:py-2 flex justify-between items-center">
-        <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 flex-shrink-0 flex items-center justify-center">
+      <header className="w-full max-w-6xl mx-auto px-2 py-1 flex justify-between items-center">
+        <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 flex-shrink-0 flex items-center justify-center">
           <Logo />
         </div>
         <div className="flex items-center gap-2">
@@ -61,10 +61,10 @@ export default function Home() {
       </header>
 
       <main className="flex-1 flex items-center justify-center w-full overflow-auto">
-        <div className="w-full max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-1 md:py-4 flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-6 items-center">
+        <div className="w-full max-w-7xl mx-auto px-1 sm:px-2 lg:px-4 py-0 md:py-2 flex flex-col md:grid md:grid-cols-12 gap-1 md:gap-4 items-center">
           {/* Mobile-first: HELLO at top */}
           <motion.h1
-            className="block md:hidden text-5xl xs:text-6xl font-light mb-4 mt-4 text-center gradient-text"
+            className="block md:hidden text-4xl xs:text-5xl font-light mb-2 mt-2 text-center gradient-text"
             initial={{ y: -40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 40, opacity: 0 }}
@@ -73,9 +73,9 @@ export default function Home() {
             {slides[currentSlide].title}
           </motion.h1>
 
-          {/* 3D Model - large and centered on mobile */}
+          {/* 3D Model - larger and centered on mobile */}
           <div className="w-full flex flex-col items-center justify-center md:col-span-5 order-2 md:order-none">
-            <div className="mb-4 relative aspect-square w-full max-w-[260px] xs:max-w-[320px] sm:max-w-[380px] md:min-w-[400px] md:max-w-[min(90vw,70vh)] overflow-hidden">
+            <div className="mb-2 relative aspect-square w-full max-w-[320px] xs:max-w-[380px] sm:max-w-[420px] md:min-w-[400px] md:max-w-[min(90vw,70vh)] overflow-hidden">
               <CircularThreeScene 
                 color={theme === "dark" ? "#ffffff" : "#000000"}
                 speed={0.5}
@@ -88,7 +88,7 @@ export default function Home() {
           <div className="w-full flex flex-col items-center md:items-start justify-center md:col-span-7 order-3 md:order-none">
             {/* HELLO for desktop */}
             <motion.h1
-              className="hidden md:block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light mb-2 md:mb-4 gradient-text"
+              className="hidden md:block text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light mb-1 md:mb-3 gradient-text"
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: 50, opacity: 0 }}
@@ -97,26 +97,26 @@ export default function Home() {
               {slides[currentSlide].title}
             </motion.h1>
 
-            <p className="text-base sm:text-lg md:text-xl mb-3 md:mb-4 max-w-2xl mx-auto md:mx-0 text-center md:text-left text-balance leading-relaxed">
+            <p className="text-sm sm:text-base md:text-xl mb-2 md:mb-3 max-w-2xl mx-auto md:mx-0 text-center md:text-left text-balance leading-snug">
               {slides[currentSlide].description}
             </p>
 
-            <div className="flex flex-col gap-3 w-full max-w-xs mx-auto mb-3 md:mb-4 md:flex-row md:max-w-none md:gap-1 md:justify-start">
+            <div className="flex flex-col gap-2 w-full max-w-xs mx-auto mb-2 md:mb-3 md:flex-row md:max-w-none md:gap-1 md:justify-start">
               <Link
                 href="/work"
-                className="w-full md:w-auto px-6 py-3 border border-current rounded-full text-lg font-medium text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-center"
+                className="w-full md:w-auto px-4 py-2 border border-current rounded-full text-base font-medium text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-center"
               >
                 View Work
               </Link>
               <Link
                 href="/contact"
-                className="w-full md:w-auto px-6 py-3 border border-current rounded-full text-lg font-medium text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-center"
+                className="w-full md:w-auto px-4 py-2 border border-current rounded-full text-base font-medium text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-center"
               >
                 Contact Me
               </Link>
             </div>
 
-            <div className="text-xs uppercase tracking-wider font-light accent-font w-full text-center md:text-left mt-1">
+            <div className="text-xs uppercase tracking-wider font-light accent-font w-full text-center md:text-left mt-0">
               {slides[currentSlide].tagline}
             </div>
           </div>
