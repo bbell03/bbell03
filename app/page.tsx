@@ -64,7 +64,7 @@ export default function Home() {
         <div className="w-full max-w-7xl mx-auto px-1 sm:px-2 lg:px-4 py-0 md:py-2 flex flex-col md:grid md:grid-cols-12 gap-1 md:gap-4 items-center">
           {/* Mobile-first: HELLO at top */}
           <motion.h1
-            className="block md:hidden text-4xl xs:text-5xl font-light mb-2 mt-2 text-center gradient-text"
+            className="block md:hidden text-8xl xs:text-5xl font-light mb-2 mt-2 text-center gradient-text"
             initial={{ y: -40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 40, opacity: 0 }}
@@ -72,7 +72,9 @@ export default function Home() {
           >
             {slides[currentSlide].title}
           </motion.h1>
-
+          <p className="mx-16 xs:hidden md:hidden text-sm sm:text-base md:text-xl mb-2 md:mb-3 max-w-2xl mx-auto md:mx-0 text-center md:text-left text-balance leading-snug">
+              {slides[currentSlide].description}
+            </p>
           {/* 3D Model - larger and centered on mobile */}
           <div className="w-full flex flex-col items-center justify-center md:col-span-5 order-2 md:order-none">
             <div className="mb-2 relative aspect-square w-full max-w-[320px] xs:max-w-[380px] sm:max-w-[420px] md:min-w-[400px] md:max-w-[min(90vw,70vh)] overflow-hidden">
@@ -97,7 +99,7 @@ export default function Home() {
               {slides[currentSlide].title}
             </motion.h1>
 
-            <p className="text-sm sm:text-base md:text-xl mb-2 md:mb-3 max-w-2xl mx-auto md:mx-0 text-center md:text-left text-balance leading-snug">
+            <p className="hidden md:block text-sm sm:text-base md:text-xl mb-2 md:mb-3 max-w-2xl mx-auto md:mx-0 text-center md:text-left text-balance leading-snug">
               {slides[currentSlide].description}
             </p>
 
