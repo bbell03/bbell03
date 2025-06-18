@@ -36,7 +36,7 @@ const slides = [
 export default function Home() {
   const { theme } = useTheme()
   const pathname = usePathname()
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(2)
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length)

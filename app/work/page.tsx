@@ -20,7 +20,7 @@ import { Button } from "@/components/ui/button"
 const projects = [
   {
     id: 1,
-    title: "E-commerce Platform",
+    title: "Next Dashboarding",
     description: "A modern e-commerce platform with seamless checkout experience",
     image: "/placeholder.svg?height=300&width=400",
     category: "Web Development",
@@ -28,39 +28,39 @@ const projects = [
   },
   {
     id: 2,
-    title: "Health & Wellness App",
+    title: "Connect the Dots",
     description: "Mobile application for tracking fitness and nutrition goals",
     image: "/placeholder.svg?height=300&width=400",
-    category: "Mobile App",
+    category: "Web App",
     color: "bg-gradient-to-br from-blue-500 to-cyan-500"
   },
+  // {
+  //   id: 3,
+  //   title: "Financial Dashboard",
+  //   description: "Interactive dashboard for visualizing financial data",
+  //   image: "/placeholder.svg?height=300&width=400",
+  //   category: "Data Visualization",
+  //   color: "bg-gradient-to-br from-green-500 to-emerald-500"
+  // },
+  // {
+  //   id: 4,
+  //   title: "Brand Identity System",
+  //   description: "Complete brand identity system for a tech startup",
+  //   image: "/placeholder.svg?height=300&width=400",
+  //   category: "Brand Design",
+  //   color: "bg-gradient-to-br from-orange-500 to-red-500"
+  // },
+  // {
+  //   id: 5,
+  //   title: "Social Media Platform",
+  //   description: "Community-focused social platform for creative professionals",
+  //   image: "/placeholder.svg?height=300&width=400",
+  //   category: "Web Development",
+  //   color: "bg-gradient-to-br from-indigo-500 to-purple-500"
+  // },
   {
     id: 3,
-    title: "Financial Dashboard",
-    description: "Interactive dashboard for visualizing financial data",
-    image: "/placeholder.svg?height=300&width=400",
-    category: "Data Visualization",
-    color: "bg-gradient-to-br from-green-500 to-emerald-500"
-  },
-  {
-    id: 4,
-    title: "Brand Identity System",
-    description: "Complete brand identity system for a tech startup",
-    image: "/placeholder.svg?height=300&width=400",
-    category: "Brand Design",
-    color: "bg-gradient-to-br from-orange-500 to-red-500"
-  },
-  {
-    id: 5,
-    title: "Social Media Platform",
-    description: "Community-focused social platform for creative professionals",
-    image: "/placeholder.svg?height=300&width=400",
-    category: "Web Development",
-    color: "bg-gradient-to-br from-indigo-500 to-purple-500"
-  },
-  {
-    id: 6,
-    title: "Smart Home Interface",
+    title: "Fractals",
     description: "Intuitive interface for controlling smart home devices",
     image: "/placeholder.svg?height=300&width=400",
     category: "UI/UX Design",
@@ -189,8 +189,7 @@ export default function Work() {
           <div className="max-w-2xl mx-auto text-center mb-16">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light mb-4 gradient-text">work</h1>
             <p className="text-sm md:text-base mb-8 text-balance leading-relaxed">
-              A selection of projects I've worked on as a product designer and developer. Each project represents a
-              unique challenge and solution. (Placeholders unless otherwise noted). Looking into staging some projects I have on hand at current -- 
+              A selection of projects I've worked on as a product designer and developer. Looking to present my skillset and take part in projects representing unique solutions to challenging problems
             </p>
           </div>
 
