@@ -61,7 +61,7 @@ const projects = [
   {
     id: 3,
     title: "Fractals",
-    description: "Intuitive interface for controlling smart home devices",
+    description: "A collection of fractal patterns generated using the Mandelbrot set",
     image: "/placeholder.svg?height=300&width=400",
     category: "UI/UX Design",
     color: "bg-gradient-to-br from-pink-500 to-rose-500"
