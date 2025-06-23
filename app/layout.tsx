@@ -51,6 +51,8 @@ const sourceSerif = Source_Serif_4({
   display: "swap",
 })
 
+// Courier New is a system font, no need to import from Google Fonts
+
 export const metadata: Metadata = {
   title: "Brandon Bell | Product Designer & Developer",
   description: "Portfolio of Brandon Bell, Product Designer & Developer",

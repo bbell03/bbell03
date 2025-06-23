@@ -62,8 +62,8 @@ export default function NavModal() {
                       onClick={() => setIsOpen(false)}
                       className={`text-2xl font-light transition-colors duration-200 ${
                         isActive
-                          ? "text-accent"
-                          : "text-gray-900 dark:text-white hover:!text-accent"
+                          ? "text-black dark:text-white font-medium"
+                          : "text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
                       }${isActive ? " pointer-events-none" : ""}`}
                     >
                       {item.label}

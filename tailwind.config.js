@@ -27,6 +27,7 @@ module.exports = {
         playfair: ["var(--font-playfair)"],
         "source-serif": ["var(--font-source-serif)"],
         heading: ["var(--font-permanent-marker)"],
+        courier: ["Courier New", "Courier", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
