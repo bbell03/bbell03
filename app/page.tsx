@@ -3,7 +3,7 @@
 import { useTheme } from "next-themes"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Navigation from "@/components/navigation"
 import Logo from "@/components/Logo"
 import NavModal from "@/components/nav-modal"
@@ -13,7 +13,7 @@ import GradientBackground from "@/components/gradient-background"
 import CustomCursor from "@/components/custom-cursor"
 import CircularThreeScene from "@/components/CircularThreeScene"
 import NextArrow from "@/components/NextArrow"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 const slides = [
   {
@@ -23,7 +23,7 @@ const slides = [
   },
   {
     title: "about",
-    description: "I'm a product designer and developer with over 8 years of experience creating digital products that solve real problems for real people.",
+    description: "I'm a product designer and developer with robust experience creating digital products that solve real problems for real people.",
     tagline: "Experience & Expertise"
   },
   {
@@ -42,8 +42,31 @@ export default function Home() {
     setCurrentSlide((prev) => (prev + 1) % slides.length)
   }
 
+  useEffect(() => {
+    let scrollTimeout
+    const handleWheel = (event) => {
+      clearTimeout(scrollTimeout)
+      scrollTimeout = setTimeout(() => {
+        if (event.deltaY > 0) {
+          // Scrolling down
+          setCurrentSlide((prev) => (prev + 1) % slides.length)
+        } else if (event.deltaY < 0) {
+          // Scrolling up
+          setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+        }
+      }, 150) // Adjust delay as needed
+    }
+
+    window.addEventListener("wheel", handleWheel)
+
+    return () => {
+      window.removeEventListener("wheel", handleWheel)
+      clearTimeout(scrollTimeout)
+    }
+  }, [])
+
   return (
-    <div className="min-h-screen flex flex-col dark:bg-[#040a1d] bg-white transition-colors duration-300">
+    <div className="min-h-screen flex flex-col dark:bg-[#040a1d] bg-white transition-colors duration-300 overflow-hidden">
       <GradientBackground />
       <CustomCursor />
 
@@ -63,18 +86,30 @@ export default function Home() {
       <main className="flex-1 flex items-center justify-center w-full overflow-auto">
         <div className="w-full max-w-7xl mx-auto px-1 sm:px-2 lg:px-4 py-0 md:py-2 flex flex-col md:grid md:grid-cols-12 gap-1 md:gap-4 items-center">
           {/* Mobile-first: HELLO at top */}
-          <motion.h1
-            className="block md:hidden text-8xl xs:text-5xl font-light mb-2 mt-2 text-center gradient-text"
-            initial={{ y: -40, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 40, opacity: 0 }}
-            transition={{ duration: 0.7, type: 'spring', bounce: 0.3 }}
-          >
-            {slides[currentSlide].title}
-          </motion.h1>
-          <p className="mx-16 xs:hidden md:hidden text-sm sm:text-base md:text-xl mb-2 md:mb-3 max-w-2xl mx-auto md:mx-0 text-center md:text-left text-balance leading-snug">
+          <AnimatePresence mode="wait">
+            <motion.h1
+              key={`mobile-title-${currentSlide}`}
+              className="block md:hidden text-8xl xs:text-5xl font-light mb-2 mt-2 text-center gradient-text"
+              initial={{ y: -40, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 40, opacity: 0 }}
+              transition={{ duration: 0.7, type: "spring", bounce: 0.3 }}
+            >
+              {slides[currentSlide].title}
+            </motion.h1>
+          </AnimatePresence>
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={`mobile-desc-${currentSlide}`}
+              className="mx-16 xs:hidden md:hidden text-sm sm:text-base md:text-xl mb-2 md:mb-3 max-w-2xl mx-auto md:mx-0 text-center md:text-left text-balance leading-snug"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
               {slides[currentSlide].description}
-            </p>
+            </motion.p>
+          </AnimatePresence>
           {/* 3D Model - larger and centered on mobile */}
           <div className="w-full flex flex-col items-center justify-center md:col-span-5 order-2 md:order-none">
             <div className="mb-2 relative aspect-square w-full max-w-[320px] xs:max-w-[380px] sm:max-w-[420px] md:min-w-[400px] md:max-w-[min(90vw,70vh)] overflow-hidden">
@@ -89,19 +124,31 @@ export default function Home() {
           {/* Content - below model on mobile, right on desktop */}
           <div className="w-full flex flex-col items-center md:items-start justify-center md:col-span-7 order-3 md:order-none">
             {/* HELLO for desktop */}
-            <motion.h1
-              className="hidden md:block text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light mb-1 md:mb-3 gradient-text"
-              initial={{ x: -50, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: 50, opacity: 0 }}
-              transition={{ duration: 0.7, type: 'spring', bounce: 0.3 }}
-            >
-              {slides[currentSlide].title}
-            </motion.h1>
+            <AnimatePresence mode="wait">
+              <motion.h1
+                key={`desktop-title-${currentSlide}`}
+                className="hidden md:block text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light mb-1 md:mb-3 gradient-text"
+                initial={{ x: -50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: 50, opacity: 0 }}
+                transition={{ duration: 0.7, type: "spring", bounce: 0.3 }}
+              >
+                {slides[currentSlide].title}
+              </motion.h1>
+            </AnimatePresence>
 
-            <p className="hidden md:block text-sm sm:text-base md:text-xl mb-2 md:mb-3 max-w-2xl mx-auto md:mx-0 text-center md:text-left text-balance leading-snug">
-              {slides[currentSlide].description}
-            </p>
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={`desktop-desc-${currentSlide}`}
+                className="hidden md:block text-sm sm:text-base md:text-xl mb-2 md:mb-3 max-w-2xl mx-auto md:mx-0 text-center md:text-left text-balance leading-snug"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                {slides[currentSlide].description}
+              </motion.p>
+            </AnimatePresence>
 
             <div className="flex flex-col gap-2 w-full max-w-xs mx-auto mb-2 md:mb-3 md:flex-row md:max-w-none md:gap-1 md:justify-start">
               <Link
@@ -118,9 +165,18 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="text-xs uppercase tracking-wider font-light accent-font w-full text-center md:text-left mt-0">
-              {slides[currentSlide].tagline}
-            </div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`tagline-${currentSlide}`}
+                className="text-xs uppercase tracking-wider font-light accent-font w-full text-center md:text-left mt-0"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                {slides[currentSlide].tagline}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </main>
