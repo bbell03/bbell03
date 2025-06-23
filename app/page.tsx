@@ -208,14 +208,14 @@ export default function Home() {
       {/* Frosted Gradient Background Overlay - Only on homepage */}
       {pathname === "/" && (
         <div className="fixed inset-0 pointer-events-none z-0">
-          {/* Main radial gradient from bottom left - darker on light screens */}
+          {/* Main radial gradient from bottom left - using accent color on light screens */}
           <div className="absolute inset-0 dark:hidden" style={{
-            background: 'radial-gradient(ellipse at bottom left, rgba(107, 114, 128, 0.6) 0%, rgba(107, 114, 128, 0.35) 30%, rgba(107, 114, 128, 0.2) 50%, transparent 70%)',
+            background: 'radial-gradient(ellipse at bottom left, hsl(var(--accent) / 0.55) 0%, hsl(var(--accent) / 0.35) 25%, hsl(var(--accent) / 0.22) 45%, hsl(var(--accent) / 0.12) 65%, hsl(var(--accent) / 0.06) 80%, hsl(var(--accent) / 0.03) 90%, transparent 100%)',
           }} />
           
-          {/* Light and transparent gradient for dark mode */}
+          {/* Accent color gradient for dark mode */}
           <div className="absolute inset-0 hidden dark:block" style={{
-            background: 'radial-gradient(ellipse at bottom left, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 30%, rgba(255, 255, 255, 0.02) 50%, transparent 70%)',
+            background: 'radial-gradient(ellipse at bottom left, hsl(var(--accent) / 0.25) 0%, hsl(var(--accent) / 0.15) 25%, hsl(var(--accent) / 0.1) 45%, hsl(var(--accent) / 0.06) 65%, hsl(var(--accent) / 0.03) 80%, hsl(var(--accent) / 0.015) 90%, transparent 100%)',
           }} />
           
           {/* Subtle backdrop blur */}
@@ -271,7 +271,7 @@ export default function Home() {
         </div>
 
                  {/* Desktop Layout - Original */}
-         <div className="hidden md:flex items-center justify-center w-full min-h-screen overflow-auto pt-16 relative">
+         <div className="hidden md:flex items-center justify-center w-full min-h-screen overflow-visible pt-16 pb-8 relative">
            {/* Desktop Timeline Navigation - Right Side */}
            <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3">
              {slides.map((_, index) => (
@@ -288,7 +288,7 @@ export default function Home() {
              ))}
            </div>
 
-           <div className="w-full max-w-7xl mx-auto px-1 sm:px-2 lg:px-4 py-8 md:py-12 flex flex-col md:grid md:grid-cols-12 gap-1 md:gap-4 items-center relative">
+           <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 flex flex-col md:grid md:grid-cols-12 gap-4 md:gap-6 items-center relative min-h-0">
              {/* Desktop Timeline Line - Starts below logo */}
              <div className="fixed left-14 top-20 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-300 dark:via-gray-600 to-transparent z-10" />
              
@@ -314,7 +314,7 @@ export default function Home() {
              </AnimatePresence>
              {/* 3D Model - larger and centered on mobile */}
              <div className="w-full flex flex-col items-center justify-center md:col-span-5 order-2 md:order-none">
-               <div className="mb-2 relative aspect-square w-full max-w-[320px] xs:max-w-[380px] sm:max-w-[420px] md:min-w-[400px] md:max-w-[min(90vw,70vh)] overflow-hidden">
+               <div className="mb-2 relative aspect-square w-full max-w-[320px] xs:max-w-[380px] sm:max-w-[420px] md:max-w-[min(45vw,60vh)] overflow-hidden">
                  <CircularThreeScene 
                    color={theme === "dark" ? "#ffffff" : "#000000"}
                    speed={0.5}
