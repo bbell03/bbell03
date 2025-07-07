@@ -1,35 +1,50 @@
+"use client"
+
 import projectsData from '@/data/projectsData'
 import Card from '@/components/Card'
-import { genPageMetadata } from 'app/seo'
-
-export const metadata = genPageMetadata({ title: 'Projects' })
+import GlowLayout from '@/components/GlowLayout'
+import { motion } from 'framer-motion'
 
 export default function Projects() {
   return (
-    <>
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Projects
-          </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
+    <GlowLayout title="projects" subtitle="Projects">
+      <div className="w-full max-w-6xl mx-auto">
+        {/* Description */}
+        <motion.div 
+          className="text-center mb-12 max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             Showcase your projects with a hero image (16 x 9)
           </p>
-        </div>
-        <div className="container py-12">
-          <div className="-m-4 flex flex-wrap">
-            {projectsData.map((d) => (
+        </motion.div>
+
+        {/* Projects Grid */}
+        <motion.div 
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
+          {projectsData.map((project, index) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 + index * 0.1 }}
+            >
               <Card
-                key={d.title}
-                title={d.title}
-                description={d.description}
-                imgSrc={d.imgSrc}
-                href={d.href}
+                title={project.title}
+                description={project.description}
+                imgSrc={project.imgSrc}
+                href={project.href}
               />
-            ))}
-          </div>
-        </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
-    </>
+    </GlowLayout>
   )
 }
