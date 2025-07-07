@@ -185,7 +185,7 @@ export default function CircularThreeScene({
   speed = 1,
   className = '',
   glbUrl = '/models/myModel.glb',
-  useModel = false
+  useModel = true
 }: CircularThreeSceneProps) {
   const [mounted, setMounted] = useState(false)
   const { theme } = useTheme()

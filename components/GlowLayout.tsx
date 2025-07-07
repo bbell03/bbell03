@@ -34,22 +34,30 @@ export default function GlowLayout({ children, title, subtitle }: GlowLayoutProp
     <div className="min-h-screen flex flex-col dark:bg-[#040a1d] bg-white transition-colors duration-300 overflow-hidden">
       <GradientBackground />
       
-      {/* Enhanced Glow Effects */}
+      {/* Enhanced Prominent Glow Effects */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        {/* Main radial gradient glow */}
+        {/* Main radial gradient glow - More prominent */}
         <div className="absolute inset-0 dark:hidden" style={{
-          background: 'radial-gradient(ellipse at center, hsl(var(--accent) / 0.15) 0%, hsl(var(--accent) / 0.08) 30%, hsl(var(--accent) / 0.04) 60%, transparent 100%)',
+          background: 'radial-gradient(ellipse at center, hsl(var(--accent) / 0.25) 0%, hsl(var(--accent) / 0.15) 25%, hsl(var(--accent) / 0.08) 50%, hsl(var(--accent) / 0.04) 75%, transparent 100%)',
         }} />
         
-        {/* Dark mode glow */}
+        {/* Dark mode glow - More prominent */}
         <div className="absolute inset-0 hidden dark:block" style={{
-          background: 'radial-gradient(ellipse at center, hsl(var(--accent) / 0.12) 0%, hsl(var(--accent) / 0.06) 30%, hsl(var(--accent) / 0.03) 60%, transparent 100%)',
+          background: 'radial-gradient(ellipse at center, hsl(var(--accent) / 0.20) 0%, hsl(var(--accent) / 0.12) 25%, hsl(var(--accent) / 0.06) 50%, hsl(var(--accent) / 0.03) 75%, transparent 100%)',
         }} />
         
-        {/* Additional glow orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-200 dark:bg-purple-900/30 rounded-full blur-3xl opacity-30 dark:opacity-40 animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-200 dark:bg-blue-900/30 rounded-full blur-3xl opacity-25 dark:opacity-35 animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-200 dark:bg-green-900/20 rounded-full blur-3xl opacity-20 dark:opacity-30 animate-pulse" style={{ animationDelay: '2s' }} />
+        {/* Additional prominent glow orbs - Larger and more visible */}
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-200 dark:bg-purple-900/40 rounded-full blur-3xl opacity-40 dark:opacity-50 animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-blue-200 dark:bg-blue-900/40 rounded-full blur-3xl opacity-35 dark:opacity-45 animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-green-200 dark:bg-green-900/30 rounded-full blur-3xl opacity-30 dark:opacity-40 animate-pulse" style={{ animationDelay: '2s' }} />
+        
+        {/* Additional smaller glow orbs for more depth */}
+        <div className="absolute top-1/3 right-1/3 w-[300px] h-[300px] bg-pink-200 dark:bg-pink-900/30 rounded-full blur-3xl opacity-25 dark:opacity-35 animate-pulse" style={{ animationDelay: '0.5s' }} />
+        <div className="absolute bottom-1/3 left-1/3 w-[250px] h-[250px] bg-yellow-200 dark:bg-yellow-900/20 rounded-full blur-3xl opacity-20 dark:opacity-30 animate-pulse" style={{ animationDelay: '1.5s' }} />
+        
+        {/* Corner glow effects */}
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-purple-300/20 dark:from-purple-800/30 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-blue-300/20 dark:from-blue-800/30 to-transparent rounded-full blur-3xl" />
       </div>
       
       <CustomCursor />
