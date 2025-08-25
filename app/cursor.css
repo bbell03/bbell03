@@ -1,6 +1,17 @@
-/* Base cursor styles */
-* {
-  cursor: none;
+/* Base cursor styles - only on desktop */
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+  
+  /* Ensure inputs and interactive elements still work */
+  input[type="text"], input[type="email"], textarea, select {
+    cursor: text !important;
+  }
+  
+  button, a, [role="button"], [tabindex] {
+    cursor: none !important;
+  }
 }
 
 /* Custom cursor styles */

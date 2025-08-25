@@ -1,0 +1,613 @@
+{
+  "cacheItemsMap": {
+    "authors/default.mdx": {
+      "document": {
+        "name": "Brandon Bell",
+        "avatar": "/static/images/avatar.png",
+        "occupation": "Designer, Creative Coder & Software Engineer",
+        "email": "address@yoursite.com",
+        "twitter": "https://twitter.com/Twitter",
+        "linkedin": "https://www.linkedin.com",
+        "github": "https://github.com",
+        "body": {
+          "raw": "\nBrandon Bell is a creative coder, designer and software engineer based in NYC. With a Bachelor of Arts degree in Computer Science from Tufts University his focus is on full stack web development, and next generation user interfaces. He hopes to make an influential mark on the internet through thoughtful meaningful and intentional standards for design and engineering toward web3 and iot enabled systems. Catering to customer needs and allowing for flexibility in workflow and dynamic choice of technologies.\n\nHe has a background in Real Estate having had various internships in property and construction management as well as market research. He hopes to somehow contribute to the culture at home by fostering and promoting spaces through which to share community, ideas, and the self with others.\n\nCurrently looking for freelance, contract or startup work in the short term, and eventually a more sustainable long term software engineering job, he is interested in getting hired for the 2025 fiscal year and is excited to work in the domains of React, Javascript, C & C++, and learn more about Swift, Python, Rust, and systems development.",
+          "code": "var Component=(()=>{var m=Object.create;var o=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var w=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),y=(e,t)=>{for(var r in t)o(e,r,{get:t[r],enumerable:!0})},s=(e,t,r,i)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let a of g(t))!p.call(e,a)&&a!==r&&o(e,a,{get:()=>t[a],enumerable:!(i=u(t,a))||i.enumerable});return e};var b=(e,t,r)=>(r=e!=null?m(f(e)):{},s(t||!e||!e.__esModule?o(r,\"default\",{value:e,enumerable:!0}):r,e)),v=e=>s(o({},\"__esModule\",{value:!0}),e);var d=w((_,c)=>{c.exports=_jsx_runtime});var k={};y(k,{default:()=>l,frontmatter:()=>x});var n=b(d()),x={name:\"Brandon Bell\",avatar:\"/static/images/avatar.png\",occupation:\"Designer, Creative Coder & Software Engineer\",degree:\"Tufts University\",email:\"address@yoursite.com\",twitter:\"https://twitter.com/Twitter\",linkedin:\"https://www.linkedin.com\",github:\"https://github.com\"};function h(e){let t={p:\"p\",...e.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.p,{children:\"Brandon Bell is a creative coder, designer and software engineer based in NYC. With a Bachelor of Arts degree in Computer Science from Tufts University his focus is on full stack web development, and next generation user interfaces. He hopes to make an influential mark on the internet through thoughtful meaningful and intentional standards for design and engineering toward web3 and iot enabled systems. Catering to customer needs and allowing for flexibility in workflow and dynamic choice of technologies.\"}),(0,n.jsx)(t.p,{children:\"He has a background in Real Estate having had various internships in property and construction management as well as market research. He hopes to somehow contribute to the culture at home by fostering and promoting spaces through which to share community, ideas, and the self with others.\"}),(0,n.jsx)(t.p,{children:\"Currently looking for freelance, contract or startup work in the short term, and eventually a more sustainable long term software engineering job, he is interested in getting hired for the 2025 fiscal year and is excited to work in the domains of React, Javascript, C & C++, and learn more about Swift, Python, Rust, and systems development.\"})]})}function l(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(h,{...e})}):h(e)}return v(k);})();\n;return Component;"
+        },
+        "_id": "authors/default.mdx",
+        "_raw": {
+          "sourceFilePath": "authors/default.mdx",
+          "sourceFileName": "default.mdx",
+          "sourceFileDir": "authors",
+          "contentType": "mdx",
+          "flattenedPath": "authors/default"
+        },
+        "type": "Authors",
+        "slug": "default",
+        "path": "authors/default",
+        "filePath": "authors/default.mdx"
+      },
+      "documentHash": "1755118879397",
+      "hasWarnings": true,
+      "documentTypeName": "Authors"
+    },
+    "authors/sparrowhawk.mdx": {
+      "document": {
+        "name": "Sparrow Hawk",
+        "avatar": "/static/images/sparrowhawk-avatar.jpg",
+        "occupation": "Wizard of Earthsea",
+        "company": "Earthsea",
+        "twitter": "https://twitter.com/sparrowhawk",
+        "linkedin": "https://www.linkedin.com/sparrowhawk",
+        "body": {
+          "raw": "\nAt birth, Ged was given the child-name Duny by his mother. He was born on the island of Gont, as a son of a bronzesmith. His mother died before he reached the age of one. As a small boy, Ged had overheard the village witch, his maternal aunt, using various words of power to call goats. Ged later used the words without an understanding of their meanings, to surprising effect.\n\nThe witch knew that using words of power effectively without understanding them required innate power, so she endeavored to teach him what little she knew. After learning more from her, he was able to call animals to him. Particularly, he was seen in the company of wild sparrowhawks so often that his \"use name\" became Sparrowhawk.\n",
+          "code": "var Component=(()=>{var m=Object.create;var o=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var g=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),k=(e,t)=>{for(var n in t)o(e,n,{get:t[n],enumerable:!0})},i=(e,t,n,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let r of p(t))!f.call(e,r)&&r!==n&&o(e,r,{get:()=>t[r],enumerable:!(s=l(t,r))||s.enumerable});return e};var x=(e,t,n)=>(n=e!=null?m(u(e)):{},i(t||!e||!e.__esModule?o(n,\"default\",{value:e,enumerable:!0}):n,e)),b=e=>i(o({},\"__esModule\",{value:!0}),e);var w=g((j,h)=>{h.exports=_jsx_runtime});var y={};k(y,{default:()=>d,frontmatter:()=>v});var a=x(w()),v={name:\"Sparrow Hawk\",avatar:\"/static/images/sparrowhawk-avatar.jpg\",occupation:\"Wizard of Earthsea\",company:\"Earthsea\",twitter:\"https://twitter.com/sparrowhawk\",linkedin:\"https://www.linkedin.com/sparrowhawk\"};function c(e){let t={p:\"p\",...e.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(t.p,{children:\"At birth, Ged was given the child-name Duny by his mother. He was born on the island of Gont, as a son of a bronzesmith. His mother died before he reached the age of one. As a small boy, Ged had overheard the village witch, his maternal aunt, using various words of power to call goats. Ged later used the words without an understanding of their meanings, to surprising effect.\"}),(0,a.jsx)(t.p,{children:'The witch knew that using words of power effectively without understanding them required innate power, so she endeavored to teach him what little she knew. After learning more from her, he was able to call animals to him. Particularly, he was seen in the company of wild sparrowhawks so often that his \"use name\" became Sparrowhawk.'})]})}function d(e={}){let{wrapper:t}=e.components||{};return t?(0,a.jsx)(t,{...e,children:(0,a.jsx)(c,{...e})}):c(e)}return b(y);})();\n;return Component;"
+        },
+        "_id": "authors/sparrowhawk.mdx",
+        "_raw": {
+          "sourceFilePath": "authors/sparrowhawk.mdx",
+          "sourceFileName": "sparrowhawk.mdx",
+          "sourceFileDir": "authors",
+          "contentType": "mdx",
+          "flattenedPath": "authors/sparrowhawk"
+        },
+        "type": "Authors",
+        "slug": "sparrowhawk",
+        "path": "authors/sparrowhawk",
+        "filePath": "authors/sparrowhawk.mdx"
+      },
+      "documentHash": "1755118879398",
+      "hasWarnings": false,
+      "documentTypeName": "Authors"
+    },
+    "blog/nested-route/introducing-multi-part-posts-with-nested-routing.mdx": {
+      "document": {
+        "title": "Introducing Multi-part Posts with Nested Routing",
+        "date": "2021-05-02T00:00:00.000Z",
+        "tags": [
+          "multi-author",
+          "next-js",
+          "feature"
+        ],
+        "draft": false,
+        "summary": "The blog template supports posts in nested sub-folders. This can be used to group posts of similar content e.g. a multi-part course. This post is itself an example of a nested route!",
+        "body": {
+          "raw": "\n# Nested Routes\n\nThe blog template supports posts in nested sub-folders. This helps in organisation and can be used to group posts of similar content e.g. a multi-part series. This post is itself an example of a nested route! It's located in the `/data/blog/nested-route` folder.\n\n## How\n\nSimplify create multiple folders inside the main `/data/blog` folder and add your `.md`/`.mdx` files to them. You can even create something like `/data/blog/nested-route/deeply-nested-route/my-post.md`\n\nWe use Next.js catch all routes to handle the routing and path creations.\n\n## Use Cases\n\nHere are some reasons to use nested routes\n\n- More logical content organisation (blogs will still be displayed based on the created date)\n- Multi-part posts\n- Different sub-routes for each author\n- Internationalization (though it would be recommended to use [Next.js built-in i8n routing](https://nextjs.org/docs/advanced-features/i18n-routing))\n\n## Note\n\n- The previous/next post links at bottom of the template are currently sorted by date. One could explore modifying the template to refer the reader to the previous/next post in the series, rather than by date.\n",
+          "code": "var Component=(()=>{var u=Object.create;var s=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var w=(a,e)=>()=>(e||a((e={exports:{}}).exports,e),e.exports),x=(a,e)=>{for(var n in e)s(a,n,{get:e[n],enumerable:!0})},o=(a,e,n,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let l of m(e))!f.call(a,l)&&l!==n&&s(a,l,{get:()=>e[l],enumerable:!(r=p(e,l))||r.enumerable});return a};var b=(a,e,n)=>(n=a!=null?u(g(a)):{},o(e||!a||!a.__esModule?s(n,\"default\",{value:a,enumerable:!0}):n,a)),v=a=>o(s({},\"__esModule\",{value:!0}),a);var d=w((k,i)=>{i.exports=_jsx_runtime});var M={};x(M,{default:()=>c,frontmatter:()=>N});var t=b(d()),N={title:\"Introducing Multi-part Posts with Nested Routing\",date:\"2021-05-02\",tags:[\"multi-author\",\"next-js\",\"feature\"],draft:!1,summary:\"The blog template supports posts in nested sub-folders. This can be used to group posts of similar content e.g. a multi-part course. This post is itself an example of a nested route!\"};function h(a){let e={a:\"a\",code:\"code\",h1:\"h1\",h2:\"h2\",li:\"li\",p:\"p\",path:\"path\",span:\"span\",svg:\"svg\",ul:\"ul\",...a.components};return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)(e.h1,{className:\"content-header\",id:\"nested-routes\",children:[(0,t.jsx)(e.a,{href:\"#nested-routes\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,t.jsx)(t.Fragment,{children:(0,t.jsx)(e.span,{className:\"content-header-link\",children:(0,t.jsxs)(e.svg,{className:\"h-5 linkicon w-5\",fill:\"currentColor\",viewBox:\"0 0 20 20\",xmlns:\"http://www.w3.org/2000/svg\",children:[(0,t.jsx)(e.path,{d:\"M12.232 4.232a2.5 2.5 0 0 1 3.536 3.536l-1.225 1.224a.75.75 0 0 0 1.061 1.06l1.224-1.224a4 4 0 0 0-5.656-5.656l-3 3a4 4 0 0 0 .225 5.865.75.75 0 0 0 .977-1.138 2.5 2.5 0 0 1-.142-3.667l3-3Z\"}),(0,t.jsx)(e.path,{d:\"M11.603 7.963a.75.75 0 0 0-.977 1.138 2.5 2.5 0 0 1 .142 3.667l-3 3a2.5 2.5 0 0 1-3.536-3.536l-1.225-1.224a.75.75 0 0 0-1.061-1.06l-1.224 1.224a4 4 0 1 0 5.656 5.656l3-3a4 4 0 0 0-.225-5.865Z\"})]})})})}),\"Nested Routes\"]}),(0,t.jsxs)(e.p,{children:[\"The blog template supports posts in nested sub-folders. This helps in organisation and can be used to group posts of similar content e.g. a multi-part series. This post is itself an example of a nested route! It's located in the \",(0,t.jsx)(e.code,{children:\"/data/blog/nested-route\"}),\" folder.\"]}),(0,t.jsxs)(e.h2,{className:\"content-header\",id:\"how\",children:[(0,t.jsx)(e.a,{href:\"#how\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,t.jsx)(t.Fragment,{children:(0,t.jsx)(e.span,{className:\"content-header-link\",children:(0,t.jsxs)(e.svg,{className:\"h-5 linkicon w-5\",fill:\"currentColor\",viewBox:\"0 0 20 20\",xmlns:\"http://www.w3.org/2000/svg\",children:[(0,t.jsx)(e.path,{d:\"M12.232 4.232a2.5 2.5 0 0 1 3.536 3.536l-1.225 1.224a.75.75 0 0 0 1.061 1.06l1.224-1.224a4 4 0 0 0-5.656-5.656l-3 3a4 4 0 0 0 .225 5.865.75.75 0 0 0 .977-1.138 2.5 2.5 0 0 1-.142-3.667l3-3Z\"}),(0,t.jsx)(e.path,{d:\"M11.603 7.963a.75.75 0 0 0-.977 1.138 2.5 2.5 0 0 1 .142 3.667l-3 3a2.5 2.5 0 0 1-3.536-3.536l-1.225-1.224a.75.75 0 0 0-1.061-1.06l-1.224 1.224a4 4 0 1 0 5.656 5.656l3-3a4 4 0 0 0-.225-5.865Z\"})]})})})}),\"How\"]}),(0,t.jsxs)(e.p,{children:[\"Simplify create multiple folders inside the main \",(0,t.jsx)(e.code,{children:\"/data/blog\"}),\" folder and add your \",(0,t.jsx)(e.code,{children:\".md\"}),\"/\",(0,t.jsx)(e.code,{children:\".mdx\"}),\" files to them. You can even create something like \",(0,t.jsx)(e.code,{children:\"/data/blog/nested-route/deeply-nested-route/my-post.md\"})]}),(0,t.jsx)(e.p,{children:\"We use Next.js catch all routes to handle the routing and path creations.\"}),(0,t.jsxs)(e.h2,{className:\"content-header\",id:\"use-cases\",children:[(0,t.jsx)(e.a,{href:\"#use-cases\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,t.jsx)(t.Fragment,{children:(0,t.jsx)(e.span,{className:\"content-header-link\",children:(0,t.jsxs)(e.svg,{className:\"h-5 linkicon w-5\",fill:\"currentColor\",viewBox:\"0 0 20 20\",xmlns:\"http://www.w3.org/2000/svg\",children:[(0,t.jsx)(e.path,{d:\"M12.232 4.232a2.5 2.5 0 0 1 3.536 3.536l-1.225 1.224a.75.75 0 0 0 1.061 1.06l1.224-1.224a4 4 0 0 0-5.656-5.656l-3 3a4 4 0 0 0 .225 5.865.75.75 0 0 0 .977-1.138 2.5 2.5 0 0 1-.142-3.667l3-3Z\"}),(0,t.jsx)(e.path,{d:\"M11.603 7.963a.75.75 0 0 0-.977 1.138 2.5 2.5 0 0 1 .142 3.667l-3 3a2.5 2.5 0 0 1-3.536-3.536l-1.225-1.224a.75.75 0 0 0-1.061-1.06l-1.224 1.224a4 4 0 1 0 5.656 5.656l3-3a4 4 0 0 0-.225-5.865Z\"})]})})})}),\"Use Cases\"]}),(0,t.jsx)(e.p,{children:\"Here are some reasons to use nested routes\"}),(0,t.jsxs)(e.ul,{children:[(0,t.jsx)(e.li,{children:\"More logical content organisation (blogs will still be displayed based on the created date)\"}),(0,t.jsx)(e.li,{children:\"Multi-part posts\"}),(0,t.jsx)(e.li,{children:\"Different sub-routes for each author\"}),(0,t.jsxs)(e.li,{children:[\"Internationalization (though it would be recommended to use \",(0,t.jsx)(e.a,{href:\"https://nextjs.org/docs/advanced-features/i18n-routing\",children:\"Next.js built-in i8n routing\"}),\")\"]})]}),(0,t.jsxs)(e.h2,{className:\"content-header\",id:\"note\",children:[(0,t.jsx)(e.a,{href:\"#note\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,t.jsx)(t.Fragment,{children:(0,t.jsx)(e.span,{className:\"content-header-link\",children:(0,t.jsxs)(e.svg,{className:\"h-5 linkicon w-5\",fill:\"currentColor\",viewBox:\"0 0 20 20\",xmlns:\"http://www.w3.org/2000/svg\",children:[(0,t.jsx)(e.path,{d:\"M12.232 4.232a2.5 2.5 0 0 1 3.536 3.536l-1.225 1.224a.75.75 0 0 0 1.061 1.06l1.224-1.224a4 4 0 0 0-5.656-5.656l-3 3a4 4 0 0 0 .225 5.865.75.75 0 0 0 .977-1.138 2.5 2.5 0 0 1-.142-3.667l3-3Z\"}),(0,t.jsx)(e.path,{d:\"M11.603 7.963a.75.75 0 0 0-.977 1.138 2.5 2.5 0 0 1 .142 3.667l-3 3a2.5 2.5 0 0 1-3.536-3.536l-1.225-1.224a.75.75 0 0 0-1.061-1.06l-1.224 1.224a4 4 0 1 0 5.656 5.656l3-3a4 4 0 0 0-.225-5.865Z\"})]})})})}),\"Note\"]}),(0,t.jsx)(e.ul,{children:(0,t.jsx)(e.li,{children:\"The previous/next post links at bottom of the template are currently sorted by date. One could explore modifying the template to refer the reader to the previous/next post in the series, rather than by date.\"})})]})}function c(a={}){let{wrapper:e}=a.components||{};return e?(0,t.jsx)(e,{...a,children:(0,t.jsx)(h,{...a})}):h(a)}return v(M);})();\n;return Component;"
+        },
+        "_id": "blog/nested-route/introducing-multi-part-posts-with-nested-routing.mdx",
+        "_raw": {
+          "sourceFilePath": "blog/nested-route/introducing-multi-part-posts-with-nested-routing.mdx",
+          "sourceFileName": "introducing-multi-part-posts-with-nested-routing.mdx",
+          "sourceFileDir": "blog/nested-route",
+          "contentType": "mdx",
+          "flattenedPath": "blog/nested-route/introducing-multi-part-posts-with-nested-routing"
+        },
+        "type": "Blog",
+        "readingTime": {
+          "text": "1 min read",
+          "minutes": 0.845,
+          "time": 50700,
+          "words": 169
+        },
+        "slug": "nested-route/introducing-multi-part-posts-with-nested-routing",
+        "path": "blog/nested-route/introducing-multi-part-posts-with-nested-routing",
+        "filePath": "blog/nested-route/introducing-multi-part-posts-with-nested-routing.mdx",
+        "toc": [
+          {
+            "value": "Nested Routes",
+            "url": "#nested-routes",
+            "depth": 1
+          },
+          {
+            "value": "How",
+            "url": "#how",
+            "depth": 2
+          },
+          {
+            "value": "Use Cases",
+            "url": "#use-cases",
+            "depth": 2
+          },
+          {
+            "value": "Note",
+            "url": "#note",
+            "depth": 2
+          }
+        ],
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Introducing Multi-part Posts with Nested Routing",
+          "datePublished": "2021-05-02T00:00:00.000Z",
+          "dateModified": "2021-05-02T00:00:00.000Z",
+          "description": "The blog template supports posts in nested sub-folders. This can be used to group posts of similar content e.g. a multi-part course. This post is itself an example of a nested route!",
+          "image": "/static/images/twitter-card.png",
+          "url": "https://tailwind-nextjs-starter-blog.vercel.app/blog/nested-route/introducing-multi-part-posts-with-nested-routing"
+        }
+      },
+      "documentHash": "1755118879398",
+      "hasWarnings": false,
+      "documentTypeName": "Blog"
+    },
+    "blog/notion/aasdfasdf.mdx": {
+      "document": {
+        "title": "blog post 2",
+        "date": "2025-05-14T00:00:00.000Z",
+        "tags": [],
+        "draft": false,
+        "summary": "",
+        "cover": "",
+        "authors": [],
+        "layout": "PostLayout",
+        "body": {
+          "raw": "\nal;sdkfja;sldkfja;lsdkfal;skdfj;dalskfjd;sald",
+          "code": "var Component=(()=>{var m=Object.create;var a=Object.defineProperty;var i=Object.getOwnPropertyDescriptor;var j=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var k=(t,o)=>()=>(o||t((o={exports:{}}).exports,o),o.exports),_=(t,o)=>{for(var n in o)a(t,n,{get:o[n],enumerable:!0})},d=(t,o,n,r)=>{if(o&&typeof o==\"object\"||typeof o==\"function\")for(let e of j(o))!x.call(t,e)&&e!==n&&a(t,e,{get:()=>o[e],enumerable:!(r=i(o,e))||r.enumerable});return t};var y=(t,o,n)=>(n=t!=null?m(p(t)):{},d(o||!t||!t.__esModule?a(n,\"default\",{value:t,enumerable:!0}):n,t)),h=t=>d(a({},\"__esModule\",{value:!0}),t);var c=k((D,l)=>{l.exports=_jsx_runtime});var g={};_(g,{default:()=>u,frontmatter:()=>M});var s=y(c()),M={title:\"blog post 2\",date:\"2025-05-14\",tags:[],draft:!1,summary:\"\",layout:\"PostLayout\",authors:[],cover:\"\"};function f(t){let o={p:\"p\",...t.components};return(0,s.jsx)(o.p,{children:\"al;sdkfja;sldkfja;lsdkfal;skdfj;dalskfjd;sald\"})}function u(t={}){let{wrapper:o}=t.components||{};return o?(0,s.jsx)(o,{...t,children:(0,s.jsx)(f,{...t})}):f(t)}return h(g);})();\n;return Component;"
+        },
+        "_id": "blog/notion/aasdfasdf.mdx",
+        "_raw": {
+          "sourceFilePath": "blog/notion/aasdfasdf.mdx",
+          "sourceFileName": "aasdfasdf.mdx",
+          "sourceFileDir": "blog/notion",
+          "contentType": "mdx",
+          "flattenedPath": "blog/notion/aasdfasdf"
+        },
+        "type": "Blog",
+        "readingTime": {
+          "text": "1 min read",
+          "minutes": 0.005,
+          "time": 300,
+          "words": 1
+        },
+        "slug": "notion/aasdfasdf",
+        "path": "blog/notion/aasdfasdf",
+        "filePath": "blog/notion/aasdfasdf.mdx",
+        "toc": [],
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "blog post 2",
+          "datePublished": "2025-05-14T00:00:00.000Z",
+          "dateModified": "2025-05-14T00:00:00.000Z",
+          "description": "",
+          "image": "/static/images/twitter-card.png",
+          "url": "https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/aasdfasdf"
+        }
+      },
+      "documentHash": "1755118879398",
+      "hasWarnings": false,
+      "documentTypeName": "Blog"
+    },
+    "blog/notion/asdfasdf.mdx": {
+      "document": {
+        "title": "blog-plan",
+        "date": "2025-05-01T00:00:00.000Z",
+        "tags": [],
+        "draft": false,
+        "summary": "",
+        "cover": "https://www.notion.so/images/page-cover/rijksmuseum_claesz_1628.jpg",
+        "authors": [],
+        "layout": "PostLayout",
+        "body": {
+          "raw": "\n![Image](https://prod-files-secure.s3.us-west-2.amazonaws.com/5956c749-d457-4730-a1d5-34ca41ebc0fa/0963b520-2cd4-42b1-a550-d1047e01ab06/PNG_image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466T2WA4YLB%2F20250603%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250603T015025Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDIaCXVzLXdlc3QtMiJIMEYCIQDj4CWfVgGv5FCCRrVmFnLnm8MntKhrjPVi3I6Noc317wIhALodAbSM2fTDd0%2BRDx22iNQeaLMFFHlonI7akeXNR6JdKogECPv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1IgwQ3uZTuvhBDlIQnFcq3ANH8zdsk9BFgfIiZt%2FgFrjakTVfbMDxtM8aq8U%2F3FTmEmb%2Bpz2Cbud%2BVtH2NcF0MoSgrra4aVx%2FnVzsfEj6iDN8%2FsEEBAqMEbxfd5BGBYRMOJTLVNpG3je%2BzsQidVEymEwUkcJFcvz6ohV667%2BmBvQLXh4NpXrV3RRl7nx9ZQBGwXl4tg4%2FVmiyPp79IkiNUo%2FJs%2BfLCnuXH8gXdNSahzaTzU2DOYTihEj7YDdpszvmPtZA2ScZopEBqwPLds20k17NNOLkpmO%2FABxY8MS6MVf4Qt2ciPLAkph11kNOsFDJI8CuHP%2FSDhNrcE8Fpp%2FPLIJ0Uv6eUyAkB5AYZJlMDLrLHWeJhYqMasRpfKf6dMBSEZ%2Fr4S9OYNickMKRO8oZXNkWSZ0%2BFJ7mkNMQusbu1jWwxPh9SR%2BEGPINR5NO8ZrH0bY7YFFJ66RU6KwX9lO1QrlouKy8B1Ef9G2syEBvC8vb8uqpKYotui8d9bziD4vTEyRxmv2Mr2ndftREfA5HOhDXmZ%2BQ1swgiBpvhEl%2FeXb36xRsjMm9EszxpnrLQwrcob39O%2Bhs4o1KfqweDvsVgA%2FXMFB1m3WU5weEDZQgWCUfVzlSogg%2BPK2wPIrm0wXDDuZcHbk2Jir4RsmjNDC7qPnBBjqkAehIcZhqMDOi8YppqElXD6MiLDCYYjw7ckW2tLWGjdzrnxN%2BPlHpk3wv%2FLkigOTzWMnHRgi9TZ3ur9oRufckfrR2B1CKdjTyJtxTxyz5Y8%2FtYkxDiDzhZfMC5dosiZGCZM0%2FDhy00GXAFiBCDNAfebMtxDocoOhsHRVoIgNHVkW2qoP27WAjtOPKPfSiwTV8b9YMp3%2Fsg5VWv%2FOwawSYWoP%2BE4Bg&X-Amz-Signature=b27497c96649a66c93cbd2fb6f53613a1a2732ef540328531cfd7ea2a299ca40&X-Amz-SignedHeaders=host&x-id=GetObject)\n\n![Image](https://prod-files-secure.s3.us-west-2.amazonaws.com/5956c749-d457-4730-a1d5-34ca41ebc0fa/f6761926-7d40-4fda-bd46-bd64f7a6b75d/Screenshot_2025-05-03_at_9.39.50_PM.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466T2WA4YLB%2F20250603%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250603T015025Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDIaCXVzLXdlc3QtMiJIMEYCIQDj4CWfVgGv5FCCRrVmFnLnm8MntKhrjPVi3I6Noc317wIhALodAbSM2fTDd0%2BRDx22iNQeaLMFFHlonI7akeXNR6JdKogECPv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1IgwQ3uZTuvhBDlIQnFcq3ANH8zdsk9BFgfIiZt%2FgFrjakTVfbMDxtM8aq8U%2F3FTmEmb%2Bpz2Cbud%2BVtH2NcF0MoSgrra4aVx%2FnVzsfEj6iDN8%2FsEEBAqMEbxfd5BGBYRMOJTLVNpG3je%2BzsQidVEymEwUkcJFcvz6ohV667%2BmBvQLXh4NpXrV3RRl7nx9ZQBGwXl4tg4%2FVmiyPp79IkiNUo%2FJs%2BfLCnuXH8gXdNSahzaTzU2DOYTihEj7YDdpszvmPtZA2ScZopEBqwPLds20k17NNOLkpmO%2FABxY8MS6MVf4Qt2ciPLAkph11kNOsFDJI8CuHP%2FSDhNrcE8Fpp%2FPLIJ0Uv6eUyAkB5AYZJlMDLrLHWeJhYqMasRpfKf6dMBSEZ%2Fr4S9OYNickMKRO8oZXNkWSZ0%2BFJ7mkNMQusbu1jWwxPh9SR%2BEGPINR5NO8ZrH0bY7YFFJ66RU6KwX9lO1QrlouKy8B1Ef9G2syEBvC8vb8uqpKYotui8d9bziD4vTEyRxmv2Mr2ndftREfA5HOhDXmZ%2BQ1swgiBpvhEl%2FeXb36xRsjMm9EszxpnrLQwrcob39O%2Bhs4o1KfqweDvsVgA%2FXMFB1m3WU5weEDZQgWCUfVzlSogg%2BPK2wPIrm0wXDDuZcHbk2Jir4RsmjNDC7qPnBBjqkAehIcZhqMDOi8YppqElXD6MiLDCYYjw7ckW2tLWGjdzrnxN%2BPlHpk3wv%2FLkigOTzWMnHRgi9TZ3ur9oRufckfrR2B1CKdjTyJtxTxyz5Y8%2FtYkxDiDzhZfMC5dosiZGCZM0%2FDhy00GXAFiBCDNAfebMtxDocoOhsHRVoIgNHVkW2qoP27WAjtOPKPfSiwTV8b9YMp3%2Fsg5VWv%2FOwawSYWoP%2BE4Bg&X-Amz-Signature=852bcbee9eb958cb862b46c4d6febea3755221ab92cce07b0a0b7e66444c31c3&X-Amz-SignedHeaders=host&x-id=GetObject)\n\n![Image](https://prod-files-secure.s3.us-west-2.amazonaws.com/5956c749-d457-4730-a1d5-34ca41ebc0fa/21c615e7-e071-4ae4-800d-1ae95f1f75eb/Screenshot_2025-05-09_at_10.18.15_PM.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466T2WA4YLB%2F20250603%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250603T015025Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDIaCXVzLXdlc3QtMiJIMEYCIQDj4CWfVgGv5FCCRrVmFnLnm8MntKhrjPVi3I6Noc317wIhALodAbSM2fTDd0%2BRDx22iNQeaLMFFHlonI7akeXNR6JdKogECPv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1IgwQ3uZTuvhBDlIQnFcq3ANH8zdsk9BFgfIiZt%2FgFrjakTVfbMDxtM8aq8U%2F3FTmEmb%2Bpz2Cbud%2BVtH2NcF0MoSgrra4aVx%2FnVzsfEj6iDN8%2FsEEBAqMEbxfd5BGBYRMOJTLVNpG3je%2BzsQidVEymEwUkcJFcvz6ohV667%2BmBvQLXh4NpXrV3RRl7nx9ZQBGwXl4tg4%2FVmiyPp79IkiNUo%2FJs%2BfLCnuXH8gXdNSahzaTzU2DOYTihEj7YDdpszvmPtZA2ScZopEBqwPLds20k17NNOLkpmO%2FABxY8MS6MVf4Qt2ciPLAkph11kNOsFDJI8CuHP%2FSDhNrcE8Fpp%2FPLIJ0Uv6eUyAkB5AYZJlMDLrLHWeJhYqMasRpfKf6dMBSEZ%2Fr4S9OYNickMKRO8oZXNkWSZ0%2BFJ7mkNMQusbu1jWwxPh9SR%2BEGPINR5NO8ZrH0bY7YFFJ66RU6KwX9lO1QrlouKy8B1Ef9G2syEBvC8vb8uqpKYotui8d9bziD4vTEyRxmv2Mr2ndftREfA5HOhDXmZ%2BQ1swgiBpvhEl%2FeXb36xRsjMm9EszxpnrLQwrcob39O%2Bhs4o1KfqweDvsVgA%2FXMFB1m3WU5weEDZQgWCUfVzlSogg%2BPK2wPIrm0wXDDuZcHbk2Jir4RsmjNDC7qPnBBjqkAehIcZhqMDOi8YppqElXD6MiLDCYYjw7ckW2tLWGjdzrnxN%2BPlHpk3wv%2FLkigOTzWMnHRgi9TZ3ur9oRufckfrR2B1CKdjTyJtxTxyz5Y8%2FtYkxDiDzhZfMC5dosiZGCZM0%2FDhy00GXAFiBCDNAfebMtxDocoOhsHRVoIgNHVkW2qoP27WAjtOPKPfSiwTV8b9YMp3%2Fsg5VWv%2FOwawSYWoP%2BE4Bg&X-Amz-Signature=d46ca7ce7b2b6db99513b56e5d245a61199c26223a84f5ac1e0cb3ce6e17197b&X-Amz-SignedHeaders=host&x-id=GetObject)",
+          "code": "var Component=(()=>{var D=Object.create;var o=Object.defineProperty;var M=Object.getOwnPropertyDescriptor;var n=Object.getOwnPropertyNames;var d=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(F,e)=>()=>(e||F((e={exports:{}}).exports,e),e.exports),z=(F,e)=>{for(var s in e)o(F,s,{get:e[s],enumerable:!0})},i=(F,e,s,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of n(e))!g.call(F,a)&&a!==s&&o(F,a,{get:()=>e[a],enumerable:!(r=M(e,a))||r.enumerable});return F};var N=(F,e,s)=>(s=F!=null?D(d(F)):{},i(e||!F||!F.__esModule?o(s,\"default\",{value:F,enumerable:!0}):s,F)),p=F=>i(o({},\"__esModule\",{value:!0}),F);var B=f((X,c)=>{c.exports=_jsx_runtime});var h={};z(h,{default:()=>A,frontmatter:()=>E});var t=N(B()),E={title:\"blog-plan\",date:\"2025-05-01\",tags:[],draft:!1,summary:\"\",layout:\"PostLayout\",authors:[],cover:\"https://www.notion.so/images/page-cover/rijksmuseum_claesz_1628.jpg\"};function m(F){let e={img:\"img\",p:\"p\",...F.components};return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.p,{children:(0,t.jsx)(e.img,{alt:\"Image\",src:\"https://prod-files-secure.s3.us-west-2.amazonaws.com/5956c749-d457-4730-a1d5-34ca41ebc0fa/0963b520-2cd4-42b1-a550-d1047e01ab06/PNG_image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466T2WA4YLB%2F20250603%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250603T015025Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDIaCXVzLXdlc3QtMiJIMEYCIQDj4CWfVgGv5FCCRrVmFnLnm8MntKhrjPVi3I6Noc317wIhALodAbSM2fTDd0%2BRDx22iNQeaLMFFHlonI7akeXNR6JdKogECPv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1IgwQ3uZTuvhBDlIQnFcq3ANH8zdsk9BFgfIiZt%2FgFrjakTVfbMDxtM8aq8U%2F3FTmEmb%2Bpz2Cbud%2BVtH2NcF0MoSgrra4aVx%2FnVzsfEj6iDN8%2FsEEBAqMEbxfd5BGBYRMOJTLVNpG3je%2BzsQidVEymEwUkcJFcvz6ohV667%2BmBvQLXh4NpXrV3RRl7nx9ZQBGwXl4tg4%2FVmiyPp79IkiNUo%2FJs%2BfLCnuXH8gXdNSahzaTzU2DOYTihEj7YDdpszvmPtZA2ScZopEBqwPLds20k17NNOLkpmO%2FABxY8MS6MVf4Qt2ciPLAkph11kNOsFDJI8CuHP%2FSDhNrcE8Fpp%2FPLIJ0Uv6eUyAkB5AYZJlMDLrLHWeJhYqMasRpfKf6dMBSEZ%2Fr4S9OYNickMKRO8oZXNkWSZ0%2BFJ7mkNMQusbu1jWwxPh9SR%2BEGPINR5NO8ZrH0bY7YFFJ66RU6KwX9lO1QrlouKy8B1Ef9G2syEBvC8vb8uqpKYotui8d9bziD4vTEyRxmv2Mr2ndftREfA5HOhDXmZ%2BQ1swgiBpvhEl%2FeXb36xRsjMm9EszxpnrLQwrcob39O%2Bhs4o1KfqweDvsVgA%2FXMFB1m3WU5weEDZQgWCUfVzlSogg%2BPK2wPIrm0wXDDuZcHbk2Jir4RsmjNDC7qPnBBjqkAehIcZhqMDOi8YppqElXD6MiLDCYYjw7ckW2tLWGjdzrnxN%2BPlHpk3wv%2FLkigOTzWMnHRgi9TZ3ur9oRufckfrR2B1CKdjTyJtxTxyz5Y8%2FtYkxDiDzhZfMC5dosiZGCZM0%2FDhy00GXAFiBCDNAfebMtxDocoOhsHRVoIgNHVkW2qoP27WAjtOPKPfSiwTV8b9YMp3%2Fsg5VWv%2FOwawSYWoP%2BE4Bg&X-Amz-Signature=b27497c96649a66c93cbd2fb6f53613a1a2732ef540328531cfd7ea2a299ca40&X-Amz-SignedHeaders=host&x-id=GetObject\"})}),(0,t.jsx)(e.p,{children:(0,t.jsx)(e.img,{alt:\"Image\",src:\"https://prod-files-secure.s3.us-west-2.amazonaws.com/5956c749-d457-4730-a1d5-34ca41ebc0fa/f6761926-7d40-4fda-bd46-bd64f7a6b75d/Screenshot_2025-05-03_at_9.39.50_PM.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466T2WA4YLB%2F20250603%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250603T015025Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDIaCXVzLXdlc3QtMiJIMEYCIQDj4CWfVgGv5FCCRrVmFnLnm8MntKhrjPVi3I6Noc317wIhALodAbSM2fTDd0%2BRDx22iNQeaLMFFHlonI7akeXNR6JdKogECPv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1IgwQ3uZTuvhBDlIQnFcq3ANH8zdsk9BFgfIiZt%2FgFrjakTVfbMDxtM8aq8U%2F3FTmEmb%2Bpz2Cbud%2BVtH2NcF0MoSgrra4aVx%2FnVzsfEj6iDN8%2FsEEBAqMEbxfd5BGBYRMOJTLVNpG3je%2BzsQidVEymEwUkcJFcvz6ohV667%2BmBvQLXh4NpXrV3RRl7nx9ZQBGwXl4tg4%2FVmiyPp79IkiNUo%2FJs%2BfLCnuXH8gXdNSahzaTzU2DOYTihEj7YDdpszvmPtZA2ScZopEBqwPLds20k17NNOLkpmO%2FABxY8MS6MVf4Qt2ciPLAkph11kNOsFDJI8CuHP%2FSDhNrcE8Fpp%2FPLIJ0Uv6eUyAkB5AYZJlMDLrLHWeJhYqMasRpfKf6dMBSEZ%2Fr4S9OYNickMKRO8oZXNkWSZ0%2BFJ7mkNMQusbu1jWwxPh9SR%2BEGPINR5NO8ZrH0bY7YFFJ66RU6KwX9lO1QrlouKy8B1Ef9G2syEBvC8vb8uqpKYotui8d9bziD4vTEyRxmv2Mr2ndftREfA5HOhDXmZ%2BQ1swgiBpvhEl%2FeXb36xRsjMm9EszxpnrLQwrcob39O%2Bhs4o1KfqweDvsVgA%2FXMFB1m3WU5weEDZQgWCUfVzlSogg%2BPK2wPIrm0wXDDuZcHbk2Jir4RsmjNDC7qPnBBjqkAehIcZhqMDOi8YppqElXD6MiLDCYYjw7ckW2tLWGjdzrnxN%2BPlHpk3wv%2FLkigOTzWMnHRgi9TZ3ur9oRufckfrR2B1CKdjTyJtxTxyz5Y8%2FtYkxDiDzhZfMC5dosiZGCZM0%2FDhy00GXAFiBCDNAfebMtxDocoOhsHRVoIgNHVkW2qoP27WAjtOPKPfSiwTV8b9YMp3%2Fsg5VWv%2FOwawSYWoP%2BE4Bg&X-Amz-Signature=852bcbee9eb958cb862b46c4d6febea3755221ab92cce07b0a0b7e66444c31c3&X-Amz-SignedHeaders=host&x-id=GetObject\"})}),(0,t.jsx)(e.p,{children:(0,t.jsx)(e.img,{alt:\"Image\",src:\"https://prod-files-secure.s3.us-west-2.amazonaws.com/5956c749-d457-4730-a1d5-34ca41ebc0fa/21c615e7-e071-4ae4-800d-1ae95f1f75eb/Screenshot_2025-05-09_at_10.18.15_PM.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466T2WA4YLB%2F20250603%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250603T015025Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDIaCXVzLXdlc3QtMiJIMEYCIQDj4CWfVgGv5FCCRrVmFnLnm8MntKhrjPVi3I6Noc317wIhALodAbSM2fTDd0%2BRDx22iNQeaLMFFHlonI7akeXNR6JdKogECPv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMNjM3NDIzMTgzODA1IgwQ3uZTuvhBDlIQnFcq3ANH8zdsk9BFgfIiZt%2FgFrjakTVfbMDxtM8aq8U%2F3FTmEmb%2Bpz2Cbud%2BVtH2NcF0MoSgrra4aVx%2FnVzsfEj6iDN8%2FsEEBAqMEbxfd5BGBYRMOJTLVNpG3je%2BzsQidVEymEwUkcJFcvz6ohV667%2BmBvQLXh4NpXrV3RRl7nx9ZQBGwXl4tg4%2FVmiyPp79IkiNUo%2FJs%2BfLCnuXH8gXdNSahzaTzU2DOYTihEj7YDdpszvmPtZA2ScZopEBqwPLds20k17NNOLkpmO%2FABxY8MS6MVf4Qt2ciPLAkph11kNOsFDJI8CuHP%2FSDhNrcE8Fpp%2FPLIJ0Uv6eUyAkB5AYZJlMDLrLHWeJhYqMasRpfKf6dMBSEZ%2Fr4S9OYNickMKRO8oZXNkWSZ0%2BFJ7mkNMQusbu1jWwxPh9SR%2BEGPINR5NO8ZrH0bY7YFFJ66RU6KwX9lO1QrlouKy8B1Ef9G2syEBvC8vb8uqpKYotui8d9bziD4vTEyRxmv2Mr2ndftREfA5HOhDXmZ%2BQ1swgiBpvhEl%2FeXb36xRsjMm9EszxpnrLQwrcob39O%2Bhs4o1KfqweDvsVgA%2FXMFB1m3WU5weEDZQgWCUfVzlSogg%2BPK2wPIrm0wXDDuZcHbk2Jir4RsmjNDC7qPnBBjqkAehIcZhqMDOi8YppqElXD6MiLDCYYjw7ckW2tLWGjdzrnxN%2BPlHpk3wv%2FLkigOTzWMnHRgi9TZ3ur9oRufckfrR2B1CKdjTyJtxTxyz5Y8%2FtYkxDiDzhZfMC5dosiZGCZM0%2FDhy00GXAFiBCDNAfebMtxDocoOhsHRVoIgNHVkW2qoP27WAjtOPKPfSiwTV8b9YMp3%2Fsg5VWv%2FOwawSYWoP%2BE4Bg&X-Amz-Signature=d46ca7ce7b2b6db99513b56e5d245a61199c26223a84f5ac1e0cb3ce6e17197b&X-Amz-SignedHeaders=host&x-id=GetObject\"})})]})}function A(F={}){let{wrapper:e}=F.components||{};return e?(0,t.jsx)(e,{...F,children:(0,t.jsx)(m,{...F})}):m(F)}return p(h);})();\n;return Component;"
+        },
+        "_id": "blog/notion/asdfasdf.mdx",
+        "_raw": {
+          "sourceFilePath": "blog/notion/asdfasdf.mdx",
+          "sourceFileName": "asdfasdf.mdx",
+          "sourceFileDir": "blog/notion",
+          "contentType": "mdx",
+          "flattenedPath": "blog/notion/asdfasdf"
+        },
+        "type": "Blog",
+        "readingTime": {
+          "text": "1 min read",
+          "minutes": 0.015,
+          "time": 900,
+          "words": 3
+        },
+        "slug": "notion/asdfasdf",
+        "path": "blog/notion/asdfasdf",
+        "filePath": "blog/notion/asdfasdf.mdx",
+        "toc": [],
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "blog-plan",
+          "datePublished": "2025-05-01T00:00:00.000Z",
+          "dateModified": "2025-05-01T00:00:00.000Z",
+          "description": "",
+          "image": "/static/images/twitter-card.png",
+          "url": "https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/asdfasdf"
+        }
+      },
+      "documentHash": "1755118879398",
+      "hasWarnings": false,
+      "documentTypeName": "Blog"
+    },
+    "blog/notion/notion-1ef36850-c0a3-8016-aad6-ec96ed64fa0a.mdx": {
+      "document": {
+        "title": "Basil Garden: Hydroponics System SP201",
+        "date": "2025-05-09T00:00:00.000Z",
+        "tags": [],
+        "draft": false,
+        "summary": "",
+        "cover": "https://www.notion.so/images/page-cover/gradients_10.jpg",
+        "authors": [],
+        "layout": "PostLayout",
+        "body": {
+          "raw": "\nBasil Garden Hydroponics System SP201\n\n![Image](https://prod-files-secure.s3.us-west-2.amazonaws.com/5956c749-d457-4730-a1d5-34ca41ebc0fa/14b80524-8030-41d6-9c26-501e446b0eb5/Screenshot_2025-04-20_at_10.22.46_PM.heic?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466SBC3TGO6%2F20250603%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250603T015033Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDIaCXVzLXdlc3QtMiJHMEUCIQCbMbdWy%2Bpf9jvCi4oJZPPrQJKi1QqqcksgXoRSiFZ3iAIgCBPrkFPKN59bFsmKhqFTCJFnmwZlFb8cTXqJTiqL6BQqiAQI%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDN8H7WM8EQOJxk1oxCrcA2U3ivpIUp8zF8NpMsubMtyXAy6wiARDKV%2B86Z%2FQUBa5IE2ySAVcuJwJ%2B8Gy6%2BqJZMpE9pHtjtfbJS9OUJNjKoPmog0%2BFNGW6RPT%2FV9mFDLpXkHm1hUIjG25Q621eyJUj984wyKmdMnDxkJBtvKxzAJwC5p0gQUboLbUA%2B2KT6oPTz8XJ2h%2B040WvZjCxEzyRpaHoOgr43LIVe2pfc13RKBU4i1hQMAdADEiMPy9d6GxBxQpwg7AFA%2FHEIYSqlKtIJNpPnUMlj%2BCr16fQl8ysJJOJlfsNgsAxP8g4Wvwtq93reY%2FedB%2B3YVowCmXaVOt379XgnJeIZdKQiTIB54g%2BkEsAzM5tgnycqPzBnp9mgnHdWLQXvOEllThEhTr%2ByqOVCX6h%2FtYqqhHDY3u1PgO%2FOVQgrmXBZpEk%2Bf1sgqRFH5n0BfYKIhOPEIuyas6BmPybzmqOp6YuTVJJEH%2BRGpHnH%2BJcrF1rWz2ni4pXB444%2BPIwFCJrMoqelrpFF720QuV3AItJ8Cr%2FnMKRVRe1%2BjtvSOLsJ3wjPh0sLUbBE7d5vE3Sp4b73m9tprR0r4JCAuPTElbHpHLMfLww%2B%2BK9gzp9odSIXYVwkUhksHo5NGDQeMAS%2FYOKvqfUSsknzv5MMeo%2BcEGOqUBRs%2FHkZlOSLjoQvTHgo5XhHC4yKKNB9MXQPcCSnu%2FEYhnOayJ3o2d%2FUMQ%2BtxRXf9rvRe1gK8HAKTjWNIcDgMVScomrW7NIyJWKLmJWCH6OnJCbwKI4aYlENyGg93CZ9mtCiqkntsb2kki9fH8hP3jfHZgdF37APwpbAfpIN89VRWdcKCitYHfYZA3hk0c6BZjqxLGbwHTX5RnvGm0uHCbFVQ6myfX&X-Amz-Signature=9dc0f804d2b1d94f1eaf0f1422b1a0e1f9ab1a8c941cf5fa086e6b2657a562d0&X-Amz-SignedHeaders=host&x-id=GetObject)\n\n![Image](https://prod-files-secure.s3.us-west-2.amazonaws.com/5956c749-d457-4730-a1d5-34ca41ebc0fa/2075ae1d-3d57-4d1a-9340-19a91ec030ab/F09EEF88-A800-4C17-95E2-E58FBD69AE2B_1_102_o.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466SBC3TGO6%2F20250603%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250603T015033Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDIaCXVzLXdlc3QtMiJHMEUCIQCbMbdWy%2Bpf9jvCi4oJZPPrQJKi1QqqcksgXoRSiFZ3iAIgCBPrkFPKN59bFsmKhqFTCJFnmwZlFb8cTXqJTiqL6BQqiAQI%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDN8H7WM8EQOJxk1oxCrcA2U3ivpIUp8zF8NpMsubMtyXAy6wiARDKV%2B86Z%2FQUBa5IE2ySAVcuJwJ%2B8Gy6%2BqJZMpE9pHtjtfbJS9OUJNjKoPmog0%2BFNGW6RPT%2FV9mFDLpXkHm1hUIjG25Q621eyJUj984wyKmdMnDxkJBtvKxzAJwC5p0gQUboLbUA%2B2KT6oPTz8XJ2h%2B040WvZjCxEzyRpaHoOgr43LIVe2pfc13RKBU4i1hQMAdADEiMPy9d6GxBxQpwg7AFA%2FHEIYSqlKtIJNpPnUMlj%2BCr16fQl8ysJJOJlfsNgsAxP8g4Wvwtq93reY%2FedB%2B3YVowCmXaVOt379XgnJeIZdKQiTIB54g%2BkEsAzM5tgnycqPzBnp9mgnHdWLQXvOEllThEhTr%2ByqOVCX6h%2FtYqqhHDY3u1PgO%2FOVQgrmXBZpEk%2Bf1sgqRFH5n0BfYKIhOPEIuyas6BmPybzmqOp6YuTVJJEH%2BRGpHnH%2BJcrF1rWz2ni4pXB444%2BPIwFCJrMoqelrpFF720QuV3AItJ8Cr%2FnMKRVRe1%2BjtvSOLsJ3wjPh0sLUbBE7d5vE3Sp4b73m9tprR0r4JCAuPTElbHpHLMfLww%2B%2BK9gzp9odSIXYVwkUhksHo5NGDQeMAS%2FYOKvqfUSsknzv5MMeo%2BcEGOqUBRs%2FHkZlOSLjoQvTHgo5XhHC4yKKNB9MXQPcCSnu%2FEYhnOayJ3o2d%2FUMQ%2BtxRXf9rvRe1gK8HAKTjWNIcDgMVScomrW7NIyJWKLmJWCH6OnJCbwKI4aYlENyGg93CZ9mtCiqkntsb2kki9fH8hP3jfHZgdF37APwpbAfpIN89VRWdcKCitYHfYZA3hk0c6BZjqxLGbwHTX5RnvGm0uHCbFVQ6myfX&X-Amz-Signature=d04362dda5be2018bf1fa842d714a7ba15f77735795053911ce5cdd6aff498ce&X-Amz-SignedHeaders=host&x-id=GetObject)",
+          "code": "var Component=(()=>{var i=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var J=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var H=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),M=(t,e)=>{for(var F in e)r(t,F,{get:e[F],enumerable:!0})},a=(t,e,F,B)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let n of d(e))!g.call(t,n)&&n!==F&&r(t,n,{get:()=>e[n],enumerable:!(B=p(e,n))||B.enumerable});return t};var X=(t,e,F)=>(F=t!=null?i(J(t)):{},a(e||!t||!t.__esModule?r(F,\"default\",{value:t,enumerable:!0}):F,t)),C=t=>a(r({},\"__esModule\",{value:!0}),t);var A=H((E,o)=>{o.exports=_jsx_runtime});var I={};M(I,{default:()=>c,frontmatter:()=>f});var s=X(A()),f={title:\"Basil Garden: Hydroponics System SP201\",date:\"2025-05-09\",tags:[],draft:!1,summary:\"\",layout:\"PostLayout\",authors:[],cover:\"https://www.notion.so/images/page-cover/gradients_10.jpg\"};function m(t){let e={img:\"img\",p:\"p\",...t.components};return(0,s.jsxs)(s.Fragment,{children:[(0,s.jsx)(e.p,{children:\"Basil Garden Hydroponics System SP201\"}),(0,s.jsx)(e.p,{children:(0,s.jsx)(e.img,{alt:\"Image\",src:\"https://prod-files-secure.s3.us-west-2.amazonaws.com/5956c749-d457-4730-a1d5-34ca41ebc0fa/14b80524-8030-41d6-9c26-501e446b0eb5/Screenshot_2025-04-20_at_10.22.46_PM.heic?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466SBC3TGO6%2F20250603%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250603T015033Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDIaCXVzLXdlc3QtMiJHMEUCIQCbMbdWy%2Bpf9jvCi4oJZPPrQJKi1QqqcksgXoRSiFZ3iAIgCBPrkFPKN59bFsmKhqFTCJFnmwZlFb8cTXqJTiqL6BQqiAQI%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDN8H7WM8EQOJxk1oxCrcA2U3ivpIUp8zF8NpMsubMtyXAy6wiARDKV%2B86Z%2FQUBa5IE2ySAVcuJwJ%2B8Gy6%2BqJZMpE9pHtjtfbJS9OUJNjKoPmog0%2BFNGW6RPT%2FV9mFDLpXkHm1hUIjG25Q621eyJUj984wyKmdMnDxkJBtvKxzAJwC5p0gQUboLbUA%2B2KT6oPTz8XJ2h%2B040WvZjCxEzyRpaHoOgr43LIVe2pfc13RKBU4i1hQMAdADEiMPy9d6GxBxQpwg7AFA%2FHEIYSqlKtIJNpPnUMlj%2BCr16fQl8ysJJOJlfsNgsAxP8g4Wvwtq93reY%2FedB%2B3YVowCmXaVOt379XgnJeIZdKQiTIB54g%2BkEsAzM5tgnycqPzBnp9mgnHdWLQXvOEllThEhTr%2ByqOVCX6h%2FtYqqhHDY3u1PgO%2FOVQgrmXBZpEk%2Bf1sgqRFH5n0BfYKIhOPEIuyas6BmPybzmqOp6YuTVJJEH%2BRGpHnH%2BJcrF1rWz2ni4pXB444%2BPIwFCJrMoqelrpFF720QuV3AItJ8Cr%2FnMKRVRe1%2BjtvSOLsJ3wjPh0sLUbBE7d5vE3Sp4b73m9tprR0r4JCAuPTElbHpHLMfLww%2B%2BK9gzp9odSIXYVwkUhksHo5NGDQeMAS%2FYOKvqfUSsknzv5MMeo%2BcEGOqUBRs%2FHkZlOSLjoQvTHgo5XhHC4yKKNB9MXQPcCSnu%2FEYhnOayJ3o2d%2FUMQ%2BtxRXf9rvRe1gK8HAKTjWNIcDgMVScomrW7NIyJWKLmJWCH6OnJCbwKI4aYlENyGg93CZ9mtCiqkntsb2kki9fH8hP3jfHZgdF37APwpbAfpIN89VRWdcKCitYHfYZA3hk0c6BZjqxLGbwHTX5RnvGm0uHCbFVQ6myfX&X-Amz-Signature=9dc0f804d2b1d94f1eaf0f1422b1a0e1f9ab1a8c941cf5fa086e6b2657a562d0&X-Amz-SignedHeaders=host&x-id=GetObject\"})}),(0,s.jsx)(e.p,{children:(0,s.jsx)(e.img,{alt:\"Image\",src:\"https://prod-files-secure.s3.us-west-2.amazonaws.com/5956c749-d457-4730-a1d5-34ca41ebc0fa/2075ae1d-3d57-4d1a-9340-19a91ec030ab/F09EEF88-A800-4C17-95E2-E58FBD69AE2B_1_102_o.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466SBC3TGO6%2F20250603%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250603T015033Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDIaCXVzLXdlc3QtMiJHMEUCIQCbMbdWy%2Bpf9jvCi4oJZPPrQJKi1QqqcksgXoRSiFZ3iAIgCBPrkFPKN59bFsmKhqFTCJFnmwZlFb8cTXqJTiqL6BQqiAQI%2B%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw2Mzc0MjMxODM4MDUiDN8H7WM8EQOJxk1oxCrcA2U3ivpIUp8zF8NpMsubMtyXAy6wiARDKV%2B86Z%2FQUBa5IE2ySAVcuJwJ%2B8Gy6%2BqJZMpE9pHtjtfbJS9OUJNjKoPmog0%2BFNGW6RPT%2FV9mFDLpXkHm1hUIjG25Q621eyJUj984wyKmdMnDxkJBtvKxzAJwC5p0gQUboLbUA%2B2KT6oPTz8XJ2h%2B040WvZjCxEzyRpaHoOgr43LIVe2pfc13RKBU4i1hQMAdADEiMPy9d6GxBxQpwg7AFA%2FHEIYSqlKtIJNpPnUMlj%2BCr16fQl8ysJJOJlfsNgsAxP8g4Wvwtq93reY%2FedB%2B3YVowCmXaVOt379XgnJeIZdKQiTIB54g%2BkEsAzM5tgnycqPzBnp9mgnHdWLQXvOEllThEhTr%2ByqOVCX6h%2FtYqqhHDY3u1PgO%2FOVQgrmXBZpEk%2Bf1sgqRFH5n0BfYKIhOPEIuyas6BmPybzmqOp6YuTVJJEH%2BRGpHnH%2BJcrF1rWz2ni4pXB444%2BPIwFCJrMoqelrpFF720QuV3AItJ8Cr%2FnMKRVRe1%2BjtvSOLsJ3wjPh0sLUbBE7d5vE3Sp4b73m9tprR0r4JCAuPTElbHpHLMfLww%2B%2BK9gzp9odSIXYVwkUhksHo5NGDQeMAS%2FYOKvqfUSsknzv5MMeo%2BcEGOqUBRs%2FHkZlOSLjoQvTHgo5XhHC4yKKNB9MXQPcCSnu%2FEYhnOayJ3o2d%2FUMQ%2BtxRXf9rvRe1gK8HAKTjWNIcDgMVScomrW7NIyJWKLmJWCH6OnJCbwKI4aYlENyGg93CZ9mtCiqkntsb2kki9fH8hP3jfHZgdF37APwpbAfpIN89VRWdcKCitYHfYZA3hk0c6BZjqxLGbwHTX5RnvGm0uHCbFVQ6myfX&X-Amz-Signature=d04362dda5be2018bf1fa842d714a7ba15f77735795053911ce5cdd6aff498ce&X-Amz-SignedHeaders=host&x-id=GetObject\"})})]})}function c(t={}){let{wrapper:e}=t.components||{};return e?(0,s.jsx)(e,{...t,children:(0,s.jsx)(m,{...t})}):m(t)}return C(I);})();\n;return Component;"
+        },
+        "_id": "blog/notion/notion-1ef36850-c0a3-8016-aad6-ec96ed64fa0a.mdx",
+        "_raw": {
+          "sourceFilePath": "blog/notion/notion-1ef36850-c0a3-8016-aad6-ec96ed64fa0a.mdx",
+          "sourceFileName": "notion-1ef36850-c0a3-8016-aad6-ec96ed64fa0a.mdx",
+          "sourceFileDir": "blog/notion",
+          "contentType": "mdx",
+          "flattenedPath": "blog/notion/notion-1ef36850-c0a3-8016-aad6-ec96ed64fa0a"
+        },
+        "type": "Blog",
+        "readingTime": {
+          "text": "1 min read",
+          "minutes": 0.035,
+          "time": 2100,
+          "words": 7
+        },
+        "slug": "notion/notion-1ef36850-c0a3-8016-aad6-ec96ed64fa0a",
+        "path": "blog/notion/notion-1ef36850-c0a3-8016-aad6-ec96ed64fa0a",
+        "filePath": "blog/notion/notion-1ef36850-c0a3-8016-aad6-ec96ed64fa0a.mdx",
+        "toc": [],
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Basil Garden: Hydroponics System SP201",
+          "datePublished": "2025-05-09T00:00:00.000Z",
+          "dateModified": "2025-05-09T00:00:00.000Z",
+          "description": "",
+          "image": "/static/images/twitter-card.png",
+          "url": "https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-1ef36850-c0a3-8016-aad6-ec96ed64fa0a"
+        }
+      },
+      "documentHash": "1755118879398",
+      "hasWarnings": false,
+      "documentTypeName": "Blog"
+    },
+    "blog/notion/notion-1ef36850-c0a3-8044-8e50-e3a9faf78484.mdx": {
+      "document": {
+        "title": "Untitled",
+        "date": "1970-01-01T00:00:00.000Z",
+        "tags": [],
+        "draft": false,
+        "summary": "",
+        "cover": "",
+        "authors": [],
+        "layout": "PostLayout",
+        "body": {
+          "raw": "\n![Image](https://prod-files-secure.s3.us-west-2.amazonaws.com/5956c749-d457-4730-a1d5-34ca41ebc0fa/f8c9f00e-195e-43b5-9892-0068b25d2d70/PNG_image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466S2UO5Y2K%2F20250514%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250514T230914Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGcaCXVzLXdlc3QtMiJHMEUCIBtebkMbp8jr6lc5MS2POILSUfylsdCg3Mg7ixpAVhLZAiEAikqYIQLzdlgpahbGFgwHBt%2FuPnOgf1I8W4UrZGGPPnwq%2FwMIIBAAGgw2Mzc0MjMxODM4MDUiDM6Nj%2B19YXJgrulmbCrcA%2F%2FVZ1%2FEbGSkSXeUMmRmoDu8SJF2IviSSpg%2FoJ%2BALaKSX8Z1dPBc%2BJytnK49FiQz%2BrYejVCJFVeFCUXIsKLjbACJSdUmkwcUPxlKlq69anSQZXac23XuQ06tj0jj6P8%2F9KakhFYggDDIiFfA8qkMNdq%2BzqbDxDzQDY%2BgYjutA5etzNcDwAbKGBJnig%2F7XZeDjid2SpdOEslXwHmi5ZxG2IGYZQmnKEeMT0vWCl42BRlanTWi9nyshflnRWxqmI4gjGCF5KCsyZDRPO9jmz8hI7cjcDjW%2F29EwVi23pGW5UkWO5BpRKku3qnf5V06J7zSYLpw9iLepDxaGlgdaIOWVDQnxjWGx4JHeaBmmD19P7XmEmwoDrtvBqqPFozlhG14Lw2mo1qb1dOwYPo6poy8wJIZXeH3sMY79KASaxCjfQt0ukwBsDC7sHVssB1JNAul72FXzVZQp8NilSe7miO8Cy2Sk3jWQVJlHLmONO%2BMpYGrYVBKPoEgFQmjvueCjRBbeF8J3Ri%2BXQvrFcGojfnodOOJT3qlxScdUKK3LCrZtwf2lx6Bj886%2FhB06fCgFvmZkqnNyBOfcshPUO0MWZ1A7kMjpSf178m3ycFR5nCYwOjhnGLzAsRIEmggppCNMKW4lMEGOqUBC2fleDhnzPKgr1Cll26hloYJRMa%2BGYlf0jjxkN44xUfLEQ380DCRfYxO%2FW4hxj37LqR1qCSH%2FnpEmSotSbnqykkRrDlZkMvY1Daz6vr1Ab9neIRtOU7XfIAWxWRtmBCPOZIpOAjsIDQ%2FhxpSwntVfZhxxFIJtvQxCsJxkKFVpZ4i%2FZ7ZGSx82OI%2BbCKIv5JQe20gmUj%2Fd7Dvunle88n8Je4vbLft&X-Amz-Signature=0362ddeb03b17d0ca0687089acae6cae7fd592373a8ba8104e57b6ffad0822ae&X-Amz-SignedHeaders=host&x-id=GetObject)",
+          "code": "var Component=(()=>{var d=Object.create;var s=Object.defineProperty;var A=Object.getOwnPropertyDescriptor;var j=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var S=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),g=(e,t)=>{for(var n in t)s(e,n,{get:t[n],enumerable:!0})},r=(e,t,n,o)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let a of j(t))!x.call(e,a)&&a!==n&&s(e,a,{get:()=>t[a],enumerable:!(o=A(t,a))||o.enumerable});return e};var p=(e,t,n)=>(n=e!=null?d(f(e)):{},r(t||!e||!e.__esModule?s(n,\"default\",{value:e,enumerable:!0}):n,e)),C=e=>r(s({},\"__esModule\",{value:!0}),e);var i=S((I,c)=>{c.exports=_jsx_runtime});var D={};g(D,{default:()=>F,frontmatter:()=>B});var m=p(i()),B={title:\"Untitled\",date:\"1970-01-01\",tags:[],draft:!1,summary:\"\",layout:\"PostLayout\",authors:[],cover:\"\"};function l(e){let t={img:\"img\",p:\"p\",...e.components};return(0,m.jsx)(t.p,{children:(0,m.jsx)(t.img,{alt:\"Image\",src:\"https://prod-files-secure.s3.us-west-2.amazonaws.com/5956c749-d457-4730-a1d5-34ca41ebc0fa/f8c9f00e-195e-43b5-9892-0068b25d2d70/PNG_image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466S2UO5Y2K%2F20250514%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250514T230914Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGcaCXVzLXdlc3QtMiJHMEUCIBtebkMbp8jr6lc5MS2POILSUfylsdCg3Mg7ixpAVhLZAiEAikqYIQLzdlgpahbGFgwHBt%2FuPnOgf1I8W4UrZGGPPnwq%2FwMIIBAAGgw2Mzc0MjMxODM4MDUiDM6Nj%2B19YXJgrulmbCrcA%2F%2FVZ1%2FEbGSkSXeUMmRmoDu8SJF2IviSSpg%2FoJ%2BALaKSX8Z1dPBc%2BJytnK49FiQz%2BrYejVCJFVeFCUXIsKLjbACJSdUmkwcUPxlKlq69anSQZXac23XuQ06tj0jj6P8%2F9KakhFYggDDIiFfA8qkMNdq%2BzqbDxDzQDY%2BgYjutA5etzNcDwAbKGBJnig%2F7XZeDjid2SpdOEslXwHmi5ZxG2IGYZQmnKEeMT0vWCl42BRlanTWi9nyshflnRWxqmI4gjGCF5KCsyZDRPO9jmz8hI7cjcDjW%2F29EwVi23pGW5UkWO5BpRKku3qnf5V06J7zSYLpw9iLepDxaGlgdaIOWVDQnxjWGx4JHeaBmmD19P7XmEmwoDrtvBqqPFozlhG14Lw2mo1qb1dOwYPo6poy8wJIZXeH3sMY79KASaxCjfQt0ukwBsDC7sHVssB1JNAul72FXzVZQp8NilSe7miO8Cy2Sk3jWQVJlHLmONO%2BMpYGrYVBKPoEgFQmjvueCjRBbeF8J3Ri%2BXQvrFcGojfnodOOJT3qlxScdUKK3LCrZtwf2lx6Bj886%2FhB06fCgFvmZkqnNyBOfcshPUO0MWZ1A7kMjpSf178m3ycFR5nCYwOjhnGLzAsRIEmggppCNMKW4lMEGOqUBC2fleDhnzPKgr1Cll26hloYJRMa%2BGYlf0jjxkN44xUfLEQ380DCRfYxO%2FW4hxj37LqR1qCSH%2FnpEmSotSbnqykkRrDlZkMvY1Daz6vr1Ab9neIRtOU7XfIAWxWRtmBCPOZIpOAjsIDQ%2FhxpSwntVfZhxxFIJtvQxCsJxkKFVpZ4i%2FZ7ZGSx82OI%2BbCKIv5JQe20gmUj%2Fd7Dvunle88n8Je4vbLft&X-Amz-Signature=0362ddeb03b17d0ca0687089acae6cae7fd592373a8ba8104e57b6ffad0822ae&X-Amz-SignedHeaders=host&x-id=GetObject\"})})}function F(e={}){let{wrapper:t}=e.components||{};return t?(0,m.jsx)(t,{...e,children:(0,m.jsx)(l,{...e})}):l(e)}return C(D);})();\n;return Component;"
+        },
+        "_id": "blog/notion/notion-1ef36850-c0a3-8044-8e50-e3a9faf78484.mdx",
+        "_raw": {
+          "sourceFilePath": "blog/notion/notion-1ef36850-c0a3-8044-8e50-e3a9faf78484.mdx",
+          "sourceFileName": "notion-1ef36850-c0a3-8044-8e50-e3a9faf78484.mdx",
+          "sourceFileDir": "blog/notion",
+          "contentType": "mdx",
+          "flattenedPath": "blog/notion/notion-1ef36850-c0a3-8044-8e50-e3a9faf78484"
+        },
+        "type": "Blog",
+        "readingTime": {
+          "text": "1 min read",
+          "minutes": 0.005,
+          "time": 300,
+          "words": 1
+        },
+        "slug": "notion/notion-1ef36850-c0a3-8044-8e50-e3a9faf78484",
+        "path": "blog/notion/notion-1ef36850-c0a3-8044-8e50-e3a9faf78484",
+        "filePath": "blog/notion/notion-1ef36850-c0a3-8044-8e50-e3a9faf78484.mdx",
+        "toc": [],
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Untitled",
+          "datePublished": "1970-01-01T00:00:00.000Z",
+          "dateModified": "1970-01-01T00:00:00.000Z",
+          "description": "",
+          "image": "/static/images/twitter-card.png",
+          "url": "https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-1ef36850-c0a3-8044-8e50-e3a9faf78484"
+        }
+      },
+      "documentHash": "1755118879398",
+      "hasWarnings": false,
+      "documentTypeName": "Blog"
+    },
+    "blog/notion/notion-1ef36850-c0a3-80e2-96b9-cd47d4a1ed2e.mdx": {
+      "document": {
+        "title": "Untitled",
+        "date": "1970-01-01T00:00:00.000Z",
+        "tags": [],
+        "draft": false,
+        "summary": "",
+        "cover": "",
+        "authors": [],
+        "layout": "PostLayout",
+        "body": {
+          "raw": "",
+          "code": "var Component=(()=>{var x=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var g=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)a(t,n,{get:e[n],enumerable:!0})},u=(t,e,n,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of l(e))!y.call(t,o)&&o!==n&&a(t,o,{get:()=>e[o],enumerable:!(s=d(e,o))||s.enumerable});return t};var p=(t,e,n)=>(n=t!=null?x(_(t)):{},u(e||!t||!t.__esModule?a(n,\"default\",{value:t,enumerable:!0}):n,t)),M=t=>u(a({},\"__esModule\",{value:!0}),t);var c=g((F,m)=>{m.exports=_jsx_runtime});var C={};j(C,{default:()=>i,frontmatter:()=>h});var r=p(c()),h={title:\"Untitled\",date:\"1970-01-01\",tags:[],draft:!1,summary:\"\",layout:\"PostLayout\",authors:[],cover:\"\"};function f(t){return(0,r.jsx)(r.Fragment,{})}function i(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,{...t,children:(0,r.jsx)(f,{...t})}):f(t)}return M(C);})();\n;return Component;"
+        },
+        "_id": "blog/notion/notion-1ef36850-c0a3-80e2-96b9-cd47d4a1ed2e.mdx",
+        "_raw": {
+          "sourceFilePath": "blog/notion/notion-1ef36850-c0a3-80e2-96b9-cd47d4a1ed2e.mdx",
+          "sourceFileName": "notion-1ef36850-c0a3-80e2-96b9-cd47d4a1ed2e.mdx",
+          "sourceFileDir": "blog/notion",
+          "contentType": "mdx",
+          "flattenedPath": "blog/notion/notion-1ef36850-c0a3-80e2-96b9-cd47d4a1ed2e"
+        },
+        "type": "Blog",
+        "readingTime": {
+          "text": "0 min read",
+          "minutes": 0,
+          "time": 0,
+          "words": 0
+        },
+        "slug": "notion/notion-1ef36850-c0a3-80e2-96b9-cd47d4a1ed2e",
+        "path": "blog/notion/notion-1ef36850-c0a3-80e2-96b9-cd47d4a1ed2e",
+        "filePath": "blog/notion/notion-1ef36850-c0a3-80e2-96b9-cd47d4a1ed2e.mdx",
+        "toc": [],
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Untitled",
+          "datePublished": "1970-01-01T00:00:00.000Z",
+          "dateModified": "1970-01-01T00:00:00.000Z",
+          "description": "",
+          "image": "/static/images/twitter-card.png",
+          "url": "https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-1ef36850-c0a3-80e2-96b9-cd47d4a1ed2e"
+        }
+      },
+      "documentHash": "1755118879399",
+      "hasWarnings": false,
+      "documentTypeName": "Blog"
+    },
+    "blog/notion/notion-1f436850-c0a3-8067-b180-ddc326d9faa9.mdx": {
+      "document": {
+        "title": "blog post 2",
+        "date": "1970-01-01T00:00:00.000Z",
+        "tags": [],
+        "draft": false,
+        "summary": "",
+        "cover": "",
+        "authors": [],
+        "layout": "PostLayout",
+        "body": {
+          "raw": "\nal;sdkfja;sldkfja;lsdkfal;skdfj;dalskfjd;sald",
+          "code": "var Component=(()=>{var m=Object.create;var a=Object.defineProperty;var i=Object.getOwnPropertyDescriptor;var j=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var k=(t,o)=>()=>(o||t((o={exports:{}}).exports,o),o.exports),_=(t,o)=>{for(var n in o)a(t,n,{get:o[n],enumerable:!0})},d=(t,o,n,r)=>{if(o&&typeof o==\"object\"||typeof o==\"function\")for(let e of j(o))!x.call(t,e)&&e!==n&&a(t,e,{get:()=>o[e],enumerable:!(r=i(o,e))||r.enumerable});return t};var y=(t,o,n)=>(n=t!=null?m(p(t)):{},d(o||!t||!t.__esModule?a(n,\"default\",{value:t,enumerable:!0}):n,t)),h=t=>d(a({},\"__esModule\",{value:!0}),t);var c=k((D,l)=>{l.exports=_jsx_runtime});var g={};_(g,{default:()=>u,frontmatter:()=>M});var s=y(c()),M={title:\"blog post 2\",date:\"1970-01-01\",tags:[],draft:!1,summary:\"\",layout:\"PostLayout\",authors:[],cover:\"\"};function f(t){let o={p:\"p\",...t.components};return(0,s.jsx)(o.p,{children:\"al;sdkfja;sldkfja;lsdkfal;skdfj;dalskfjd;sald\"})}function u(t={}){let{wrapper:o}=t.components||{};return o?(0,s.jsx)(o,{...t,children:(0,s.jsx)(f,{...t})}):f(t)}return h(g);})();\n;return Component;"
+        },
+        "_id": "blog/notion/notion-1f436850-c0a3-8067-b180-ddc326d9faa9.mdx",
+        "_raw": {
+          "sourceFilePath": "blog/notion/notion-1f436850-c0a3-8067-b180-ddc326d9faa9.mdx",
+          "sourceFileName": "notion-1f436850-c0a3-8067-b180-ddc326d9faa9.mdx",
+          "sourceFileDir": "blog/notion",
+          "contentType": "mdx",
+          "flattenedPath": "blog/notion/notion-1f436850-c0a3-8067-b180-ddc326d9faa9"
+        },
+        "type": "Blog",
+        "readingTime": {
+          "text": "1 min read",
+          "minutes": 0.005,
+          "time": 300,
+          "words": 1
+        },
+        "slug": "notion/notion-1f436850-c0a3-8067-b180-ddc326d9faa9",
+        "path": "blog/notion/notion-1f436850-c0a3-8067-b180-ddc326d9faa9",
+        "filePath": "blog/notion/notion-1f436850-c0a3-8067-b180-ddc326d9faa9.mdx",
+        "toc": [],
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "blog post 2",
+          "datePublished": "1970-01-01T00:00:00.000Z",
+          "dateModified": "1970-01-01T00:00:00.000Z",
+          "description": "",
+          "image": "/static/images/twitter-card.png",
+          "url": "https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-1f436850-c0a3-8067-b180-ddc326d9faa9"
+        }
+      },
+      "documentHash": "1755118879399",
+      "hasWarnings": false,
+      "documentTypeName": "Blog"
+    },
+    "blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127.mdx": {
+      "document": {
+        "title": "Rewards",
+        "date": "1970-01-01T00:00:00.000Z",
+        "tags": [],
+        "draft": false,
+        "summary": "",
+        "cover": "",
+        "authors": [],
+        "layout": "PostLayout",
+        "body": {
+          "raw": "\nThinking through what kinds of rewards make sense at a given time for completing a given task such as food drink vice activity rest or refresh\n\nRe Maslow's Hierarchy of Needs",
+          "code": "var Component=(()=>{var f=Object.create;var o=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var p=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),_=(t,e)=>{for(var r in e)o(t,r,{get:e[r],enumerable:!0})},i=(t,e,r,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of l(e))!g.call(t,s)&&s!==r&&o(t,s,{get:()=>e[s],enumerable:!(a=h(e,s))||a.enumerable});return t};var y=(t,e,r)=>(r=t!=null?f(x(t)):{},i(e||!t||!t.__esModule?o(r,\"default\",{value:t,enumerable:!0}):r,t)),j=t=>i(o({},\"__esModule\",{value:!0}),t);var d=p((M,c)=>{c.exports=_jsx_runtime});var v={};_(v,{default:()=>u,frontmatter:()=>k});var n=y(d()),k={title:\"Rewards\",date:\"1970-01-01\",tags:[],draft:!1,summary:\"\",layout:\"PostLayout\",authors:[],cover:\"\"};function m(t){let e={p:\"p\",...t.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"Thinking through what kinds of rewards make sense at a given time for completing a given task such as food drink vice activity rest or refresh\"}),(0,n.jsx)(e.p,{children:\"Re Maslow's Hierarchy of Needs\"})]})}function u(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(m,{...t})}):m(t)}return j(v);})();\n;return Component;"
+        },
+        "_id": "blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127.mdx",
+        "_raw": {
+          "sourceFilePath": "blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127.mdx",
+          "sourceFileName": "notion-20536850-c0a3-80a5-8494-e657db8af127.mdx",
+          "sourceFileDir": "blog/notion",
+          "contentType": "mdx",
+          "flattenedPath": "blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127"
+        },
+        "type": "Blog",
+        "readingTime": {
+          "text": "1 min read",
+          "minutes": 0.155,
+          "time": 9300,
+          "words": 31
+        },
+        "slug": "notion/notion-20536850-c0a3-80a5-8494-e657db8af127",
+        "path": "blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127",
+        "filePath": "blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127.mdx",
+        "toc": [],
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Rewards",
+          "datePublished": "1970-01-01T00:00:00.000Z",
+          "dateModified": "1970-01-01T00:00:00.000Z",
+          "description": "",
+          "image": "/static/images/twitter-card.png",
+          "url": "https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127"
+        }
+      },
+      "documentHash": "1755118879400",
+      "hasWarnings": false,
+      "documentTypeName": "Blog"
+    },
+    "blog/notion/notion-20636850-c0a3-8095-a9b1-e67a63850703.mdx": {
+      "document": {
+        "title": "Untitled",
+        "date": "1970-01-01T00:00:00.000Z",
+        "tags": [],
+        "draft": false,
+        "summary": "",
+        "cover": "",
+        "authors": [],
+        "layout": "PostLayout",
+        "body": {
+          "raw": "",
+          "code": "var Component=(()=>{var x=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var g=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)a(t,n,{get:e[n],enumerable:!0})},u=(t,e,n,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of l(e))!y.call(t,o)&&o!==n&&a(t,o,{get:()=>e[o],enumerable:!(s=d(e,o))||s.enumerable});return t};var p=(t,e,n)=>(n=t!=null?x(_(t)):{},u(e||!t||!t.__esModule?a(n,\"default\",{value:t,enumerable:!0}):n,t)),M=t=>u(a({},\"__esModule\",{value:!0}),t);var c=g((F,m)=>{m.exports=_jsx_runtime});var C={};j(C,{default:()=>i,frontmatter:()=>h});var r=p(c()),h={title:\"Untitled\",date:\"1970-01-01\",tags:[],draft:!1,summary:\"\",layout:\"PostLayout\",authors:[],cover:\"\"};function f(t){return(0,r.jsx)(r.Fragment,{})}function i(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,{...t,children:(0,r.jsx)(f,{...t})}):f(t)}return M(C);})();\n;return Component;"
+        },
+        "_id": "blog/notion/notion-20636850-c0a3-8095-a9b1-e67a63850703.mdx",
+        "_raw": {
+          "sourceFilePath": "blog/notion/notion-20636850-c0a3-8095-a9b1-e67a63850703.mdx",
+          "sourceFileName": "notion-20636850-c0a3-8095-a9b1-e67a63850703.mdx",
+          "sourceFileDir": "blog/notion",
+          "contentType": "mdx",
+          "flattenedPath": "blog/notion/notion-20636850-c0a3-8095-a9b1-e67a63850703"
+        },
+        "type": "Blog",
+        "readingTime": {
+          "text": "0 min read",
+          "minutes": 0,
+          "time": 0,
+          "words": 0
+        },
+        "slug": "notion/notion-20636850-c0a3-8095-a9b1-e67a63850703",
+        "path": "blog/notion/notion-20636850-c0a3-8095-a9b1-e67a63850703",
+        "filePath": "blog/notion/notion-20636850-c0a3-8095-a9b1-e67a63850703.mdx",
+        "toc": [],
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Untitled",
+          "datePublished": "1970-01-01T00:00:00.000Z",
+          "dateModified": "1970-01-01T00:00:00.000Z",
+          "description": "",
+          "image": "/static/images/twitter-card.png",
+          "url": "https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-20636850-c0a3-8095-a9b1-e67a63850703"
+        }
+      },
+      "documentHash": "1755118879400",
+      "hasWarnings": false,
+      "documentTypeName": "Blog"
+    },
+    "blog/notion/page1.mdx": {
+      "document": {
+        "title": "page1",
+        "date": "2025-04-30T00:00:00.000Z",
+        "tags": [],
+        "draft": false,
+        "summary": "",
+        "cover": "https://www.notion.so/images/page-cover/webb2.jpg",
+        "authors": [],
+        "layout": "PostLayout",
+        "body": {
+          "raw": "\nals;hdfasjdhfakls jdfa bgoasdgaldgalskjdg aklsjdbg lkasjbg lkjsdbaglkajsbglkdjab glkjsdbakjgklasjgkja",
+          "code": "var Component=(()=>{var k=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var b=(t,a)=>()=>(a||t((a={exports:{}}).exports,a),a.exports),i=(t,a)=>{for(var e in a)s(t,e,{get:a[e],enumerable:!0})},l=(t,a,e,r)=>{if(a&&typeof a==\"object\"||typeof a==\"function\")for(let o of f(a))!p.call(t,o)&&o!==e&&s(t,o,{get:()=>a[o],enumerable:!(r=u(a,o))||r.enumerable});return t};var x=(t,a,e)=>(e=t!=null?k(m(t)):{},l(a||!t||!t.__esModule?s(e,\"default\",{value:t,enumerable:!0}):e,t)),h=t=>l(s({},\"__esModule\",{value:!0}),t);var g=b((M,d)=>{d.exports=_jsx_runtime});var _={};i(_,{default:()=>c,frontmatter:()=>w});var n=x(g()),w={title:\"page1\",date:\"2025-04-30\",tags:[],draft:!1,summary:\"\",layout:\"PostLayout\",authors:[],cover:\"https://www.notion.so/images/page-cover/webb2.jpg\"};function j(t){let a={p:\"p\",...t.components};return(0,n.jsx)(a.p,{children:\"als;hdfasjdhfakls jdfa bgoasdgaldgalskjdg aklsjdbg lkasjbg lkjsdbaglkajsbglkdjab glkjsdbakjgklasjgkja\"})}function c(t={}){let{wrapper:a}=t.components||{};return a?(0,n.jsx)(a,{...t,children:(0,n.jsx)(j,{...t})}):j(t)}return h(_);})();\n;return Component;"
+        },
+        "_id": "blog/notion/page1.mdx",
+        "_raw": {
+          "sourceFilePath": "blog/notion/page1.mdx",
+          "sourceFileName": "page1.mdx",
+          "sourceFileDir": "blog/notion",
+          "contentType": "mdx",
+          "flattenedPath": "blog/notion/page1"
+        },
+        "type": "Blog",
+        "readingTime": {
+          "text": "1 min read",
+          "minutes": 0.035,
+          "time": 2100,
+          "words": 7
+        },
+        "slug": "notion/page1",
+        "path": "blog/notion/page1",
+        "filePath": "blog/notion/page1.mdx",
+        "toc": [],
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "page1",
+          "datePublished": "2025-04-30T00:00:00.000Z",
+          "dateModified": "2025-04-30T00:00:00.000Z",
+          "description": "",
+          "image": "/static/images/twitter-card.png",
+          "url": "https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/page1"
+        }
+      },
+      "documentHash": "1755118879400",
+      "hasWarnings": false,
+      "documentTypeName": "Blog"
+    },
+    "blog/notion/work.mdx": {
+      "document": {
+        "title": "Work",
+        "date": "2025-05-01T00:00:00.000Z",
+        "tags": [],
+        "draft": false,
+        "summary": "",
+        "cover": "https://www.notion.so/images/page-cover/woodcuts_8.jpg",
+        "authors": [],
+        "layout": "PostLayout",
+        "body": {
+          "raw": "\nToward Employment\n\n- Goals\n\n- Tasks\n\n- Objectives\n\nThings I want to get done…\n\n- … machine learning and ai\n\n- … web dev\n\n- … graphics modeling design & animation\n\n- … technical prep\n\nTypes of work…\n\n- Input\n\n- Output\n\nThings I need to get done to get a job…\n\n- website\n\n- 2-3 substantial projects… so that means wrapping up or completing 2-3 project design and implementations\n\n- \n\nThings that interest me…\n\nThings that …",
+          "code": "var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var j=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),x=(i,e)=>{for(var t in e)r(i,t,{get:e[t],enumerable:!0})},d=(i,e,t,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let l of m(e))!w.call(i,l)&&l!==t&&r(i,l,{get:()=>e[l],enumerable:!(c=u(e,l))||c.enumerable});return i};var f=(i,e,t)=>(t=i!=null?p(g(i)):{},d(e||!i||!i.__esModule?r(t,\"default\",{value:i,enumerable:!0}):t,i)),_=i=>d(r({},\"__esModule\",{value:!0}),i);var h=j((v,o)=>{o.exports=_jsx_runtime});var y={};x(y,{default:()=>a,frontmatter:()=>T});var n=f(h()),T={title:\"Work\",date:\"2025-05-01\",tags:[],draft:!1,summary:\"\",layout:\"PostLayout\",authors:[],cover:\"https://www.notion.so/images/page-cover/woodcuts_8.jpg\"};function s(i){let e={li:\"li\",p:\"p\",ul:\"ul\",...i.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"Toward Employment\"}),(0,n.jsxs)(e.ul,{children:[(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"Goals\"})}),(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"Tasks\"})}),(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"Objectives\"})})]}),(0,n.jsx)(e.p,{children:\"Things I want to get done\\u2026\"}),(0,n.jsxs)(e.ul,{children:[(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"\\u2026 machine learning and ai\"})}),(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"\\u2026 web dev\"})}),(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"\\u2026 graphics modeling design & animation\"})}),(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"\\u2026 technical prep\"})})]}),(0,n.jsx)(e.p,{children:\"Types of work\\u2026\"}),(0,n.jsxs)(e.ul,{children:[(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"Input\"})}),(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"Output\"})})]}),(0,n.jsx)(e.p,{children:\"Things I need to get done to get a job\\u2026\"}),(0,n.jsxs)(e.ul,{children:[(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"website\"})}),(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"2-3 substantial projects\\u2026 so that means wrapping up or completing 2-3 project design and implementations\"})}),(0,n.jsx)(e.li,{})]}),(0,n.jsx)(e.p,{children:\"Things that interest me\\u2026\"}),(0,n.jsx)(e.p,{children:\"Things that \\u2026\"})]})}function a(i={}){let{wrapper:e}=i.components||{};return e?(0,n.jsx)(e,{...i,children:(0,n.jsx)(s,{...i})}):s(i)}return _(y);})();\n;return Component;"
+        },
+        "_id": "blog/notion/work.mdx",
+        "_raw": {
+          "sourceFilePath": "blog/notion/work.mdx",
+          "sourceFileName": "work.mdx",
+          "sourceFileDir": "blog/notion",
+          "contentType": "mdx",
+          "flattenedPath": "blog/notion/work"
+        },
+        "type": "Blog",
+        "readingTime": {
+          "text": "1 min read",
+          "minutes": 0.39,
+          "time": 23400,
+          "words": 78
+        },
+        "slug": "notion/work",
+        "path": "blog/notion/work",
+        "filePath": "blog/notion/work.mdx",
+        "toc": [],
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Work",
+          "datePublished": "2025-05-01T00:00:00.000Z",
+          "dateModified": "2025-05-01T00:00:00.000Z",
+          "description": "",
+          "image": "/static/images/twitter-card.png",
+          "url": "https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/work"
+        }
+      },
+      "documentHash": "1755118879400",
+      "hasWarnings": false,
+      "documentTypeName": "Blog"
+    }
+  }
+}

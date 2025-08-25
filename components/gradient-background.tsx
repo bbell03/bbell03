@@ -15,7 +15,7 @@ export default function GradientBackground() {
   if (!mounted) return null
 
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden">
+    <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.5 }}
@@ -24,10 +24,10 @@ export default function GradientBackground() {
       >
         {theme === "dark" ? (
           // Dark theme gradient
-          <div className="absolute inset-0 bg-gradient-to-br from-[#040a1d] via-[#0a1a3d] to-[#040a1d] opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#040a1d] via-[#0a1a3d] to-[#040a1d] opacity-40" />
         ) : (
           // Light theme gradient
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white opacity-30" />
         )}
       </motion.div>
 
@@ -35,8 +35,8 @@ export default function GradientBackground() {
       <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay" />
 
       {/* Gradient orbs */}
-      <div className="absolute top-1/4 -left-20 w-60 h-60 bg-purple-200 dark:bg-purple-900/20 rounded-full blur-3xl opacity-20 dark:opacity-30" />
-      <div className="absolute bottom-1/3 -right-20 w-80 h-80 bg-blue-200 dark:bg-blue-900/20 rounded-full blur-3xl opacity-20 dark:opacity-30" />
+      <div className="absolute top-1/4 -left-20 w-60 h-60 bg-purple-200 dark:bg-purple-900/20 rounded-full blur-3xl opacity-10 dark:opacity-20" />
+      <div className="absolute bottom-1/3 -right-20 w-80 h-80 bg-blue-200 dark:bg-blue-900/20 rounded-full blur-3xl opacity-10 dark:opacity-20" />
     </div>
   )
 }

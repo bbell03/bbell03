@@ -32,15 +32,23 @@ function hexToHSL(hex: string) {
 }
 
 export default function CursorColorPicker() {
-  const [color, setColor] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('cursor-accent-color') || '#2563eb';
-    }
-    return '#2563eb';
-  });
+  const [color, setColor] = useState('#2563eb');
+  const [mounted, setMounted] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Handle hydration and initial load from localStorage
   useEffect(() => {
+    setMounted(true);
+    if (typeof window !== 'undefined') {
+      const savedColor = localStorage.getItem('cursor-accent-color') || '#2563eb';
+      setColor(savedColor);
+    }
+  }, []);
+
+  // Apply color changes
+  useEffect(() => {
+    if (!mounted) return;
+    
     const hsl = hexToHSL(color);
     document.documentElement.style.setProperty('--cursor-accent', hsl);
     document.documentElement.style.setProperty('--highlight', hsl);
@@ -50,7 +58,7 @@ export default function CursorColorPicker() {
     localStorage.setItem('highlight-color', color);
     localStorage.setItem('secondary-color', color);
     localStorage.setItem('accent-color', color);
-  }, [color]);
+  }, [color, mounted]);
 
   return (
     <div className="flex flex-col items-center gap-2 p-2 bg-white/80 dark:bg-black/60 rounded-lg shadow border border-gray-200 dark:border-gray-700">

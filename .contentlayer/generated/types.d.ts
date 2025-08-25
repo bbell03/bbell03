@@ -41,6 +41,7 @@ export type Blog = {
   draft?: boolean | undefined
   summary?: string | undefined
   images?: any | undefined
+  cover?: string | undefined
   authors?: string[] | undefined
   layout?: string | undefined
   bibliography?: string | undefined

@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Blog typography overrides */
+.prose code {
+  @apply rounded px-1.5 py-0.5 bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-slate-100;
+}
+.prose pre {
+  @apply rounded-xl !bg-slate-900 text-slate-100 dark:!bg-slate-800;
+}
+.prose blockquote {
+  @apply border-l-4 border-blue-500 bg-blue-50/60 dark:bg-blue-900/20 rounded px-4 py-2;
+}
+.prose img {
+  @apply rounded-xl border border-slate-200 dark:border-slate-700;
+}
+
 .task-list-item::before {
   @apply hidden;
 }

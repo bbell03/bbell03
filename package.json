@@ -9,7 +9,10 @@
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
-    "prepare": "husky"
+    "prepare": "husky",
+    "sync-notion": "node scripts/sync-notion.mjs",
+    "sync-notion:watch": "node scripts/sync-notion.mjs --watch",
+    "test-notion": "node scripts/test-notion.mjs"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.3.1",

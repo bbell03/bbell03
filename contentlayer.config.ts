@@ -22,19 +22,13 @@ import rehypeKatex from 'rehype-katex';
 import rehypeCitation from 'rehype-citation';
 import rehypePrismPlus from 'rehype-prism-plus';
 import rehypePresetMinify from 'rehype-preset-minify';
-import siteMetadata from './data/siteMetadata';
+// Use CommonJS require for siteMetadata to avoid default export issues
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const siteMetadata = require('./data/siteMetadata');
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js';
 import type { PageObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-endpoints"
-// --- Notion integration DISABLED for now ---
+// --- Notion integration ---
 const NOTION_ENABLED = process.env.NOTION_API_KEY && process.env.NOTION_DATABASE_ID;
-
-let notion, n2m;
-if (NOTION_ENABLED) {
-  const { Client } = require('@notionhq/client');
-  const { NotionToMarkdown } = require('notion-to-md');
-  notion = new Client({ auth: process.env.NOTION_API_KEY });
-  n2m = new NotionToMarkdown({ notionClient: notion });
-}
 
 type Blog = {
   object?: PageObjectResponse;
@@ -52,169 +46,51 @@ type Blog = {
   canonicalUrl?: string;
 };
 
+// Defer importing the Notion client to runtime only when enabled
+
 export async function translateNotionBlogsToMDX(databaseId: string, outputDir: string) {
-  if (!NOTION_ENABLED) return; // Notion integration disabled
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
+  if (!NOTION_ENABLED) {
+    console.log('Notion integration is disabled. Skipping Notion blog import.');
+    return;
   }
 
-  // Fetch Notion blogs
-  const notionBlogs: Blog[] = await fetchNotionBlogs(databaseId);
-  // console.log(notionBlogs);
-  // console.log(notionBlogs[1].object);
-  // Iterate through each blog and save as MDX
-  for (const blog of notionBlogs) {
-    try {
-      // Ensure the blog ID is defined
-      if (!blog.id) {
-        console.error(`Blog ID is undefined for blog: ${blog.title}`);
-        continue; // Skip this blog if ID is undefined
-      }
-      // console.log(blog);
-      // Fetch page content from Notion using the page ID
-      // console.log(`Fetching content for page: ${blog.id}`); // Log the UUID
-      // const mdBlocks = await n2m.pageToMarkdown(blog.id); // Use the Notion page ID    6 
-      // const pageContent = n2m.toMarkdownString(mdBlocks);
-      const pageContent = await notion.blocks.children.list({
-        block_id: blog.id,
-      });
-
-      // Get cover image if it exists
-      const coverImage = blog.object?.cover?.type === 'external' 
-        ? blog.object.cover.external.url 
-        : blog.object?.cover?.file?.url || '';
-
-      const content = pageContent.results
-      .map((block: any) => {
-        switch (block.type) {
-          case 'paragraph':
-            return block.paragraph.rich_text[0]?.plain_text || '';
-          case 'heading_1':
-            return `# ${block.heading_1.rich_text[0]?.plain_text || ''}`;
-          case 'heading_2':
-            return `## ${block.heading_2.rich_text[0]?.plain_text || ''}`;
-          case 'heading_3':
-            return `### ${block.heading_3.rich_text[0]?.plain_text || ''}`;
-          case 'bulleted_list_item':
-            return `- ${block.bulleted_list_item.rich_text[0]?.plain_text || ''}`;
-          case 'numbered_list_item':
-            return `1. ${block.numbered_list_item.rich_text[0]?.plain_text || ''}`;
-          case 'quote':
-            return `> ${block.quote.rich_text[0]?.plain_text || ''}`;
-          case 'code':
-            return `\`\`\`\n${block.code.rich_text[0]?.plain_text || ''}\n\`\`\``;
-          case 'to_do':
-            return `- [ ] ${block.to_do.rich_text[0]?.plain_text || ''}`;
-          case 'toggle':
-            return `> ${block.toggle.rich_text[0]?.plain_text || ''}`;
-          case 'callout':
-            return `> ${block.callout.rich_text[0]?.plain_text || ''}`;
-          case 'divider':
-            return '---';
-          case 'image':
-            const imageUrl = block.image.type === 'external' 
-              ? block.image.external.url 
-              : block.image.file?.url || '';
-            return `![${block.image.caption?.[0]?.plain_text || 'Image'}](${imageUrl})`;
-          default:
-            return '';
-        }
-      })
-      .filter(Boolean)
-      .join('\n\n');
-
-      //console.log(content);
-      // Generate MDX content
-      const mdxContent = `
----
-title: "${blog.title}"
-date: "${blog.date}"
-tags: ${JSON.stringify(blog.tags)}
-draft: ${blog.draft}
-summary: "${blog.summary || ''}"
-layout: "${blog.layout || 'PostLayout'}"
-authors: ${JSON.stringify(blog.authors || [])}
-cover: "${coverImage}"
----
-
-${content}
-      `.trim();
-
-      // Save the MDX file
-      const filePath = path.join(outputDir, `${blog.slug}.mdx`);
-      fs.writeFileSync(filePath, mdxContent, 'utf8');
-      // console.log(`Saved Notion blog as MDX: ${filePath}`);
-    } catch (error) {
-      console.error(`Failed to fetch or save content for page: ${blog.id}`, error);
-    }
+  try {
+    console.log('🔄 Syncing Notion content...');
+    const { notionClient } = await import('./lib/notion-client.mjs');
+    const posts = await notionClient.fetchBlogPosts(databaseId);
+    await notionClient.exportToMDX(posts, outputDir);
+    console.log('✅ Notion content synced successfully');
+  } catch (error) {
+    console.error('❌ Failed to sync Notion content:', error);
   }
 }
 
+// This function is now handled by the notionClient
 export async function fetchNotionBlogs(databaseId: string): Promise<Blog[]> {
   if (!NOTION_ENABLED) return [];
-  const response = await notion.databases.query({ database_id: databaseId });
-
-  // console.log('Fetched Notion Blogs:', response.results);
-
-  return response.results
-    .filter((page): page is PageObjectResponse => 'properties' in page)
-    .map((page) => {
-      const properties = page.properties;
-
-      const getTextContent = (richTextArray: RichTextItemResponse[] | undefined): string => {
-        if (!richTextArray || richTextArray.length === 0) return '';
-        const richTextItem = richTextArray[0];
-        if ('text' in richTextItem && richTextItem.text.content) {
-          return richTextItem.text.content;
-        }
-        return '';
-      };
-
-      const title =
-        properties.Title?.type === 'title' && properties.Title.title.length > 0
-          ? getTextContent(properties.Title.title) || ''
-          : 'Untitled';
-
-      const slug =
-        properties.Slug?.type === 'rich_text' && properties.Slug.rich_text.length > 0
-          ? getTextContent(properties.Slug.rich_text) || ''
-          : `notion-${page.id}`; // Use the page ID as a fallback for the slug
-
-      const date =
-        properties.Date?.type === 'date' && properties.Date.date
-          ? properties.Date.date.start
-          : '1970-01-01';
-
-      const tags =
-        properties.Tags?.type === 'multi_select'
-          ? properties.Tags.multi_select.map((tag) => tag.name)
-          : [];
-
-      const summary =
-        properties.Summary?.type === 'rich_text' && properties.Summary.rich_text.length > 0
-          ? getTextContent(properties.Summary.rich_text) || ''
-          : '';
-
-      const draft =
-        properties.Draft?.type === 'checkbox' ? properties.Draft.checkbox : false;
-
-      return {
-        object: page, // Include the object property
-        id: page.id, // Add the Notion page ID (UUID)
-        page: page, // Add the page property
-        title,
-        slug,
-        date,
-        tags,
-        summary,
-        draft,
-        layout: 'PostLayout',
-        authors: [], // Default to an empty array
-        images: [],
-        bibliography: '',
-        canonicalUrl: '',
-      };
-    });
+  
+  try {
+    const { notionClient } = await import('./lib/notion-client.mjs');
+    const posts = await notionClient.fetchBlogPosts(databaseId);
+    return posts.map(post => ({
+      object: undefined,
+      id: post.id,
+      title: post.title,
+      slug: post.slug,
+      date: post.date,
+      tags: post.tags,
+      summary: post.summary,
+      draft: post.draft,
+      layout: post.layout,
+      authors: post.authors,
+      images: post.cover ? [post.cover] : [],
+      bibliography: '',
+      canonicalUrl: '',
+    }));
+  } catch (error) {
+    console.error('Failed to fetch Notion blogs:', error);
+    return [];
+  }
 }
 
 const root = process.cwd();
@@ -323,6 +199,7 @@ export const Blog = defineDocumentType(() => ({
     draft: { type: 'boolean' },
     summary: { type: 'string' },
     images: { type: 'json' },
+    cover: { type: 'string' },
     authors: { type: 'list', of: { type: 'string' } },
     layout: { type: 'string' },
     bibliography: { type: 'string' },

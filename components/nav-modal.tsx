@@ -24,7 +24,7 @@ export default function NavModal() {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="z-50 w-8 h-8 flex flex-col justify-center items-center space-y-1 group text-black dark:text-white hover:text-accent focus:text-accent transition-colors"
+        className="relative z-[9998] w-8 h-8 flex flex-col justify-center items-center space-y-1 group text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white focus:text-accent transition-colors"
         aria-label="Open navigation"
       >
         <span className="w-5 h-px bg-current transition-all group-hover:w-6"></span>
@@ -39,7 +39,7 @@ export default function NavModal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-white dark:bg-[#040a1d] z-50 flex flex-col"
+            className="fixed inset-0 bg-white dark:bg-[#040a1d] z-[9999] flex flex-col"
           >
             <div className="flex justify-end p-6">
               <button
@@ -51,8 +51,8 @@ export default function NavModal() {
               </button>
             </div>
 
-            <div className="flex-1 flex flex-col items-center justify-center">
-              <nav className="flex flex-col items-center space-y-6">
+            <div className="flex-1 flex flex-col items-center justify-center px-6">
+              <nav className="flex flex-col items-center space-y-8 sm:space-y-6">
                 {navItems.map((item) => {
                   const isActive = pathname === item.path;
                   return (
@@ -60,7 +60,7 @@ export default function NavModal() {
                       key={item.path}
                       href={item.path}
                       onClick={() => setIsOpen(false)}
-                      className={`text-2xl font-light transition-colors duration-200 ${
+                      className={`text-3xl sm:text-2xl font-light transition-colors duration-200 ${
                         isActive
                           ? "text-black dark:text-white font-medium"
                           : "text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
@@ -74,7 +74,7 @@ export default function NavModal() {
             </div>
 
             <div className="p-6 text-center">
-              <p className="text-xs uppercase tracking-wider">
+              <p className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400">
                 Software Engineering & Design
               </p>
             </div>

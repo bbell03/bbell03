@@ -8,7 +8,7 @@ import { motion } from "framer-motion"
 import CursorColorPicker from "@/components/ColorPicker"
 
 export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [showPicker, setShowPicker] = useState(false)
 
@@ -19,8 +19,15 @@ export default function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <Button variant="ghost" size="icon" className="rounded-full w-8 h-8">
+      <Button 
+        variant="ghost" 
+        size="icon" 
+        className="rounded-full w-8 h-8 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm"
+        disabled
+      >
         <span className="sr-only">Toggle theme</span>
+        {/* Show a neutral icon while loading */}
+        <div className="w-4 h-4 rounded-full border-2 border-current opacity-50" />
       </Button>
     )
   }
@@ -30,43 +37,33 @@ export default function ThemeToggle() {
       <Button
         variant="ghost"
         size="icon"
-        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        className="rounded-full w-8 h-8 relative text-black dark:text-white"
-        aria-label="Toggle theme"
+        onClick={() => {
+          if (theme === "system") {
+            setTheme("light")
+          } else if (theme === "light") {
+            setTheme("dark") 
+          } else {
+            setTheme("system")
+          }
+        }}
+        className="rounded-full w-8 h-8 relative text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 border border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm"
+        aria-label={`Toggle theme (current: ${theme})`}
       >
-        <span className="sr-only">Toggle theme</span>
-        {/* Sun icon with animation */}
-        <motion.div
-          initial={{ opacity: 0, rotate: -90 }}
-          animate={{
-            opacity: theme === "dark" ? 1 : 0,
-            rotate: theme === "dark" ? 0 : -90,
-            scale: theme === "dark" ? 1 : 0.5,
-          }}
-          transition={{ duration: 0.2 }}
-          className="absolute"
-        >
-          <Sun className="h-4 w-4" />
-        </motion.div>
-        {/* Moon icon with animation */}
-        <motion.div
-          initial={{ opacity: 0, rotate: 90 }}
-          animate={{
-            opacity: theme === "light" ? 1 : 0,
-            rotate: theme === "light" ? 0 : 90,
-            scale: theme === "light" ? 1 : 0.5,
-          }}
-          transition={{ duration: 0.2 }}
-          className="absolute"
-        >
-          <Moon className="h-4 w-4" />
-        </motion.div>
+        <span className="sr-only">Toggle theme (current: {theme})</span>
+        {/* Show appropriate icon based on current theme */}
+        {theme === "system" ? (
+          <div className="h-4 w-4 rounded-full border-2 border-current opacity-75" title="System theme" />
+        ) : theme === "light" ? (
+          <Sun className="h-4 w-4 text-gray-700 hover:text-black transition-colors" />
+        ) : (
+          <Moon className="h-4 w-4 text-gray-200 hover:text-white transition-colors" />
+        )}
       </Button>
       <Button
         variant="ghost"
         size="icon"
         onClick={() => setShowPicker((v) => !v)}
-        className={`rounded-full w-8 h-8 relative text-black dark:text-white ${showPicker ? 'bg-accent/20' : ''}`}
+        className={`rounded-full w-8 h-8 relative text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 border border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm ${showPicker ? 'bg-blue-100 dark:bg-blue-900/30 border-blue-300 dark:border-blue-600' : ''}`}
         aria-label="Cursor color picker"
       >
         <Palette className="h-4 w-4" />

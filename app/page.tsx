@@ -9,6 +9,7 @@ import Logo from "@/components/Logo"
 import NavModal from "@/components/nav-modal"
 import CornerDots from "@/components/corner-dots"
 import ThemeToggle from "@/components/theme-toggle"
+import FontSwitcher from "@/components/FontSwitcher"
 import GradientBackground from "@/components/gradient-background"
 import CustomCursor from "@/components/custom-cursor"
 import CircularThreeScene from "@/components/CircularThreeScene"
@@ -237,6 +238,7 @@ export default function Home() {
         <span className="text-xs uppercase tracking-wider hidden sm:inline-block font-sans">
           {"Personal Website & Repository"}
         </span>
+        <FontSwitcher />
         <ThemeToggle />
         <NavModal />
       </div>
@@ -288,7 +290,7 @@ export default function Home() {
              ))}
            </div>
 
-           <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 flex flex-col md:grid md:grid-cols-12 gap-4 md:gap-6 items-center relative min-h-0">
+           <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 md:py-16 lg:py-20 flex flex-col md:grid md:grid-cols-12 gap-8 md:gap-12 items-center relative min-h-0">
              {/* Desktop Timeline Line - Starts below logo */}
              <div className="fixed left-14 top-20 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-300 dark:via-gray-600 to-transparent z-10" />
              
@@ -312,19 +314,38 @@ export default function Home() {
                  {String(currentSlide + 1).padStart(2, '0')}
                </motion.div>
              </AnimatePresence>
-             {/* 3D Model - larger and centered on mobile */}
-             <div className="w-full flex flex-col items-center justify-center md:col-span-5 order-2 md:order-none">
-               <div className="mb-2 relative aspect-square w-full max-w-[320px] xs:max-w-[380px] sm:max-w-[420px] md:max-w-[min(45vw,60vh)] overflow-hidden">
-                 <CircularThreeScene 
-                   color={theme === "dark" ? "#ffffff" : "#000000"}
-                   speed={0.5}
-                   className="w-full h-full"
-                 />
-               </div>
-             </div>
+                         {/* 3D Model - extra large with generous spacing */}
+            <div className="w-full flex flex-col items-center justify-center md:col-span-6 order-2 md:order-none relative py-8 md:py-12 lg:py-16">
+              <div className="mb-4 relative aspect-square w-full max-w-[480px] xs:max-w-[520px] sm:max-w-[580px] md:max-w-[min(65vw,75vh)] lg:max-w-[min(60vw,70vh)] xl:max-w-[min(55vw,65vh)] overflow-visible group">
+                {/* Accent glow background */}
+                <div className="absolute inset-0 bg-accent opacity-5 rounded-full blur-3xl scale-150 group-hover:opacity-10 group-hover:scale-175 transition-all duration-1000"></div>
+                
+                {/* Dynamic accent ring */}
+                <div className="absolute inset-0 rounded-full border-2 border-accent opacity-20 group-hover:opacity-40 group-hover:scale-110 transition-all duration-700 animate-pulse"></div>
+                
+                <CircularThreeScene 
+                  color={theme === "dark" ? "#ffffff" : "#000000"}
+                  speed={0.3}
+                  className="w-full h-full relative z-10 group-hover:scale-105 transition-transform duration-500"
+                />
+                
+                {/* Orbiting accent dots */}
+                <div className="absolute inset-0 animate-spin" style={{ animationDuration: '20s' }}>
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1 w-2 h-2 bg-accent rounded-full opacity-60"></div>
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1 w-1.5 h-1.5 bg-accent rounded-full opacity-40"></div>
+                </div>
+                <div className="absolute inset-0 animate-spin" style={{ animationDuration: '30s', animationDirection: 'reverse' }}>
+                  <div className="absolute top-1/2 right-0 translate-x-1 -translate-y-1/2 w-1 h-1 bg-accent rounded-full opacity-50"></div>
+                  <div className="absolute top-1/2 left-0 -translate-x-1 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full opacity-30"></div>
+                </div>
+              </div>
+              
+              {/* Enhanced vertical dividing line with accent glow - moved over slightly */}
+              <div className="hidden md:block absolute -right-4 lg:-right-6 xl:-right-8 top-1/2 -translate-y-1/2 w-px h-3/4 bg-gradient-to-b from-transparent via-accent dark:via-white to-transparent opacity-80 shadow-lg shadow-accent-300 dark:shadow-white/30"></div>
+            </div>
 
              {/* Content - below model on mobile, right on desktop */}
-             <div className="w-full flex flex-col items-center md:items-start justify-center md:col-span-7 order-3 md:order-none">
+             <div className="w-full flex flex-col items-center md:items-start justify-center md:col-span-6 order-3 md:order-none md:pl-8 lg:pl-12 xl:pl-16">
                                             {/* HELLO for desktop */}
                <AnimatePresence mode="wait">
                  <motion.h1

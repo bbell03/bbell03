@@ -4,6 +4,263 @@
 
 @import './cursor.css';
 
+/* Font Family Classes */
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  --font-courier: 'Courier Prime', 'Courier New', monospace;
+  --font-garamond: var(--font-eb-garamond), 'EB Garamond', 'Garamond', 'Times New Roman', serif;
+}
+
+/* Font switching classes */
+.font-courier {
+  --font-body: var(--font-courier);
+  --font-heading: var(--font-courier);
+}
+
+.font-courier * {
+  font-family: var(--font-courier) !important;
+}
+
+.font-garamond {
+  --font-body: var(--font-garamond);
+  --font-heading: var(--font-garamond);
+}
+
+.font-garamond * {
+  font-family: var(--font-garamond) !important;
+}
+
+/* Preserve specific elements that should keep their original fonts */
+.font-courier .font-playfair,
+.font-courier .font-source-serif,
+.font-courier .font-inter,
+.font-garamond .font-playfair,
+.font-garamond .font-source-serif,
+.font-garamond .font-inter {
+  font-family: inherit !important;
+}
+
+/* Keep icons and special elements unchanged */
+.font-courier .lucide,
+.font-courier svg,
+.font-courier [data-lucide],
+.font-garamond .lucide,
+.font-garamond svg,
+.font-garamond [data-lucide] {
+  font-family: inherit !important;
+}
+
+/* Default to Courier New for blog pages */
+.blog-page {
+  font-family: var(--font-courier);
+}
+
+/* Specific overrides for better typography hierarchy */
+.font-courier .font-playfair {
+  font-family: var(--font-courier) !important;
+}
+
+.font-courier .font-source-serif {
+  font-family: var(--font-courier) !important;
+}
+
+.font-garamond .font-playfair {
+  font-family: var(--font-garamond) !important;
+}
+
+.font-garamond .font-source-serif {
+  font-family: var(--font-garamond) !important;
+}
+
+/* Dynamic Accent Color Classes */
+@layer utilities {
+  .text-accent { color: hsl(var(--accent)); }
+  .text-accent-600 { color: hsl(var(--accent) / 0.8); }
+  .text-accent-400 { color: hsl(var(--accent) / 0.6); }
+  .text-accent-900 { color: hsl(var(--accent) / 0.9); }
+  .text-accent-100 { color: hsl(var(--accent) / 0.1); }
+  
+  .bg-accent { background-color: hsl(var(--accent)); }
+  .bg-accent-50 { background-color: hsl(var(--accent) / 0.05); }
+  .bg-accent-100 { background-color: hsl(var(--accent) / 0.1); }
+  .bg-accent-900 { background-color: hsl(var(--accent) / 0.4); }
+  
+  .border-accent { border-color: hsl(var(--accent)); }
+  .border-accent-300 { border-color: hsl(var(--accent) / 0.5); }
+  .border-accent-400 { border-color: hsl(var(--accent) / 0.6); }
+  .border-accent-500 { border-color: hsl(var(--accent) / 0.7); }
+  .border-accent-600 { border-color: hsl(var(--accent) / 0.8); }
+  
+  .ring-accent { 
+    --tw-ring-color: hsl(var(--accent)) !important;
+    box-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  }
+  .focus\:ring-accent:focus { 
+    --tw-ring-color: hsl(var(--accent)) !important;
+    --tw-ring-width: 2px;
+    --tw-ring-offset-width: 0px;
+    --tw-ring-inset: ;
+    box-shadow: 0 0 0 2px hsl(var(--accent)) !important;
+    outline: none !important;
+  }
+  .focus\:ring-2:focus {
+    --tw-ring-width: 2px;
+  }
+  .focus\:border-transparent:focus { border-color: transparent; }
+  
+  .shadow-accent { box-shadow: 0 0 20px hsl(var(--accent) / 0.3); }
+  .shadow-accent-sm { box-shadow: 0 0 10px hsl(var(--accent) / 0.2); }
+  .shadow-accent-lg { box-shadow: 0 0 30px hsl(var(--accent) / 0.4); }
+  .shadow-accent-200 { box-shadow: 0 0 15px hsl(var(--accent) / 0.25); }
+  .shadow-accent-300 { box-shadow: 0 0 20px hsl(var(--accent) / 0.3); }
+  .shadow-accent-400 { box-shadow: 0 0 25px hsl(var(--accent) / 0.35); }
+  .shadow-accent-500 { box-shadow: 0 0 30px hsl(var(--accent) / 0.4); }
+  .shadow-accent-600 { box-shadow: 0 0 35px hsl(var(--accent) / 0.45); }
+  .shadow-accent-700 { box-shadow: 0 0 25px hsl(var(--accent) / 0.3); }
+  .shadow-accent-800 { box-shadow: 0 0 30px hsl(var(--accent) / 0.35); }
+  .shadow-accent-900 { box-shadow: 0 0 20px hsl(var(--accent) / 0.25); }
+  
+  /* Text glow effects that won't be clipped */
+  .text-glow-accent { 
+    text-shadow: 0 0 10px hsl(var(--accent) / 0.5), 0 0 20px hsl(var(--accent) / 0.3), 0 0 30px hsl(var(--accent) / 0.2); 
+  }
+  .text-glow-accent-sm { 
+    text-shadow: 0 0 5px hsl(var(--accent) / 0.4), 0 0 10px hsl(var(--accent) / 0.2); 
+  }
+  .text-glow-accent-lg { 
+    text-shadow: 0 0 15px hsl(var(--accent) / 0.6), 0 0 30px hsl(var(--accent) / 0.4), 0 0 45px hsl(var(--accent) / 0.2); 
+  }
+  
+  .hover\:text-accent:hover { color: hsl(var(--accent)); }
+  .hover\:text-accent-600:hover { color: hsl(var(--accent) / 0.8); }
+  .hover\:text-accent-400:hover { color: hsl(var(--accent) / 0.6); }
+  .hover\:text-accent-900:hover { color: hsl(var(--accent) / 0.9); }
+  .hover\:text-accent-100:hover { color: hsl(var(--accent) / 0.1); }
+  
+  .peer:focus ~ .peer-focus\:text-accent { color: hsl(var(--accent)); }
+  
+  .hover\:text-glow-accent:hover { 
+    text-shadow: 0 0 10px hsl(var(--accent) / 0.5), 0 0 20px hsl(var(--accent) / 0.3), 0 0 30px hsl(var(--accent) / 0.2); 
+  }
+  .hover\:text-glow-accent-sm:hover { 
+    text-shadow: 0 0 5px hsl(var(--accent) / 0.4), 0 0 10px hsl(var(--accent) / 0.2); 
+  }
+  .hover\:text-glow-accent-lg:hover { 
+    text-shadow: 0 0 15px hsl(var(--accent) / 0.6), 0 0 30px hsl(var(--accent) / 0.4), 0 0 45px hsl(var(--accent) / 0.2); 
+  }
+  
+  .hover\:bg-accent-100:hover { background-color: hsl(var(--accent) / 0.1); }
+  .hover\:bg-accent-900:hover { background-color: hsl(var(--accent) / 0.4); }
+  
+  .hover\:border-accent-400:hover { border-color: hsl(var(--accent) / 0.6); }
+  .hover\:border-accent-500:hover { border-color: hsl(var(--accent) / 0.7); }
+  .hover\:border-accent-600:hover { border-color: hsl(var(--accent) / 0.8); }
+  
+  .hover\:shadow-accent-200:hover { box-shadow: 0 0 15px hsl(var(--accent) / 0.25); }
+  .hover\:shadow-accent-300:hover { box-shadow: 0 0 20px hsl(var(--accent) / 0.3); }
+  .hover\:shadow-accent-400:hover { box-shadow: 0 0 25px hsl(var(--accent) / 0.35); }
+  .hover\:shadow-accent-500:hover { box-shadow: 0 0 30px hsl(var(--accent) / 0.4); }
+  .hover\:shadow-accent-600:hover { box-shadow: 0 0 35px hsl(var(--accent) / 0.45); }
+  .hover\:shadow-accent-700:hover { box-shadow: 0 0 25px hsl(var(--accent) / 0.3); }
+  .hover\:shadow-accent-800:hover { box-shadow: 0 0 30px hsl(var(--accent) / 0.35); }
+  .hover\:shadow-accent-900:hover { box-shadow: 0 0 20px hsl(var(--accent) / 0.25); }
+  
+  .group:hover .group-hover\:text-accent { color: hsl(var(--accent)); }
+  .group:hover .group-hover\:text-accent-600 { color: hsl(var(--accent) / 0.8); }
+  .group:hover .group-hover\:text-accent-400 { color: hsl(var(--accent) / 0.6); }
+  .group:hover .group-hover\:text-accent-900 { color: hsl(var(--accent) / 0.9); }
+  .group:hover .group-hover\:text-accent-100 { color: hsl(var(--accent) / 0.1); }
+  .group:hover .group-hover\:shadow-accent-500 { box-shadow: 0 0 30px hsl(var(--accent) / 0.4); }
+  .group:hover .group-hover\:shadow-accent-600 { box-shadow: 0 0 35px hsl(var(--accent) / 0.45); }
+  
+  .group:hover .group-hover\:text-glow-accent { 
+    text-shadow: 0 0 10px hsl(var(--accent) / 0.5), 0 0 20px hsl(var(--accent) / 0.3), 0 0 30px hsl(var(--accent) / 0.2); 
+  }
+  .group:hover .group-hover\:text-glow-accent-sm { 
+    text-shadow: 0 0 5px hsl(var(--accent) / 0.4), 0 0 10px hsl(var(--accent) / 0.2); 
+  }
+  .group:hover .group-hover\:text-glow-accent-lg { 
+    text-shadow: 0 0 15px hsl(var(--accent) / 0.6), 0 0 30px hsl(var(--accent) / 0.4), 0 0 45px hsl(var(--accent) / 0.2); 
+  }
+  
+  /* Dark mode group hover variants */
+  .dark .group:hover .group-hover\:text-accent-400 { color: hsl(var(--accent) / 0.6); }
+  .dark .group:hover .group-hover\:text-accent-100 { color: hsl(var(--accent) / 0.1); }
+  .dark .group:hover .group-hover\:text-accent-300 { color: hsl(var(--accent) / 0.4); }
+  
+  .focus\:ring-accent:focus { box-shadow: 0 0 0 2px hsl(var(--accent) / 0.5); }
+  .focus\:shadow-accent-300:focus { box-shadow: 0 0 20px hsl(var(--accent) / 0.3); }
+  .focus\:shadow-accent-800:focus { box-shadow: 0 0 30px hsl(var(--accent) / 0.35); }
+  
+  /* Dark mode variants */
+  .dark .hover\:text-accent-400:hover { color: hsl(var(--accent) / 0.6); }
+  .dark .hover\:text-accent-100:hover { color: hsl(var(--accent) / 0.1); }
+  .dark .hover\:text-accent-300:hover { color: hsl(var(--accent) / 0.4); }
+  .dark .hover\:bg-accent-900:hover { background-color: hsl(var(--accent) / 0.4); }
+  .dark .hover\:shadow-accent-400:hover { box-shadow: 0 0 25px hsl(var(--accent) / 0.35); }
+  .dark .hover\:shadow-accent-600:hover { box-shadow: 0 0 35px hsl(var(--accent) / 0.45); }
+  .dark .hover\:shadow-accent-700:hover { box-shadow: 0 0 25px hsl(var(--accent) / 0.3); }
+  .dark .hover\:shadow-accent-800:hover { box-shadow: 0 0 30px hsl(var(--accent) / 0.35); }
+  .dark .hover\:shadow-accent-900:hover { box-shadow: 0 0 20px hsl(var(--accent) / 0.25); }
+  
+  /* Additional comprehensive coverage */
+  .text-accent-300 { color: hsl(var(--accent) / 0.4); }
+  .text-accent-500 { color: hsl(var(--accent) / 0.7); }
+  .text-accent-700 { color: hsl(var(--accent) / 0.85); }
+  .text-accent-800 { color: hsl(var(--accent) / 0.95); }
+  
+  .hover\:text-accent-300:hover { color: hsl(var(--accent) / 0.4); }
+  .hover\:text-accent-500:hover { color: hsl(var(--accent) / 0.7); }
+  .hover\:text-accent-700:hover { color: hsl(var(--accent) / 0.85); }
+  .hover\:text-accent-800:hover { color: hsl(var(--accent) / 0.95); }
+  
+  /* Ensure containers don't clip glow effects */
+  .glow-container {
+    overflow: visible !important;
+    padding: 10px;
+  }
+  
+  /* Fix clipping for text elements with glow */
+  h1, h2, h3, h4, h5, h6 {
+    overflow: visible;
+  }
+  
+  /* Background glow effects */
+  .bg-glow-accent {
+    background: radial-gradient(circle at center, hsl(var(--accent) / 0.03) 0%, transparent 50%);
+  }
+  .bg-glow-accent-subtle {
+    background: radial-gradient(ellipse at center, hsl(var(--accent) / 0.02) 0%, transparent 70%);
+  }
+  .bg-glow-accent-strong {
+    background: radial-gradient(circle at center, hsl(var(--accent) / 0.05) 0%, hsl(var(--accent) / 0.01) 40%, transparent 70%);
+  }
+  
+  /* Animated background glow */
+  .bg-glow-accent-animated {
+    background: radial-gradient(ellipse 1200px 800px at center, hsl(var(--accent) / 0.03) 0%, transparent 50%);
+    animation: glow-pulse 4s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow-pulse {
+    0% {
+      background: radial-gradient(ellipse 1200px 800px at center, hsl(var(--accent) / 0.02) 0%, transparent 50%);
+    }
+    100% {
+      background: radial-gradient(ellipse 1400px 900px at center, hsl(var(--accent) / 0.04) 0%, transparent 60%);
+    }
+  }
+  
+  /* Multi-layer background glow */
+  .bg-glow-accent-layered {
+    background: 
+      radial-gradient(ellipse 800px 600px at 20% 30%, hsl(var(--accent) / 0.02) 0%, transparent 50%),
+      radial-gradient(ellipse 1000px 700px at 80% 70%, hsl(var(--accent) / 0.015) 0%, transparent 50%),
+      radial-gradient(ellipse 1200px 800px at 50% 50%, hsl(var(--accent) / 0.01) 0%, transparent 60%);
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
