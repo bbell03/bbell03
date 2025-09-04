@@ -228,34 +228,6 @@ export default makeSource({
   contentDirPath: 'data',
   documentTypes: [Blog, Authors],
   disableImportAliasWarning: true,
-  mdx: {
-    cwd: process.cwd(),
-    remarkPlugins: [
-      remarkExtractFrontmatter,
-      remarkGfm,
-      remarkCodeTitles,
-      remarkMath,
-      remarkImgToJsx,
-      remarkAlert,
-    ],
-    rehypePlugins: [
-      rehypeSlug,
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: 'prepend',
-          headingProperties: {
-            className: ['content-header'],
-          },
-          content: icon,
-        },
-      ],
-      rehypeKatex,
-      [rehypeCitation, { path: path.join(root, 'data') }],
-      [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
-      rehypePresetMinify,
-    ],
-  },
   onSuccess: async (importData) => {
     const { allBlogs: importedBlogs } = await importData();
     const allBlogs: Blog[] = importedBlogs.map((blog, index) => ({
@@ -287,5 +259,43 @@ export default makeSource({
     } else {
       console.log('Notion integration is disabled. Skipping Notion blog import.');
     }
+
+    // Fix contentlayer generated files after generation
+    try {
+      console.log('🔧 Fixing contentlayer assert syntax...');
+      const { execSync } = await import('child_process');
+      execSync('node ./scripts/fix-contentlayer-asserts.mjs', { stdio: 'inherit' });
+      console.log('✅ Contentlayer assert syntax fixed');
+    } catch (error) {
+      console.log('⚠️ Contentlayer fix script failed:', error.message);
+    }
+  },
+  mdx: {
+    cwd: process.cwd(),
+    remarkPlugins: [
+      remarkExtractFrontmatter,
+      remarkGfm,
+      remarkCodeTitles,
+      remarkMath,
+      remarkImgToJsx,
+      remarkAlert,
+    ],
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'prepend',
+          headingProperties: {
+            className: ['content-header'],
+          },
+          content: icon,
+        },
+      ],
+      rehypeKatex,
+      [rehypeCitation, { path: path.join(root, 'data') }],
+      [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
+      rehypePresetMinify,
+    ],
   },
 });
