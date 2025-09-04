@@ -57,6 +57,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "contentlayer2": "0.4.6",
+    "dotenv": "^17.2.1",
     "embla-carousel-react": "^8.6.0",
     "esbuild": "0.20.2",
     "framer-motion": "^12.10.5",

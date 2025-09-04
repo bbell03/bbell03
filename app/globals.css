@@ -226,6 +226,19 @@
     overflow: visible;
   }
   
+  /* Fix magazine module clipping issues */
+  .magazine-module-card {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  
+  .magazine-grid {
+    grid-auto-rows: max-content !important;
+    align-items: start !important;
+  }
+  
   /* Background glow effects */
   .bg-glow-accent {
     background: radial-gradient(circle at center, hsl(var(--accent) / 0.03) 0%, transparent 50%);

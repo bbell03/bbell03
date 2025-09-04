@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 
-import { notionClient } from '../lib/notion-client.mjs';
+// Load environment variables from .env.local BEFORE any imports
+import dotenv from 'dotenv';
+dotenv.config({ path: '.env.local' });
+
+import { NotionClient } from '../lib/notion-client.mjs';
 import path from 'path';
 import fs from 'fs';
 
@@ -9,13 +13,16 @@ const OUTPUT_DIR = path.join(process.cwd(), 'data/blog/notion');
 
 async function syncNotionContent() {
   console.log('🔄 Starting Notion content sync...');
-  
+
   if (!NOTION_DATABASE_ID) {
     console.error('❌ NOTION_DATABASE_ID environment variable is required');
     process.exit(1);
   }
 
   try {
+    // Create NotionClient instance after environment variables are loaded
+    const notionClient = new NotionClient();
+
     // Fetch posts from Notion
     console.log('📥 Fetching posts from Notion...');
     const posts = await notionClient.fetchBlogPosts(NOTION_DATABASE_ID);

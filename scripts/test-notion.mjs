@@ -1,25 +1,32 @@
 #!/usr/bin/env node
 
-import { notionClient } from '../lib/notion-client.mjs';
+// Load environment variables from .env.local BEFORE any imports
+import dotenv from 'dotenv';
+dotenv.config({ path: '.env.local' });
+
+import { NotionClient } from '../lib/notion-client.mjs';
 import { getNotionConfig } from '../lib/notion-config.mjs';
 
 async function testNotionIntegration() {
   console.log('🧪 Testing Notion integration...');
-  
+
   try {
+    // Create NotionClient instance after environment variables are loaded
+    const notionClient = new NotionClient();
+
     // Test configuration
     console.log('📋 Testing configuration...');
     const config = getNotionConfig();
     console.log('✅ Configuration valid');
-    
+
     // Test API connection
     console.log('🔗 Testing API connection...');
     const databaseId = process.env.NOTION_DATABASE_ID;
-    
+
     if (!databaseId) {
       throw new Error('NOTION_DATABASE_ID not found in environment variables');
     }
-    
+
     // Fetch a small sample of posts
     console.log('📥 Fetching test posts...');
     const posts = await notionClient.fetchBlogPosts(databaseId);

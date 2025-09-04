@@ -304,3 +304,12 @@ Using the template? Support this effort by giving a star on GitHub, sharing your
 ## Licence
 
 [MIT](https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/main/LICENSE) © [Timothy Lin](https://www.timlrx.com)
+
+
+I think I've changed this to the point where multiple changes to the readme should be necessary as well as more comprehensive modular testing 
+
+
+Addendums --
+Notion API Capibilities
+
+Various Styles and Formats including Switches and Theming Options

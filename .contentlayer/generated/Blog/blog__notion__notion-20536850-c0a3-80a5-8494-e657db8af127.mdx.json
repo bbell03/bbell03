@@ -1,15 +1,15 @@
 {
   "title": "Rewards",
-  "date": "1970-01-01T00:00:00.000Z",
+  "date": "2025-08-31T00:00:00.000Z",
   "tags": [],
+  "lastmod": "2025-06-22T23:51:00.000Z",
   "draft": false,
   "summary": "",
-  "cover": "",
   "authors": [],
   "layout": "PostLayout",
   "body": {
-    "raw": "\nThinking through what kinds of rewards make sense at a given time for completing a given task such as food drink vice activity rest or refresh\n\nRe Maslow's Hierarchy of Needs",
-    "code": "var Component=(()=>{var f=Object.create;var o=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var p=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),_=(t,e)=>{for(var r in e)o(t,r,{get:e[r],enumerable:!0})},i=(t,e,r,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of l(e))!g.call(t,s)&&s!==r&&o(t,s,{get:()=>e[s],enumerable:!(a=h(e,s))||a.enumerable});return t};var y=(t,e,r)=>(r=t!=null?f(x(t)):{},i(e||!t||!t.__esModule?o(r,\"default\",{value:t,enumerable:!0}):r,t)),j=t=>i(o({},\"__esModule\",{value:!0}),t);var d=p((M,c)=>{c.exports=_jsx_runtime});var v={};_(v,{default:()=>u,frontmatter:()=>k});var n=y(d()),k={title:\"Rewards\",date:\"1970-01-01\",tags:[],draft:!1,summary:\"\",layout:\"PostLayout\",authors:[],cover:\"\"};function m(t){let e={p:\"p\",...t.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"Thinking through what kinds of rewards make sense at a given time for completing a given task such as food drink vice activity rest or refresh\"}),(0,n.jsx)(e.p,{children:\"Re Maslow's Hierarchy of Needs\"})]})}function u(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(m,{...t})}):m(t)}return j(v);})();\n;return Component;"
+    "raw": "\n\nThinking through what kinds of rewards make sense at a given time for completing a given task such as food drink vice activity rest or refresh\n\n\n| food | drink | vice | activity | rest | refresh |\n| ---- | ----- | ---- | -------- | ---- | ------- |\n|      |       |      |          |      |         |\n|      |       |      |          |      |         |\n\n\nRe Maslow's Hierarchy of Needs",
+    "code": "var Component=(()=>{var m=Object.create;var a=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var y=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var g=(r,t)=>()=>(t||r((t={exports:{}}).exports,t),t.exports),p=(r,t)=>{for(var d in t)a(r,d,{get:t[d],enumerable:!0})},h=(r,t,d,i)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let n of u(t))!x.call(r,n)&&n!==d&&a(r,n,{get:()=>t[n],enumerable:!(i=f(t,n))||i.enumerable});return r};var _=(r,t,d)=>(d=r!=null?m(y(r)):{},h(t||!r||!r.__esModule?a(d,\"default\",{value:r,enumerable:!0}):d,r)),b=r=>h(a({},\"__esModule\",{value:!0}),r);var s=g((w,o)=>{o.exports=_jsx_runtime});var v={};p(v,{default:()=>l,frontmatter:()=>k});var e=_(s()),k={title:\"Rewards\",date:\"2025-08-31\",tags:[],draft:!1,summary:\"\",layout:\"PostLayout\",authors:[],lastmod:\"2025-06-22T23:51:00.000Z\"};function c(r){let t={p:\"p\",table:\"table\",tbody:\"tbody\",td:\"td\",th:\"th\",thead:\"thead\",tr:\"tr\",...r.components};return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(t.p,{children:\"Thinking through what kinds of rewards make sense at a given time for completing a given task such as food drink vice activity rest or refresh\"}),(0,e.jsxs)(t.table,{children:[(0,e.jsx)(t.thead,{children:(0,e.jsxs)(t.tr,{children:[(0,e.jsx)(t.th,{children:\"food\"}),(0,e.jsx)(t.th,{children:\"drink\"}),(0,e.jsx)(t.th,{children:\"vice\"}),(0,e.jsx)(t.th,{children:\"activity\"}),(0,e.jsx)(t.th,{children:\"rest\"}),(0,e.jsx)(t.th,{children:\"refresh\"})]})}),(0,e.jsxs)(t.tbody,{children:[(0,e.jsxs)(t.tr,{children:[(0,e.jsx)(t.td,{}),(0,e.jsx)(t.td,{}),(0,e.jsx)(t.td,{}),(0,e.jsx)(t.td,{}),(0,e.jsx)(t.td,{}),(0,e.jsx)(t.td,{})]}),(0,e.jsxs)(t.tr,{children:[(0,e.jsx)(t.td,{}),(0,e.jsx)(t.td,{}),(0,e.jsx)(t.td,{}),(0,e.jsx)(t.td,{}),(0,e.jsx)(t.td,{}),(0,e.jsx)(t.td,{})]})]})]}),(0,e.jsx)(t.p,{children:\"Re Maslow's Hierarchy of Needs\"})]})}function l(r={}){let{wrapper:t}=r.components||{};return t?(0,e.jsx)(t,{...r,children:(0,e.jsx)(c,{...r})}):c(r)}return b(v);})();\n;return Component;"
   },
   "_id": "blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127.mdx",
   "_raw": {
@@ -22,9 +22,9 @@
   "type": "Blog",
   "readingTime": {
     "text": "1 min read",
-    "minutes": 0.155,
-    "time": 9300,
-    "words": 31
+    "minutes": 0.355,
+    "time": 21300,
+    "words": 71
   },
   "slug": "notion/notion-20536850-c0a3-80a5-8494-e657db8af127",
   "path": "blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127",
@@ -34,8 +34,8 @@
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "Rewards",
-    "datePublished": "1970-01-01T00:00:00.000Z",
-    "dateModified": "1970-01-01T00:00:00.000Z",
+    "datePublished": "2025-08-31T00:00:00.000Z",
+    "dateModified": "2025-06-22T23:51:00.000Z",
     "description": "",
     "image": "/static/images/twitter-card.png",
     "url": "https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127"

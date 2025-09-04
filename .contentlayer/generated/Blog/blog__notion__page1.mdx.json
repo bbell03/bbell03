@@ -2,14 +2,15 @@
   "title": "page1",
   "date": "2025-04-30T00:00:00.000Z",
   "tags": [],
+  "lastmod": "2025-05-10T00:19:00.000Z",
   "draft": false,
   "summary": "",
   "cover": "https://www.notion.so/images/page-cover/webb2.jpg",
   "authors": [],
   "layout": "PostLayout",
   "body": {
-    "raw": "\nals;hdfasjdhfakls jdfa bgoasdgaldgalskjdg aklsjdbg lkasjbg lkjsdbaglkajsbglkdjab glkjsdbakjgklasjgkja",
-    "code": "var Component=(()=>{var k=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var b=(t,a)=>()=>(a||t((a={exports:{}}).exports,a),a.exports),i=(t,a)=>{for(var e in a)s(t,e,{get:a[e],enumerable:!0})},l=(t,a,e,r)=>{if(a&&typeof a==\"object\"||typeof a==\"function\")for(let o of f(a))!p.call(t,o)&&o!==e&&s(t,o,{get:()=>a[o],enumerable:!(r=u(a,o))||r.enumerable});return t};var x=(t,a,e)=>(e=t!=null?k(m(t)):{},l(a||!t||!t.__esModule?s(e,\"default\",{value:t,enumerable:!0}):e,t)),h=t=>l(s({},\"__esModule\",{value:!0}),t);var g=b((M,d)=>{d.exports=_jsx_runtime});var _={};i(_,{default:()=>c,frontmatter:()=>w});var n=x(g()),w={title:\"page1\",date:\"2025-04-30\",tags:[],draft:!1,summary:\"\",layout:\"PostLayout\",authors:[],cover:\"https://www.notion.so/images/page-cover/webb2.jpg\"};function j(t){let a={p:\"p\",...t.components};return(0,n.jsx)(a.p,{children:\"als;hdfasjdhfakls jdfa bgoasdgaldgalskjdg aklsjdbg lkasjbg lkjsdbaglkajsbglkdjab glkjsdbakjgklasjgkja\"})}function c(t={}){let{wrapper:a}=t.components||{};return a?(0,n.jsx)(a,{...t,children:(0,n.jsx)(j,{...t})}):j(t)}return h(_);})();\n;return Component;"
+    "raw": "\n\nals;hdfasjdhfakls jdfa bgoasdgaldgalskjdg aklsjdbg lkasjbg lkjsdbaglkajsbglkdjab glkjsdbakjgklasjgkja",
+    "code": "var Component=(()=>{var k=Object.create;var e=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var b=(t,a)=>()=>(a||t((a={exports:{}}).exports,a),a.exports),i=(t,a)=>{for(var o in a)e(t,o,{get:a[o],enumerable:!0})},l=(t,a,o,r)=>{if(a&&typeof a==\"object\"||typeof a==\"function\")for(let s of u(a))!p.call(t,s)&&s!==o&&e(t,s,{get:()=>a[s],enumerable:!(r=m(a,s))||r.enumerable});return t};var x=(t,a,o)=>(o=t!=null?k(f(t)):{},l(a||!t||!t.__esModule?e(o,\"default\",{value:t,enumerable:!0}):o,t)),h=t=>l(e({},\"__esModule\",{value:!0}),t);var g=b((M,d)=>{d.exports=_jsx_runtime});var _={};i(_,{default:()=>c,frontmatter:()=>w});var n=x(g()),w={title:\"page1\",date:\"2025-04-30\",tags:[],draft:!1,summary:\"\",layout:\"PostLayout\",authors:[],cover:\"https://www.notion.so/images/page-cover/webb2.jpg\",lastmod:\"2025-05-10T00:19:00.000Z\"};function j(t){let a={p:\"p\",...t.components};return(0,n.jsx)(a.p,{children:\"als;hdfasjdhfakls jdfa bgoasdgaldgalskjdg aklsjdbg lkasjbg lkjsdbaglkajsbglkdjab glkjsdbakjgklasjgkja\"})}function c(t={}){let{wrapper:a}=t.components||{};return a?(0,n.jsx)(a,{...t,children:(0,n.jsx)(j,{...t})}):j(t)}return h(_);})();\n;return Component;"
   },
   "_id": "blog/notion/page1.mdx",
   "_raw": {
@@ -35,7 +36,7 @@
     "@type": "BlogPosting",
     "headline": "page1",
     "datePublished": "2025-04-30T00:00:00.000Z",
-    "dateModified": "2025-04-30T00:00:00.000Z",
+    "dateModified": "2025-05-10T00:19:00.000Z",
     "description": "",
     "image": "/static/images/twitter-card.png",
     "url": "https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/page1"

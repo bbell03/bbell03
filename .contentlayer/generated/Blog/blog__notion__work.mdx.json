@@ -2,14 +2,15 @@
   "title": "Work",
   "date": "2025-05-01T00:00:00.000Z",
   "tags": [],
+  "lastmod": "2025-05-08T11:27:00.000Z",
   "draft": false,
   "summary": "",
   "cover": "https://www.notion.so/images/page-cover/woodcuts_8.jpg",
   "authors": [],
   "layout": "PostLayout",
   "body": {
-    "raw": "\nToward Employment\n\n- Goals\n\n- Tasks\n\n- Objectives\n\nThings I want to get done…\n\n- … machine learning and ai\n\n- … web dev\n\n- … graphics modeling design & animation\n\n- … technical prep\n\nTypes of work…\n\n- Input\n\n- Output\n\nThings I need to get done to get a job…\n\n- website\n\n- 2-3 substantial projects… so that means wrapping up or completing 2-3 project design and implementations\n\n- \n\nThings that interest me…\n\nThings that …",
-    "code": "var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var j=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),x=(i,e)=>{for(var t in e)r(i,t,{get:e[t],enumerable:!0})},d=(i,e,t,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let l of m(e))!w.call(i,l)&&l!==t&&r(i,l,{get:()=>e[l],enumerable:!(c=u(e,l))||c.enumerable});return i};var f=(i,e,t)=>(t=i!=null?p(g(i)):{},d(e||!i||!i.__esModule?r(t,\"default\",{value:i,enumerable:!0}):t,i)),_=i=>d(r({},\"__esModule\",{value:!0}),i);var h=j((v,o)=>{o.exports=_jsx_runtime});var y={};x(y,{default:()=>a,frontmatter:()=>T});var n=f(h()),T={title:\"Work\",date:\"2025-05-01\",tags:[],draft:!1,summary:\"\",layout:\"PostLayout\",authors:[],cover:\"https://www.notion.so/images/page-cover/woodcuts_8.jpg\"};function s(i){let e={li:\"li\",p:\"p\",ul:\"ul\",...i.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"Toward Employment\"}),(0,n.jsxs)(e.ul,{children:[(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"Goals\"})}),(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"Tasks\"})}),(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"Objectives\"})})]}),(0,n.jsx)(e.p,{children:\"Things I want to get done\\u2026\"}),(0,n.jsxs)(e.ul,{children:[(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"\\u2026 machine learning and ai\"})}),(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"\\u2026 web dev\"})}),(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"\\u2026 graphics modeling design & animation\"})}),(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"\\u2026 technical prep\"})})]}),(0,n.jsx)(e.p,{children:\"Types of work\\u2026\"}),(0,n.jsxs)(e.ul,{children:[(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"Input\"})}),(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"Output\"})})]}),(0,n.jsx)(e.p,{children:\"Things I need to get done to get a job\\u2026\"}),(0,n.jsxs)(e.ul,{children:[(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"website\"})}),(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"2-3 substantial projects\\u2026 so that means wrapping up or completing 2-3 project design and implementations\"})}),(0,n.jsx)(e.li,{})]}),(0,n.jsx)(e.p,{children:\"Things that interest me\\u2026\"}),(0,n.jsx)(e.p,{children:\"Things that \\u2026\"})]})}function a(i={}){let{wrapper:e}=i.components||{};return e?(0,n.jsx)(e,{...i,children:(0,n.jsx)(s,{...i})}):s(i)}return _(y);})();\n;return Component;"
+    "raw": "\n\nToward Employment\n\n- Goals\n- Tasks\n- Objectives\n\nThings I want to get done…\n\n- … machine learning and ai\n- … web dev\n- … graphics modeling design & animation\n- … technical prep\n\nTypes of work…\n\n- Input\n    - research\n- Output\n    - writing\n\nThings I need to get done to get a job…\n\n- website\n- 2-3 substantial projects… so that means wrapping up or completing 2-3 project design and implementations\n- \n\nThings that interest me…\n\n\nThings that …",
+    "code": "var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var j=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),x=(i,e)=>{for(var t in e)r(i,t,{get:e[t],enumerable:!0})},c=(i,e,t,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let l of m(e))!w.call(i,l)&&l!==t&&r(i,l,{get:()=>e[l],enumerable:!(o=u(e,l))||o.enumerable});return i};var f=(i,e,t)=>(t=i!=null?p(g(i)):{},c(e||!i||!i.__esModule?r(t,\"default\",{value:i,enumerable:!0}):t,i)),T=i=>c(r({},\"__esModule\",{value:!0}),i);var a=j((v,s)=>{s.exports=_jsx_runtime});var y={};x(y,{default:()=>h,frontmatter:()=>_});var n=f(a()),_={title:\"Work\",date:\"2025-05-01\",tags:[],draft:!1,summary:\"\",layout:\"PostLayout\",authors:[],cover:\"https://www.notion.so/images/page-cover/woodcuts_8.jpg\",lastmod:\"2025-05-08T11:27:00.000Z\"};function d(i){let e={li:\"li\",p:\"p\",ul:\"ul\",...i.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"Toward Employment\"}),(0,n.jsxs)(e.ul,{children:[(0,n.jsx)(e.li,{children:\"Goals\"}),(0,n.jsx)(e.li,{children:\"Tasks\"}),(0,n.jsx)(e.li,{children:\"Objectives\"})]}),(0,n.jsx)(e.p,{children:\"Things I want to get done\\u2026\"}),(0,n.jsxs)(e.ul,{children:[(0,n.jsx)(e.li,{children:\"\\u2026 machine learning and ai\"}),(0,n.jsx)(e.li,{children:\"\\u2026 web dev\"}),(0,n.jsx)(e.li,{children:\"\\u2026 graphics modeling design & animation\"}),(0,n.jsx)(e.li,{children:\"\\u2026 technical prep\"})]}),(0,n.jsx)(e.p,{children:\"Types of work\\u2026\"}),(0,n.jsxs)(e.ul,{children:[(0,n.jsxs)(e.li,{children:[\"Input\",(0,n.jsx)(e.ul,{children:(0,n.jsx)(e.li,{children:\"research\"})})]}),(0,n.jsxs)(e.li,{children:[\"Output\",(0,n.jsx)(e.ul,{children:(0,n.jsx)(e.li,{children:\"writing\"})})]})]}),(0,n.jsx)(e.p,{children:\"Things I need to get done to get a job\\u2026\"}),(0,n.jsxs)(e.ul,{children:[(0,n.jsx)(e.li,{children:\"website\"}),(0,n.jsx)(e.li,{children:\"2-3 substantial projects\\u2026 so that means wrapping up or completing 2-3 project design and implementations\"}),(0,n.jsx)(e.li,{})]}),(0,n.jsx)(e.p,{children:\"Things that interest me\\u2026\"}),(0,n.jsx)(e.p,{children:\"Things that \\u2026\"})]})}function h(i={}){let{wrapper:e}=i.components||{};return e?(0,n.jsx)(e,{...i,children:(0,n.jsx)(d,{...i})}):d(i)}return T(y);})();\n;return Component;"
   },
   "_id": "blog/notion/work.mdx",
   "_raw": {
@@ -22,9 +23,9 @@
   "type": "Blog",
   "readingTime": {
     "text": "1 min read",
-    "minutes": 0.39,
-    "time": 23400,
-    "words": 78
+    "minutes": 0.41,
+    "time": 24600,
+    "words": 82
   },
   "slug": "notion/work",
   "path": "blog/notion/work",
@@ -35,7 +36,7 @@
     "@type": "BlogPosting",
     "headline": "Work",
     "datePublished": "2025-05-01T00:00:00.000Z",
-    "dateModified": "2025-05-01T00:00:00.000Z",
+    "dateModified": "2025-05-08T11:27:00.000Z",
     "description": "",
     "image": "/static/images/twitter-card.png",
     "url": "https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/work"
