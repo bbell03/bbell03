@@ -10,13 +10,22 @@ async function fixContentlayerAsserts() {
     for (const file of files) {
       let content = readFileSync(file, 'utf8')
       
-      // Check if file contains assert syntax
-      if (content.includes('assert { type: \'json\' }')) {
-        console.log(`Fixing assert syntax in ${file}`)
+      // Check if file contains assert or with syntax
+      if (content.includes('assert { type: \'json\' }') || content.includes('with { type: \'json\' }')) {
+        console.log(`Fixing import syntax in ${file}`)
         
         // Replace import statements with assert syntax
         content = content.replace(
           /import (\w+) from '([^']+)' assert \{ type: 'json' \}/g,
+          (match, varName, filePath) => {
+            const relativePath = filePath.replace('./', '')
+            return `const ${varName} = JSON.parse(readFileSync(join(__dirname, '${relativePath}'), 'utf8'))`
+          }
+        )
+        
+        // Replace import statements with with syntax
+        content = content.replace(
+          /import (\w+) from '([^']+)' with \{ type: 'json' \}/g,
           (match, varName, filePath) => {
             const relativePath = filePath.replace('./', '')
             return `const ${varName} = JSON.parse(readFileSync(join(__dirname, '${relativePath}'), 'utf8'))`
