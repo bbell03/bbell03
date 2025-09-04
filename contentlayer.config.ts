@@ -56,7 +56,8 @@ export async function translateNotionBlogsToMDX(databaseId: string, outputDir: s
 
   try {
     console.log('🔄 Syncing Notion content...');
-    const { notionClient } = await import('./lib/notion-client.mjs');
+    const { NotionClient } = await import('./lib/notion-client.mjs');
+    const notionClient = new NotionClient();
     const posts = await notionClient.fetchBlogPosts(databaseId);
     await notionClient.exportToMDX(posts, outputDir);
     console.log('✅ Notion content synced successfully');
