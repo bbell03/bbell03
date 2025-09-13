@@ -2,25 +2,22 @@ import React from 'react'
 import 'css/prism.css'
 import 'katex/dist/katex.css'
 
-import PageTitle from '@/components/PageTitle'
 import { components } from '@/components/MDXComponents'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
 import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
 import { allBlogs, allAuthors } from 'contentlayer/generated'
 import type { Authors, Blog } from 'contentlayer/generated'
-import PostSimple from '@/layouts/PostSimple'
-import PostLayout from '@/layouts/PostLayout'
-import PostBanner from '@/layouts/PostBanner'
+import UnifiedBlogLayout from '@/components/UnifiedBlogLayout'
 import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
 
-const defaultLayout = 'PostLayout'
-const layouts = {
-  PostSimple,
-  PostLayout,
-  PostBanner,
-}
+// Layout mapping for backward compatibility
+const layoutMap = {
+  PostSimple: 'simple',
+  PostLayout: 'default',
+  PostBanner: 'banner',
+} as const
 
 export async function generateMetadata({
   params,
@@ -105,7 +102,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     }
   })
 
-  const Layout = layouts[post.layout || defaultLayout]
+  const layoutType = layoutMap[post.layout as keyof typeof layoutMap] || 'default'
 
   return (
     <>
@@ -113,9 +110,15 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
+      <UnifiedBlogLayout 
+        content={mainContent} 
+        authorDetails={authorDetails} 
+        next={next} 
+        prev={prev}
+        layout={layoutType as 'default' | 'simple' | 'banner'}
+      >
         <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
-      </Layout>
+      </UnifiedBlogLayout>
     </>
   )
 }

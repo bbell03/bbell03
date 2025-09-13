@@ -50,9 +50,11 @@ export default function BlogLayout({
           <NavModal />
         </div>
 
-        {/* Main Content - No container since BlogLayoutSystem handles its own layout */}
-        <main className="flex-1 w-full">
-          {children}
+        {/* Main Content - Consistent container for all blog pages */}
+        <main className="flex-1 w-full py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {children}
+          </div>
         </main>
       </div>
     </FontProvider>
