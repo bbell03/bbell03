@@ -1,20 +1,18 @@
 {
-  "tags": [
-    "code",
-    "features", 
-    "markdown",
-    "next-js",
-    "tailwind",
-    "writings",
-    "reflection",
-    "holiday",
-    "images",
-    "math",
-    "multi-author",
-    "ols",
-    "book",
-    "canada",
-    "github",
-    "guide"
-  ]
+  "code": 1,
+  "features": 1,
+  "markdown": 1,
+  "next-js": 1,
+  "tailwind": 1,
+  "writings": 1,
+  "reflection": 1,
+  "holiday": 1,
+  "images": 1,
+  "math": 1,
+  "multi-author": 1,
+  "ols": 1,
+  "book": 1,
+  "canada": 1,
+  "github": 1,
+  "guide": 1
 }

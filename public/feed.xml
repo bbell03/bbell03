@@ -7,9 +7,29 @@
         <language>en-us</language>
         <managingEditor>address@yoursite.com (Brandon Bell)</managingEditor>
         <webMaster>address@yoursite.com (Brandon Bell)</webMaster>
-        <lastBuildDate>Wed, 14 May 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 31 Aug 2025 00:00:00 GMT</lastBuildDate>
         <atom:link href="https://tailwind-nextjs-starter-blog.vercel.app/feed.xml" rel="self" type="application/rss+xml"/>
         
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127</guid>
+    <title>Rewards</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127</link>
+    
+    <pubDate>Sun, 31 Aug 2025 00:00:00 GMT</pubDate>
+    <author>address@yoursite.com (Brandon Bell)</author>
+    
+  </item>
+
+  <item>
+    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-20636850-c0a3-8095-a9b1-e67a63850703</guid>
+    <title>Untitled</title>
+    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-20636850-c0a3-8095-a9b1-e67a63850703</link>
+    
+    <pubDate>Sun, 31 Aug 2025 00:00:00 GMT</pubDate>
+    <author>address@yoursite.com (Brandon Bell)</author>
+    
+  </item>
+
   <item>
     <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/aasdfasdf</guid>
     <title>blog post 2</title>
@@ -68,56 +88,6 @@
     <pubDate>Sun, 02 May 2021 00:00:00 GMT</pubDate>
     <author>address@yoursite.com (Brandon Bell)</author>
     <category>multi-author</category><category>next-js</category><category>feature</category>
-  </item>
-
-  <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-1ef36850-c0a3-8044-8e50-e3a9faf78484</guid>
-    <title>Untitled</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-1ef36850-c0a3-8044-8e50-e3a9faf78484</link>
-    
-    <pubDate>Thu, 01 Jan 1970 00:00:00 GMT</pubDate>
-    <author>address@yoursite.com (Brandon Bell)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-1ef36850-c0a3-80e2-96b9-cd47d4a1ed2e</guid>
-    <title>Untitled</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-1ef36850-c0a3-80e2-96b9-cd47d4a1ed2e</link>
-    
-    <pubDate>Thu, 01 Jan 1970 00:00:00 GMT</pubDate>
-    <author>address@yoursite.com (Brandon Bell)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-1f436850-c0a3-8067-b180-ddc326d9faa9</guid>
-    <title>blog post 2</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-1f436850-c0a3-8067-b180-ddc326d9faa9</link>
-    
-    <pubDate>Thu, 01 Jan 1970 00:00:00 GMT</pubDate>
-    <author>address@yoursite.com (Brandon Bell)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127</guid>
-    <title>Rewards</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127</link>
-    
-    <pubDate>Thu, 01 Jan 1970 00:00:00 GMT</pubDate>
-    <author>address@yoursite.com (Brandon Bell)</author>
-    
-  </item>
-
-  <item>
-    <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-20636850-c0a3-8095-a9b1-e67a63850703</guid>
-    <title>Untitled</title>
-    <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-20636850-c0a3-8095-a9b1-e67a63850703</link>
-    
-    <pubDate>Thu, 01 Jan 1970 00:00:00 GMT</pubDate>
-    <author>address@yoursite.com (Brandon Bell)</author>
-    
   </item>
 
       </channel>
