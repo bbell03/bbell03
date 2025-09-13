@@ -7,7 +7,7 @@ import { allBlogs } from '../.contentlayer/generated/index.mjs'
 import { sortPosts } from 'pliny/utils/contentlayer.js'
 
 // Read tagData using fs instead of assert syntax
-const tagData = JSON.parse(readFileSync('../app/tag-data.json', 'utf8'))
+const tagData = JSON.parse(readFileSync('./app/tag-data.json', 'utf8'))
 
 const generateRssItem = (config, post) => `
   <item>

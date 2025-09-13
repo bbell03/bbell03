@@ -303,9 +303,10 @@ export default function UnifiedBlogLayout({
           <aside className="lg:pl-8">
             <TableOfContents headings={(() => {
               try {
-                return content.toc ? JSON.parse(content.toc) : []
+                if (!content.toc || typeof content.toc !== 'string') return []
+                return JSON.parse(content.toc)
               } catch (error) {
-                console.warn('Failed to parse TOC data:', error)
+                // Silently handle TOC parsing errors - this is expected for some posts
                 return []
               }
             })()} />
