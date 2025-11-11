@@ -320,11 +320,8 @@ export default function Home() {
                          {/* 3D Model - extra large with generous spacing */}
             <div className="w-full flex flex-col items-center justify-center md:col-span-6 order-2 md:order-none relative py-8 md:py-12 lg:py-16">
               <div className="mb-4 relative aspect-square w-full max-w-[480px] xs:max-w-[520px] sm:max-w-[580px] md:max-w-[min(65vw,75vh)] lg:max-w-[min(60vw,70vh)] xl:max-w-[min(55vw,65vh)] overflow-visible group">
-                {/* Accent glow background */}
-                <div className="absolute inset-0 bg-accent opacity-5 rounded-full blur-3xl scale-150 group-hover:opacity-10 group-hover:scale-175 transition-all duration-1000"></div>
-                
-                {/* Dynamic accent ring */}
-                <div className="absolute inset-0 rounded-full border-2 border-accent opacity-20 group-hover:opacity-40 group-hover:scale-110 transition-all duration-700 animate-pulse"></div>
+                {/* Accent glow background - subtle circular glow */}
+                <div className="absolute inset-0 bg-accent opacity-[0.03] rounded-full blur-3xl scale-150 group-hover:opacity-[0.08] group-hover:scale-175 transition-all duration-1000"></div>
                 
                 <CircularThreeScene 
                   color={theme === "dark" ? "#ffffff" : "#000000"}
