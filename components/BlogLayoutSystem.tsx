@@ -27,7 +27,6 @@ import {
   ArrowRight,
   Layers3
 } from 'lucide-react'
-import { AnimatedText } from '@/components/animated-text'
 import Link from 'next/link'
 import Image from 'next/image'
 import siteMetadata from '@/data/siteMetadata'

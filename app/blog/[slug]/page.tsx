@@ -2,7 +2,7 @@ import { notFound } from "next/navigation"
 import { allBlogs } from "contentlayer/generated"
 import { Mdx } from "@/components/mdx-components"
 import { serialize } from "next-mdx-remote/serialize"
-import UnifiedBlogLayout from "@/components/UnifiedBlogLayout"
+import ArticleLayout from "@/components/ArticleLayout"
 import ServerRelatedPosts from "@/components/ServerRelatedPosts"
 
 interface PostPageProps {
@@ -32,12 +32,28 @@ export default async function PostPage({ params }: PostPageProps) {
 
   const mdxSource = await serialize(post.body.raw)
 
+  // Format date for display
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString('en-US', {
+      month: '2-digit',
+      day: '2-digit',
+      year: 'numeric'
+    }).replace(/\//g, ' / ')
+  }
+
   return (
-    <>
-      <UnifiedBlogLayout content={post}>
-        <Mdx code={mdxSource} />
-      </UnifiedBlogLayout>
-      <ServerRelatedPosts currentPost={post} />
-    </>
+    <ArticleLayout
+      title={post.title}
+      subtitle={post.summary}
+      date={formatDate(post.date)}
+      author="Brandon Bell"
+      readingTime={post.readingTime?.minutes?.toString()}
+    >
+      <Mdx code={mdxSource} />
+      <div className="mt-12">
+        <ServerRelatedPosts currentPost={post} />
+      </div>
+    </ArticleLayout>
   )
 } 

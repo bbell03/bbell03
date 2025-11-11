@@ -11,10 +11,15 @@ import CornerDots from "@/components/corner-dots"
 import ThemeToggle from "@/components/theme-toggle"
 import FontSwitcher from "@/components/FontSwitcher"
 import GradientBackground from "@/components/gradient-background"
-import CustomCursor from "@/components/custom-cursor"
-import CircularThreeScene from "@/components/CircularThreeScene"
+import dynamic from "next/dynamic"
 import NextArrow from "@/components/NextArrow"
 import { motion, AnimatePresence, useInView } from "framer-motion"
+
+// Dynamically import heavy 3D component
+const CircularThreeScene = dynamic(() => import("@/components/CircularThreeScene"), {
+  ssr: false,
+  loading: () => <div className="w-full h-96 bg-gray-100 dark:bg-gray-800 rounded-lg animate-pulse" />
+})
 
 const slides = [
   {
@@ -223,8 +228,6 @@ export default function Home() {
           <div className="absolute inset-0 backdrop-blur-[1px]" />
         </div>
       )}
-      
-      <CustomCursor />
 
       {/* Logo - Fixed positioned aligned with timeline */}
       <div className="fixed top-2 left-2 z-50">
@@ -318,7 +321,7 @@ export default function Home() {
             <div className="w-full flex flex-col items-center justify-center md:col-span-6 order-2 md:order-none relative py-8 md:py-12 lg:py-16">
               <div className="mb-4 relative aspect-square w-full max-w-[480px] xs:max-w-[520px] sm:max-w-[580px] md:max-w-[min(65vw,75vh)] lg:max-w-[min(60vw,70vh)] xl:max-w-[min(55vw,65vh)] overflow-visible group">
                 {/* Accent glow background */}
-                <div className="absolute inset-0 bg-accent opacity-5 rounded-full blur-3xl scale-150 group-hover:opacity-10 group-hover:scale-175 transition-all duration-1000"></div>
+                <div className="absolute inset-0 bg-accent opacity-2 rounded-full blur-3xl scale-150 group-hover:opacity-5 group-hover:scale-175 transition-all duration-1000 -z-10"></div>
                 
                 {/* Dynamic accent ring */}
                 <div className="absolute inset-0 rounded-full border-2 border-accent opacity-20 group-hover:opacity-40 group-hover:scale-110 transition-all duration-700 animate-pulse"></div>

@@ -9,7 +9,6 @@ import NavModal from "@/components/nav-modal"
 import CornerDots from "@/components/corner-dots"
 import ThemeToggle from "@/components/theme-toggle"
 import GradientBackground from "@/components/gradient-background"
-import CustomCursor from "@/components/custom-cursor"
 import NextArrow from "@/components/NextArrow"
 import { motion } from "framer-motion"
 
@@ -59,8 +58,6 @@ export default function GlowLayout({ children, title, subtitle }: GlowLayoutProp
         <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-purple-300/20 dark:from-purple-800/30 to-transparent rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-blue-300/20 dark:from-blue-800/30 to-transparent rounded-full blur-3xl" />
       </div>
-      
-      <CustomCursor />
 
       {/* Header */}
       <header className="relative z-50 flex items-center justify-between p-6">

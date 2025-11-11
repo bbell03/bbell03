@@ -68,6 +68,50 @@ module.exports = () => {
     experimental: {
       esmExternals: 'loose',
     },
+    // Bundle optimization
+    compiler: {
+      removeConsole: process.env.NODE_ENV === 'production',
+    },
+    // Optimize bundle splitting
+    webpack: (config, { dev, isServer }) => {
+      // Optimize bundle splitting for better caching
+      if (!dev && !isServer) {
+        config.optimization.splitChunks = {
+          chunks: 'all',
+          cacheGroups: {
+            default: false,
+            vendors: false,
+            // Vendor chunk for large libraries
+            vendor: {
+              name: 'vendor',
+              chunks: 'all',
+              test: /node_modules\/(react|react-dom|framer-motion|three|@react-three)/,
+            },
+            // UI components chunk
+            ui: {
+              name: 'ui',
+              chunks: 'all',
+              test: /node_modules\/(@radix-ui|lucide-react)/,
+            },
+            // Common chunk for shared code
+            common: {
+              name: 'common',
+              minChunks: 2,
+              chunks: 'all',
+              enforce: true,
+            },
+          },
+        }
+      }
+
+      // SVG handling
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      })
+
+      return config
+    },
     eslint: {
       dirs: ['app', 'components', 'layouts', 'scripts'],
     },
@@ -88,14 +132,6 @@ module.exports = () => {
           headers: securityHeaders,
         },
       ]
-    },
-    webpack: (config, options) => {
-      config.module.rules.push({
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-      })
-
-      return config
     },
   })
 }

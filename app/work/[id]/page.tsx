@@ -11,7 +11,6 @@ import CornerDots from "@/components/corner-dots"
 import { useTheme } from "next-themes"
 import ThemeToggle from "@/components/theme-toggle"
 import GradientBackground from "@/components/gradient-background"
-import CustomCursor from "@/components/custom-cursor"
 
 // Mock project data
 const projects = {
@@ -153,7 +152,6 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
   return (
     <div className="min-h-screen flex flex-col dark:bg-[#040a1d] bg-white transition-colors duration-300">
       <GradientBackground />
-      <CustomCursor />
 
       <header className="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
         <Logo />

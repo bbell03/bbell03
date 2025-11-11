@@ -78,8 +78,8 @@ function GLBModel({ url, speed = 1, onPointerOver, onPointerOut, hovered }: { ur
                 // Remove emissive effect
                 newMat.emissive = new THREE.Color('#000000');
                 newMat.emissiveIntensity = 0;
-                newMat.metalness = 0.5;
-                newMat.roughness = 0.5;
+                newMat.metalness = 0.3;
+                newMat.roughness = 0.2;
                 return newMat;
               });
             } else {
@@ -87,8 +87,8 @@ function GLBModel({ url, speed = 1, onPointerOver, onPointerOut, hovered }: { ur
               // Remove emissive effect
               newMat.emissive = new THREE.Color('#000000');
               newMat.emissiveIntensity = 0;
-              newMat.metalness = 0.5;
-              newMat.roughness = 0.5;
+              newMat.metalness = 0.3;
+              newMat.roughness = 0.2;
               child.material = newMat;
             }
           }
@@ -244,9 +244,12 @@ export default function CircularThreeScene({
         camera={{ position: [0, 0, cameraPosition] }}
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
+        gl={{ toneMappingExposure: 1.2 }}
       >
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} />
+        <ambientLight intensity={1.2} />
+        <pointLight position={[10, 10, 10]} intensity={1.5} />
+        <pointLight position={[-10, -10, -10]} intensity={0.8} />
+        <directionalLight position={[5, 5, 5]} intensity={1.0} />
         <Suspense fallback={null}>
           {useModel && glbUrl ? (
             <GLBModel url={glbUrl} speed={speed} hovered={hovered} />
