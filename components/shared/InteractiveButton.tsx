@@ -24,7 +24,7 @@ export default function InteractiveButton({
 
   return (
     <button
-      ref={buttonRef}
+      ref={buttonRef as React.Ref<HTMLButtonElement>}
       onClick={onClick}
       disabled={disabled}
       className={`interactive ${className}`}
