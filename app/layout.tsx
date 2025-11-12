@@ -11,13 +11,13 @@ import ClientRootExtras from "@/components/shared/ClientRootExtras"
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "Data Analytics Platform Expands Partnership with $618.9M Contract",
-  description: "Leading data analytics platform and AI/ML tools continue supporting enterprise data strategy and multi-domain operations through 2028",
-  keywords: ['data analytics', 'AI', 'enterprise', 'partnership', 'contract'],
-  authors: [{ name: 'Data Insights Team' }],
+  title: "Brandon Bell",
+  description: "Personal Website of Brandon Bell",
+  keywords: ['data analytics', 'AI', 'enterprise', 'partnership', 'contract', 'ui', 'ux', 'design', 'development', 'software', 'engineering'],
+  authors: [{ name: 'Brandon Bell' }],
   openGraph: {
-    title: "Data Analytics Platform Expands Partnership with $618.9M Contract",
-    description: "Leading data analytics platform and AI/ML tools continue supporting enterprise data strategy and multi-domain operations through 2028",
+    title: "Brandon Bell",
+    description: "Personal Website of Brandon Bell",
     type: 'article',
   },
   generator: 'v0.dev'
