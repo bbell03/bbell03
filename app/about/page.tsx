@@ -4,7 +4,7 @@ import { useTheme } from "next-themes"
 import { usePathname } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
-import GlowLayout from "@/components/GlowLayout"
+import GlowLayout from "@/components/shared/GlowLayout"
 import { motion } from "framer-motion"
 
 const timeline = [

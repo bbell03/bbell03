@@ -7,7 +7,7 @@ import * as THREE from 'three'
 import { useTheme } from 'next-themes'
 import dynamic from "next/dynamic"
 import { useState as useReactState } from 'react'
-// import Logo from "@/components/Logo"
+// import Logo from "@/components/shared/Logo"
 
 // Dynamically import Three.js components to avoid SSR issues
 const CanvasComponent = dynamic(() => import('@react-three/fiber').then(mod => mod.Canvas), { ssr: false })
@@ -245,8 +245,67 @@ export default function CircularThreeScene({
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
       >
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} />
+        {/* Ambient light for overall scene illumination */}
+        <ambientLight intensity={0.8} />
+        
+        {/* Main directional light from top-right */}
+        <directionalLight 
+          position={[5, 8, 5]} 
+          intensity={1.5} 
+          castShadow
+          color="#ffffff"
+        />
+        
+        {/* Secondary directional light from left for fill */}
+        <directionalLight 
+          position={[-5, 3, -5]} 
+          intensity={0.6} 
+          color="#ffffff"
+        />
+        
+        {/* Key point lights for highlights */}
+        <pointLight 
+          position={[10, 10, 10]} 
+          intensity={1.2}
+          distance={20}
+          decay={2}
+          color="#ffffff"
+        />
+        <pointLight 
+          position={[-10, 5, -10]} 
+          intensity={0.8}
+          distance={20}
+          decay={2}
+          color="#ffffff"
+        />
+        
+        {/* Rim light for edge definition */}
+        <pointLight 
+          position={[0, 0, -8]} 
+          intensity={0.5}
+          distance={15}
+          decay={2}
+          color="#ffffff"
+        />
+        
+        {/* Spotlight for focused illumination */}
+        <spotLight 
+          position={[0, 8, 5]} 
+          angle={0.6} 
+          penumbra={0.5} 
+          intensity={1.2}
+          castShadow
+          color="#ffffff"
+        />
+        
+        {/* Accent-colored light for visual interest */}
+        <pointLight 
+          position={[5, -5, 5]} 
+          intensity={0.4}
+          distance={15}
+          decay={2}
+          color={theme === 'dark' ? '#60a5fa' : '#3b82f6'}
+        />
         <Suspense fallback={null}>
           {useModel && glbUrl ? (
             <GLBModel url={glbUrl} speed={speed} hovered={hovered} />

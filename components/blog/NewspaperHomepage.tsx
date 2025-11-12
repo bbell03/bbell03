@@ -22,7 +22,7 @@ import {
   Linkedin,
   Twitter
 } from 'lucide-react'
-import { AnimatedText } from '@/components/animated-text'
+import { AnimatedText } from '@/components/home/animated-text'
 import siteMetadata from '@/data/siteMetadata'
 
 interface NewspaperHomepageProps {

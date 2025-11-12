@@ -3,10 +3,10 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { Analytics } from "@vercel/analytics/react"
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "@/components/shared/theme-provider"
 import { CursorProvider as CursorContextProvider } from "@/hooks/useCursorContext"
-import CursorProvider from "@/components/CursorProvider"
-import ClientRootExtras from "@/components/ClientRootExtras"
+import CursorProvider from "@/components/shared/CursorProvider"
+import ClientRootExtras from "@/components/shared/ClientRootExtras"
 
 const inter = Inter({ subsets: ['latin'] })
 

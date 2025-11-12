@@ -10,9 +10,9 @@ import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import siteMetadata from '@/data/siteMetadata'
-import TableOfContents from '@/components/TableOfContents'
-import Comments from '@/components/Comments'
-import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import TableOfContents from '@/components/blog/TableOfContents'
+import Comments from '@/components/blog/Comments'
+import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
 
 interface UnifiedBlogLayoutProps {
   content: CoreContent<Blog>

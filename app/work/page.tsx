@@ -9,7 +9,7 @@ import { motion } from "framer-motion"
 import { useState, useRef, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import GlowLayout from "@/components/GlowLayout"
+import GlowLayout from "@/components/shared/GlowLayout"
 
 const projects = [
   {

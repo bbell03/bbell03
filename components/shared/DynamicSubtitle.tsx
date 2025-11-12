@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useDynamicSubtitle } from '../hooks/useDynamicSubtitle'
+import { useDynamicSubtitle } from '@/hooks/useDynamicSubtitle'
 import { RefreshCw, Sparkles, TrendingUp } from 'lucide-react'
 
 interface DynamicSubtitleProps {

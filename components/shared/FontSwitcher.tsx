@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Type, Monitor } from 'lucide-react'
-import { useFontPreference, FontFamily } from '../hooks/useFontPreference'
+import { useFontPreference, FontFamily } from '@/hooks/useFontPreference'
 
 interface FontSwitcherProps {
   className?: string

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { BlogCard } from '@/components/BlogCard'
+import { BlogCard } from '@/components/blog/BlogCard'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -21,7 +21,7 @@ import {
   CheckCircle2,
   AlertCircle
 } from 'lucide-react'
-import { AnimatedText } from '@/components/animated-text'
+import { AnimatedText } from '@/components/home/animated-text'
 
 interface InteractiveBlogLandingProps {
   posts: any[]

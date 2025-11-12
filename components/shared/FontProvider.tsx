@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, ReactNode } from 'react'
-import { FontContext, FontFamily } from '../hooks/useFontPreference'
+import { FontContext, FontFamily } from '@/hooks/useFontPreference'
 
 interface FontProviderProps {
   children: ReactNode

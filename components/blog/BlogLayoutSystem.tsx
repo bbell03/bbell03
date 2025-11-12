@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo, useCallback, memo } from 'react'
 import { format } from 'date-fns'
 import { motion, AnimatePresence } from 'framer-motion'
-import { BlogCard } from '@/components/BlogCard'
+import { BlogCard } from '@/components/blog/BlogCard'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -30,8 +30,8 @@ import {
 import Link from 'next/link'
 import Image from 'next/image'
 import siteMetadata from '@/data/siteMetadata'
-import { DynamicSubtitle } from './DynamicSubtitle'
-import { AdminSubtitleControls } from './AdminSubtitleControls'
+import { DynamicSubtitle } from '@/components/shared/DynamicSubtitle'
+import { AdminSubtitleControls } from '@/components/shared/AdminSubtitleControls'
 
 interface BlogLayoutSystemProps {
   posts: any[]

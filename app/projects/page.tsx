@@ -1,8 +1,8 @@
 "use client"
 
 import projectsData from '@/data/projectsData'
-import Card from '@/components/Card'
-import GlowLayout from '@/components/GlowLayout'
+import Card from '@/components/shared/Card'
+import GlowLayout from '@/components/shared/GlowLayout'
 import { motion } from 'framer-motion'
 
 export default function Projects() {

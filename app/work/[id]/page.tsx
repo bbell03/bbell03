@@ -3,14 +3,14 @@
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import Navigation from "@/components/navigation"
+import Navigation from "@/components/shared/navigation"
 import Image from "next/image"
-import Logo from "@/components/Logo"
-import NavModal from "@/components/nav-modal"
-import CornerDots from "@/components/corner-dots"
+import Logo from "@/components/shared/Logo"
+import NavModal from "@/components/shared/nav-modal"
+import CornerDots from "@/components/shared/corner-dots"
 import { useTheme } from "next-themes"
-import ThemeToggle from "@/components/theme-toggle"
-import GradientBackground from "@/components/gradient-background"
+import ThemeToggle from "@/components/shared/theme-toggle"
+import GradientBackground from "@/components/shared/gradient-background"
 
 // Mock project data
 const projects = {

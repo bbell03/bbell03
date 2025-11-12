@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
-import GlowLayout from "@/components/GlowLayout"
+import GlowLayout from "@/components/shared/GlowLayout"
 import { motion } from "framer-motion"
 
 export default function Contact() {

@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation"
 import { allBlogs } from "contentlayer/generated"
-import { Mdx } from "@/components/mdx-components"
+import { Mdx } from "@/components/blog/mdx-components"
 import { serialize } from "next-mdx-remote/serialize"
-import ArticleLayout from "@/components/ArticleLayout"
-import ServerRelatedPosts from "@/components/ServerRelatedPosts"
+import ArticleLayout from "@/components/blog/ArticleLayout"
+import ServerRelatedPosts from "@/components/blog/ServerRelatedPosts"
 
 interface PostPageProps {
   params: {

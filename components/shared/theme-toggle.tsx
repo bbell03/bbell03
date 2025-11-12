@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Sun, Moon, Palette } from "lucide-react"
 import { motion } from "framer-motion"
-import CursorColorPicker from "@/components/ColorPicker"
+import CursorColorPicker from "@/components/shared/ColorPicker"
 
 export default function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme()

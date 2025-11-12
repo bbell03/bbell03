@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Sun, Moon } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import Navigation from "@/components/navigation"
+import Navigation from "@/components/shared/navigation"
 
 interface LayoutWrapperProps {
   children: ReactNode

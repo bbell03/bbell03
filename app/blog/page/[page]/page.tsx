@@ -1,7 +1,7 @@
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
-import BlogPagination from '@/components/BlogPagination'
-import { BlogCard } from '@/components/BlogCard'
+import BlogPagination from '@/components/blog/BlogPagination'
+import { BlogCard } from '@/components/blog/BlogCard'
 
 const POSTS_PER_PAGE = 9
 

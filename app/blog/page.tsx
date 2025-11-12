@@ -1,7 +1,7 @@
 import { allBlogs } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
-import { BlogLayoutSystem } from '@/components/BlogLayoutSystem'
-import { BlogCard } from '@/components/BlogCard'
+import { BlogLayoutSystem } from '@/components/blog/BlogLayoutSystem'
+import { BlogCard } from '@/components/blog/BlogCard'
 
 function FeaturedPost({ post }) {
   if (!post) return null
