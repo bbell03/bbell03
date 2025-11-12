@@ -3,7 +3,7 @@
 import { MDXRemote } from 'next-mdx-remote'
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import Image from './Image'
-import Link from './Link'
+import Link from '../shared/Link'
 import TableWrapper from './TableWrapper'
 
 const components = {
