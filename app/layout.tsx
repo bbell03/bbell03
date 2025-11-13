@@ -7,20 +7,32 @@ import { ThemeProvider } from "@/components/shared/theme-provider"
 import { CursorProvider as CursorContextProvider } from "@/hooks/useCursorContext"
 import CursorProvider from "@/components/shared/CursorProvider"
 import ClientRootExtras from "@/components/shared/ClientRootExtras"
+import siteMetadata from "@/data/siteMetadata"
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "Brandon Bell",
-  description: "Personal Website of Brandon Bell",
-  keywords: ['data analytics', 'AI', 'enterprise', 'partnership', 'contract', 'ui', 'ux', 'design', 'development', 'software', 'engineering'],
-  authors: [{ name: 'Brandon Bell' }],
-  openGraph: {
-    title: "Brandon Bell",
-    description: "Personal Website of Brandon Bell",
-    type: 'article',
+  title: {
+    default: siteMetadata.title,
+    template: `%s | ${siteMetadata.title}`,
   },
-  generator: 'v0.dev'
+  description: siteMetadata.description,
+  keywords: ['software', 'engineering', 'design', 'brandon bell'],
+  authors: [{ name: siteMetadata.author }],
+  openGraph: {
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+    siteName: siteMetadata.title,
+    url: siteMetadata.siteUrl,
+    type: 'website',
+  },
+  icons: {
+    icon: siteMetadata.siteLogo,
+    shortcut: siteMetadata.siteLogo,
+    apple: siteMetadata.siteLogo,
+  },
+  metadataBase: siteMetadata.metadataBase,
+  generator: 'bbell03',
 }
 
 export default function RootLayout({
