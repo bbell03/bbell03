@@ -56,7 +56,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Highlights } from '../components/highlights'
+import { Highlights } from '@/components/blog/Highlights'
 
 const highlights = [
   {
