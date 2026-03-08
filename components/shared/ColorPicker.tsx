@@ -1,84 +1,169 @@
-'use client';
-import { useState, useEffect, useRef } from 'react';
+'use client'
 
-function hexToHSL(hex: string) {
-  let r = 0, g = 0, b = 0;
-  if (hex.length === 4) {
-    r = parseInt(hex[1] + hex[1], 16);
-    g = parseInt(hex[2] + hex[2], 16);
-    b = parseInt(hex[3] + hex[3], 16);
-  } else if (hex.length === 7) {
-    r = parseInt(hex[1] + hex[2], 16);
-    g = parseInt(hex[3] + hex[4], 16);
-    b = parseInt(hex[5] + hex[6], 16);
-  }
-  r /= 255; g /= 255; b /= 255;
-  const max = Math.max(r, g, b), min = Math.min(r, g, b);
-  let h = 0, s = 0, l = (max + min) / 2;
-  if (max !== min) {
-    const d = max - min;
-    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-    switch (max) {
-      case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-      case g: h = (b - r) / d + 2; break;
-      case b: h = (r - g) / d + 4; break;
-    }
-    h /= 6;
-  }
-  h = Math.round(h * 360);
-  s = Math.round(s * 100);
-  l = Math.round(l * 100);
-  return `${h} ${s}% ${l}%`;
+import { useRef, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Palette } from 'lucide-react'
+import { useAccentColor } from '@/hooks/useAccentColor'
+
+interface ColorPickerProps {
+  className?: string
+  showLabel?: boolean
 }
 
-export default function CursorColorPicker() {
-  const [color, setColor] = useState('#2563eb');
-  const [mounted, setMounted] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
+const PRESET_COLORS = [
+  { name: 'Blue', value: '#2563eb' },
+  { name: 'Purple', value: '#9333ea' },
+  { name: 'Pink', value: '#ec4899' },
+  { name: 'Red', value: '#ef4444' },
+  { name: 'Orange', value: '#f97316' },
+  { name: 'Amber', value: '#f59e0b' },
+  { name: 'Green', value: '#10b981' },
+  { name: 'Teal', value: '#14b8a6' },
+  { name: 'Cyan', value: '#06b6d4' },
+]
 
-  // Handle hydration and initial load from localStorage
-  useEffect(() => {
-    setMounted(true);
-    if (typeof window !== 'undefined') {
-      const savedColor = localStorage.getItem('cursor-accent-color') || '#2563eb';
-      setColor(savedColor);
-    }
-  }, []);
+export default function ColorPicker({ className = '', showLabel = false }: ColorPickerProps) {
+  const { color, setColor, mounted } = useAccentColor()
+  const [isOpen, setIsOpen] = useState(false)
+  const inputRef = useRef<HTMLInputElement>(null)
 
-  // Apply color changes
-  useEffect(() => {
-    if (!mounted) return;
-    
-    const hsl = hexToHSL(color);
-    document.documentElement.style.setProperty('--cursor-accent', hsl);
-    document.documentElement.style.setProperty('--highlight', hsl);
-    document.documentElement.style.setProperty('--secondary', hsl);
-    document.documentElement.style.setProperty('--accent', hsl);
-    localStorage.setItem('cursor-accent-color', color);
-    localStorage.setItem('highlight-color', color);
-    localStorage.setItem('secondary-color', color);
-    localStorage.setItem('accent-color', color);
-  }, [color, mounted]);
+  if (!mounted) {
+    return (
+      <div className={`flex items-center ${className}`}>
+        <div className="w-9 h-9 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 animate-pulse" />
+      </div>
+    )
+  }
 
   return (
-    <div className="flex flex-col items-center gap-2 p-2 bg-white/80 dark:bg-black/60 rounded-lg shadow border border-gray-200 dark:border-gray-700">
-      <label className="text-xs mb-1">Accent Color</label>
-      <div className="relative w-8 h-8 mb-1">
+    <div className={`relative flex items-center ${className}`}>
+      {showLabel && (
+        <span className="text-xs text-slate-600 dark:text-slate-400 mr-2">
+          Color:
+        </span>
+      )}
+      
+      <motion.button
+        onClick={() => setIsOpen(!isOpen)}
+        className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition hover:border-slate-400 hover:text-slate-900 dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-slate-100 relative overflow-hidden"
+        aria-label="Pick accent color"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <Palette className="h-4 w-4" />
         <span
-          className="w-8 h-8 rounded-full border-2 border-gray-300 block"
+          className="absolute inset-0 rounded-full opacity-20"
           style={{ backgroundColor: color }}
-          aria-label="Pick accent color"
         />
-        <input
-          ref={inputRef}
-          type="color"
-          value={color}
-          onChange={e => setColor(e.target.value)}
-          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-          tabIndex={0}
-          aria-label="Pick accent color"
-        />
-      </div>
+      </motion.button>
+
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[110]"
+              onClick={() => setIsOpen(false)}
+            />
+            
+            {/* Color Picker Panel */}
+            <motion.div
+              initial={{ opacity: 0, y: -10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.95 }}
+              className="absolute top-12 right-0 z-[120] w-64 bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 p-4"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
+                    Accent Color
+                  </h3>
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+                    aria-label="Close"
+                  >
+                    ?
+                  </button>
+                </div>
+
+                {/* Custom Color Input */}
+                <div className="space-y-2">
+                  <label className="text-xs font-medium text-slate-600 dark:text-slate-400 uppercase tracking-wide">
+                    Custom Color
+                  </label>
+                  <div className="flex items-center gap-2">
+                    <div className="relative flex-1">
+                      <input
+                        ref={inputRef}
+                        type="color"
+                        value={color}
+                        onChange={(e) => setColor(e.target.value)}
+                        className="w-full h-10 rounded-lg border border-slate-200 dark:border-slate-700 cursor-pointer"
+                        aria-label="Pick custom color"
+                      />
+                    </div>
+                    <input
+                      type="text"
+                      value={color}
+                      onChange={(e) => {
+                        if (/^#[0-9A-Fa-f]{6}$/.test(e.target.value)) {
+                          setColor(e.target.value)
+                        }
+                      }}
+                      className="w-20 px-2 py-1 text-xs rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white"
+                      placeholder="#2563eb"
+                    />
+                  </div>
+                </div>
+
+                {/* Preset Colors */}
+                <div className="space-y-2">
+                  <label className="text-xs font-medium text-slate-600 dark:text-slate-400 uppercase tracking-wide">
+                    Presets
+                  </label>
+                  <div className="grid grid-cols-5 gap-2">
+                    {PRESET_COLORS.map((preset) => (
+                      <motion.button
+                        key={preset.value}
+                        onClick={() => {
+                          setColor(preset.value)
+                          setIsOpen(false)
+                        }}
+                        className={`relative w-10 h-10 rounded-lg border-2 transition-all ${
+                          color === preset.value
+                            ? 'border-slate-900 dark:border-white scale-110'
+                            : 'border-slate-200 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500'
+                        }`}
+                        style={{ backgroundColor: preset.value }}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        title={preset.name}
+                        aria-label={`Select ${preset.name} color`}
+                      >
+                        {color === preset.value && (
+                          <motion.div
+                            className="absolute inset-0 flex items-center justify-center"
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                          >
+                            <span className="text-white text-xs font-bold drop-shadow-lg">
+                              ?
+                            </span>
+                          </motion.div>
+                        )}
+                      </motion.button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
-  );
+  )
 } 

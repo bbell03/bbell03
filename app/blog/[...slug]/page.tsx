@@ -8,16 +8,10 @@ import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer
 import { allBlogs, allAuthors } from 'contentlayer/generated'
 import type { Authors, Blog } from 'contentlayer/generated'
 import UnifiedBlogLayout from '@/components/blog/UnifiedBlogLayout'
+import ServerRelatedPosts from '@/components/blog/ServerRelatedPosts'
 import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
-
-// Layout mapping for backward compatibility
-const layoutMap = {
-  PostSimple: 'simple',
-  PostLayout: 'default',
-  PostBanner: 'banner',
-} as const
 
 export async function generateMetadata({
   params,
@@ -102,22 +96,24 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     }
   })
 
-  const layoutType = layoutMap[post.layout as keyof typeof layoutMap] || 'default'
-
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <UnifiedBlogLayout 
-        content={mainContent} 
-        authorDetails={authorDetails} 
-        next={next} 
+      <UnifiedBlogLayout
+        content={mainContent}
+        authorDetails={authorDetails}
+        next={next}
         prev={prev}
-        layout={layoutType as 'default' | 'simple' | 'banner'}
       >
-        <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
+        <>
+          <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
+          <div className="mt-12">
+            <ServerRelatedPosts currentPost={post} />
+          </div>
+        </>
       </UnifiedBlogLayout>
     </>
   )

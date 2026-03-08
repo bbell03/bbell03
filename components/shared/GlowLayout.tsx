@@ -7,7 +7,7 @@ import Navigation from "@/components/shared/navigation"
 import Logo from "@/components/shared/Logo"
 import NavModal from "@/components/shared/nav-modal"
 import CornerDots from "@/components/shared/corner-dots"
-import ThemeToggle from "@/components/shared/theme-toggle"
+import HeaderControls from "@/components/shared/HeaderControls"
 import GradientBackground from "@/components/shared/gradient-background"
 import NextArrow from "@/components/shared/NextArrow"
 import { motion } from "framer-motion"
@@ -30,7 +30,7 @@ export default function GlowLayout({ children, title, subtitle }: GlowLayoutProp
   if (!mounted) return null
 
   return (
-    <div className="min-h-screen flex flex-col dark:bg-[#040a1d] bg-white transition-colors duration-300 overflow-hidden">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-background transition-colors duration-300 overflow-hidden">
       <GradientBackground />
       
       {/* Enhanced Prominent Glow Effects */}
@@ -40,36 +40,33 @@ export default function GlowLayout({ children, title, subtitle }: GlowLayoutProp
           background: 'radial-gradient(ellipse at center, hsl(var(--accent) / 0.25) 0%, hsl(var(--accent) / 0.15) 25%, hsl(var(--accent) / 0.08) 50%, hsl(var(--accent) / 0.04) 75%, transparent 100%)',
         }} />
         
-        {/* Dark mode glow - More prominent */}
+        {/* Dark mode glow - Muted for darker feel */}
         <div className="absolute inset-0 hidden dark:block" style={{
-          background: 'radial-gradient(ellipse at center, hsl(var(--accent) / 0.20) 0%, hsl(var(--accent) / 0.12) 25%, hsl(var(--accent) / 0.06) 50%, hsl(var(--accent) / 0.03) 75%, transparent 100%)',
+          background: 'radial-gradient(ellipse at center, hsl(var(--accent) / 0.06) 0%, hsl(var(--accent) / 0.03) 25%, transparent 50%)',
         }} />
         
-        {/* Additional prominent glow orbs - Larger and more visible */}
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-200 dark:bg-purple-900/40 rounded-full blur-3xl opacity-40 dark:opacity-50 animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-blue-200 dark:bg-blue-900/40 rounded-full blur-3xl opacity-35 dark:opacity-45 animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-green-200 dark:bg-green-900/30 rounded-full blur-3xl opacity-30 dark:opacity-40 animate-pulse" style={{ animationDelay: '2s' }} />
+        {/* Glow orbs - Muted in dark mode */}
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-200 dark:bg-purple-900/15 rounded-full blur-3xl opacity-40 dark:opacity-20 animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-blue-200 dark:bg-blue-900/15 rounded-full blur-3xl opacity-35 dark:opacity-20 animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-green-200 dark:bg-green-900/10 rounded-full blur-3xl opacity-30 dark:opacity-15 animate-pulse" style={{ animationDelay: '2s' }} />
         
-        {/* Additional smaller glow orbs for more depth */}
-        <div className="absolute top-1/3 right-1/3 w-[300px] h-[300px] bg-pink-200 dark:bg-pink-900/30 rounded-full blur-3xl opacity-25 dark:opacity-35 animate-pulse" style={{ animationDelay: '0.5s' }} />
-        <div className="absolute bottom-1/3 left-1/3 w-[250px] h-[250px] bg-yellow-200 dark:bg-yellow-900/20 rounded-full blur-3xl opacity-20 dark:opacity-30 animate-pulse" style={{ animationDelay: '1.5s' }} />
+        {/* Additional smaller glow orbs */}
+        <div className="absolute top-1/3 right-1/3 w-[300px] h-[300px] bg-pink-200 dark:bg-pink-900/10 rounded-full blur-3xl opacity-25 dark:opacity-15 animate-pulse" style={{ animationDelay: '0.5s' }} />
+        <div className="absolute bottom-1/3 left-1/3 w-[250px] h-[250px] bg-yellow-200 dark:bg-yellow-900/10 rounded-full blur-3xl opacity-20 dark:opacity-12 animate-pulse" style={{ animationDelay: '1.5s' }} />
         
-        {/* Corner glow effects */}
-        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-purple-300/20 dark:from-purple-800/30 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-blue-300/20 dark:from-blue-800/30 to-transparent rounded-full blur-3xl" />
+        {/* Corner glow effects - Muted in dark */}
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-purple-300/20 dark:from-purple-800/10 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-blue-300/20 dark:from-blue-800/10 to-transparent rounded-full blur-3xl" />
       </div>
 
       {/* Header */}
-      <header className="relative z-50 flex items-center justify-between p-6">
+      <header className="relative z-[100] flex items-center justify-between p-6">
         <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
           <Logo />
         </div>
         
         <div className="flex items-center gap-2 sm:gap-3">
-          <span className="text-xs uppercase tracking-wider hidden sm:inline-block font-sans text-gray-600 dark:text-gray-400">
-            {subtitle || "Personal Website & Repository"}
-          </span>
-          <ThemeToggle />
+          <HeaderControls showSubtitle subtitle={subtitle || "Personal Website & Repository"} />
           <NavModal />
         </div>
       </header>

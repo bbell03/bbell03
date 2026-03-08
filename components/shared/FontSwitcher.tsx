@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Type, Monitor } from 'lucide-react'
+import { Type, Monitor, Circle } from 'lucide-react'
 import { useFontPreference, FontFamily } from '@/hooks/useFontPreference'
 
 interface FontSwitcherProps {
@@ -13,6 +13,13 @@ export function FontSwitcher({ className = '', showLabels = false }: FontSwitche
   const { fontFamily, setFontFamily } = useFontPreference()
 
   const fonts: { key: FontFamily; label: string; icon: any; description: string; preview: string }[] = [
+    {
+      key: 'default',
+      label: 'Default',
+      icon: Circle,
+      description: 'Site font (Raleway)',
+      preview: 'Aa'
+    },
     {
       key: 'courier',
       label: 'Courier',
@@ -64,12 +71,16 @@ export function FontSwitcher({ className = '', showLabels = false }: FontSwitche
                 className={`text-xs font-bold ${
                   font.key === 'courier' 
                     ? 'font-mono' 
-                    : 'font-serif'
+                    : font.key === 'garamond'
+                    ? 'font-serif'
+                    : ''
                 }`}
                 style={{
                   fontFamily: font.key === 'courier' 
                     ? "'Courier Prime', 'Courier New', monospace" 
-                    : "'EB Garamond', 'Garamond', 'Times New Roman', serif"
+                    : font.key === 'garamond'
+                    ? "'EB Garamond', 'Garamond', 'Times New Roman', serif"
+                    : undefined
                 }}
               >
                 {font.preview}

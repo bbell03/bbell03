@@ -2,7 +2,7 @@
 
 import { useState, useEffect, createContext, useContext } from 'react'
 
-export type FontFamily = 'courier' | 'garamond'
+export type FontFamily = 'default' | 'courier' | 'garamond'
 
 interface FontPreference {
   fontFamily: FontFamily
@@ -11,35 +11,25 @@ interface FontPreference {
 
 const FontContext = createContext<FontPreference | undefined>(undefined)
 
+function applyFontToRoot(font: FontFamily) {
+  const root = document.documentElement
+  root.classList.remove('font-courier', 'font-garamond')
+  if (font === 'courier') root.classList.add('font-courier')
+  else if (font === 'garamond') root.classList.add('font-garamond')
+}
+
 export function useFontPreference() {
   const context = useContext(FontContext)
   if (!context) {
-    // Fallback hook for when used outside provider
-    const [fontFamily, setFontFamily] = useState<FontFamily>('courier')
-    
+    const [fontFamily, setFontFamily] = useState<FontFamily>('default')
     useEffect(() => {
-      // Load from localStorage
       const saved = localStorage.getItem('blog-font-preference')
-      if (saved && (saved === 'courier' || saved === 'garamond')) {
-        setFontFamily(saved)
-      }
+      if (saved === 'courier' || saved === 'garamond') setFontFamily(saved)
     }, [])
-    
     useEffect(() => {
-      // Save to localStorage
       localStorage.setItem('blog-font-preference', fontFamily)
-      
-      // Apply to document
-      const root = document.documentElement
-      if (fontFamily === 'courier') {
-        root.classList.add('font-courier')
-        root.classList.remove('font-garamond')
-      } else {
-        root.classList.add('font-garamond')
-        root.classList.remove('font-courier')
-      }
+      applyFontToRoot(fontFamily)
     }, [fontFamily])
-    
     return { fontFamily, setFontFamily }
   }
   return context

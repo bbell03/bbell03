@@ -150,7 +150,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div className="min-h-screen flex flex-col dark:bg-[#040a1d] bg-white transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-background transition-colors duration-300">
       <GradientBackground />
 
       <header className="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">

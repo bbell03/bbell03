@@ -3,6 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useCursor } from '@/hooks/useCursorContext'
+import { useAutoCursorInteraction } from '@/hooks/useCursorInteraction'
 
 interface CursorProviderProps {
   children: React.ReactNode
@@ -10,6 +11,8 @@ interface CursorProviderProps {
 
 export default function CursorProvider({ children }: CursorProviderProps) {
   const { cursorState } = useCursor()
+  // Enable automatic interactive element detection
+  useAutoCursorInteraction()
 
   // Don't render cursor on mobile/touch devices
   if (!cursorState.isDesktop) {

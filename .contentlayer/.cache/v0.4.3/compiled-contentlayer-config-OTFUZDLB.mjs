@@ -26,6 +26,7 @@ var require_siteMetadata = __commonJS({
       metadataBase: new URL("https://tailwind-nextjs-starter-blog.vercel.app"),
       siteRepo: "https://github.com/timlrx/tailwind-nextjs-starter-blog",
       siteLogo: "/static/images/logo.png",
+      // Uses the logo located at /Users/brandonbell/Desktop/bbell03/public/static/images/logo.png
       socialBanner: "/static/images/twitter-card.png",
       mastodon: "https://mastodon.social/@mastodonuser",
       email: "address@yoursite.com",
@@ -120,6 +121,79 @@ var require_siteMetadata = __commonJS({
   }
 });
 
+// lib/notion-white-page.mjs
+function escapeString(value) {
+  return value.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\r?\n/g, "\\n");
+}
+function normalizeDate(value) {
+  if (!value)
+    return void 0;
+  if (value instanceof Date) {
+    return value.toISOString();
+  }
+  return value;
+}
+function shouldSkipField(value) {
+  if (value === void 0 || value === null)
+    return true;
+  if (typeof value === "string") {
+    return value.trim().length === 0;
+  }
+  if (Array.isArray(value)) {
+    return value.length === 0;
+  }
+  return false;
+}
+function formatFrontMatter(frontMatter) {
+  return Object.entries(frontMatter).filter(([, value]) => !shouldSkipField(value)).map(([key, value]) => {
+    if (typeof value === "string") {
+      return `${key}: "${escapeString(value)}"`;
+    }
+    if (value instanceof Date) {
+      return `${key}: "${value.toISOString()}"`;
+    }
+    if (Array.isArray(value) || typeof value === "object") {
+      return `${key}: ${JSON.stringify(value)}`;
+    }
+    return `${key}: ${value}`;
+  }).join("\n");
+}
+function createWhitePageFrontMatter(post, overrides = {}) {
+  const base = {
+    ...WHITE_PAGE_DEFAULTS,
+    title: post.title,
+    slug: post.slug,
+    date: normalizeDate(post.date),
+    lastmod: normalizeDate(post.lastModified),
+    summary: post.summary,
+    tags: post.tags,
+    draft: post.draft
+  };
+  return { ...base, ...overrides };
+}
+function renderWhitePageDocument(post, options = {}) {
+  const { overrides = {} } = options;
+  const frontMatter = createWhitePageFrontMatter(post, overrides);
+  const frontMatterBlock = formatFrontMatter(frontMatter);
+  const body = (post.content || "").trim();
+  return `---
+${frontMatterBlock}
+---
+
+${body}
+`;
+}
+var WHITE_PAGE_DEFAULTS;
+var init_notion_white_page = __esm({
+  "lib/notion-white-page.mjs"() {
+    WHITE_PAGE_DEFAULTS = {
+      layout: "PostLayout",
+      format: "white-page",
+      source: "notion"
+    };
+  }
+});
+
 // lib/notion-client.mjs
 var notion_client_exports = {};
 __export(notion_client_exports, {
@@ -133,6 +207,7 @@ import crypto from "crypto";
 var NotionClient;
 var init_notion_client = __esm({
   "lib/notion-client.mjs"() {
+    init_notion_white_page();
     NotionClient = class {
       constructor() {
         if (!process.env.NOTION_API_KEY) {
@@ -233,7 +308,6 @@ var init_notion_client = __esm({
             tags,
             summary,
             draft,
-            layout: "PostLayout",
             authors,
             cover,
             content: content.parent,
@@ -255,7 +329,7 @@ var init_notion_client = __esm({
         }
         for (const post of posts) {
           try {
-            const mdxContent = this.generateMDXContent(post);
+            const mdxContent = renderWhitePageDocument(post);
             const filePath = path.join(outputDir, `${post.slug}.mdx`);
             fs.writeFileSync(filePath, mdxContent, "utf8");
             console.log(`Exported: ${post.slug}.mdx`);
@@ -263,22 +337,6 @@ var init_notion_client = __esm({
             console.error(`Failed to export ${post.slug}:`, error);
           }
         }
-      }
-      generateMDXContent(post) {
-        return `---
-title: "${post.title.replace(/"/g, '\\"')}"
-date: "${post.date}"
-tags: ${JSON.stringify(post.tags)}
-draft: ${post.draft}
-summary: "${(post.summary || "").replace(/"/g, '\\"')}"
-layout: "${post.layout}"
-authors: ${JSON.stringify(post.authors)}
-${post.cover ? `cover: "${post.cover}"` : ""}
-lastmod: "${post.lastModified}"
----
-
-${post.content}
-`.trim();
       }
     };
   }
@@ -522,4 +580,4 @@ export {
   fetchNotionBlogs,
   translateNotionBlogsToMDX
 };
-//# sourceMappingURL=compiled-contentlayer-config-LTGY434Y.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-OTFUZDLB.mjs.map

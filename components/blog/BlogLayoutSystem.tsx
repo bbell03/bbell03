@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect, useMemo, useCallback, memo } from 'react'
-import { format } from 'date-fns'
 import { motion, AnimatePresence } from 'framer-motion'
 import { BlogCard } from '@/components/blog/BlogCard'
 import { Badge } from '@/components/ui/badge'
@@ -32,6 +31,7 @@ import Image from 'next/image'
 import siteMetadata from '@/data/siteMetadata'
 import { DynamicSubtitle } from '@/components/shared/DynamicSubtitle'
 import { AdminSubtitleControls } from '@/components/shared/AdminSubtitleControls'
+import { Highlights } from '@/components/blog/Highlights'
 
 interface BlogLayoutSystemProps {
   posts: any[]
@@ -47,24 +47,41 @@ interface NewsletterState {
   message: string
 }
 
+const formatUtcDate = (date: string, options: Intl.DateTimeFormatOptions) =>
+  new Intl.DateTimeFormat('en-US', { timeZone: 'UTC', ...options }).format(new Date(date))
+
 // Separate clock component to isolate re-renders
 const LiveClock = memo(() => {
-  const [currentTime, setCurrentTime] = useState(new Date())
+  const [currentTime, setCurrentTime] = useState<Date | null>(null)
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date())
-    }, 1000)
+    const updateTime = () => setCurrentTime(new Date())
+    updateTime()
+
+    const timer = setInterval(updateTime, 1000)
     return () => clearInterval(timer)
   }, [])
 
   return (
     <div className="flex items-center gap-6">
       <time className="font-mono">
-        {format(currentTime, "EEEE, MMMM d, yyyy")}
+        {currentTime
+          ? new Intl.DateTimeFormat('en-US', {
+              weekday: 'long',
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric',
+            }).format(currentTime)
+          : '—'}
       </time>
       <span className="hidden sm:inline">
-        {format(currentTime, "h:mm:ss a")}
+        {currentTime
+          ? new Intl.DateTimeFormat('en-US', {
+              hour: 'numeric',
+              minute: 'numeric',
+              second: 'numeric',
+            }).format(currentTime)
+          : '—'}
       </span>
     </div>
   )
@@ -272,7 +289,12 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
           </div>
           <div className="text-right text-sm text-slate-600 dark:text-slate-400">
             <div>{filteredAndSortedPosts.length} Articles</div>
-            <div className="font-mono">{format(new Date(), "MMM yyyy")}</div>
+            <div className="font-mono">
+              {new Intl.DateTimeFormat('en-US', {
+                month: 'short',
+                year: 'numeric',
+              }).format(new Date())}
+            </div>
           </div>
         </motion.div>
 
@@ -341,7 +363,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
                           
                           <div className="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
                             <time className="flex-shrink-0">
-                              {format(new Date(post.date), "MMM d, yyyy")}
+                              {formatUtcDate(post.date, { month: 'short', day: 'numeric', year: 'numeric' })}
                             </time>
                             {post.readingTime?.minutes && (
                               <>
@@ -462,28 +484,29 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
     const sidebarPosts = rest.slice(4, 8)
 
     return (
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="w-full mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
           {/* Main Content */}
           <div className="lg:col-span-8">
             {/* Featured Story */}
             {featured && (
               <motion.section 
-                className="mb-12 border-b-2 border-slate-200 dark:border-slate-700 pb-8"
+                className="mb-16 border-b-2 border-slate-200 dark:border-slate-700 pb-12"
                 variants={itemVariants}
               >
+                <p className="kicker mb-2">Lead Story</p>
                 <div className="flex items-center gap-2 mb-4">
                   <div className="bg-accent text-white px-3 py-1 text-xs font-bold uppercase tracking-wider">
                     Featured
                   </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 font-mono">
-                    {format(new Date(featured.date), "MMM d, yyyy")}
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-mono uppercase">
+                    {formatUtcDate(featured.date, { month: 'short', day: 'numeric', year: 'numeric' })}
                   </div>
                 </div>
 
                 <Link href={`/blog/${featured.slug}`} className="group block">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="relative aspect-[4/3] overflow-hidden bg-slate-100 dark:bg-slate-800 rounded-lg">
+                  <div className="grid md:grid-cols-2 gap-10">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-slate-100 dark:bg-slate-800 rounded-sm">
                       {featured.images?.[0] ? (
                         <Image
                           src={featured.images[0]}
@@ -500,28 +523,20 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
                     </div>
 
                     <div className="flex flex-col justify-center">
-                      <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair font-bold text-black dark:text-white mb-4 leading-tight group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
+                      <h2 className="headline text-3xl md:text-4xl lg:text-5xl text-slate-900 dark:text-white mb-6 leading-tight group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
                         {featured.title}
                       </h2>
                       
-                      <p className="text-lg md:text-xl font-source-serif text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
+                      <p className="deck text-lg md:text-xl text-slate-700 dark:text-slate-300 mb-8 leading-relaxed">
                         {featured.summary || "Explore the latest insights and developments..."}
                       </p>
 
-                      <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
-                        <div className="flex items-center gap-1">
-                          <User className="w-4 h-4" />
-                          <span>By {siteMetadata.author}</span>
-                        </div>
-                        {featured.readingTime?.minutes && (
-                          <>
-                            <span>•</span>
-                            <div className="flex items-center gap-1">
-                              <Clock className="w-4 h-4" />
-                              <span>{featured.readingTime.minutes} min read</span>
-                            </div>
-                          </>
-                        )}
+                      <div className="byline flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                        <span className="byline-name">By {siteMetadata.author}</span>
+                        <span className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-400/60 to-transparent dark:via-slate-500/50" />
+                        <span className="font-mono text-[11px] uppercase">
+                          {featured.readingTime?.minutes ? `${Math.round(featured.readingTime.minutes)} min read` : '—'}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -530,12 +545,12 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
             )}
 
             {/* Recent Articles Grid */}
-            <section>
-              <div className="grid md:grid-cols-2 gap-6">
+            <section className="pt-4">
+              <div className="grid md:grid-cols-2 gap-10">
                 {recentPosts.map((post, index) => (
                   <motion.article 
                     key={post.slug}
-                    className="border-b border-slate-200 dark:border-slate-700 pb-6 last:border-b-0"
+                    className="border-b border-slate-200 dark:border-slate-700 pb-10 last:border-b-0"
                     variants={itemVariants}
                     custom={index}
                   >
@@ -547,13 +562,13 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
           </div>
 
           {/* Sidebar */}
-          <aside className="lg:col-span-4 space-y-6">
+          <aside className="lg:col-span-4 space-y-8">
             {/* Trending Topics */}
             <motion.section 
-              className="border border-slate-200 dark:border-slate-700 p-6 rounded-lg"
+              className="border border-slate-200 dark:border-slate-700 p-8 rounded-lg"
               variants={itemVariants}
             >
-              <h3 className="text-lg font-playfair font-bold text-black dark:text-white mb-4 border-b border-slate-200 dark:border-slate-700 pb-2 flex items-center gap-2">
+              <h3 className="text-lg font-playfair font-bold text-black dark:text-white mb-5 border-b border-slate-200 dark:border-slate-700 pb-3 flex items-center gap-2">
                 <TrendingUp className="w-5 h-5" />
                 Trending Topics
               </h3>
@@ -575,32 +590,28 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
               </div>
             </motion.section>
 
-            {/* More Articles */}
-            <motion.section 
-              className="border border-slate-200 dark:border-slate-700 p-6 rounded-lg"
+            {/* More Articles - newspaper highlights style */}
+            <motion.section
+              className="paper-shell mt-8"
               variants={itemVariants}
             >
-              <h3 className="text-lg font-playfair font-bold text-black dark:text-white mb-4 border-b border-slate-200 dark:border-slate-700 pb-2">
-                More to Read
-              </h3>
-              <div className="space-y-4">
-                {sidebarPosts.map((post) => (
-                  <article key={post.slug}>
+              <div className="highlights-section-header">
+                <span>Today&apos;s Highlights</span>
+                <span>Editors&apos; Desk</span>
+              </div>
+              <div className="highlights-grid">
+                {sidebarPosts.slice(0, 3).map((post) => (
+                  <article key={post.slug} className="highlights-grid-item">
                     <Link href={`/blog/${post.slug}`} className="group block">
-                      <h4 className="text-sm font-semibold text-black dark:text-white group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors line-clamp-2 mb-1">
+                      <h4 className="headline text-base font-playfair font-bold text-slate-900 dark:text-white group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors line-clamp-2 mb-2">
                         {post.title}
                       </h4>
-                      <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                        <time>
-                          {format(new Date(post.date), "MMM d")}
-                        </time>
-                        {post.readingTime?.minutes && (
-                          <>
-                            <span>•</span>
-                            <span>{post.readingTime.minutes}m read</span>
-                          </>
-                        )}
-                      </div>
+                      <p className="deck text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mb-2">
+                        {post.summary || 'No summary available'}
+                      </p>
+                      <span className="font-mono text-[11px] uppercase text-slate-500 dark:text-slate-500">
+                        {post.readingTime?.minutes ? `${Math.round(post.readingTime.minutes)} min read` : '—'}
+                      </span>
                     </Link>
                   </article>
                 ))}
@@ -720,7 +731,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
                               Featured
                             </Badge>
                             <time className="text-xs text-slate-500 dark:text-slate-400">
-                              {format(new Date(topicPosts[0].date), "MMM d")}
+                              {formatUtcDate(topicPosts[0].date, { month: 'short', day: 'numeric' })}
                             </time>
                           </div>
                           
@@ -776,7 +787,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
                           
                           <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
                             <time className="flex-shrink-0">
-                              {format(new Date(post.date), "MMM d")}
+                              {formatUtcDate(post.date, { month: 'short', day: 'numeric' })}
                             </time>
                             {post.readingTime?.minutes && (
                               <>
@@ -855,49 +866,51 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900 relative">
-      {/* Background Glow Effect */}
-      <div className="fixed inset-0 bg-glow-accent-layered pointer-events-none z-0" />
-      <div className="fixed inset-0 bg-glow-accent-animated pointer-events-none z-0 opacity-50" />
-      
+    <div className="relative">
       {/* Newspaper Header */}
-      <header className="relative z-10 border-b-4 border-black dark:border-white bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Top bar with date and weather */}
-          <div className="flex justify-between items-center py-2 text-xs border-b border-slate-200 dark:border-slate-700">
-            <LiveClock />
-            <div className="flex items-center gap-4">
-              <span className="text-slate-600 dark:text-slate-400">
-                Software Engineering & Design
-              </span>
-            </div>
+      <header className="relative z-[100] border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-[hsl(240,10%,3.9%)]">
+        <div className="max-w-[min(100%,1600px)] mx-auto px-3 sm:px-4">
+          {/* Top info bar: Volume · No. / Location / Established */}
+          <div className="flex justify-between items-center py-2 text-[11px] tracking-[0.18em] uppercase text-slate-600 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">
+            <span>Volume · No. {filteredAndSortedPosts.length}</span>
+            <span>Software Engineering & Design</span>
+            <span>Est. 2018</span>
           </div>
 
-          {/* Main header */}
-          <div className="py-6">
-            <div className="text-center">
-              <motion.h1 
-                className="text-4xl md:text-6xl lg:text-7xl font-playfair font-bold text-black dark:text-white mb-2 transition-all duration-500 cursor-default"
-                initial={{ opacity: 0, y: 20 }}
+          {/* Masthead */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 pt-6 pb-4">
+            <div className="space-y-2">
+              <p className="kicker">Journal &amp; Notes</p>
+              <motion.h1
+                className="headline text-3xl md:text-4xl lg:text-5xl text-slate-900 dark:text-white"
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.5 }}
               >
                 The Brandon Bell
               </motion.h1>
-              <DynamicSubtitle 
-                className="hover:text-accent-600 dark:hover:text-accent-300 hover:text-glow-accent-sm"
+              <DynamicSubtitle
+                className="text-slate-600 dark:text-slate-400 text-sm md:text-base"
                 showRefreshButton={false}
                 showTrends={false}
               />
             </div>
+            <div className="flex items-center gap-3">
+              <div className="text-right text-xs uppercase tracking-[0.12em] text-slate-600 dark:text-slate-400 leading-tight">
+                <LiveClock />
+              </div>
+            </div>
           </div>
+
+          <div className="newspaper-rule-thick mb-4" />
         </div>
       </header>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+      <div className="relative z-10 max-w-[min(100%,1600px)] mx-auto px-3 sm:px-4 py-6 md:py-8">
+        <div className="paper-shell space-y-8">
         {/* Minimized Search and Controls */}
       <motion.div 
-        className="flex justify-end mb-6"
+        className="flex justify-end mb-4"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
@@ -1086,6 +1099,23 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
         </motion.div>
       </AnimatePresence>
 
+      {/* Today's Highlights - newspaper 3-col with dividers */}
+      <div className="mt-16">
+      <Highlights
+        items={filteredAndSortedPosts.slice(0, 6).map((post) => ({
+          title: post.title,
+          dek: post.summary || 'No summary available',
+          time: typeof post.readingTime?.minutes === 'number'
+            ? `${Math.max(1, Math.round(post.readingTime.minutes))} min read`
+            : '—',
+          href: `/${post.path}`,
+        }))}
+        variant="grid"
+        title="Today's Highlights"
+        rightLabel="Editors' Desk"
+      />
+      </div>
+
       {/* Newsletter Signup */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -1153,6 +1183,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
           </div>
         </div>
       </motion.div>
+        </div>
       </div>
       
       {/* Admin Controls - Only show in development or for admin users */}

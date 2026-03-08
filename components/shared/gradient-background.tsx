@@ -23,8 +23,8 @@ export default function GradientBackground() {
         className="absolute inset-0"
       >
         {theme === "dark" ? (
-          // Dark theme gradient
-          <div className="absolute inset-0 bg-gradient-to-br from-[#040a1d] via-[#0a1a3d] to-[#040a1d] opacity-40" />
+          // Dark theme gradient (matches --background: 240 14% 2%)
+          <div className="absolute inset-0 bg-gradient-to-br from-[hsl(240,14%,2%)] via-[hsl(240,12%,4%)] to-[hsl(240,14%,2%)] opacity-90" />
         ) : (
           // Light theme gradient
           <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white opacity-30" />
@@ -34,9 +34,9 @@ export default function GradientBackground() {
       {/* Subtle grain texture */}
       <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay" />
 
-      {/* Gradient orbs */}
-      <div className="absolute top-1/4 -left-20 w-60 h-60 bg-purple-200 dark:bg-purple-900/20 rounded-full blur-3xl opacity-10 dark:opacity-20" />
-      <div className="absolute bottom-1/3 -right-20 w-80 h-80 bg-blue-200 dark:bg-blue-900/20 rounded-full blur-3xl opacity-10 dark:opacity-20" />
+      {/* Gradient orbs - Muted in dark mode */}
+      <div className="absolute top-1/4 -left-20 w-60 h-60 bg-purple-200 dark:bg-purple-900/10 rounded-full blur-3xl opacity-10 dark:opacity-12" />
+      <div className="absolute bottom-1/3 -right-20 w-80 h-80 bg-blue-200 dark:bg-blue-900/10 rounded-full blur-3xl opacity-10 dark:opacity-12" />
     </div>
   )
 }

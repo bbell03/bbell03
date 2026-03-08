@@ -1,15 +1,18 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import Script from "next/script"
+import { Raleway } from "next/font/google"
 import "./globals.css"
-import { Analytics } from "@vercel/analytics/react"
 import { ThemeProvider } from "@/components/shared/theme-provider"
-import { CursorProvider as CursorContextProvider } from "@/hooks/useCursorContext"
-import CursorProvider from "@/components/shared/CursorProvider"
-import ClientRootExtras from "@/components/shared/ClientRootExtras"
+import CursorWrapper from "@/components/shared/CursorWrapper"
 import siteMetadata from "@/data/siteMetadata"
 
-const inter = Inter({ subsets: ['latin'] })
+// Primary site font. Font switcher (Courier/Garamond) preserved for blog in font-init script + globals.css.
+const raleway = Raleway({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: {
@@ -41,19 +44,30 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <CursorContextProvider>
-            <CursorProvider>
-              {children}
-            </CursorProvider>
-          </CursorContextProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${raleway.variable} ${raleway.className}`}>
+        <Script
+          id="font-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const saved = localStorage.getItem('blog-font-preference');
+                  const root = document.documentElement;
+                  root.classList.remove('font-courier', 'font-garamond');
+                  if (saved === 'courier' || saved === 'garamond') {
+                    root.classList.add('font-' + saved);
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <CursorWrapper>
+            {children}
+          </CursorWrapper>
         </ThemeProvider>
       </body>
     </html>

@@ -5,6 +5,7 @@ import type { MDXComponents } from 'mdx/types'
 import Image from '@/components/shared/Image'
 import CustomLink from '@/components/shared/Link'
 import TableWrapper from './TableWrapper'
+import { NoticeCard } from './NoticeCard'
 
 export const components: MDXComponents = {
   Image,
@@ -13,4 +14,5 @@ export const components: MDXComponents = {
   pre: Pre,
   table: TableWrapper,
   BlogNewsletterForm,
+  NoticeCard,
 }

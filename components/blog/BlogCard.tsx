@@ -13,6 +13,12 @@ export function BlogCard({ post, variant = 'default' }: BlogCardProps) {
   const isMain = variant === 'main'
   const isList = variant === 'list'
   const isNewspaper = variant === 'newspaper'
+  const publishedLabel = new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(post.date))
   
   return (
     <Link
@@ -68,13 +74,7 @@ export function BlogCard({ post, variant = 'default' }: BlogCardProps) {
         <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400 mb-3">
           <div className="flex items-center gap-1">
             <Calendar className="w-3 h-3" />
-            <time dateTime={post.date}>
-              {new Date(post.date).toLocaleDateString('en-US', {
-                month: 'short',
-                day: 'numeric',
-                year: 'numeric',
-              })}
-            </time>
+            <time dateTime={post.date}>{publishedLabel}</time>
           </div>
           {post.readingTime?.minutes && (
             <>

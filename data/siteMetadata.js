@@ -9,7 +9,7 @@ const siteMetadata = {
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
   metadataBase: new URL('https://tailwind-nextjs-starter-blog.vercel.app'),
   siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
-  siteLogo: '/static/images/logo.png',
+  siteLogo: '/static/images/logo.png', // Uses the logo located at /Users/brandonbell/Desktop/bbell03/public/static/images/logo.png
   socialBanner: '/static/images/twitter-card.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'address@yoursite.com',

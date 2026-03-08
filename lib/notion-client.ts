@@ -2,6 +2,7 @@ import { Client } from '@notionhq/client';
 import { NotionToMarkdown } from 'notion-to-md';
 import fs from 'fs';
 import path from 'path';
+import { renderWhitePageDocument } from './notion-white-page';
 
 // Types for Notion integration
 export interface NotionBlogPost {
@@ -12,7 +13,6 @@ export interface NotionBlogPost {
   tags: string[];
   summary?: string;
   draft: boolean;
-  layout: string;
   authors: string[];
   cover?: string;
   content: string;
@@ -164,7 +164,6 @@ class NotionClient {
         tags,
         summary,
         draft,
-        layout: 'PostLayout',
         authors,
         cover,
         content: content.parent,
@@ -191,7 +190,7 @@ class NotionClient {
 
     for (const post of posts) {
       try {
-        const mdxContent = this.generateMDXContent(post);
+        const mdxContent = renderWhitePageDocument(post);
         const filePath = path.join(outputDir, `${post.slug}.mdx`);
         fs.writeFileSync(filePath, mdxContent, 'utf8');
         console.log(`Exported: ${post.slug}.mdx`);
@@ -201,22 +200,6 @@ class NotionClient {
     }
   }
 
-  private generateMDXContent(post: NotionBlogPost): string {
-    return `---
-title: "${post.title.replace(/"/g, '\\"')}"
-date: "${post.date}"
-tags: ${JSON.stringify(post.tags)}
-draft: ${post.draft}
-summary: "${(post.summary || '').replace(/"/g, '\\"')}"
-layout: "${post.layout}"
-authors: ${JSON.stringify(post.authors)}
-${post.cover ? `cover: "${post.cover}"` : ''}
-lastmod: "${post.lastModified}"
----
-
-${post.content}
-`.trim();
-  }
 }
 
 export const notionClient = new NotionClient();

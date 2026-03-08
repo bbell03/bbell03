@@ -7,8 +7,7 @@ import Navigation from "@/components/shared/navigation"
 import Logo from "@/components/shared/Logo"
 import NavModal from "@/components/shared/nav-modal"
 import CornerDots from "@/components/shared/corner-dots"
-import ThemeToggle from "@/components/shared/theme-toggle"
-import FontSwitcher from "@/components/shared/FontSwitcher"
+import HeaderControls from "@/components/shared/HeaderControls"
 import GradientBackground from "@/components/shared/gradient-background"
 import NextArrow from "@/components/shared/NextArrow"
 import { motion, AnimatePresence, useInView } from "framer-motion"
@@ -215,7 +214,7 @@ export default function LandingPageLayout({
   }
 
   return (
-    <div className="min-h-screen flex flex-col dark:bg-[#040a1d] bg-white transition-colors duration-300 overflow-hidden">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-background transition-colors duration-300 overflow-hidden">
       <GradientBackground />
       
       {/* Frosted Gradient Background Overlay */}
@@ -226,9 +225,9 @@ export default function LandingPageLayout({
             background: 'radial-gradient(ellipse at bottom left, hsl(var(--accent) / 0.55) 0%, hsl(var(--accent) / 0.35) 25%, hsl(var(--accent) / 0.22) 45%, hsl(var(--accent) / 0.12) 65%, hsl(var(--accent) / 0.06) 80%, hsl(var(--accent) / 0.03) 90%, transparent 100%)',
           }} />
           
-          {/* Accent color gradient for dark mode */}
+          {/* Accent color gradient for dark mode - Muted */}
           <div className="absolute inset-0 hidden dark:block" style={{
-            background: 'radial-gradient(ellipse at bottom left, hsl(var(--accent) / 0.25) 0%, hsl(var(--accent) / 0.15) 25%, hsl(var(--accent) / 0.1) 45%, hsl(var(--accent) / 0.06) 65%, hsl(var(--accent) / 0.03) 80%, hsl(var(--accent) / 0.015) 90%, transparent 100%)',
+            background: 'radial-gradient(ellipse at bottom left, hsl(var(--accent) / 0.08) 0%, hsl(var(--accent) / 0.04) 30%, hsl(var(--accent) / 0.02) 55%, transparent 75%)',
           }} />
           
           {/* Subtle backdrop blur */}
@@ -244,12 +243,8 @@ export default function LandingPageLayout({
       </div>
 
       {/* Header controls - Top right */}
-      <div className="fixed top-6 right-6 z-50 flex items-center gap-2 sm:gap-3">
-        <span className="text-xs uppercase tracking-wider hidden sm:inline-block font-sans">
-          {headerSubtitle}
-        </span>
-        <FontSwitcher />
-        <ThemeToggle />
+      <div className="fixed top-6 right-6 z-[100] flex items-center gap-2 sm:gap-3">
+        <HeaderControls showSubtitle subtitle={headerSubtitle} />
         <NavModal />
       </div>
 

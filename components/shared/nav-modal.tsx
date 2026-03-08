@@ -39,7 +39,7 @@ export default function NavModal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-white dark:bg-[#040a1d] z-[9999] flex flex-col"
+            className="fixed inset-0 bg-white dark:bg-background z-[9999] flex flex-col"
           >
             <div className="flex justify-end p-6">
               <button

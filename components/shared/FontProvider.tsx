@@ -8,38 +8,28 @@ interface FontProviderProps {
   defaultFont?: FontFamily
 }
 
-export function FontProvider({ children, defaultFont = 'courier' }: FontProviderProps) {
+export function FontProvider({ children, defaultFont = 'default' }: FontProviderProps) {
   const [fontFamily, setFontFamily] = useState<FontFamily>(defaultFont)
   const [isHydrated, setIsHydrated] = useState(false)
 
   useEffect(() => {
     setIsHydrated(true)
-    
-    // Load from localStorage on mount
     const saved = localStorage.getItem('blog-font-preference')
-    if (saved && (saved === 'courier' || saved === 'garamond')) {
+    if (saved === 'courier' || saved === 'garamond') {
       setFontFamily(saved)
+    } else {
+      setFontFamily('default')
+      localStorage.setItem('blog-font-preference', 'default')
     }
   }, [])
 
   useEffect(() => {
     if (!isHydrated) return
-    
-    // Save to localStorage
     localStorage.setItem('blog-font-preference', fontFamily)
-    
-    // Apply font classes to document root
     const root = document.documentElement
-    
-    // Remove all font classes first
     root.classList.remove('font-courier', 'font-garamond')
-    
-    // Add the selected font class
-    if (fontFamily === 'courier') {
-      root.classList.add('font-courier')
-    } else {
-      root.classList.add('font-garamond')
-    }
+    if (fontFamily === 'courier') root.classList.add('font-courier')
+    else if (fontFamily === 'garamond') root.classList.add('font-garamond')
   }, [fontFamily, isHydrated])
 
   const contextValue = {

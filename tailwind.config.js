@@ -21,12 +21,12 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-exo)"],
-        display: ["var(--font-permanent-marker)"],
-        accent: ["var(--font-space-grotesk)"],
-        playfair: ["var(--font-playfair)"],
-        "source-serif": ["var(--font-source-serif)"],
-        heading: ["var(--font-permanent-marker)"],
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["var(--font-sans)"],
+        accent: ["var(--font-sans)"],
+        playfair: ["var(--font-sans)"],
+        "source-serif": ["var(--font-sans)"],
+        heading: ["var(--font-sans)"],
         courier: ["Courier New", "Courier", "monospace"],
       },
       colors: {
@@ -122,7 +122,7 @@ module.exports = {
               lineHeight: '1.75',
             },
             'h1': {
-              fontFamily: 'var(--font-playfair)',
+              fontFamily: 'var(--font-sans)',
               fontSize: '2.25em',
               marginTop: '0',
               marginBottom: '0.8888889em',
@@ -130,7 +130,7 @@ module.exports = {
               fontWeight: '700',
             },
             'h2': {
-              fontFamily: 'var(--font-playfair)',
+              fontFamily: 'var(--font-sans)',
               fontSize: '1.5em',
               marginTop: '2em',
               marginBottom: '1em',
@@ -138,7 +138,7 @@ module.exports = {
               fontWeight: '600',
             },
             'h3': {
-              fontFamily: 'var(--font-playfair)',
+              fontFamily: 'var(--font-sans)',
               fontSize: '1.25em',
               marginTop: '1.6em',
               marginBottom: '0.6em',
@@ -146,7 +146,7 @@ module.exports = {
               fontWeight: '600',
             },
             'blockquote': {
-              fontFamily: 'var(--font-source-serif)',
+              fontFamily: 'var(--font-sans)',
               fontStyle: 'italic',
               marginTop: '1.6em',
               marginBottom: '1.6em',

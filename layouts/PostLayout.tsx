@@ -41,7 +41,10 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
           <header className="pt-6 xl:pb-6">
             <div className="max-w-3xl mx-auto text-center space-y-4">
               <time dateTime={date} className="text-sm text-gray-500 dark:text-gray-400 block">
-                {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
+                {new Intl.DateTimeFormat(siteMetadata.locale, {
+                  ...postDateTemplate,
+                  timeZone: 'UTC',
+                }).format(new Date(date))}
               </time>
               <PageTitle>{title}</PageTitle>
               {summary && (

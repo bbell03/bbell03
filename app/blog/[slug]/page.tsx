@@ -1,59 +1,30 @@
-import { notFound } from "next/navigation"
-import { allBlogs } from "contentlayer/generated"
-import { Mdx } from "@/components/blog/mdx-components"
-import { serialize } from "next-mdx-remote/serialize"
-import ArticleLayout from "@/components/blog/ArticleLayout"
-import ServerRelatedPosts from "@/components/blog/ServerRelatedPosts"
+import { allBlogs } from 'contentlayer/generated'
+import { Metadata } from 'next'
 
-interface PostPageProps {
-  params: {
-    slug: string
-  }
+export async function generateStaticParams() {
+  // Filter for single-level slugs (no nested paths)
+  return allBlogs
+    .filter((p) => !p.slug.includes('/'))
+    .map((p) => ({ slug: p.slug }))
 }
 
-async function getPostFromParams(params: PostPageProps["params"]) {
-  const post = allBlogs.find((post) => post.slug === params.slug)
-  if (!post) return null
-  return post
-}
-
-export async function generateStaticParams(): Promise<PostPageProps["params"][]> {
-  return allBlogs.map((post) => ({
-    slug: post.slug,
-  }))
-}
-
-export default async function PostPage({ params }: PostPageProps) {
-  const post = await getPostFromParams(params)
-
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata | undefined> {
+  const post = allBlogs.find((p) => p.slug === params.slug)
   if (!post) {
-    notFound()
+    return
   }
 
-  const mdxSource = await serialize(post.body.raw)
+  // Re-export from [...slug] for the actual page rendering
+  const { generateMetadata: generateMetadataNested } = await import('../[...slug]/page')
+  return generateMetadataNested({ params: { slug: [params.slug] } })
+}
 
-  // Format date for display
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString)
-    return date.toLocaleDateString('en-US', {
-      month: '2-digit',
-      day: '2-digit',
-      year: 'numeric'
-    }).replace(/\//g, ' / ')
-  }
-
-  return (
-    <ArticleLayout
-      title={post.title}
-      subtitle={post.summary}
-      date={formatDate(post.date)}
-      author="Brandon Bell"
-      readingTime={post.readingTime?.minutes?.toString()}
-    >
-      <Mdx code={mdxSource} />
-      <div className="mt-12">
-        <ServerRelatedPosts currentPost={post} />
-      </div>
-    </ArticleLayout>
-  )
-} 
+export default async function Page({ params }: { params: { slug: string } }) {
+  // Re-export from [...slug] for the actual page rendering
+  const PageComponent = (await import('../[...slug]/page')).default
+  return <PageComponent params={{ slug: [params.slug] }} />
+}
