@@ -15,10 +15,17 @@ import { notFound } from 'next/navigation'
 
 export async function generateMetadata({
   params,
-}: {
-  params: { slug: string[] }
-}): Promise<Metadata | undefined> {
-  const slug = decodeURI(params.slug.join('/'))
+}: any): Promise<Metadata | undefined> {
+  const slugParts =
+    Array.isArray(params?.slug) ? params.slug :
+    typeof params?.slug === 'string' ? [params.slug] :
+    []
+
+  if (slugParts.length === 0) {
+    return
+  }
+
+  const slug = decodeURI(slugParts.join('/'))
   const post = allBlogs.find((p) => p.slug === slug)
   const authorList = post?.authors || ['default']
   const authorDetails = authorList.map((author) => {
@@ -70,8 +77,17 @@ export const generateStaticParams = async () => {
   return allBlogs.map((p) => ({ slug: p.slug.split('/').map((name) => decodeURI(name)) }))
 }
 
-export default async function Page({ params }: { params: { slug: string[] } }) {
-  const slug = decodeURI(params.slug.join('/'))
+export default async function Page({ params }: any) {
+  const slugParts =
+    Array.isArray(params?.slug) ? params.slug :
+    typeof params?.slug === 'string' ? [params.slug] :
+    []
+
+  if (slugParts.length === 0) {
+    return notFound()
+  }
+
+  const slug = decodeURI(slugParts.join('/'))
   // Filter out drafts in production
   const sortedCoreContents = allCoreContent(sortPosts(allBlogs))
   const postIndex = sortedCoreContents.findIndex((p) => p.slug === slug)

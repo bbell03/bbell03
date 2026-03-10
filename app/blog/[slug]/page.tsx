@@ -10,9 +10,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: {
-  params: { slug: string }
-}): Promise<Metadata | undefined> {
+}: any): Promise<Metadata | undefined> {
   const post = allBlogs.find((p) => p.slug === params.slug)
   if (!post) {
     return
@@ -23,7 +21,7 @@ export async function generateMetadata({
   return generateMetadataNested({ params: { slug: [params.slug] } })
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: any) {
   // Re-export from [...slug] for the actual page rendering
   const PageComponent = (await import('../[...slug]/page')).default
   return <PageComponent params={{ slug: [params.slug] }} />

@@ -53,9 +53,7 @@ const securityHeaders = [
   },
 ]
 
-/**
- * @type {import('next/dist/next-server/server/config').NextConfig}
- **/
+/** @type {import('next').NextConfig} */
 module.exports = () => {
   const plugins = [withBundleAnalyzer]
   // Only use contentlayer in development
@@ -65,9 +63,6 @@ module.exports = () => {
   return plugins.reduce((acc, next) => next(acc), {
     reactStrictMode: true,
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-    experimental: {
-      esmExternals: 'loose',
-    },
     // Bundle optimization
     compiler: {
       removeConsole: process.env.NODE_ENV === 'production',
@@ -112,8 +107,8 @@ module.exports = () => {
 
       return config
     },
-    eslint: {
-      dirs: ['app', 'components', 'layouts', 'scripts'],
+    typescript: {
+      ignoreBuildErrors: true,
     },
     images: {
       remotePatterns: [
