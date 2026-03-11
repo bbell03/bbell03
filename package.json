@@ -128,7 +128,7 @@
       "prettier --write"
     ]
   },
-  "packageManager": "yarn@3.6.1",
+  "packageManager": "npm@10.8.2",
   "engines": {
     "node": ">=20.0.0"
   }
