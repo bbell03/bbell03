@@ -61,6 +61,7 @@ module.exports = () => {
     plugins.unshift(withContentlayer)
   }
   return plugins.reduce((acc, next) => next(acc), {
+    turbopack: {},
     reactStrictMode: true,
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
     compiler: {
