@@ -66,7 +66,6 @@ module.exports = () => {
     compiler: {
       removeConsole: process.env.NODE_ENV === 'production',
     },
-    turbopack: {},
     typescript: {
       ignoreBuildErrors: true,
     },

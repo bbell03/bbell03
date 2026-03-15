@@ -3,8 +3,9 @@
 import { useTheme } from "next-themes"
 import dynamic from "next/dynamic"
 import LandingPageLayout, { Slide } from "@/components/home/LandingPageLayout"
+import SceneErrorBoundary from "@/components/shared/SceneErrorBoundary"
 
-// Dynamically import heavy 3D component
+// Dynamically import heavy 3D component (client-only to avoid R3F/React mismatch)
 const CircularThreeScene = dynamic(() => import("@/components/home/CircularThreeScene"), {
   ssr: false,
   loading: () => <div className="w-full h-96 bg-gray-100 dark:bg-gray-800 rounded-lg animate-pulse" />
@@ -39,11 +40,13 @@ export default function Home() {
       {/* Accent glow background - subtle circular glow */}
       <div className="absolute inset-0 bg-accent opacity-[0.03] rounded-full blur-3xl scale-150 group-hover:opacity-[0.08] group-hover:scale-175 transition-all duration-1000"></div>
       
-      <CircularThreeScene 
-        color={theme === "dark" ? "#ffffff" : "#000000"}
-        speed={0.3}
-        className="w-full h-full relative z-10 group-hover:scale-105 transition-transform duration-500"
-      />
+      <SceneErrorBoundary fallback={<div className="w-full h-full min-h-[20rem] bg-gray-100 dark:bg-gray-800 rounded-lg animate-pulse" />}>
+        <CircularThreeScene 
+          color={theme === "dark" ? "#ffffff" : "#000000"}
+          speed={0.3}
+          className="w-full h-full relative z-10 group-hover:scale-105 transition-transform duration-500"
+        />
+      </SceneErrorBoundary>
       
       {/* Orbiting accent dots */}
       <div className="absolute inset-0 animate-spin" style={{ animationDuration: '12s' }}>

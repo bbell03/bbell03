@@ -253,23 +253,40 @@ export default makeSource({
       // console.log(`Blog Title: ${blog.title}, ID: ${blog.id}`);
     });
 
-    if (NOTION_ENABLED) {
-      // Translate Notion blogs to MDX and save them
+    // Only run Notion sync during build (or when SKIP_NOTION_SYNC is unset in dev). Skip in dev so the server isn't stuck on Notion API.
+    const skipNotionInDev = process.env.NODE_ENV !== 'production' && process.env.SKIP_NOTION_SYNC !== 'false';
+    if (NOTION_ENABLED && !skipNotionInDev) {
       const notionOutputDir = path.join(process.cwd(), 'data/blog/notion');
       await translateNotionBlogsToMDX(process.env.NOTION_DATABASE_ID || '', notionOutputDir);
       console.log('Notion blogs have been translated to MDX and saved.');
-    } else {
+    } else if (!NOTION_ENABLED) {
       console.log('Notion integration is disabled. Skipping Notion blog import.');
+    } else {
+      console.log('Notion sync skipped in dev (run "npm run sync-notion" to sync).');
     }
 
-    // Fix contentlayer generated files after generation
-    try {
-      console.log('🔧 Fixing contentlayer assert syntax...');
-      const { execSync } = await import('child_process');
-      execSync('node ./scripts/fix-contentlayer-asserts.mjs', { stdio: 'inherit' });
-      console.log('✅ Contentlayer assert syntax fixed');
-    } catch (error) {
-      console.log('⚠️ Contentlayer fix script failed:', error.message);
+    // Fix contentlayer generated files. In dev run in background so the server can start and the main page loads without waiting.
+    const isDev = process.env.NODE_ENV !== 'production';
+    if (isDev) {
+      setImmediate(async () => {
+        try {
+          console.log('🔧 Fixing contentlayer assert syntax...');
+          const { execSync } = await import('child_process');
+          execSync('node ./scripts/fix-contentlayer-asserts.mjs', { stdio: 'inherit' });
+          console.log('✅ Contentlayer assert syntax fixed');
+        } catch (err: unknown) {
+          console.log('⚠️ Contentlayer fix script failed:', err instanceof Error ? err.message : err);
+        }
+      });
+    } else {
+      try {
+        console.log('🔧 Fixing contentlayer assert syntax...');
+        const { execSync } = await import('child_process');
+        execSync('node ./scripts/fix-contentlayer-asserts.mjs', { stdio: 'inherit' });
+        console.log('✅ Contentlayer assert syntax fixed');
+      } catch (error) {
+        console.log('⚠️ Contentlayer fix script failed:', error instanceof Error ? error.message : error);
+      }
     }
   },
   mdx: {

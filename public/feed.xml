@@ -7,15 +7,15 @@
         <language>en-us</language>
         <managingEditor>address@yoursite.com (Brandon Bell)</managingEditor>
         <webMaster>address@yoursite.com (Brandon Bell)</webMaster>
-        <lastBuildDate>Tue, 16 Dec 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 15 Mar 2026 00:00:00 GMT</lastBuildDate>
         <atom:link href="https://tailwind-nextjs-starter-blog.vercel.app/feed.xml" rel="self" type="application/rss+xml"/>
         
   <item>
     <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127</guid>
     <title>Rewards</title>
     <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-20536850-c0a3-80a5-8494-e657db8af127</link>
-    
-    <pubDate>Tue, 16 Dec 2025 00:00:00 GMT</pubDate>
+    undefined
+    <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
     <author>address@yoursite.com (Brandon Bell)</author>
     
   </item>
@@ -24,8 +24,8 @@
     <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-20636850-c0a3-8095-a9b1-e67a63850703</guid>
     <title>Untitled</title>
     <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-20636850-c0a3-8095-a9b1-e67a63850703</link>
-    
-    <pubDate>Tue, 16 Dec 2025 00:00:00 GMT</pubDate>
+    undefined
+    <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
     <author>address@yoursite.com (Brandon Bell)</author>
     
   </item>
@@ -34,7 +34,7 @@
     <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/aasdfasdf</guid>
     <title>blog post 2</title>
     <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/aasdfasdf</link>
-    
+    undefined
     <pubDate>Wed, 14 May 2025 00:00:00 GMT</pubDate>
     <author>address@yoursite.com (Brandon Bell)</author>
     
@@ -44,7 +44,7 @@
     <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-1ef36850-c0a3-8016-aad6-ec96ed64fa0a</guid>
     <title>Basil Garden: Hydroponics System SP201</title>
     <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-1ef36850-c0a3-8016-aad6-ec96ed64fa0a</link>
-    
+    undefined
     <pubDate>Fri, 09 May 2025 00:00:00 GMT</pubDate>
     <author>address@yoursite.com (Brandon Bell)</author>
     
@@ -54,7 +54,7 @@
     <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/asdfasdf</guid>
     <title>blog-plan</title>
     <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/asdfasdf</link>
-    
+    undefined
     <pubDate>Thu, 01 May 2025 00:00:00 GMT</pubDate>
     <author>address@yoursite.com (Brandon Bell)</author>
     
@@ -64,7 +64,7 @@
     <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/work</guid>
     <title>Work</title>
     <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/work</link>
-    
+    undefined
     <pubDate>Thu, 01 May 2025 00:00:00 GMT</pubDate>
     <author>address@yoursite.com (Brandon Bell)</author>
     
@@ -74,7 +74,7 @@
     <guid>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/page1</guid>
     <title>page1</title>
     <link>https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/page1</link>
-    
+    undefined
     <pubDate>Wed, 30 Apr 2025 00:00:00 GMT</pubDate>
     <author>address@yoursite.com (Brandon Bell)</author>
     

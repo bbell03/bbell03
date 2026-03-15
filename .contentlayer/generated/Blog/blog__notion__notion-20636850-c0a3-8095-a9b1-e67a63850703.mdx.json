@@ -1,15 +1,13 @@
 {
   "title": "Untitled",
-  "date": "2025-12-16T00:00:00.000Z",
+  "date": "2026-03-15T00:00:00.000Z",
   "tags": [],
   "lastmod": "2025-06-02T21:45:00.000Z",
   "draft": false,
-  "summary": "",
-  "authors": [],
   "layout": "PostLayout",
   "body": {
-    "raw": "\nundefined",
-    "code": "var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var y=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),h=(t,n)=>{for(var e in n)r(t,e,{get:n[e],enumerable:!0})},u=(t,n,e,s)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let o of x(n))!_.call(t,o)&&o!==e&&r(t,o,{get:()=>n[o],enumerable:!(s=l(n,o))||s.enumerable});return t};var j=(t,n,e)=>(e=t!=null?f(p(t)):{},u(n||!t||!t.__esModule?r(e,\"default\",{value:t,enumerable:!0}):e,t)),M=t=>u(r({},\"__esModule\",{value:!0}),t);var d=y((X,c)=>{c.exports=_jsx_runtime});var D={};h(D,{default:()=>i,frontmatter:()=>C});var a=j(d()),C={title:\"Untitled\",date:\"2025-12-16\",tags:[],draft:!1,summary:\"\",layout:\"PostLayout\",authors:[],lastmod:\"2025-06-02T21:45:00.000Z\"};function m(t){let n={p:\"p\",...t.components};return(0,a.jsx)(n.p,{children:\"undefined\"})}function i(t={}){let{wrapper:n}=t.components||{};return n?(0,a.jsx)(n,{...t,children:(0,a.jsx)(m,{...t})}):m(t)}return M(D);})();\n;return Component;"
+    "raw": "\n\n",
+    "code": "var Component=(()=>{var l=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var p=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)r(t,n,{get:e[n],enumerable:!0})},u=(t,e,n,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of x(e))!g.call(t,a)&&a!==n&&r(t,a,{get:()=>e[a],enumerable:!(s=d(e,a))||s.enumerable});return t};var y=(t,e,n)=>(n=t!=null?l(_(t)):{},u(e||!t||!t.__esModule?r(n,\"default\",{value:t,enumerable:!0}):n,t)),M=t=>u(r({},\"__esModule\",{value:!0}),t);var c=p((D,i)=>{i.exports=_jsx_runtime});var w={};j(w,{default:()=>f,frontmatter:()=>h});var o=y(c()),h={layout:\"PostLayout\",format:\"white-page\",source:\"notion\",title:\"Untitled\",slug:\"notion-20636850-c0a3-8095-a9b1-e67a63850703\",date:\"2026-03-15\",lastmod:\"2025-06-02T21:45:00.000Z\",draft:!1};function m(t){return(0,o.jsx)(o.Fragment,{})}function f(t={}){let{wrapper:e}=t.components||{};return e?(0,o.jsx)(e,{...t,children:(0,o.jsx)(m,{...t})}):m(t)}return M(w);})();\n;return Component;"
   },
   "_id": "blog/notion/notion-20636850-c0a3-8095-a9b1-e67a63850703.mdx",
   "_raw": {
@@ -21,10 +19,10 @@
   },
   "type": "Blog",
   "readingTime": {
-    "text": "1 min read",
-    "minutes": 0.005,
-    "time": 300,
-    "words": 1
+    "text": "0 min read",
+    "minutes": 0,
+    "time": 0,
+    "words": 0
   },
   "slug": "notion/notion-20636850-c0a3-8095-a9b1-e67a63850703",
   "path": "blog/notion/notion-20636850-c0a3-8095-a9b1-e67a63850703",
@@ -34,9 +32,8 @@
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "Untitled",
-    "datePublished": "2025-12-16T00:00:00.000Z",
+    "datePublished": "2026-03-15T00:00:00.000Z",
     "dateModified": "2025-06-02T21:45:00.000Z",
-    "description": "",
     "image": "/static/images/twitter-card.png",
     "url": "https://tailwind-nextjs-starter-blog.vercel.app/blog/notion/notion-20636850-c0a3-8095-a9b1-e67a63850703"
   }
