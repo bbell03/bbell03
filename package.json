@@ -128,6 +128,10 @@
       "prettier --write"
     ]
   },
+  "overrides": {
+    "react": "$react",
+    "react-dom": "$react-dom"
+  },
   "packageManager": "npm@10.8.2",
   "engines": {
     "node": ">=20.0.0"
