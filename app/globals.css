@@ -13,22 +13,33 @@
   --font-garamond: var(--font-eb-garamond);
 }
 
-/* Font switching classes */
-.font-courier {
-  --font-body: var(--font-courier);
-  --font-heading: var(--font-courier);
+/* Font switching classes - restricted to desktop or non-landing page on mobile to preserve Raleway request */
+@media (min-width: 768px) {
+  .font-courier {
+    --font-body: var(--font-courier);
+    --font-heading: var(--font-courier);
+  }
+
+  .font-courier * {
+    font-family: var(--font-courier) !important;
+  }
+
+  .font-garamond {
+    --font-body: var(--font-garamond);
+    --font-heading: var(--font-garamond);
+  }
+
+  .font-garamond * {
+    font-family: var(--font-garamond) !important;
+  }
 }
 
-.font-courier * {
+/* Fallback for blog pages even on mobile if switcher is used */
+.blog-page.font-courier * {
   font-family: var(--font-courier) !important;
 }
 
-.font-garamond {
-  --font-body: var(--font-garamond);
-  --font-heading: var(--font-garamond);
-}
-
-.font-garamond * {
+.blog-page.font-garamond * {
   font-family: var(--font-garamond) !important;
 }
 
@@ -76,28 +87,68 @@
 
 /* Dynamic Accent Color Classes */
 @layer utilities {
-  .text-accent { color: hsl(var(--accent)); }
-  .text-accent-600 { color: hsl(var(--accent) / 0.8); }
-  .text-accent-400 { color: hsl(var(--accent) / 0.6); }
-  .text-accent-900 { color: hsl(var(--accent) / 0.9); }
-  .text-accent-100 { color: hsl(var(--accent) / 0.1); }
-  
-  .bg-accent { background-color: hsl(var(--accent)); }
-  .bg-accent-50 { background-color: hsl(var(--accent) / 0.05); }
-  .bg-accent-100 { background-color: hsl(var(--accent) / 0.1); }
-  .bg-accent-900 { background-color: hsl(var(--accent) / 0.4); }
-  
-  .border-accent { border-color: hsl(var(--accent)); }
-  .border-accent-300 { border-color: hsl(var(--accent) / 0.5); }
-  .border-accent-400 { border-color: hsl(var(--accent) / 0.6); }
-  .border-accent-500 { border-color: hsl(var(--accent) / 0.7); }
-  .border-accent-600 { border-color: hsl(var(--accent) / 0.8); }
-  
-  .ring-accent { 
+  .text-accent {
+    color: hsl(var(--accent));
+  }
+
+  .text-accent-600 {
+    color: hsl(var(--accent) / 0.8);
+  }
+
+  .text-accent-400 {
+    color: hsl(var(--accent) / 0.6);
+  }
+
+  .text-accent-900 {
+    color: hsl(var(--accent) / 0.9);
+  }
+
+  .text-accent-100 {
+    color: hsl(var(--accent) / 0.1);
+  }
+
+  .bg-accent {
+    background-color: hsl(var(--accent));
+  }
+
+  .bg-accent-50 {
+    background-color: hsl(var(--accent) / 0.05);
+  }
+
+  .bg-accent-100 {
+    background-color: hsl(var(--accent) / 0.1);
+  }
+
+  .bg-accent-900 {
+    background-color: hsl(var(--accent) / 0.4);
+  }
+
+  .border-accent {
+    border-color: hsl(var(--accent));
+  }
+
+  .border-accent-300 {
+    border-color: hsl(var(--accent) / 0.5);
+  }
+
+  .border-accent-400 {
+    border-color: hsl(var(--accent) / 0.6);
+  }
+
+  .border-accent-500 {
+    border-color: hsl(var(--accent) / 0.7);
+  }
+
+  .border-accent-600 {
+    border-color: hsl(var(--accent) / 0.8);
+  }
+
+  .ring-accent {
     --tw-ring-color: hsl(var(--accent)) !important;
     box-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   }
-  .focus\:ring-accent:focus { 
+
+  .focus\:ring-accent:focus {
     --tw-ring-color: hsl(var(--accent)) !important;
     --tw-ring-width: 2px;
     --tw-ring-offset-width: 0px;
@@ -105,128 +156,311 @@
     box-shadow: 0 0 0 2px hsl(var(--accent)) !important;
     outline: none !important;
   }
+
   .focus\:ring-2:focus {
     --tw-ring-width: 2px;
   }
-  .focus\:border-transparent:focus { border-color: transparent; }
-  
-  .shadow-accent { box-shadow: 0 0 20px hsl(var(--accent) / 0.3); }
-  .shadow-accent-sm { box-shadow: 0 0 10px hsl(var(--accent) / 0.2); }
-  .shadow-accent-lg { box-shadow: 0 0 30px hsl(var(--accent) / 0.4); }
-  .shadow-accent-200 { box-shadow: 0 0 15px hsl(var(--accent) / 0.25); }
-  .shadow-accent-300 { box-shadow: 0 0 20px hsl(var(--accent) / 0.3); }
-  .shadow-accent-400 { box-shadow: 0 0 25px hsl(var(--accent) / 0.35); }
-  .shadow-accent-500 { box-shadow: 0 0 30px hsl(var(--accent) / 0.4); }
-  .shadow-accent-600 { box-shadow: 0 0 35px hsl(var(--accent) / 0.45); }
-  .shadow-accent-700 { box-shadow: 0 0 25px hsl(var(--accent) / 0.3); }
-  .shadow-accent-800 { box-shadow: 0 0 30px hsl(var(--accent) / 0.35); }
-  .shadow-accent-900 { box-shadow: 0 0 20px hsl(var(--accent) / 0.25); }
-  
+
+  .focus\:border-transparent:focus {
+    border-color: transparent;
+  }
+
+  .shadow-accent {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
+  }
+
+  .shadow-accent-sm {
+    box-shadow: 0 0 10px hsl(var(--accent) / 0.2);
+  }
+
+  .shadow-accent-lg {
+    box-shadow: 0 0 30px hsl(var(--accent) / 0.4);
+  }
+
+  .shadow-accent-200 {
+    box-shadow: 0 0 15px hsl(var(--accent) / 0.25);
+  }
+
+  .shadow-accent-300 {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
+  }
+
+  .shadow-accent-400 {
+    box-shadow: 0 0 25px hsl(var(--accent) / 0.35);
+  }
+
+  .shadow-accent-500 {
+    box-shadow: 0 0 30px hsl(var(--accent) / 0.4);
+  }
+
+  .shadow-accent-600 {
+    box-shadow: 0 0 35px hsl(var(--accent) / 0.45);
+  }
+
+  .shadow-accent-700 {
+    box-shadow: 0 0 25px hsl(var(--accent) / 0.3);
+  }
+
+  .shadow-accent-800 {
+    box-shadow: 0 0 30px hsl(var(--accent) / 0.35);
+  }
+
+  .shadow-accent-900 {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.25);
+  }
+
   /* Text glow effects that won't be clipped */
-  .text-glow-accent { 
-    text-shadow: 0 0 10px hsl(var(--accent) / 0.5), 0 0 20px hsl(var(--accent) / 0.3), 0 0 30px hsl(var(--accent) / 0.2); 
+  .text-glow-accent {
+    text-shadow: 0 0 10px hsl(var(--accent) / 0.5), 0 0 20px hsl(var(--accent) / 0.3), 0 0 30px hsl(var(--accent) / 0.2);
   }
-  .text-glow-accent-sm { 
-    text-shadow: 0 0 5px hsl(var(--accent) / 0.4), 0 0 10px hsl(var(--accent) / 0.2); 
+
+  .text-glow-accent-sm {
+    text-shadow: 0 0 5px hsl(var(--accent) / 0.4), 0 0 10px hsl(var(--accent) / 0.2);
   }
-  .text-glow-accent-lg { 
-    text-shadow: 0 0 15px hsl(var(--accent) / 0.6), 0 0 30px hsl(var(--accent) / 0.4), 0 0 45px hsl(var(--accent) / 0.2); 
+
+  .text-glow-accent-lg {
+    text-shadow: 0 0 15px hsl(var(--accent) / 0.6), 0 0 30px hsl(var(--accent) / 0.4), 0 0 45px hsl(var(--accent) / 0.2);
   }
-  
-  .hover\:text-accent:hover { color: hsl(var(--accent)); }
-  .hover\:text-accent-600:hover { color: hsl(var(--accent) / 0.8); }
-  .hover\:text-accent-400:hover { color: hsl(var(--accent) / 0.6); }
-  .hover\:text-accent-900:hover { color: hsl(var(--accent) / 0.9); }
-  .hover\:text-accent-100:hover { color: hsl(var(--accent) / 0.1); }
-  
-  .peer:focus ~ .peer-focus\:text-accent { color: hsl(var(--accent)); }
-  
-  .hover\:text-glow-accent:hover { 
-    text-shadow: 0 0 10px hsl(var(--accent) / 0.5), 0 0 20px hsl(var(--accent) / 0.3), 0 0 30px hsl(var(--accent) / 0.2); 
+
+  .hover\:text-accent:hover {
+    color: hsl(var(--accent));
   }
-  .hover\:text-glow-accent-sm:hover { 
-    text-shadow: 0 0 5px hsl(var(--accent) / 0.4), 0 0 10px hsl(var(--accent) / 0.2); 
+
+  .hover\:text-accent-600:hover {
+    color: hsl(var(--accent) / 0.8);
   }
-  .hover\:text-glow-accent-lg:hover { 
-    text-shadow: 0 0 15px hsl(var(--accent) / 0.6), 0 0 30px hsl(var(--accent) / 0.4), 0 0 45px hsl(var(--accent) / 0.2); 
+
+  .hover\:text-accent-400:hover {
+    color: hsl(var(--accent) / 0.6);
   }
-  
-  .hover\:bg-accent-100:hover { background-color: hsl(var(--accent) / 0.1); }
-  .hover\:bg-accent-900:hover { background-color: hsl(var(--accent) / 0.4); }
-  
-  .hover\:border-accent-400:hover { border-color: hsl(var(--accent) / 0.6); }
-  .hover\:border-accent-500:hover { border-color: hsl(var(--accent) / 0.7); }
-  .hover\:border-accent-600:hover { border-color: hsl(var(--accent) / 0.8); }
-  
-  .hover\:shadow-accent-200:hover { box-shadow: 0 0 15px hsl(var(--accent) / 0.25); }
-  .hover\:shadow-accent-300:hover { box-shadow: 0 0 20px hsl(var(--accent) / 0.3); }
-  .hover\:shadow-accent-400:hover { box-shadow: 0 0 25px hsl(var(--accent) / 0.35); }
-  .hover\:shadow-accent-500:hover { box-shadow: 0 0 30px hsl(var(--accent) / 0.4); }
-  .hover\:shadow-accent-600:hover { box-shadow: 0 0 35px hsl(var(--accent) / 0.45); }
-  .hover\:shadow-accent-700:hover { box-shadow: 0 0 25px hsl(var(--accent) / 0.3); }
-  .hover\:shadow-accent-800:hover { box-shadow: 0 0 30px hsl(var(--accent) / 0.35); }
-  .hover\:shadow-accent-900:hover { box-shadow: 0 0 20px hsl(var(--accent) / 0.25); }
-  
-  .group:hover .group-hover\:text-accent { color: hsl(var(--accent)); }
-  .group:hover .group-hover\:text-accent-600 { color: hsl(var(--accent) / 0.8); }
-  .group:hover .group-hover\:text-accent-400 { color: hsl(var(--accent) / 0.6); }
-  .group:hover .group-hover\:text-accent-900 { color: hsl(var(--accent) / 0.9); }
-  .group:hover .group-hover\:text-accent-100 { color: hsl(var(--accent) / 0.1); }
-  .group:hover .group-hover\:shadow-accent-500 { box-shadow: 0 0 30px hsl(var(--accent) / 0.4); }
-  .group:hover .group-hover\:shadow-accent-600 { box-shadow: 0 0 35px hsl(var(--accent) / 0.45); }
-  
-  .group:hover .group-hover\:text-glow-accent { 
-    text-shadow: 0 0 10px hsl(var(--accent) / 0.5), 0 0 20px hsl(var(--accent) / 0.3), 0 0 30px hsl(var(--accent) / 0.2); 
+
+  .hover\:text-accent-900:hover {
+    color: hsl(var(--accent) / 0.9);
   }
-  .group:hover .group-hover\:text-glow-accent-sm { 
-    text-shadow: 0 0 5px hsl(var(--accent) / 0.4), 0 0 10px hsl(var(--accent) / 0.2); 
+
+  .hover\:text-accent-100:hover {
+    color: hsl(var(--accent) / 0.1);
   }
-  .group:hover .group-hover\:text-glow-accent-lg { 
-    text-shadow: 0 0 15px hsl(var(--accent) / 0.6), 0 0 30px hsl(var(--accent) / 0.4), 0 0 45px hsl(var(--accent) / 0.2); 
+
+  .peer:focus~.peer-focus\:text-accent {
+    color: hsl(var(--accent));
   }
-  
+
+  .hover\:text-glow-accent:hover {
+    text-shadow: 0 0 10px hsl(var(--accent) / 0.5), 0 0 20px hsl(var(--accent) / 0.3), 0 0 30px hsl(var(--accent) / 0.2);
+  }
+
+  .hover\:text-glow-accent-sm:hover {
+    text-shadow: 0 0 5px hsl(var(--accent) / 0.4), 0 0 10px hsl(var(--accent) / 0.2);
+  }
+
+  .hover\:text-glow-accent-lg:hover {
+    text-shadow: 0 0 15px hsl(var(--accent) / 0.6), 0 0 30px hsl(var(--accent) / 0.4), 0 0 45px hsl(var(--accent) / 0.2);
+  }
+
+  .hover\:bg-accent-100:hover {
+    background-color: hsl(var(--accent) / 0.1);
+  }
+
+  .hover\:bg-accent-900:hover {
+    background-color: hsl(var(--accent) / 0.4);
+  }
+
+  .hover\:border-accent-400:hover {
+    border-color: hsl(var(--accent) / 0.6);
+  }
+
+  .hover\:border-accent-500:hover {
+    border-color: hsl(var(--accent) / 0.7);
+  }
+
+  .hover\:border-accent-600:hover {
+    border-color: hsl(var(--accent) / 0.8);
+  }
+
+  .hover\:shadow-accent-200:hover {
+    box-shadow: 0 0 15px hsl(var(--accent) / 0.25);
+  }
+
+  .hover\:shadow-accent-300:hover {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
+  }
+
+  .hover\:shadow-accent-400:hover {
+    box-shadow: 0 0 25px hsl(var(--accent) / 0.35);
+  }
+
+  .hover\:shadow-accent-500:hover {
+    box-shadow: 0 0 30px hsl(var(--accent) / 0.4);
+  }
+
+  .hover\:shadow-accent-600:hover {
+    box-shadow: 0 0 35px hsl(var(--accent) / 0.45);
+  }
+
+  .hover\:shadow-accent-700:hover {
+    box-shadow: 0 0 25px hsl(var(--accent) / 0.3);
+  }
+
+  .hover\:shadow-accent-800:hover {
+    box-shadow: 0 0 30px hsl(var(--accent) / 0.35);
+  }
+
+  .hover\:shadow-accent-900:hover {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.25);
+  }
+
+  .group:hover .group-hover\:text-accent {
+    color: hsl(var(--accent));
+  }
+
+  .group:hover .group-hover\:text-accent-600 {
+    color: hsl(var(--accent) / 0.8);
+  }
+
+  .group:hover .group-hover\:text-accent-400 {
+    color: hsl(var(--accent) / 0.6);
+  }
+
+  .group:hover .group-hover\:text-accent-900 {
+    color: hsl(var(--accent) / 0.9);
+  }
+
+  .group:hover .group-hover\:text-accent-100 {
+    color: hsl(var(--accent) / 0.1);
+  }
+
+  .group:hover .group-hover\:shadow-accent-500 {
+    box-shadow: 0 0 30px hsl(var(--accent) / 0.4);
+  }
+
+  .group:hover .group-hover\:shadow-accent-600 {
+    box-shadow: 0 0 35px hsl(var(--accent) / 0.45);
+  }
+
+  .group:hover .group-hover\:text-glow-accent {
+    text-shadow: 0 0 10px hsl(var(--accent) / 0.5), 0 0 20px hsl(var(--accent) / 0.3), 0 0 30px hsl(var(--accent) / 0.2);
+  }
+
+  .group:hover .group-hover\:text-glow-accent-sm {
+    text-shadow: 0 0 5px hsl(var(--accent) / 0.4), 0 0 10px hsl(var(--accent) / 0.2);
+  }
+
+  .group:hover .group-hover\:text-glow-accent-lg {
+    text-shadow: 0 0 15px hsl(var(--accent) / 0.6), 0 0 30px hsl(var(--accent) / 0.4), 0 0 45px hsl(var(--accent) / 0.2);
+  }
+
   /* Dark mode group hover variants */
-  .dark .group:hover .group-hover\:text-accent-400 { color: hsl(var(--accent) / 0.6); }
-  .dark .group:hover .group-hover\:text-accent-100 { color: hsl(var(--accent) / 0.1); }
-  .dark .group:hover .group-hover\:text-accent-300 { color: hsl(var(--accent) / 0.4); }
-  
-  .focus\:ring-accent:focus { box-shadow: 0 0 0 2px hsl(var(--accent) / 0.5); }
-  .focus\:shadow-accent-300:focus { box-shadow: 0 0 20px hsl(var(--accent) / 0.3); }
-  .focus\:shadow-accent-800:focus { box-shadow: 0 0 30px hsl(var(--accent) / 0.35); }
-  
+  .dark .group:hover .group-hover\:text-accent-400 {
+    color: hsl(var(--accent) / 0.6);
+  }
+
+  .dark .group:hover .group-hover\:text-accent-100 {
+    color: hsl(var(--accent) / 0.1);
+  }
+
+  .dark .group:hover .group-hover\:text-accent-300 {
+    color: hsl(var(--accent) / 0.4);
+  }
+
+  .focus\:ring-accent:focus {
+    box-shadow: 0 0 0 2px hsl(var(--accent) / 0.5);
+  }
+
+  .focus\:shadow-accent-300:focus {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
+  }
+
+  .focus\:shadow-accent-800:focus {
+    box-shadow: 0 0 30px hsl(var(--accent) / 0.35);
+  }
+
   /* Dark mode variants */
-  .dark .hover\:text-accent-400:hover { color: hsl(var(--accent) / 0.6); }
-  .dark .hover\:text-accent-100:hover { color: hsl(var(--accent) / 0.1); }
-  .dark .hover\:text-accent-300:hover { color: hsl(var(--accent) / 0.4); }
-  .dark .hover\:bg-accent-900:hover { background-color: hsl(var(--accent) / 0.4); }
-  .dark .hover\:shadow-accent-400:hover { box-shadow: 0 0 25px hsl(var(--accent) / 0.35); }
-  .dark .hover\:shadow-accent-600:hover { box-shadow: 0 0 35px hsl(var(--accent) / 0.45); }
-  .dark .hover\:shadow-accent-700:hover { box-shadow: 0 0 25px hsl(var(--accent) / 0.3); }
-  .dark .hover\:shadow-accent-800:hover { box-shadow: 0 0 30px hsl(var(--accent) / 0.35); }
-  .dark .hover\:shadow-accent-900:hover { box-shadow: 0 0 20px hsl(var(--accent) / 0.25); }
-  
+  .dark .hover\:text-accent-400:hover {
+    color: hsl(var(--accent) / 0.6);
+  }
+
+  .dark .hover\:text-accent-100:hover {
+    color: hsl(var(--accent) / 0.1);
+  }
+
+  .dark .hover\:text-accent-300:hover {
+    color: hsl(var(--accent) / 0.4);
+  }
+
+  .dark .hover\:bg-accent-900:hover {
+    background-color: hsl(var(--accent) / 0.4);
+  }
+
+  .dark .hover\:shadow-accent-400:hover {
+    box-shadow: 0 0 25px hsl(var(--accent) / 0.35);
+  }
+
+  .dark .hover\:shadow-accent-600:hover {
+    box-shadow: 0 0 35px hsl(var(--accent) / 0.45);
+  }
+
+  .dark .hover\:shadow-accent-700:hover {
+    box-shadow: 0 0 25px hsl(var(--accent) / 0.3);
+  }
+
+  .dark .hover\:shadow-accent-800:hover {
+    box-shadow: 0 0 30px hsl(var(--accent) / 0.35);
+  }
+
+  .dark .hover\:shadow-accent-900:hover {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.25);
+  }
+
   /* Additional comprehensive coverage */
-  .text-accent-300 { color: hsl(var(--accent) / 0.4); }
-  .text-accent-500 { color: hsl(var(--accent) / 0.7); }
-  .text-accent-700 { color: hsl(var(--accent) / 0.85); }
-  .text-accent-800 { color: hsl(var(--accent) / 0.95); }
-  
-  .hover\:text-accent-300:hover { color: hsl(var(--accent) / 0.4); }
-  .hover\:text-accent-500:hover { color: hsl(var(--accent) / 0.7); }
-  .hover\:text-accent-700:hover { color: hsl(var(--accent) / 0.85); }
-  .hover\:text-accent-800:hover { color: hsl(var(--accent) / 0.95); }
-  
+  .text-accent-300 {
+    color: hsl(var(--accent) / 0.4);
+  }
+
+  .text-accent-500 {
+    color: hsl(var(--accent) / 0.7);
+  }
+
+  .text-accent-700 {
+    color: hsl(var(--accent) / 0.85);
+  }
+
+  .text-accent-800 {
+    color: hsl(var(--accent) / 0.95);
+  }
+
+  .hover\:text-accent-300:hover {
+    color: hsl(var(--accent) / 0.4);
+  }
+
+  .hover\:text-accent-500:hover {
+    color: hsl(var(--accent) / 0.7);
+  }
+
+  .hover\:text-accent-700:hover {
+    color: hsl(var(--accent) / 0.85);
+  }
+
+  .hover\:text-accent-800:hover {
+    color: hsl(var(--accent) / 0.95);
+  }
+
   /* Ensure containers don't clip glow effects */
   .glow-container {
     overflow: visible !important;
     padding: 10px;
   }
-  
+
   /* Fix clipping for text elements with glow */
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     overflow: visible;
   }
-  
+
   /* Fix magazine module clipping issues */
   .magazine-module-card {
     height: auto !important;
@@ -234,41 +468,44 @@
     max-height: none !important;
     overflow: visible !important;
   }
-  
+
   .magazine-grid {
     grid-auto-rows: max-content !important;
     align-items: start !important;
   }
-  
+
   /* Background glow effects */
   .bg-glow-accent {
     background: radial-gradient(circle at center, hsl(var(--accent) / 0.03) 0%, transparent 50%);
   }
+
   .bg-glow-accent-subtle {
     background: radial-gradient(ellipse at center, hsl(var(--accent) / 0.02) 0%, transparent 70%);
   }
+
   .bg-glow-accent-strong {
     background: radial-gradient(circle at center, hsl(var(--accent) / 0.05) 0%, hsl(var(--accent) / 0.01) 40%, transparent 70%);
   }
-  
+
   /* Animated background glow */
   .bg-glow-accent-animated {
     background: radial-gradient(ellipse 1200px 800px at center, hsl(var(--accent) / 0.03) 0%, transparent 50%);
     animation: glow-pulse 4s ease-in-out infinite alternate;
   }
-  
+
   @keyframes glow-pulse {
     0% {
       background: radial-gradient(ellipse 1200px 800px at center, hsl(var(--accent) / 0.02) 0%, transparent 50%);
     }
+
     100% {
       background: radial-gradient(ellipse 1400px 900px at center, hsl(var(--accent) / 0.04) 0%, transparent 60%);
     }
   }
-  
+
   /* Multi-layer background glow */
   .bg-glow-accent-layered {
-    background: 
+    background:
       radial-gradient(ellipse 800px 600px at 20% 30%, hsl(var(--accent) / 0.02) 0%, transparent 50%),
       radial-gradient(ellipse 1000px 700px at 80% 70%, hsl(var(--accent) / 0.015) 0%, transparent 50%),
       radial-gradient(ellipse 1200px 800px at 50% 50%, hsl(var(--accent) / 0.01) 0%, transparent 60%);
@@ -360,7 +597,12 @@
     transition: background-color 0.5s ease, color 0.5s ease;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display tracking-tight;
     line-height: 1.1;
   }
@@ -405,7 +647,8 @@
     @apply text-primary hover:text-secondary transition-colors duration-200;
   }
 
-  ul, ol {
+  ul,
+  ol {
     @apply my-6 ml-6;
   }
 
@@ -453,11 +696,15 @@
     @apply border px-4 py-2;
   }
 
-  input, textarea, select {
+  input,
+  textarea,
+  select {
     @apply rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background;
   }
 
-  input:focus, textarea:focus, select:focus {
+  input:focus,
+  textarea:focus,
+  select:focus {
     @apply outline-none ring-2 ring-ring ring-offset-2;
   }
 
@@ -498,9 +745,10 @@
     border-radius: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.18);
   }
+
   .dark .frosted {
     background: rgba(24, 28, 40, 0.35);
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   /* Newspaper / article format */
@@ -508,111 +756,137 @@
     --paper: 0 0% 100%;
     --ink: 240 10% 3.9%;
   }
+
   html:not(.dark) .article-page {
     background-color: #ffffff;
   }
+
   .dark .article-page {
     --paper: 240 10% 3.9%;
     --ink: 0 0% 98%;
     background-color: hsl(240 10% 3.9%);
   }
+
   .article-page .paper-fiber {
     display: none;
   }
+
   .article-page .paper-shell {
     padding: clamp(0.5rem, 1.5vw, 1rem);
     border-radius: 0;
     background-color: #ffffff;
     box-shadow: none;
   }
+
   .dark .article-page .paper-shell {
     background-color: hsl(240 10% 3.9%);
     box-shadow: none;
   }
+
   .article-page .newspaper-rule {
     @apply border-t border-slate-300 dark:border-slate-600;
     height: 0;
   }
+
   .article-page .kicker {
     @apply text-xs uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400 font-medium;
   }
-  .article-page .masthead {
-    @apply font-playfair font-bold text-slate-900 dark:text-white tracking-tight;
-  }
+
   .article-page .headline {
-    @apply font-playfair font-bold text-slate-900 dark:text-white leading-tight tracking-tight;
+    @apply font-bold text-slate-900 dark:text-white leading-tight tracking-tight;
   }
+
   .article-page .deck {
     @apply text-lg md:text-xl text-slate-600 dark:text-slate-300 leading-relaxed;
   }
+
   .article-page .byline {
     @apply flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400;
   }
+
   .article-page .byline .byline-name {
     @apply font-medium text-slate-700 dark:text-slate-300;
     font-variant: small-caps;
   }
+
   .article-page .byline .byline-rule {
     @apply flex-1 h-px bg-gradient-to-r from-transparent via-slate-400/60 to-transparent dark:via-slate-500/50;
   }
+
   .article-page .highlights-title {
     @apply text-xs uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400 font-medium mb-4;
   }
+
   .article-page .highlights-list {
     @apply space-y-4;
   }
+
   .article-page .highlights-item {
     @apply block border-b border-slate-200 dark:border-slate-700 pb-4 last:border-b-0 last:pb-0;
   }
+
   .article-page .highlights-item .highlights-item-title {
-    @apply font-playfair font-semibold text-slate-900 dark:text-white hover:text-accent-600 dark:hover:text-accent-400 transition-colors leading-snug;
+    @apply font-semibold text-slate-900 dark:text-white hover:text-accent-600 dark:hover:text-accent-400 transition-colors leading-snug;
   }
+
   .article-page .highlights-item .highlights-item-dek {
     @apply text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed;
   }
+
   .article-page .highlights-item .highlights-item-time {
     @apply font-mono text-[11px] uppercase text-slate-500 dark:text-slate-500 mt-1;
   }
+
   .article-page .highlights-section-header,
   .blog-page .highlights-section-header {
     @apply flex items-center justify-between text-[11px] tracking-[0.18em] uppercase text-slate-600 dark:text-slate-400 pb-2 border-b border-slate-300 dark:border-slate-600;
   }
+
   .article-page .highlights-grid,
   .blog-page .highlights-grid {
     @apply grid grid-cols-1 md:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-slate-200 dark:divide-slate-700;
   }
+
   .article-page .highlights-grid-item,
   .blog-page .highlights-grid-item {
     @apply p-5 md:py-6 md:px-6;
   }
+
   .article-page .newspaper-body {
     @apply text-slate-700 dark:text-slate-200 leading-relaxed space-y-6;
   }
+
   .article-page .newspaper-body.newspaper-columns {
     column-count: 1;
     column-gap: 2rem;
   }
+
   @media (min-width: 1024px) {
     .article-page .newspaper-body.newspaper-columns {
       column-count: 2;
     }
-    .article-page .newspaper-body.newspaper-columns > * {
+
+    .article-page .newspaper-body.newspaper-columns>* {
       break-inside: avoid;
     }
   }
-  .article-page .newspaper-body.dropcap > p:first-of-type::first-letter {
-    @apply float-left font-playfair font-bold text-slate-900 dark:text-white;
+
+  .article-page .newspaper-body.dropcap>p:first-of-type::first-letter {
+    @apply float-left font-bold text-slate-900 dark:text-white;
     font-size: 4rem;
     line-height: 0.8;
     margin: 0.1em 0.12em 0 0;
     padding-top: 0.05em;
   }
+
   .article-page .notice-card {
     @apply border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 rounded-lg p-6 my-8;
   }
+
   .article-page .notice-card h3 {
-    @apply font-playfair font-semibold text-slate-900 dark:text-white mb-3 text-lg;
+    @apply font-semibold text-slate-900 dark:text-white mb-3 text-lg;
   }
+
   .article-page .ink-toggle {
     @apply inline-flex items-center justify-center rounded-full border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 text-xs font-medium uppercase tracking-[0.12em] px-3 py-1.5 transition-colors hover:border-slate-500 dark:hover:border-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800;
   }
@@ -621,47 +895,59 @@
   .blog-page {
     @apply min-h-screen transition-colors duration-300;
   }
+
   html:not(.dark) .blog-page {
     background-color: #ffffff;
   }
+
   .dark .blog-page {
     background-color: hsl(240 10% 3.9%);
     @apply text-slate-100;
   }
+
   .blog-page .paper-fiber {
     display: none;
   }
+
   .blog-page .paper-shell {
     border-radius: 0;
     padding: clamp(0.5rem, 1.5vw, 1rem);
     background-color: #ffffff;
     box-shadow: none;
   }
+
   .dark .blog-page .paper-shell {
     background-color: hsl(240 10% 3.9%);
     box-shadow: none;
   }
+
   .blog-page .newspaper-rule {
     @apply border-t border-slate-300 dark:border-slate-600;
     height: 0;
   }
+
   .blog-page .newspaper-rule-thick {
     @apply border-t-2 border-slate-800 dark:border-slate-200;
     height: 0;
   }
+
   .blog-page .kicker {
     @apply text-xs uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400 font-medium;
   }
+
   .blog-page .headline {
-    @apply font-playfair font-bold text-slate-900 dark:text-white leading-tight tracking-tight;
+    @apply font-bold text-slate-900 dark:text-white leading-tight tracking-tight;
   }
+
   .blog-page .deck {
     @apply text-lg text-slate-600 dark:text-slate-300 leading-relaxed;
   }
+
   .article-page .highlights-grid .headline,
   .blog-page .highlights-grid .headline {
-    @apply font-playfair font-bold text-slate-900 dark:text-white leading-tight;
+    @apply font-bold text-slate-900 dark:text-white leading-tight;
   }
+
   .article-page .highlights-grid .deck,
   .blog-page .highlights-grid .deck {
     @apply text-slate-600 dark:text-slate-400 leading-relaxed;
@@ -670,12 +956,14 @@
   /* Article prose: rich text utilities (blockquote, pull quote, notice) */
   .article-page .newspaper-body blockquote,
   .article-page .prose blockquote {
-    @apply border-l-4 border-slate-300 dark:border-slate-600 pl-6 py-1 my-6 italic font-display text-slate-700 dark:text-slate-200;
+    @apply border-l-4 border-slate-300 dark:border-slate-600 pl-6 py-1 my-6 italic text-slate-700 dark:text-slate-200;
   }
+
   .article-page .newspaper-body blockquote.pull-quote,
   .article-page .prose blockquote.pull-quote {
-    @apply border-l-0 text-center text-xl md:text-2xl my-10 mx-auto max-w-2xl font-display italic text-slate-700 dark:text-slate-200;
+    @apply border-l-0 text-center text-xl md:text-2xl my-10 mx-auto max-w-2xl italic text-slate-700 dark:text-slate-200;
   }
+
   .article-page .newspaper-body strong,
   .article-page .prose strong {
     @apply font-semibold text-slate-900 dark:text-slate-100;
@@ -683,22 +971,43 @@
 
   /* Fun floating animation */
   @keyframes floaty {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-12px) scale(1.03); }
-    100% { transform: translateY(0px); }
+    0% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-12px) scale(1.03);
+    }
+
+    100% {
+      transform: translateY(0px);
+    }
   }
+
   .animate-floaty {
     animation: floaty 3s ease-in-out infinite;
   }
 
   /* Pop-in animation */
   @keyframes pop-in {
-    0% { opacity: 0; transform: scale(0.8); }
-    80% { opacity: 1; transform: scale(1.05); }
-    100% { opacity: 1; transform: scale(1); }
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    80% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
+
   .animate-pop-in {
-    animation: pop-in 0.7s cubic-bezier(0.4,0,0.2,1) both;
+    animation: pop-in 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
   }
 }
 
@@ -807,32 +1116,43 @@
 }
 
 /* Add hover effect to interactive elements */
-a, button, [role="button"], input, select, textarea {
+a,
+button,
+[role="button"],
+input,
+select,
+textarea {
   position: relative;
 }
 
-a:hover ~ .cursor-glow,
-button:hover ~ .cursor-glow,
-[role="button"]:hover ~ .cursor-glow,
-input:hover ~ .cursor-glow,
-select:hover ~ .cursor-glow,
-textarea:hover ~ .cursor-glow {
+a:hover~.cursor-glow,
+button:hover~.cursor-glow,
+[role="button"]:hover~.cursor-glow,
+input:hover~.cursor-glow,
+select:hover~.cursor-glow,
+textarea:hover~.cursor-glow {
   transform: scale(1.5);
   background: hsl(214, 85%, 52% / 0.8);
 }
 
 /* Add blue highlight to interactive elements */
-a, button, [role="button"] {
+a,
+button,
+[role="button"] {
   @apply transition-colors duration-200;
   color: #111;
 }
 
-a:hover, button:hover, [role="button"]:hover {
+a:hover,
+button:hover,
+[role="button"]:hover {
   color: hsl(var(--accent));
 }
 
 /* Add blue border glow to focused elements */
-input:focus, select:focus, textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
   @apply ring-2 ring-opacity-50;
   box-shadow: 0 0 0 2px hsl(214, 85%, 52% / 0.2);
   border-color: hsl(214, 85%, 52%);
@@ -840,6 +1160,7 @@ input:focus, select:focus, textarea:focus {
 
 /* Medium/Palantir Blog Article Styles */
 @layer components {
+
   /* Article Layout Styles */
   .article-layout {
     @apply min-h-screen bg-white dark:bg-gray-900;

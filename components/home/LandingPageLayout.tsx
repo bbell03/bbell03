@@ -141,13 +141,13 @@ export default function LandingPageLayout({
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             {/* Section number */}
-            <div className="text-sm font-mono text-gray-400 dark:text-gray-500 tracking-wider">
+            <div className="text-sm text-gray-400 dark:text-gray-500 tracking-wider font-sans">
               {String(index + 1).padStart(2, '0')}
             </div>
 
             {/* Title */}
             <motion.h2
-              className="text-6xl sm:text-7xl md:text-8xl font-courier font-light gradient-text leading-none tracking-tight"
+              className="text-6xl sm:text-7xl md:text-8xl font-sans font-light gradient-text leading-none tracking-tight"
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: isInView ? 0 : 30, opacity: isInView ? 1 : 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -308,7 +308,7 @@ export default function LandingPageLayout({
             <AnimatePresence mode="wait">
               <motion.div
                 key={`desktop-index-${currentSlide}`}
-                className="hidden md:block fixed left-16 top-1/2 -translate-y-1/2 -mt-16 text-sm font-mono text-gray-400 dark:text-gray-500 tracking-wider z-40 pointer-events-none"
+                className="hidden md:block fixed left-16 top-1/2 -translate-y-1/2 -mt-16 text-sm text-gray-400 dark:text-gray-500 tracking-wider z-40 pointer-events-none font-sans"
                 initial={{ x: -50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: 50, opacity: 0 }}

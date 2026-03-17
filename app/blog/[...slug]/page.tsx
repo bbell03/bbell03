@@ -13,13 +13,14 @@ import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
 
-export async function generateMetadata({
-  params,
-}: any): Promise<Metadata | undefined> {
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string[] }>
+}): Promise<Metadata | undefined> {
+  const params = await props.params
   const slugParts =
     Array.isArray(params?.slug) ? params.slug :
-    typeof params?.slug === 'string' ? [params.slug] :
-    []
+      typeof params?.slug === 'string' ? [params.slug] :
+        []
 
   if (slugParts.length === 0) {
     return
@@ -77,11 +78,12 @@ export const generateStaticParams = async () => {
   return allBlogs.map((p) => ({ slug: p.slug.split('/').map((name) => decodeURI(name)) }))
 }
 
-export default async function Page({ params }: any) {
+export default async function Page(props: { params: Promise<{ slug: string[] }> }) {
+  const params = await props.params
   const slugParts =
     Array.isArray(params?.slug) ? params.slug :
-    typeof params?.slug === 'string' ? [params.slug] :
-    []
+      typeof params?.slug === 'string' ? [params.slug] :
+        []
 
   if (slugParts.length === 0) {
     return notFound()

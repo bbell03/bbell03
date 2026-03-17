@@ -21,13 +21,14 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ["var(--font-sans)"],
-        accent: ["var(--font-sans)"],
-        playfair: ["var(--font-sans)"],
-        "source-serif": ["var(--font-sans)"],
-        heading: ["var(--font-sans)"],
-        courier: ["Courier New", "Courier", "monospace"],
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+        display: ["var(--font-sans)", ...fontFamily.sans],
+        accent: ["var(--font-sans)", ...fontFamily.sans],
+        garamond: ["var(--font-sans)", ...fontFamily.sans],
+        playfair: ["var(--font-sans)", ...fontFamily.sans],
+        "source-serif": ["var(--font-sans)", ...fontFamily.sans],
+        heading: ["var(--font-sans)", ...fontFamily.sans],
+        courier: ["var(--font-courier)", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
