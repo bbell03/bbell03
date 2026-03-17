@@ -15,9 +15,16 @@ const routes = [
 interface NextArrowProps {
   currentPath: string
   className?: string
+  onClick?: () => void
+  labelOverride?: string
 }
 
-export default function NextArrow({ currentPath, className = '' }: NextArrowProps) {
+export default function NextArrow({
+  currentPath,
+  className = '',
+  onClick,
+  labelOverride
+}: NextArrowProps) {
   const { theme } = useTheme()
   const router = useRouter()
 
@@ -28,17 +35,18 @@ export default function NextArrow({ currentPath, className = '' }: NextArrowProp
 
   // Get the next path, cycling to the first route if we're at the last one
   const nextPath = routes[(activeIndex + 1) % routes.length].path
+  const nextLabel = routes[(activeIndex + 1) % routes.length].label
 
   return (
     <motion.button
-      onClick={() => router.push(nextPath)}
+      onClick={onClick || (() => router.push(nextPath))}
       className={`fixed bottom-8 right-8 z-50 p-4 rounded-full border border-gray-300 dark:border-white/40 bg-white/80 dark:bg-white/10 text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors backdrop-blur ${className}`}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      aria-label={`Go to ${routes[(activeIndex + 1) % routes.length].label}`}
+      aria-label={labelOverride || `Go to ${nextLabel}`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

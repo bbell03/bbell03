@@ -39,32 +39,29 @@ export default function Home() {
     <div className="mb-4 relative aspect-square w-full max-w-[480px] xs:max-w-[520px] sm:max-w-[580px] md:max-w-[min(65vw,75vh)] lg:max-w-[min(60vw,70vh)] xl:max-w-[min(55vw,65vh)] overflow-visible group">
       {/* Accent glow background - subtle circular glow */}
       <div className="absolute inset-0 bg-accent opacity-[0.03] rounded-full blur-3xl scale-150 group-hover:opacity-[0.08] group-hover:scale-175 transition-all duration-1000"></div>
-      
+
       <SceneErrorBoundary fallback={<div className="w-full h-full min-h-[20rem] bg-gray-100 dark:bg-gray-800 rounded-lg animate-pulse" />}>
-        <CircularThreeScene 
+        <CircularThreeScene
           color={theme === "dark" ? "#ffffff" : "#000000"}
           speed={0.3}
-          className="w-full h-full relative z-10 group-hover:scale-105 transition-transform duration-500"
+          className="hidden md:block w-full h-full relative z-10 group-hover:scale-105 transition-transform duration-500"
         />
       </SceneErrorBoundary>
-      
-      {/* Orbiting accent dots */}
-      <div className="absolute inset-0 animate-spin" style={{ animationDuration: '12s' }}>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1 w-2 h-2 bg-accent rounded-full opacity-60"></div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1 w-1.5 h-1.5 bg-accent rounded-full opacity-40"></div>
-      </div>
-      <div className="absolute inset-0 animate-spin" style={{ animationDuration: '20s', animationDirection: 'reverse' }}>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1 w-2 h-2 bg-accent rounded-full opacity-60"></div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1 w-1.5 h-1.5 bg-accent rounded-full opacity-40"></div>
-      </div>
-       {/*
-      <div className="absolute inset-0 animate-spin" style={{ animationDuration: '20s', animationDirection: 'reverse' }}>
-        <div className="absolute top-1/2 right-0 translate-x-1 -translate-y-1/2 w-1 h-1 bg-accent rounded-full opacity-50"></div>
-        <div className="absolute top-1/2 left-0 -translate-x-1 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full opacity-30"></div>
-      </div> */}
-      <div className="absolute inset-0 animate-spin" style={{ animationDuration: '30s',}}>
-        <div className="absolute top-1/2 right-0 translate-x-1 -translate-y-1/2 w-1 h-1 bg-accent rounded-full opacity-50"></div>
-        <div className="absolute top-1/2 left-0 -translate-x-1 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full opacity-30"></div>
+
+      {/* Orbiting accent dots - hidden on mobile (will be added to sections directly) */}
+      <div className="hidden md:block">
+        <div className="absolute inset-0 animate-spin" style={{ animationDuration: '12s' }}>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1 w-2 h-2 bg-accent rounded-full opacity-60"></div>
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1 w-1.5 h-1.5 bg-accent rounded-full opacity-40"></div>
+        </div>
+        <div className="absolute inset-0 animate-spin" style={{ animationDuration: '20s', animationDirection: 'reverse' }}>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1 w-2 h-2 bg-accent rounded-full opacity-60"></div>
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1 w-1.5 h-1.5 bg-accent rounded-full opacity-40"></div>
+        </div>
+        <div className="absolute inset-0 animate-spin" style={{ animationDuration: '30s', }}>
+          <div className="absolute top-1/2 right-0 translate-x-1 -translate-y-1/2 w-1 h-1 bg-accent rounded-full opacity-50"></div>
+          <div className="absolute top-1/2 left-0 -translate-x-1 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full opacity-30"></div>
+        </div>
       </div>
     </div>
   )

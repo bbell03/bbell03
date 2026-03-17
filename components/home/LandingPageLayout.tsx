@@ -51,31 +51,10 @@ export default function LandingPageLayout({
   const [currentSlide, setCurrentSlide] = useState(0)
   const sectionRefs = useRef<(HTMLElement | null)[]>([])
 
-  // Intersection Observer for timeline sections
-  useEffect(() => {
-    const observers = sectionRefs.current.map((ref, index) => {
-      if (!ref) return null
-      
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setCurrentSlide(index)
-          }
-        },
-        { 
-          threshold: 0.5, 
-          rootMargin: "-30% 0px -30% 0px"
-        }
-      )
-      
-      observer.observe(ref)
-      return observer
-    })
-
-    return () => {
-      observers.forEach(observer => observer?.disconnect())
-    }
-  }, [])
+  // The parent currentSlide is now updated by the child TimelineSection's useInView logic
+  const handleSectionInView = (index: number) => {
+    setCurrentSlide(index)
+  }
 
   // Wheel event for desktop
   useEffect(() => {
@@ -103,7 +82,7 @@ export default function LandingPageLayout({
 
   const scrollToSection = (index: number) => {
     setCurrentSlide(index)
-    sectionRefs.current[index]?.scrollIntoView({ 
+    sectionRefs.current[index]?.scrollIntoView({
       behavior: 'smooth',
       block: 'center'
     })
@@ -112,38 +91,53 @@ export default function LandingPageLayout({
   // Timeline Section Component for Mobile
   const TimelineSection = ({ slide, index, isActive }: { slide: Slide; index: number; isActive: boolean }) => {
     const ref = useRef<HTMLElement>(null)
-    const isInView = useInView(ref)
-    
+    const isInView = useInView(ref, { amount: 0.5 })
+
     useEffect(() => {
       sectionRefs.current[index] = ref.current
-    }, [index])
+      if (isInView) {
+        handleSectionInView(index)
+      }
+    }, [isInView, index])
 
     return (
       <motion.section
         ref={ref}
-        className={`min-h-screen flex flex-col justify-center px-6 py-16 relative ${
-          index === 0 ? 'pt-8' : ''
-        }`}
+        className={`h-[100dvh] md:min-h-screen flex flex-col justify-center px-6 py-16 relative snap-center ${index === 0 ? 'pt-8' : ''
+          }`}
         initial={{ opacity: 0 }}
         animate={{ opacity: isInView ? 1 : 0.3 }}
         transition={{ duration: 0.6 }}
       >
-        
-        {/* Timeline connector line */}
-        <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-300 dark:via-gray-600 to-transparent md:hidden" />
-        
-        {/* Timeline dot */}
-        <div className={`absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 transition-all duration-500 md:hidden ${
-          isActive 
-            ? 'bg-transparent border-black dark:border-white scale-125' 
-            : 'bg-transparent border-gray-300 dark:border-gray-600'
-        }`} />
 
-        <div className="ml-8 md:ml-0 max-w-2xl md:max-w-none">
+        {/* Timeline connector line */}
+        <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-300 dark:via-gray-600 to-transparent md:hidden" />
+
+        {/* Timeline dot */}
+        <div className={`absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 transition-all duration-500 md:hidden ${isActive
+          ? 'bg-transparent border-black dark:border-white scale-125'
+          : 'bg-transparent border-gray-300 dark:border-gray-600'
+          }`} />
+
+        <div className="ml-6 md:ml-0 max-w-2xl md:max-w-none w-full relative z-10">
+          {/* Mobile Orbiting Dots - Centered around text */}
+          <div className="absolute inset-0 pointer-events-none md:hidden -z-10 flex items-center justify-center scale-150">
+            <div className="w-full aspect-square relative">
+              <div className="absolute inset-0 animate-spin" style={{ animationDuration: '15s' }}>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-accent rounded-full opacity-40"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-accent rounded-full opacity-20"></div>
+              </div>
+              <div className="absolute inset-0 animate-spin" style={{ animationDuration: '25s', animationDirection: 'reverse' }}>
+                <div className="absolute top-1/2 right-0 -translate-y-1/2 w-1.5 h-1.5 bg-accent rounded-full opacity-30"></div>
+                <div className="absolute top-1/2 left-0 -translate-y-1/2 w-1 h-1 bg-accent rounded-full opacity-10"></div>
+              </div>
+            </div>
+          </div>
+
           <motion.div
             className="space-y-6 text-left"
-            initial={{ x: -50, opacity: 0 }}
-            animate={{ x: isInView ? 0 : -50, opacity: isInView ? 1 : 0 }}
+            initial={{ x: -20, opacity: 0 }}
+            animate={{ x: isInView ? 0 : -20, opacity: isInView ? 1 : 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             {/* Section number */}
@@ -208,15 +202,15 @@ export default function LandingPageLayout({
               </motion.div>
             )}
           </motion.div>
-        </div>
-      </motion.section>
+        </div >
+      </motion.section >
     )
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-background transition-colors duration-300 overflow-hidden">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-background transition-colors duration-300 overflow-hidden md:overflow-visible">
       <GradientBackground />
-      
+
       {/* Frosted Gradient Background Overlay */}
       {showGradientOverlay && pathname === "/" && (
         <div className="fixed inset-0 pointer-events-none z-0">
@@ -224,20 +218,20 @@ export default function LandingPageLayout({
           <div className="absolute inset-0 dark:hidden" style={{
             background: 'radial-gradient(ellipse at bottom left, hsl(var(--accent) / 0.55) 0%, hsl(var(--accent) / 0.35) 25%, hsl(var(--accent) / 0.22) 45%, hsl(var(--accent) / 0.12) 65%, hsl(var(--accent) / 0.06) 80%, hsl(var(--accent) / 0.03) 90%, transparent 100%)',
           }} />
-          
+
           {/* Accent color gradient for dark mode - Muted */}
           <div className="absolute inset-0 hidden dark:block" style={{
             background: 'radial-gradient(ellipse at bottom left, hsl(var(--accent) / 0.08) 0%, hsl(var(--accent) / 0.04) 30%, hsl(var(--accent) / 0.02) 55%, transparent 75%)',
           }} />
-          
+
           {/* Subtle backdrop blur */}
           <div className="absolute inset-0 backdrop-blur-[1px]" />
         </div>
       )}
 
       {/* Logo - Fixed positioned aligned with timeline */}
-      <div className="fixed top-2 left-2 z-50">
-        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex items-center justify-center">
+      <div className="fixed top-4 left-4 z-50">
+        <div className="w-12 h-6 sm:w-16 sm:h-8 flex items-center justify-center">
           <Logo />
         </div>
       </div>
@@ -250,7 +244,7 @@ export default function LandingPageLayout({
 
       {/* Desktop Timeline Line - Fixed position outside containers */}
 
-      <div 
+      <div
         className="invisible md:visible md:block dark:block fixed left-14 top-20 bottom-0 w-0.5 z-30 pointer-events-none "
         style={{
           background: 'linear-gradient(to bottom, transparent 0%, rgb(209, 213, 219) 60%, rgb(209, 213, 219) 40%, transparent 100%)',
@@ -263,11 +257,10 @@ export default function LandingPageLayout({
           <button
             key={index}
             onClick={() => scrollToSection(index)}
-            className={`w-3 h-8 rounded-full transition-all duration-300 ${
-              index === currentSlide
-                ? 'bg-black dark:bg-white'
-                : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-500 dark:hover:bg-gray-400'
-            }`}
+            className={`w-3 h-8 rounded-full transition-all duration-300 ${index === currentSlide
+              ? 'bg-black dark:bg-white'
+              : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-500 dark:hover:bg-gray-400'
+              }`}
             aria-label={`Go to section ${index + 1}`}
           />
         ))}
@@ -275,15 +268,17 @@ export default function LandingPageLayout({
 
       <main className="flex-1">
         {/* Mobile Timeline Layout */}
-        <div className="md:hidden pt-16">
-          {slides.map((slide, index) => (
-            <TimelineSection
-              key={index}
-              slide={slide}
-              index={index}
-              isActive={currentSlide === index}
-            />
-          ))}
+        <div className="md:hidden h-[100dvh] overflow-y-auto snap-y snap-mandatory scroll-smooth relative">
+          <div className="relative z-10 pt-[35vh]">
+            {slides.map((slide, index) => (
+              <TimelineSection
+                key={index}
+                slide={slide}
+                index={index}
+                isActive={currentSlide === index}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Desktop Layout */}
@@ -294,22 +289,20 @@ export default function LandingPageLayout({
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-8 rounded-full transition-all duration-300 ${
-                  index === currentSlide
-                    ? 'bg-black dark:bg-white'
-                    : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-500 dark:hover:bg-gray-400'
-                }`}
+                className={`w-3 h-8 rounded-full transition-all duration-300 ${index === currentSlide
+                  ? 'bg-black dark:bg-white'
+                  : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-500 dark:hover:bg-gray-400'
+                  }`}
                 aria-label={`Go to section ${index + 1}`}
               />
             ))}
           </div>
-          
+
 
           <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 md:py-16 lg:py-20 flex flex-col md:grid md:grid-cols-12 gap-8 md:gap-12 items-center relative min-h-0">
             {/* Timeline dot for current slide */}
-            <div className={`hidden md:block fixed left-12 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 transition-all duration-500 z-40 pointer-events-none ${
-              'bg-transparent border-black dark:border-white scale-125'
-            }`} />
+            <div className={`hidden md:block fixed left-12 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 transition-all duration-500 z-40 pointer-events-none ${'bg-transparent border-black dark:border-white scale-125'
+              }`} />
 
             {/* Section number */}
             <AnimatePresence mode="wait">
@@ -334,7 +327,7 @@ export default function LandingPageLayout({
                   No left content provided
                 </div>
               )}
-              
+
               {/* Enhanced vertical dividing line with accent glow */}
               <div className="hidden md:block absolute -right-4 lg:-right-6 xl:-right-8 top-1/2 -translate-y-1/2 w-px h-3/4 bg-gradient-to-b from-transparent via-accent dark:via-white to-transparent opacity-80 shadow-lg shadow-accent-300 dark:shadow-white/30"></div>
             </div>
@@ -417,7 +410,7 @@ export default function LandingPageLayout({
         <div className="py-12 relative">
           {/* Horizontal Timeline Line - Full Width */}
           <div className="absolute left-0 right-0 top-6 h-px bg-gradient-to-r from-gray-300 dark:from-gray-600 to-transparent" />
-          
+
           <div className="max-w-4xl mx-auto px-6">
             {/* Horizontal Timeline Navigation */}
             <div className="flex justify-between items-center relative">
@@ -427,18 +420,16 @@ export default function LandingPageLayout({
                   <div key={route.path} className="flex flex-col items-center group">
                     <Link
                       href={route.path}
-                      className={`w-4 h-4 rounded-full border-2 transition-all duration-300 hover:scale-110 -mt-10 ${
-                        isActive
-                          ? 'bg-transparent border-black dark:border-white scale-125'
-                          : 'bg-transparent border-gray-400 dark:border-gray-500 hover:border-gray-600 dark:hover:border-gray-400'
-                      }`}
+                      className={`w-4 h-4 rounded-full border-2 transition-all duration-300 hover:scale-110 -mt-10 ${isActive
+                        ? 'bg-transparent border-black dark:border-white scale-125'
+                        : 'bg-transparent border-gray-400 dark:border-gray-500 hover:border-gray-600 dark:hover:border-gray-400'
+                        }`}
                       aria-label={route.label}
                     />
-                    <span className={`text-sm mt-4 transition-all duration-300 ${
-                      isActive 
-                        ? 'opacity-100 text-black dark:text-white font-medium' 
-                        : 'opacity-70 text-gray-500 dark:text-gray-400 group-hover:opacity-100 group-hover:text-gray-700 dark:group-hover:text-gray-300'
-                    }`}>
+                    <span className={`text-sm mt-4 transition-all duration-300 ${isActive
+                      ? 'opacity-100 text-black dark:text-white font-medium'
+                      : 'opacity-70 text-gray-500 dark:text-gray-400 group-hover:opacity-100 group-hover:text-gray-700 dark:group-hover:text-gray-300'
+                      }`}>
                       {route.label}
                     </span>
                   </div>
