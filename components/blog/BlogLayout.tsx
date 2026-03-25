@@ -32,32 +32,33 @@ export default function BlogLayout({
   showHeader = true,
 }: BlogLayoutProps) {
   const pathname = usePathname()
+  const isBlogIndex = pathname === '/blog'
 
   return (
     <div className="blog-page relative min-h-screen flex flex-col">
       <div className="paper-fiber" aria-hidden />
-      {showHeader && (
-        <header className="relative z-[100] border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[hsl(240,10%,3.9%)]">
-          <div className="mx-auto flex w-full max-w-[min(100%,1600px)] items-center justify-between px-3 py-4 sm:px-4">
+      {showHeader && !isBlogIndex && (
+        <header className="relative z-[110] border-b border-white/10 bg-white/70 dark:bg-[hsl(240,10%,3.9%)]/70 backdrop-blur-md sticky top-0">
+          <div className="mx-auto flex w-full max-w-[min(100%,1600px)] items-center justify-between px-3 py-3 sm:px-4">
             <Link
               href={homeHref}
-              className="flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-slate-500 transition hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
+              className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] text-slate-500 transition-all hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 hover:scale-[1.02]"
             >
               <Image
                 src="/logo.png"
                 alt=""
-                width={24}
-                height={24}
-                className="h-5 w-auto dark:invert"
+                width={20}
+                height={20}
+                className="h-4 w-auto dark:invert"
               />
               {label}
             </Link>
-            <HeaderControls showFontSwitcher={false} />
+            <HeaderControls showFontSwitcher={false} className="scale-90 origin-right" />
           </div>
         </header>
       )}
 
-      <main className="relative z-10 mx-auto w-full max-w-[min(100%,1600px)] px-3 py-6 sm:px-4 md:py-8 flex-1">
+      <main className={`relative z-10 mx-auto w-full max-w-[min(100%,1600px)] px-3 py-6 sm:px-4 md:py-8 flex-1 ${!showHeader ? 'pt-0' : ''}`}>
         {children}
       </main>
 

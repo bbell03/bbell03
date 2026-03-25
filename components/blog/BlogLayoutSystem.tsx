@@ -32,6 +32,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { DynamicSubtitle } from '@/components/shared/DynamicSubtitle'
 import { AdminSubtitleControls } from '@/components/shared/AdminSubtitleControls'
 import { Highlights } from '@/components/blog/Highlights'
+import HeaderControls from '@/components/shared/HeaderControls'
 
 interface BlogLayoutSystemProps {
   posts: any[]
@@ -868,118 +869,131 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
   return (
     <div className="relative">
       {/* Newspaper Header */}
-      <header className="relative z-[100] border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-[hsl(240,10%,3.9%)]">
-        <div className="max-w-[min(100%,1600px)] mx-auto px-3 sm:px-4">
-          {/* Top info bar: Volume · No. / Location / Established */}
-          <div className="flex justify-between items-center py-2 text-[11px] tracking-[0.18em] uppercase text-slate-600 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">
-            <span>Volume · No. {filteredAndSortedPosts.length}</span>
-            <span>Software Engineering & Design</span>
-            <span>Est. 2018</span>
-          </div>
+      {/* Unified Blog Header */}
+      {/* Blog Masthead Section - Only shown on index */}
+      <div className="relative z-[90] border-b border-white/5 bg-slate-50 dark:bg-slate-950 pt-10 pb-12 overflow-hidden">
+        {/* Abstract Background Element for Awe-Inspiring effect */}
+        <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl opacity-40 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-80 h-80 bg-accent/20 rounded-full blur-3xl opacity-20 pointer-events-none" />
 
-          {/* Masthead */}
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 pt-6 pb-4">
-            <div className="space-y-2">
-              <p className="kicker">Journal &amp; Notes</p>
+        <div className="max-w-[min(100%,1600px)] mx-auto px-4 sm:px-6 relative text-center">
+          {/* Masthead Content */}
+          <div className="flex flex-col items-center space-y-4">
+            <motion.div 
+              className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.5em] text-accent/70 dark:text-accent/50"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+            >
+              Software Engineering & Design
+            </motion.div>
+
+            <div className="relative pt-2 pb-1">
               <motion.h1
-                className="headline text-3xl md:text-4xl lg:text-5xl text-slate-900 dark:text-white"
-                initial={{ opacity: 0, y: 12 }}
+                className="font-handwriting text-7xl md:text-9xl lg:text-[10rem] text-slate-900 dark:text-white leading-[0.8] py-2"
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
-                The Brandon Bell
+                Brandon Bell
               </motion.h1>
+              <div className="absolute -top-2 -right-8 text-accent opacity-5 select-none animate-float hidden md:block">
+                <Newspaper className="w-20 h-20 lg:w-28 lg:h-28" />
+              </div>
+            </div>
+
+            <div className="max-w-2xl mx-auto">
               <DynamicSubtitle
-                className="text-slate-600 dark:text-slate-400 text-sm md:text-base"
+                className="text-slate-500 dark:text-slate-400 text-lg md:text-xl font-playfair italic"
                 showRefreshButton={false}
                 showTrends={false}
               />
             </div>
-            <div className="flex items-center gap-3">
-              <div className="text-right text-xs uppercase tracking-[0.12em] text-slate-600 dark:text-slate-400 leading-tight">
-                <LiveClock />
-              </div>
-            </div>
+            
+            <motion.div 
+              className="text-[10px] uppercase tracking-[0.2em] text-slate-400/60 dark:text-slate-500/60 font-medium pb-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+            >
+              © 2026
+            </motion.div>
           </div>
-
-          <div className="newspaper-rule-thick mb-4" />
         </div>
-      </header>
+      </div>
 
       <div className="relative z-10 max-w-[min(100%,1600px)] mx-auto px-3 sm:px-4 py-6 md:py-8">
         <div className="paper-shell space-y-8">
-        {/* Minimized Search and Controls */}
-      <motion.div 
-        className="flex justify-end mb-4"
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-      >
-        <motion.div variants={itemVariants} className="flex items-center gap-3">
-          {/* Compact Search */}
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4 peer-focus:text-accent transition-colors duration-300" />
-            <Input
-              type="text"
-              placeholder="Search..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="peer pl-9 h-9 w-48 text-sm rounded-full border-slate-300 dark:border-slate-600 focus:ring-2 focus:ring-accent focus:border-transparent hover:shadow-lg hover:shadow-accent-200 dark:hover:shadow-accent-900 focus:shadow-lg focus:shadow-accent-300 dark:focus:shadow-accent-800 transition-all duration-300"
-            />
-          </div>
+        {/* Responsive Search and Controls */}
+        <motion.div 
+          className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
+          <motion.div variants={itemVariants} className="w-full sm:w-auto flex items-center gap-3">
+            {/* Compact Search - Responsive Width */}
+            <div className="relative flex-1 sm:flex-none">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4 peer-focus:text-accent transition-colors duration-300" />
+              <Input
+                type="text"
+                placeholder="Search..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="peer pl-9 h-10 w-full sm:w-64 text-sm rounded-xl border-slate-300 dark:border-slate-800 focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300"
+              />
+            </div>
 
-          {/* Compact View Toggles */}
-          <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 rounded-full p-0.5 hover:shadow-lg hover:shadow-slate-300/50 dark:hover:shadow-slate-700/50 transition-all duration-300">
-            <Button
-              variant={viewMode === 'newspaper' ? "default" : "ghost"}
-              size="sm"
-              onClick={() => setViewMode('newspaper')}
-              className={`rounded-full px-2 py-1 h-8 transition-all duration-300 ${viewMode === 'newspaper' ? 'shadow-lg shadow-accent-300 dark:shadow-accent-600' : 'hover:shadow-md hover:shadow-accent-200 dark:hover:shadow-accent-700 hover:scale-105'}`}
-            >
-              <Newspaper className="w-3 h-3" />
-            </Button>
-            <Button
-              variant={viewMode === 'grid' ? "default" : "ghost"}
-              size="sm"
-              onClick={() => setViewMode('grid')}
-              className={`rounded-full px-2 py-1 h-8 transition-all duration-300 ${viewMode === 'grid' ? 'shadow-lg shadow-accent-300 dark:shadow-accent-600' : 'hover:shadow-md hover:shadow-accent-200 dark:hover:shadow-accent-700 hover:scale-105'}`}
-              title="Magazine"
-            >
-              <Grid3X3 className="w-3 h-3" />
-            </Button>
-            <Button
-              variant={viewMode === 'list' ? "default" : "ghost"}
-              size="sm"
-              onClick={() => setViewMode('list')}
-              className={`rounded-full px-2 py-1 h-8 transition-all duration-300 ${viewMode === 'list' ? 'shadow-lg shadow-accent-300 dark:shadow-accent-600' : 'hover:shadow-md hover:shadow-accent-200 dark:hover:shadow-accent-700 hover:scale-105'}`}
-            >
-              <List className="w-3 h-3" />
-            </Button>
-            <Button
-              variant={viewMode === 'modules' ? "default" : "ghost"}
-              size="sm"
-              onClick={() => setViewMode('modules')}
-              className={`rounded-full px-2 py-1 h-8 transition-all duration-300 ${viewMode === 'modules' ? 'shadow-lg shadow-accent-300 dark:shadow-accent-600' : 'hover:shadow-md hover:shadow-accent-200 dark:hover:shadow-accent-700 hover:scale-105'}`}
-            >
-              <Layers3 className="w-3 h-3" />
-            </Button>
-          </div>
+            {/* Controls integration if top bar is gone */}
+            <div className="flex items-center gap-1 sm:hidden">
+              <HeaderControls showFontSwitcher={false} />
+            </div>
+          </motion.div>
 
-          {/* Compact Filters */}
-          <Button
-            variant={showFilters ? "default" : "ghost"}
-            onClick={() => setShowFilters(!showFilters)}
-            size="sm"
-            className={`rounded-full h-8 px-3 transition-all duration-300 ${showFilters ? 'shadow-lg shadow-accent-300 dark:shadow-accent-600' : 'hover:shadow-md hover:shadow-accent-200 dark:hover:shadow-accent-700 hover:scale-105'}`}
-          >
-            <Filter className="w-3 h-3" />
-            {(selectedTags.length > 0 || sortOption !== 'date' || sortOrder !== 'desc') && (
-              <Badge className="ml-1 bg-accent text-white text-xs h-4 px-1">
-                {selectedTags.length + (sortOption !== 'date' || sortOrder !== 'desc' ? 1 : 0)}
-              </Badge>
-            )}
-          </Button>
-        </motion.div>
+          <motion.div variants={itemVariants} className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0 no-scrollbar">
+            {/* Compact View Toggles - More space on mobile */}
+            <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-900 rounded-xl p-1">
+              {[
+                { mode: 'newspaper', icon: Newspaper, title: 'Newspaper' },
+                { mode: 'grid', icon: Grid3X3, title: 'Magazine' },
+                { mode: 'list', icon: List, title: 'List' },
+                { mode: 'modules', icon: Layers3, title: 'Modules' }
+              ].map(({ mode, icon: Icon, title }) => (
+                <Button
+                  key={mode}
+                  variant={viewMode === mode ? "default" : "ghost"}
+                  size="sm"
+                  onClick={() => setViewMode(mode as ViewMode)}
+                  className={`rounded-lg px-2 py-1 h-9 min-w-[36px] transition-all duration-300 ${viewMode === mode ? 'shadow-lg shadow-accent-300 dark:shadow-accent-950' : 'hover:bg-accent/10 hover:text-accent'}`}
+                  title={title}
+                >
+                  <Icon className="w-4 h-4" />
+                </Button>
+              ))}
+            </div>
+
+            {/* Filter Toggle */}
+            <Button
+              variant={showFilters ? "default" : "outline"}
+              onClick={() => setShowFilters(!showFilters)}
+              size="sm"
+              className={`rounded-xl h-9 px-4 transition-all duration-300 ${showFilters ? 'shadow-lg shadow-accent-300 dark:shadow-accent-950' : 'hover:bg-accent/10 border-slate-200 dark:border-slate-800'}`}
+            >
+              <Filter className="w-4 h-4 mr-2" />
+              Filters
+              {selectedTags.length > 0 && (
+                <Badge className="ml-2 bg-accent text-white h-5 px-1.5 min-w-[20px] justify-center">
+                  {selectedTags.length}
+                </Badge>
+              )}
+            </Button>
+            
+            {/* Desktop Controls (hidden on mobile search row) */}
+            <div className="hidden sm:flex ml-2 items-center gap-4">
+              <div className="h-6 w-px bg-slate-200 dark:bg-slate-800" />
+              <HeaderControls showFontSwitcher={false} className="scale-90" />
+            </div>
+          </motion.div>
 
           {/* Filter Panel */}
           <AnimatePresence>
