@@ -1367,7 +1367,7 @@ var require_src = __commonJS({
   }
 });
 
-// lib/notion-white-page.mjs
+// lib/notion-white-page.ts
 function escapeString(value) {
   return value.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\r?\n/g, "\\n");
 }
@@ -1396,7 +1396,7 @@ function formatFrontMatter(frontMatter) {
     if (value instanceof Date) {
       return `${key}: "${value.toISOString()}"`;
     }
-    if (Array.isArray(value) || typeof value === "object") {
+    if (Array.isArray(value) || typeof value === "object" && value !== null) {
       return `${key}: ${JSON.stringify(value)}`;
     }
     return `${key}: ${value}`;
@@ -1429,7 +1429,7 @@ ${body}
 }
 var WHITE_PAGE_DEFAULTS;
 var init_notion_white_page = __esm({
-  "lib/notion-white-page.mjs"() {
+  "lib/notion-white-page.ts"() {
     WHITE_PAGE_DEFAULTS = {
       layout: "PostLayout",
       format: "white-page",
@@ -1438,29 +1438,30 @@ var init_notion_white_page = __esm({
   }
 });
 
-// lib/notion-client.mjs
+// lib/notion-client.ts
 var notion_client_exports = {};
 __export(notion_client_exports, {
-  NotionClient: () => NotionClient
+  NotionClient: () => NotionClient,
+  notionClient: () => notionClient
 });
 import { NotionToMarkdown } from "notion-to-md";
 import fs from "fs";
 import path from "path";
 import crypto from "crypto";
-var import_client, NotionClient;
+var import_client, NotionClient, notionClient;
 var init_notion_client = __esm({
-  "lib/notion-client.mjs"() {
-    import_client = __toESM(require_src(), 1);
+  "lib/notion-client.ts"() {
+    import_client = __toESM(require_src());
     init_notion_white_page();
     NotionClient = class {
       constructor() {
+        this.cache = null;
         if (!process.env.NOTION_API_KEY) {
           throw new Error("NOTION_API_KEY environment variable is required");
         }
         this.client = new import_client.Client({ auth: process.env.NOTION_API_KEY });
         this.n2m = new NotionToMarkdown({ notionClient: this.client });
         this.cachePath = path.join(process.cwd(), "data/blog/notion/cache/notion-cache.json");
-        this.cache = null;
       }
       async loadCache() {
         try {
@@ -1493,9 +1494,13 @@ var init_notion_client = __esm({
         try {
           const response = await this.client.databases.query({
             database_id: databaseId,
-            sorts: [{ property: "Date", direction: "descending" }]
-            // Removed Draft filter - will include all posts for now
-            // Add back when Draft property exists in database
+            sorts: [{ property: "Date", direction: "descending" }],
+            filter: {
+              property: "Draft",
+              checkbox: {
+                equals: false
+              }
+            }
           });
           const posts = [];
           for (const page of response.results) {
@@ -1539,6 +1544,7 @@ var init_notion_client = __esm({
           const summary = this.extractTextContent(properties.Summary?.rich_text) || "";
           const draft = properties.Draft?.checkbox || false;
           const authors = properties.Authors?.multi_select?.map((author) => author.name) || [];
+          const layout = this.extractTextContent(properties.Layout?.rich_text) || "";
           if (draft) return null;
           const mdBlocks = await this.n2m.pageToMarkdown(page.id);
           const content = this.n2m.toMarkdownString(mdBlocks);
@@ -1551,6 +1557,7 @@ var init_notion_client = __esm({
             tags,
             summary,
             draft,
+            layout,
             authors,
             cover,
             content: content.parent,
@@ -1581,6 +1588,7 @@ var init_notion_client = __esm({
         }
       }
     };
+    notionClient = new NotionClient();
   }
 });
 
@@ -1617,9 +1625,9 @@ async function translateNotionBlogsToMDX(databaseId, outputDir) {
   try {
     console.log("\u{1F504} Syncing Notion content...");
     const { NotionClient: NotionClient2 } = await Promise.resolve().then(() => (init_notion_client(), notion_client_exports));
-    const notionClient = new NotionClient2();
-    const posts = await notionClient.fetchBlogPosts(databaseId);
-    await notionClient.exportToMDX(posts, outputDir);
+    const notionClient2 = new NotionClient2();
+    const posts = await notionClient2.fetchBlogPosts(databaseId);
+    await notionClient2.exportToMDX(posts, outputDir);
     console.log("\u2705 Notion content synced successfully");
   } catch (error) {
     console.error("\u274C Failed to sync Notion content:", error);
@@ -1629,8 +1637,8 @@ async function fetchNotionBlogs(databaseId) {
   if (!NOTION_ENABLED) return [];
   try {
     const { NotionClient: NotionClient2 } = await Promise.resolve().then(() => (init_notion_client(), notion_client_exports));
-    const notionClient = new NotionClient2();
-    const posts = await notionClient.fetchBlogPosts(databaseId);
+    const notionClient2 = new NotionClient2();
+    const posts = await notionClient2.fetchBlogPosts(databaseId);
     return posts.map((post) => ({
       object: void 0,
       id: post.id,
@@ -1726,7 +1734,9 @@ var Blog = defineDocumentType(() => ({
     authors: { type: "list", of: { type: "string" } },
     layout: { type: "string" },
     bibliography: { type: "string" },
-    canonicalUrl: { type: "string" }
+    canonicalUrl: { type: "string" },
+    format: { type: "string" },
+    source: { type: "string" }
   },
   computedFields: {
     ...computedFields,
@@ -1838,4 +1848,4 @@ export {
   fetchNotionBlogs,
   translateNotionBlogsToMDX
 };
-//# sourceMappingURL=compiled-contentlayer-config-FDVZPDTS.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-OXITVX4B.mjs.map

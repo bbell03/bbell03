@@ -56,7 +56,7 @@ export async function translateNotionBlogsToMDX(databaseId: string, outputDir: s
 
   try {
     console.log('🔄 Syncing Notion content...');
-    const { NotionClient } = await import('./lib/notion-client.mjs');
+    const { NotionClient } = await import('./lib/notion-client');
     const notionClient = new NotionClient();
     const posts = await notionClient.fetchBlogPosts(databaseId);
     await notionClient.exportToMDX(posts, outputDir);
@@ -69,9 +69,9 @@ export async function translateNotionBlogsToMDX(databaseId: string, outputDir: s
 // This function is now handled by the notionClient
 export async function fetchNotionBlogs(databaseId: string): Promise<Blog[]> {
   if (!NOTION_ENABLED) return [];
-  
+
   try {
-    const { NotionClient } = await import('./lib/notion-client.mjs');
+    const { NotionClient } = await import('./lib/notion-client');
     const notionClient = new NotionClient();
     const posts = await notionClient.fetchBlogPosts(databaseId);
     return posts.map(post => ({
@@ -206,6 +206,8 @@ export const Blog = defineDocumentType(() => ({
     layout: { type: 'string' },
     bibliography: { type: 'string' },
     canonicalUrl: { type: 'string' },
+    format: { type: 'string' },
+    source: { type: 'string' },
   },
   computedFields: {
     ...computedFields,

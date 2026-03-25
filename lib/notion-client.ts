@@ -2,6 +2,7 @@ import { Client } from '@notionhq/client';
 import { NotionToMarkdown } from 'notion-to-md';
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import { renderWhitePageDocument } from './notion-white-page';
 
 // Types for Notion integration
@@ -13,6 +14,7 @@ export interface NotionBlogPost {
   tags: string[];
   summary?: string;
   draft: boolean;
+  layout?: string;
   authors: string[];
   cover?: string;
   content: string;
@@ -26,7 +28,7 @@ export interface NotionCache {
   contentHash: string;
 }
 
-class NotionClient {
+export class NotionClient {
   private client: Client;
   private n2m: NotionToMarkdown;
   private cachePath: string;
@@ -68,13 +70,13 @@ class NotionClient {
 
   private generateContentHash(posts: NotionBlogPost[]): string {
     const content = posts.map(p => `${p.id}-${p.lastModified}`).join('|');
-    return require('crypto').createHash('md5').update(content).digest('hex');
+    return crypto.createHash('md5').update(content).digest('hex');
   }
 
   async fetchBlogPosts(databaseId: string): Promise<NotionBlogPost[]> {
     // Load existing cache
     this.cache = await this.loadCache();
-    
+
     try {
       // Fetch from Notion API
       const response = await this.client.databases.query({
@@ -101,9 +103,9 @@ class NotionClient {
 
       // Check if content has changed
       const newContentHash = this.generateContentHash(posts);
-      const hasChanged = !this.cache || 
-                        this.cache.contentHash !== newContentHash ||
-                        this.cache.databaseId !== databaseId;
+      const hasChanged = !this.cache ||
+        this.cache.contentHash !== newContentHash ||
+        this.cache.databaseId !== databaseId;
 
       if (hasChanged) {
         // Update cache
@@ -133,16 +135,17 @@ class NotionClient {
   private async processNotionPage(page: any): Promise<NotionBlogPost | null> {
     try {
       const properties = page.properties;
-      
+
       // Extract basic properties
       const title = this.extractTextContent(properties.Title?.title) || 'Untitled';
-      const slug = this.extractTextContent(properties.Slug?.rich_text) || 
-                   `notion-${page.id}`;
+      const slug = this.extractTextContent(properties.Slug?.rich_text) ||
+        `notion-${page.id}`;
       const date = properties.Date?.date?.start || new Date().toISOString().split('T')[0];
       const tags = properties.Tags?.multi_select?.map((tag: any) => tag.name) || [];
       const summary = this.extractTextContent(properties.Summary?.rich_text) || '';
       const draft = properties.Draft?.checkbox || false;
       const authors = properties.Authors?.multi_select?.map((author: any) => author.name) || [];
+      const layout = this.extractTextContent(properties.Layout?.rich_text) || '';
 
       // Skip draft posts
       if (draft) return null;
@@ -152,8 +155,8 @@ class NotionClient {
       const content = this.n2m.toMarkdownString(mdBlocks);
 
       // Extract cover image
-      const cover = page.cover?.type === 'external' 
-        ? page.cover.external.url 
+      const cover = page.cover?.type === 'external'
+        ? page.cover.external.url
         : page.cover?.file?.url || '';
 
       return {
@@ -164,6 +167,7 @@ class NotionClient {
         tags,
         summary,
         draft,
+        layout,
         authors,
         cover,
         content: content.parent,

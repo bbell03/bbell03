@@ -1,10 +1,8 @@
-#!/usr/bin/env node
-
 // Load environment variables from .env.local BEFORE any imports
 import dotenv from 'dotenv';
 dotenv.config({ path: '.env.local' });
 
-import { NotionClient } from '../lib/notion-client.mjs';
+import { NotionClient } from '../lib/notion-client';
 import path from 'path';
 import fs from 'fs';
 
@@ -26,7 +24,7 @@ async function syncNotionContent() {
     // Fetch posts from Notion
     console.log('📥 Fetching posts from Notion...');
     const posts = await notionClient.fetchBlogPosts(NOTION_DATABASE_ID);
-    
+
     if (posts.length === 0) {
       console.log('⚠️  No posts found in Notion database');
       return;
