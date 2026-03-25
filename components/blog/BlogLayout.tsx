@@ -1,7 +1,11 @@
+"use client"
+
 import type { ReactNode } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import HeaderControls from "@/components/shared/HeaderControls"
+import NextArrow from "@/components/shared/NextArrow"
+import { usePathname } from "next/navigation"
 
 interface BlogLayoutProps {
   children: ReactNode
@@ -27,8 +31,10 @@ export default function BlogLayout({
   label = "Brandon Bell — Journal",
   showHeader = true,
 }: BlogLayoutProps) {
+  const pathname = usePathname()
+
   return (
-    <div className="blog-page relative">
+    <div className="blog-page relative min-h-screen flex flex-col">
       <div className="paper-fiber" aria-hidden />
       {showHeader && (
         <header className="relative z-[100] border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[hsl(240,10%,3.9%)]">
@@ -51,7 +57,11 @@ export default function BlogLayout({
         </header>
       )}
 
-      <main className="relative z-10 mx-auto w-full max-w-[min(100%,1600px)] px-3 py-6 sm:px-4 md:py-8">{children}</main>
+      <main className="relative z-10 mx-auto w-full max-w-[min(100%,1600px)] px-3 py-6 sm:px-4 md:py-8 flex-1">
+        {children}
+      </main>
+
+      <NextArrow currentPath={pathname} />
     </div>
   )
 }
