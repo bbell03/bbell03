@@ -103,8 +103,8 @@ export default function LandingPageLayout({
     return (
       <motion.section
         ref={ref}
-        className={`h-[100dvh] md:min-h-screen flex flex-col justify-center px-6 py-16 relative snap-center ${index === 0 ? 'pt-8' : ''
-          }`}
+        className={`min-h-[100dvh] md:min-h-screen grow-0 shrink-0 flex flex-col justify-center pl-6 pr-14 xs:py-16 relative snap-start ${index === 0 ? 'pt-24 xs:pt-32 pb-24' : 'pt-20 xs:pt-24 pb-20'
+          } overflow-x-hidden`}
         initial={{ opacity: 0 }}
         animate={{ opacity: isInView ? 1 : 0.3 }}
         transition={{ duration: 0.6 }}
@@ -119,9 +119,9 @@ export default function LandingPageLayout({
           : 'bg-transparent border-gray-300 dark:border-gray-600'
           }`} />
 
-        <div className="ml-6 md:ml-0 max-w-2xl md:max-w-none w-full relative z-10">
-          {/* Mobile Orbiting Dots - Centered around text */}
-          <div className="absolute inset-0 pointer-events-none md:hidden -z-10 flex items-center justify-center scale-150">
+        <div className="ml-6 md:ml-0 max-w-full md:max-w-none w-full relative z-10 flex flex-col">
+          {/* Mobile Orbiting Dots - Centered around text, constrained to overflow-hidden container */}
+          <div className="absolute inset-0 pointer-events-none md:hidden -z-10 flex items-center justify-center scale-100 sm:scale-125 lg:scale-150 overflow-hidden">
             <div className="w-full aspect-square relative">
               <div className="absolute inset-0 animate-spin" style={{ animationDuration: '15s' }}>
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-accent rounded-full opacity-40"></div>
@@ -135,58 +135,77 @@ export default function LandingPageLayout({
           </div>
 
           <motion.div
-            className="space-y-6 text-left"
-            initial={{ x: -20, opacity: 0 }}
-            animate={{ x: isInView ? 0 : -20, opacity: isInView ? 1 : 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-4 xs:space-y-6 text-left"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.15,
+                  delayChildren: 0.3
+                }
+              }
+            }}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
           >
             {/* Section number */}
-            <div className="text-sm text-gray-400 dark:text-gray-500 tracking-wider font-sans">
+            <motion.div
+              variants={{
+                hidden: { x: -20, opacity: 0 },
+                visible: { x: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+              }}
+              className="text-xs xs:text-sm text-gray-400 dark:text-gray-500 tracking-wider font-sans"
+            >
               {String(index + 1).padStart(2, '0')}
-            </div>
+            </motion.div>
 
             {/* Title */}
             <motion.h2
-              className="text-6xl sm:text-7xl md:text-8xl font-sans font-light gradient-text leading-none tracking-tight"
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: isInView ? 0 : 30, opacity: isInView ? 1 : 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              variants={{
+                hidden: { y: 20, opacity: 0 },
+                visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+              }}
+              className="text-5xl xs:text-6xl sm:text-7xl md:text-8xl font-sans font-light gradient-text leading-none tracking-tight"
             >
               {slide.title}
             </motion.h2>
 
             {/* Description */}
             <motion.p
-              className="text-lg sm:text-xl leading-relaxed text-gray-700 dark:text-gray-300 max-w-lg"
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: isInView ? 0 : 30, opacity: isInView ? 1 : 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              variants={{
+                hidden: { y: 20, opacity: 0 },
+                visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+              }}
+              className="text-base xs:text-lg sm:text-xl leading-relaxed text-gray-700 dark:text-gray-300 max-w-lg"
             >
               {slide.description}
             </motion.p>
 
             {/* Tagline */}
             <motion.div
-              className="text-sm uppercase tracking-widest font-medium font-sans text-gray-500 dark:text-gray-400"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: isInView ? 0 : 20, opacity: isInView ? 1 : 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              variants={{
+                hidden: { y: 15, opacity: 0 },
+                visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+              }}
+              className="text-[10px] xs:text-sm uppercase tracking-widest font-medium font-sans text-gray-400 dark:text-gray-500 pb-2 xs:pb-4"
             >
               {slide.tagline}
             </motion.div>
 
-            {/* CTAs - only show on desktop for first and last sections */}
-            {(index === 0 || index === slides.length - 1) && (slide.ctaPrimary || slide.ctaSecondary) && (
+            {/* CTAs */}
+            {(slide.ctaPrimary || slide.ctaSecondary) && (
               <motion.div
-                className="hidden md:flex flex-col gap-4 pt-4 max-w-sm"
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: isInView ? 0 : 30, opacity: isInView ? 1 : 0 }}
-                transition={{ duration: 0.8, delay: 1 }}
+                variants={{
+                  hidden: { y: 20, opacity: 0 },
+                  visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+                }}
+                className="flex flex-col gap-3 xs:gap-4 pt-2 xs:pt-4 max-w-full xs:max-w-sm md:max-w-xs"
               >
                 {slide.ctaPrimary && (
                   <Link
                     href={slide.ctaPrimary.href}
-                    className="w-full px-8 py-4 border-2 border-current rounded-full text-lg font-semibold text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 text-center shadow-sm"
+                    className="w-full px-6 py-3 xs:px-8 xs:py-4 border-2 border-current rounded-full text-base xs:text-lg font-semibold text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 text-center shadow-sm"
                   >
                     {slide.ctaPrimary.label}
                   </Link>
@@ -194,7 +213,7 @@ export default function LandingPageLayout({
                 {slide.ctaSecondary && (
                   <Link
                     href={slide.ctaSecondary.href}
-                    className="w-full px-8 py-4 border border-gray-300 dark:border-gray-600 rounded-full text-lg font-medium text-gray-700 dark:text-gray-300 hover:border-current hover:text-black dark:hover:text-white transition-all duration-300 text-center"
+                    className="w-full px-6 py-3 xs:px-8 xs:py-4 border border-gray-300 dark:border-gray-600 rounded-full text-base xs:text-lg font-medium text-gray-700 dark:text-gray-300 hover:border-current hover:text-black dark:hover:text-white transition-all duration-300 text-center"
                   >
                     {slide.ctaSecondary.label}
                   </Link>
@@ -202,6 +221,19 @@ export default function LandingPageLayout({
               </motion.div>
             )}
           </motion.div>
+
+          {/* Mobile Scroll Indicator - Hidden on very small screens to avoid clutter */}
+          {index === 0 && (
+            <motion.div
+              className="absolute bottom-4 left-1/2 -translate-x-1/2 hidden xs:flex flex-col items-center gap-1 z-20 pointer-events-none"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isInView ? 0.3 : 0 }}
+              transition={{ delay: 3, duration: 1 }}
+            >
+              <span className="text-[9px] uppercase tracking-[0.4em] text-gray-400 font-medium">Explore</span>
+              <div className="w-px h-4 bg-gradient-to-b from-gray-400 to-transparent" />
+            </motion.div>
+          )}
         </div >
       </motion.section >
     )
@@ -269,7 +301,7 @@ export default function LandingPageLayout({
       <main className="flex-1">
         {/* Mobile Timeline Layout */}
         <div className="md:hidden h-[100dvh] overflow-y-auto snap-y snap-mandatory scroll-smooth relative">
-          <div className="relative z-10 pt-[35vh]">
+          <div className="relative z-10 pt-[25vh]">
             {slides.map((slide, index) => (
               <TimelineSection
                 key={index}

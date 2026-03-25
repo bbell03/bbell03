@@ -36,7 +36,7 @@ export default function Home() {
 
   // Render function for the 3D model (left side on desktop)
   const renderLeftContent = (slide: Slide, index: number, isActive: boolean) => (
-    <div className="mb-4 relative aspect-square w-full max-w-[480px] xs:max-w-[520px] sm:max-w-[580px] md:max-w-[min(65vw,75vh)] lg:max-w-[min(60vw,70vh)] xl:max-w-[min(55vw,65vh)] overflow-visible group">
+    <div className="mb-4 relative aspect-square w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[480px] md:max-w-[min(65vw,75vh)] lg:max-w-[min(60vw,70vh)] xl:max-w-[min(55vw,65vh)] overflow-visible group">
       {/* Accent glow background - subtle circular glow */}
       <div className="absolute inset-0 bg-accent opacity-[0.03] rounded-full blur-3xl scale-150 group-hover:opacity-[0.08] group-hover:scale-175 transition-all duration-1000"></div>
 
