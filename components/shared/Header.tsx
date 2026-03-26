@@ -6,6 +6,7 @@ import Link from './Link'
 import NavModal from './nav-modal'
 import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
+import Signature from './Signature'
 
 
 const Header = () => {
@@ -25,16 +26,8 @@ const Header = () => {
                             />
                         </div>
                         {typeof siteMetadata.headerTitle === 'string' ? (
-                            <div className="hidden pr-4 mb-10 h-6 text-2xl font-semibold sm:block">
-                                {/* {siteMetadata.headerTitle} */}
-                                <Image
-                                    src="/name.png"
-                                    alt="logo-adobe-express"
-                                    className="dark:invert"
-                                    width={200}
-                                    height={100}
-                                    priority
-                                />
+                            <div className="hidden pr-4 mb-1 h-7 w-[130px] text-2xl font-semibold sm:block text-slate-900 dark:text-gray-100 items-center flex">
+                                <Signature className="hover:text-primary-500 transition-colors" />
                             </div>
                         ) : (
                             siteMetadata.headerTitle

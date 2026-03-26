@@ -29,10 +29,9 @@ import {
 import Link from 'next/link'
 import Image from 'next/image'
 import siteMetadata from '@/data/siteMetadata'
-import { DynamicSubtitle } from '@/components/shared/DynamicSubtitle'
-import { AdminSubtitleControls } from '@/components/shared/AdminSubtitleControls'
 import { Highlights } from '@/components/blog/Highlights'
 import HeaderControls from '@/components/shared/HeaderControls'
+import Signature from '@/components/shared/Signature'
 
 interface BlogLayoutSystemProps {
   posts: any[]
@@ -91,7 +90,6 @@ const LiveClock = memo(() => {
 LiveClock.displayName = 'LiveClock'
 
 export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
-  const [subtitleData, setSubtitleData] = useState<any>(null)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedTags, setSelectedTags] = useState<string[]>([])
   const [viewMode, setViewMode] = useState<ViewMode>('newspaper')
@@ -888,26 +886,22 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
               Software Engineering & Design
             </motion.div>
 
-            <div className="relative pt-2 pb-1">
-              <motion.h1
-                className="font-handwriting text-7xl md:text-9xl lg:text-[10rem] text-slate-900 dark:text-white leading-[0.8] py-2"
+            <div className="relative pt-4 pb-2">
+              <motion.div
+                className="mx-auto w-48 sm:w-64 md:w-80 lg:w-96 text-slate-800 dark:text-slate-200 py-6"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
-                Brandon Bell
-              </motion.h1>
+                <Signature />
+              </motion.div>
               <div className="absolute -top-2 -right-8 text-accent opacity-5 select-none animate-float hidden md:block">
                 <Newspaper className="w-20 h-20 lg:w-28 lg:h-28" />
               </div>
             </div>
 
             <div className="max-w-2xl mx-auto">
-              <DynamicSubtitle
-                className="text-slate-500 dark:text-slate-400 text-lg md:text-xl font-playfair italic"
-                showRefreshButton={false}
-                showTrends={false}
-              />
+              {/* Removed dynamic subtitle for simpler low-profile look */}
             </div>
             
             <motion.div 
@@ -988,11 +982,12 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
               )}
             </Button>
             
-            {/* Desktop Controls (hidden on mobile search row) */}
-            <div className="hidden sm:flex ml-2 items-center gap-4">
-              <div className="h-6 w-px bg-slate-200 dark:bg-slate-800" />
-              <HeaderControls showFontSwitcher={false} className="scale-90" />
-            </div>
+          </motion.div>
+          
+          {/* Desktop Controls (hidden on mobile search row) */}
+          <motion.div variants={itemVariants} className="hidden sm:flex ml-2 items-center gap-4 z-50">
+            <div className="h-6 w-px bg-slate-200 dark:bg-slate-800" />
+            <HeaderControls showFontSwitcher={false} className="scale-90" />
           </motion.div>
 
           {/* Filter Panel */}
@@ -1200,16 +1195,6 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
         </div>
       </div>
       
-      {/* Admin Controls - Only show in development or for admin users */}
-      {process.env.NODE_ENV === 'development' && (
-        <AdminSubtitleControls
-          onRefresh={() => window.location.reload()}
-          subtitle={subtitleData?.subtitle}
-          trends={subtitleData?.trends}
-          cached={subtitleData?.cached}
-          fallback={subtitleData?.fallback}
-        />
-      )}
     </div>
   )
 }

@@ -11,16 +11,16 @@ interface AISubtitleRequest {
 async function generateWithGroqAPI(prompt: string): Promise<string> {
   // Simulated AI response - replace with actual API call
   const aiResponses = [
-    "Where Innovation Meets Implementation",
-    "Crafting Tomorrow's Digital Landscape",
-    "Engineering Excellence, One Commit at a Time", 
-    "Building the Future with Code and Creativity",
-    "From Concept to Production: A Developer's Journey",
-    "Mastering the Art of Digital Craftsmanship",
-    "Where Logic Meets Creative Problem Solving",
-    "Architecting Solutions for the Modern Web",
-    "Code, Create, and Conquer Complexity",
-    "Transforming Ideas into Digital Reality"
+    "Notes on software, design, and what I'm learning right now.",
+    "A personal log of coding experiments and lessons.",
+    "Thoughts on modern engineering and the web.", 
+    "Documenting the journey through software development.",
+    "Just a developer exploring concepts and sharing notes.",
+    "Writing down what I learn about technology.",
+    "My notebook for engineering practices and current trends.",
+    "Reflections on code, architecture, and building things.",
+    "Exploring software one project at a time.",
+    "Lessons gathered from everyday programming."
   ]
   
   // Simulate API delay
@@ -72,20 +72,18 @@ async function generateWithOpenAI(prompt: string): Promise<string> {
 function createAIPrompt(trends: string[], context: string, tone: string, style: string): string {
   const trendList = trends.slice(0, 3).join(', ')
   
-  return `Create a ${tone} ${style} subtitle for a software engineering blog called "The Brandon Bell". 
+  return `Create a ${tone} ${style} subtitle for a personal programming blog called "The Brandon Bell". 
 
 Current trending topics: ${trendList}
 
 Requirements:
-- Style: ${style} (like a newspaper tagline)
-- Tone: ${tone}
-- Length: 3-8 words
-- Focus on: software development, engineering, technology
-- Make it memorable and engaging
-- Incorporate current tech trends naturally
-- Avoid clichés like "cutting-edge" or "next-level"
+- Style: ${style} (like a humble personal notebook or developer journal)
+- Tone: ${tone} (humble, curious, thoughtful, personal)
+- Length: 4-10 words
+- Focus on: learning, documenting experiences, sharing practical observations about engineering
+- Avoid clichés completely. Do not use words like "crafting", "excellence", "conquering", "innovation", or "future". Keep it down-to-earth.
 
-Context: This is a daily rotating subtitle that appears under the blog title, similar to how newspapers have taglines. It should feel fresh and relevant to current tech discussions.
+Context: This is a rotating subtitle appearing below the site title. It should feel like an ongoing personal log or notepad about tech and software.
 
 Generate only the subtitle text, no quotes or extra formatting.`
 }
@@ -150,12 +148,12 @@ export async function POST(request: NextRequest) {
     const { trends = [] } = await request.json().catch(() => ({ trends: [] }))
     
     const fallbackSubtitles = [
-      `Exploring ${trends[0] || 'Modern Development'}`,
-      `Mastering ${trends[0] || 'Software Engineering'}`,
-      `Building with ${trends[0] || 'Technology'}`,
-      "Where Code Meets Creativity",
-      "Engineering Digital Solutions",
-      "Crafting Tomorrow's Software"
+      `Notes on ${trends[0] || 'modern development'}.`,
+      `Learning about ${trends[0] || 'software engineering'}.`,
+      `Thoughts on building with ${trends[0] || 'technology'}.`,
+      "A notebook for code and current tech.",
+      "Documenting ongoing software projects.",
+      "A developer's journal and reference."
     ]
     
     const fallback = fallbackSubtitles[Math.floor(Math.random() * fallbackSubtitles.length)]

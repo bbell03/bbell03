@@ -33,7 +33,7 @@ export function DynamicSubtitle({
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        "All the Code That's Fit to Print"
+        "Notes & thoughts on software development."
       </motion.p>
     )
   }
