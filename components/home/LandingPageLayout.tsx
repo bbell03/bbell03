@@ -103,7 +103,7 @@ export default function LandingPageLayout({
     return (
       <motion.section
         ref={ref}
-        className={`min-h-[100dvh] md:min-h-screen grow-0 shrink-0 flex flex-col justify-center pl-6 pr-14 xs:py-16 relative snap-start ${index === 0 ? 'pt-24 xs:pt-32 pb-24' : 'pt-20 xs:pt-24 pb-20'
+        className={`min-h-[100dvh] md:min-h-screen grow-0 shrink-0 flex flex-col justify-center px-6 relative snap-start ${index === 0 ? 'pt-20 xs:pt-24 pb-12' : 'pt-12 xs:pt-16 pb-8'
           } overflow-x-hidden`}
         initial={{ opacity: 0 }}
         animate={{ opacity: isInView ? 1 : 0.3 }}
@@ -135,77 +135,83 @@ export default function LandingPageLayout({
           </div>
 
           <motion.div
-            className="space-y-4 xs:space-y-6 text-left"
+            className="space-y-3 xs:space-y-5 text-left"
             variants={{
               hidden: { opacity: 0 },
               visible: {
                 opacity: 1,
                 transition: {
-                  staggerChildren: 0.15,
-                  delayChildren: 0.3
+                  staggerChildren: 0.12,
+                  delayChildren: 0.2
                 }
               }
             }}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
           >
-            {/* Section number */}
+            {/* Kicker: tagline above title for stronger entry */}
             <motion.div
               variants={{
-                hidden: { x: -20, opacity: 0 },
-                visible: { x: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+                hidden: { x: -16, opacity: 0 },
+                visible: { x: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }
               }}
-              className="text-xs xs:text-sm text-gray-400 dark:text-gray-500 tracking-wider font-sans"
+              className="flex items-center gap-2"
             >
-              {String(index + 1).padStart(2, '0')}
+              <span className="w-5 h-px bg-accent opacity-70" />
+              <span className="text-[10px] uppercase tracking-[0.3em] font-medium font-sans text-accent/70 dark:text-accent/60">
+                {slide.tagline}
+              </span>
             </motion.div>
 
-            {/* Title */}
-            <motion.h2
+            {/* Title — bigger, bolder presence on mobile */}
+            <motion.div
               variants={{
-                hidden: { y: 20, opacity: 0 },
-                visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+                hidden: { y: 24, opacity: 0 },
+                visible: { y: 0, opacity: 1, transition: { duration: 0.7, ease: "easeOut" } }
               }}
-              className="text-5xl xs:text-6xl sm:text-7xl md:text-8xl font-sans font-light gradient-text leading-none tracking-tight"
             >
-              {slide.title}
-            </motion.h2>
+              <h2 className="text-7xl xs:text-8xl sm:text-8xl md:text-9xl font-sans font-light gradient-text leading-none tracking-tight">
+                {slide.title}
+              </h2>
+              {/* Accent rule for visual weight */}
+              <div className="mt-3 w-12 h-0.5 bg-accent opacity-60" />
+            </motion.div>
 
             {/* Description */}
             <motion.p
               variants={{
-                hidden: { y: 20, opacity: 0 },
-                visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+                hidden: { y: 16, opacity: 0 },
+                visible: { y: 0, opacity: 1, transition: { duration: 0.7, ease: "easeOut" } }
               }}
-              className="text-base xs:text-lg sm:text-xl leading-relaxed text-gray-700 dark:text-gray-300 max-w-lg"
+              className="text-sm xs:text-base sm:text-lg leading-relaxed text-gray-600 dark:text-gray-400 max-w-[260px] xs:max-w-xs sm:max-w-sm pr-2 sm:pr-0"
             >
               {slide.description}
             </motion.p>
 
-            {/* Tagline */}
+            {/* Section number — small, bottom-aligned context */}
             <motion.div
               variants={{
-                hidden: { y: 15, opacity: 0 },
-                visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { duration: 0.6 } }
               }}
-              className="text-[10px] xs:text-sm uppercase tracking-widest font-medium font-sans text-gray-400 dark:text-gray-500 pb-2 xs:pb-4"
+              className="text-[9px] text-gray-300 dark:text-gray-600 tracking-widest font-sans"
             >
-              {slide.tagline}
+              {String(index + 1).padStart(2, '0')} / {String(3).padStart(2, '0')}
             </motion.div>
 
-            {/* CTAs */}
+            {/* CTAs — side by side on mobile */}
             {(slide.ctaPrimary || slide.ctaSecondary) && (
               <motion.div
                 variants={{
-                  hidden: { y: 20, opacity: 0 },
-                  visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+                  hidden: { y: 16, opacity: 0 },
+                  visible: { y: 0, opacity: 1, transition: { duration: 0.7, ease: "easeOut" } }
                 }}
-                className="flex flex-col gap-3 xs:gap-4 pt-2 xs:pt-4 max-w-full xs:max-w-sm md:max-w-xs"
+                className="flex flex-row gap-2 xs:gap-3 pt-1"
               >
                 {slide.ctaPrimary && (
                   <Link
                     href={slide.ctaPrimary.href}
-                    className="w-full px-6 py-3 xs:px-8 xs:py-4 border-2 border-current rounded-full text-base xs:text-lg font-semibold text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 text-center shadow-sm"
+                    className="flex-1 xs:flex-none px-5 py-2.5 bg-accent text-white rounded-full text-sm font-semibold text-center hover:bg-accent/90 transition-all duration-200 shadow-md shadow-accent/20"
                   >
                     {slide.ctaPrimary.label}
                   </Link>
@@ -213,7 +219,7 @@ export default function LandingPageLayout({
                 {slide.ctaSecondary && (
                   <Link
                     href={slide.ctaSecondary.href}
-                    className="w-full px-6 py-3 xs:px-8 xs:py-4 border border-gray-300 dark:border-gray-600 rounded-full text-base xs:text-lg font-medium text-gray-700 dark:text-gray-300 hover:border-current hover:text-black dark:hover:text-white transition-all duration-300 text-center"
+                    className="flex-1 xs:flex-none px-5 py-2.5 border border-gray-300 dark:border-gray-600 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 text-center hover:border-accent hover:text-accent dark:hover:text-accent transition-all duration-200"
                   >
                     {slide.ctaSecondary.label}
                   </Link>
@@ -283,25 +289,11 @@ export default function LandingPageLayout({
         }}
       />
 
-      {/* Floating Timeline Navigation - Mobile Only */}
-      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3 md:hidden">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => scrollToSection(index)}
-            className={`w-3 h-8 rounded-full transition-all duration-300 ${index === currentSlide
-              ? 'bg-black dark:bg-white'
-              : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-500 dark:hover:bg-gray-400'
-              }`}
-            aria-label={`Go to section ${index + 1}`}
-          />
-        ))}
-      </div>
 
       <main className="flex-1">
         {/* Mobile Timeline Layout */}
         <div className="md:hidden h-[100dvh] overflow-y-auto snap-y snap-mandatory scroll-smooth relative">
-          <div className="relative z-10 pt-[25vh]">
+          <div className="relative z-10 pt-[12vh]">
             {slides.map((slide, index) => (
               <TimelineSection
                 key={index}
