@@ -7,11 +7,18 @@ import NavModal from './nav-modal'
 import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
 import Signature from './Signature'
+import { LiveClock } from './LiveClock'
 
 
 const Header = () => {
     return (
-        <header className="flex items-center justify-between py-10">
+        <div className="relative w-full">
+            {/* Topside Low Profile Date & Time Header */}
+            <div className="absolute top-0 right-0 w-full flex justify-end items-center py-2 text-[10px] sm:text-[11px] font-mono tracking-widest text-slate-400 dark:text-slate-500 opacity-70 uppercase">
+                <LiveClock />
+            </div>
+            
+            <header className="flex items-center justify-between pt-10 pb-6 mt-4">
             <div>
                 <Link href="/" aria-label={siteMetadata.headerTitle}>
                     <div className="flex items-center justify-between">
@@ -53,6 +60,7 @@ const Header = () => {
                 <NavModal />
             </div>
         </header>
+        </div>
     )
 }
 

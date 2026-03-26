@@ -50,11 +50,11 @@ export default function UnifiedBlogLayout({
     <>
       <ScrollTopAndComment />
 
-      <div className="article-page min-h-screen relative">
+      <div className="min-h-screen relative">
         <div className="paper-fiber" aria-hidden />
 
         <main className="relative w-full max-w-[min(100%,1200px)] mx-auto px-3 sm:px-4 py-6 md:py-8 z-10">
-          <div className="paper-shell">
+          <div className="relative">
             <Link
               href="/blog"
               className="group inline-flex w-max items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors mb-4"

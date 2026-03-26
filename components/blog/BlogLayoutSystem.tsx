@@ -6,13 +6,13 @@ import { BlogCard } from '@/components/blog/BlogCard'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { 
-  Search, 
-  Grid3X3, 
-  List, 
+import {
+  Search,
+  Grid3X3,
+  List,
   Newspaper,
-  SortAsc, 
-  SortDesc, 
+  SortAsc,
+  SortDesc,
   Calendar,
   Clock,
   Tag as TagIcon,
@@ -51,44 +51,6 @@ const formatUtcDate = (date: string, options: Intl.DateTimeFormatOptions) =>
   new Intl.DateTimeFormat('en-US', { timeZone: 'UTC', ...options }).format(new Date(date))
 
 // Separate clock component to isolate re-renders
-const LiveClock = memo(() => {
-  const [currentTime, setCurrentTime] = useState<Date | null>(null)
-
-  useEffect(() => {
-    const updateTime = () => setCurrentTime(new Date())
-    updateTime()
-
-    const timer = setInterval(updateTime, 1000)
-    return () => clearInterval(timer)
-  }, [])
-
-  return (
-    <div className="flex items-center gap-6">
-      <time className="font-mono">
-        {currentTime
-          ? new Intl.DateTimeFormat('en-US', {
-              weekday: 'long',
-              month: 'long',
-              day: 'numeric',
-              year: 'numeric',
-            }).format(currentTime)
-          : '—'}
-      </time>
-      <span className="hidden sm:inline">
-        {currentTime
-          ? new Intl.DateTimeFormat('en-US', {
-              hour: 'numeric',
-              minute: 'numeric',
-              second: 'numeric',
-            }).format(currentTime)
-          : '—'}
-      </span>
-    </div>
-  )
-})
-
-LiveClock.displayName = 'LiveClock'
-
 export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedTags, setSelectedTags] = useState<string[]>([])
@@ -116,7 +78,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
   // Group posts by topic/tag for modules view
   const postsByTopic = useMemo(() => {
     const topics: Record<string, any[]> = {}
-    
+
     posts.forEach(post => {
       if (post.tags && post.tags.length > 0) {
         post.tags.forEach((tag: string) => {
@@ -143,18 +105,18 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
       // Search filter
       const searchContent = `${post.title} ${post.summary} ${post.tags?.join(' ') || ''}`.toLowerCase()
       const matchesSearch = searchContent.includes(searchTerm.toLowerCase())
-      
+
       // Tag filter
-      const matchesTags = selectedTags.length === 0 || 
+      const matchesTags = selectedTags.length === 0 ||
         (post.tags && selectedTags.every(tag => post.tags.includes(tag)))
-      
+
       return matchesSearch && matchesTags
     })
 
     // Sort posts
     filtered.sort((a, b) => {
       let comparison = 0
-      
+
       switch (sortOption) {
         case 'date':
           comparison = new Date(a.date).getTime() - new Date(b.date).getTime()
@@ -173,7 +135,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
           comparison = aTopic.localeCompare(bTopic)
           break
       }
-      
+
       return sortOrder === 'asc' ? comparison : -comparison
     })
 
@@ -181,8 +143,8 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
   }, [posts, searchTerm, selectedTags, sortOption, sortOrder])
 
   const handleTagToggle = (tag: string) => {
-    setSelectedTags(prev => 
-      prev.includes(tag) 
+    setSelectedTags(prev =>
+      prev.includes(tag)
         ? prev.filter(t => t !== tag)
         : [...prev, tag]
     )
@@ -190,7 +152,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (!newsletter.email) {
       setNewsletter(prev => ({ ...prev, status: 'error', message: 'Please enter your email address' }))
       return
@@ -230,8 +192,8 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
 
   // Toggle tag function
   const toggleTag = useCallback((tag: string) => {
-    setSelectedTags(prev => 
-      prev.includes(tag) 
+    setSelectedTags(prev =>
+      prev.includes(tag)
         ? prev.filter(t => t !== tag)
         : [...prev, tag]
     )
@@ -269,7 +231,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
     return (
       <div className="max-w-7xl mx-auto">
         {/* Magazine Header */}
-        <motion.div 
+        <motion.div
           className="flex items-center justify-between mb-8 pb-6 border-b-2 border-slate-900 dark:border-white hover:border-accent-600 dark:hover:border-accent-400 transition-all duration-500"
           variants={itemVariants}
         >
@@ -347,19 +309,19 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
                             </div>
                           )}
                         </div>
-                        
+
                         {/* Content */}
                         <div className="flex-1 min-w-0 space-y-2">
                           <h4 className="text-base font-semibold text-slate-900 dark:text-white group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors leading-tight line-clamp-2">
                             {post.title}
                           </h4>
-                          
+
                           {post.summary && (
                             <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed">
                               {post.summary}
                             </p>
                           )}
-                          
+
                           <div className="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
                             <time className="flex-shrink-0">
                               {formatUtcDate(post.date, { month: 'short', day: 'numeric', year: 'numeric' })}
@@ -371,12 +333,12 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
                               </>
                             )}
                           </div>
-                          
+
                           {/* Tags */}
                           {post.tags && post.tags.length > 0 && (
                             <div className="flex flex-wrap gap-1 pt-1">
                               {post.tags.slice(0, 3).map((tag: string) => (
-                                <span 
+                                <span
                                   key={tag}
                                   className="inline-block px-2 py-0.5 bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 text-xs rounded-md font-medium"
                                 >
@@ -415,8 +377,8 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
               {/* Sidebar Articles */}
               <div className="space-y-6">
                 {remainingPosts.slice(0, 4).map((post, index) => (
-                  <motion.div 
-                    key={post.slug} 
+                  <motion.div
+                    key={post.slug}
                     variants={itemVariants}
                     className="pb-6 border-b border-slate-200 dark:border-slate-700 last:border-b-0"
                   >
@@ -432,7 +394,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {allTags.slice(0, 8).map(tag => (
-                    <Badge 
+                    <Badge
                       key={tag}
                       variant={selectedTags.includes(tag) ? "default" : "secondary"}
                       className={`cursor-pointer text-xs transition-all duration-300 ${selectedTags.includes(tag) ? 'shadow-lg shadow-accent-300 dark:shadow-accent-600' : 'hover:shadow-md hover:shadow-accent-200 dark:hover:shadow-accent-700 hover:scale-105 hover:bg-accent-100 dark:hover:bg-accent-900'}`}
@@ -489,7 +451,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
           <div className="lg:col-span-8">
             {/* Featured Story */}
             {featured && (
-              <motion.section 
+              <motion.section
                 className="mb-16 border-b-2 border-slate-200 dark:border-slate-700 pb-12"
                 variants={itemVariants}
               >
@@ -522,11 +484,11 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
                     </div>
 
                     <div className="flex flex-col justify-center">
-                      <h2 className="headline text-3xl md:text-4xl lg:text-5xl text-slate-900 dark:text-white mb-6 leading-tight group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
+                      <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-slate-900 dark:text-white mb-4 leading-tight group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
                         {featured.title}
                       </h2>
-                      
-                      <p className="deck text-lg md:text-xl text-slate-700 dark:text-slate-300 mb-8 leading-relaxed">
+
+                      <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
                         {featured.summary || "Explore the latest insights and developments..."}
                       </p>
 
@@ -547,7 +509,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
             <section className="pt-4">
               <div className="grid md:grid-cols-2 gap-10">
                 {recentPosts.map((post, index) => (
-                  <motion.article 
+                  <motion.article
                     key={post.slug}
                     className="border-b border-slate-200 dark:border-slate-700 pb-10 last:border-b-0"
                     variants={itemVariants}
@@ -563,7 +525,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
           {/* Sidebar */}
           <aside className="lg:col-span-4 space-y-8">
             {/* Trending Topics */}
-            <motion.section 
+            <motion.section
               className="border border-slate-200 dark:border-slate-700 p-8 rounded-lg"
               variants={itemVariants}
             >
@@ -576,11 +538,10 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
                   <Badge
                     key={tag}
                     variant={selectedTags.includes(tag) ? "default" : "outline"}
-                    className={`cursor-pointer transition-all duration-300 ${
-                      selectedTags.includes(tag) 
-                        ? 'bg-accent text-white shadow-lg shadow-accent-300 dark:shadow-accent-600' 
+                    className={`cursor-pointer transition-all duration-300 ${selectedTags.includes(tag)
+                        ? 'bg-accent text-white shadow-lg shadow-accent-300 dark:shadow-accent-600'
                         : 'hover:bg-accent hover:text-white hover:shadow-lg hover:shadow-accent-300 dark:hover:shadow-accent-600 hover:scale-105'
-                    }`}
+                      }`}
                     onClick={() => handleTagToggle(tag)}
                   >
                     #{tag}
@@ -643,7 +604,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
     // Filter topics based on current filters
     const filteredTopics = Object.entries(postsByTopic).filter(([topic, topicPosts]) => {
       if (selectedTags.length > 0 && !selectedTags.includes(topic)) return false
-      
+
       return topicPosts.some(post => {
         const searchContent = `${post.title} ${post.summary} ${post.tags?.join(' ') || ''}`.toLowerCase()
         return searchContent.includes(searchTerm.toLowerCase())
@@ -653,7 +614,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Magazine Title */}
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           variants={itemVariants}
         >
@@ -667,7 +628,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
         </motion.div>
 
         {/* Topic Cards Grid */}
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 magazine-grid"
           variants={containerVariants}
         >
@@ -680,7 +641,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
             >
               {/* Main Topic Card */}
               <div className="bg-white dark:bg-slate-800 rounded-3xl border-2 border-slate-200 dark:border-slate-700 hover:border-accent-400 dark:hover:border-accent-500 shadow-xl hover:shadow-2xl hover:shadow-accent-300/20 dark:hover:shadow-accent-600/20 transition-all duration-500 overflow-hidden flex flex-col magazine-module-card">
-                
+
                 {/* Topic Header */}
                 <header className="relative bg-gradient-to-br from-accent-50 via-accent-100 to-accent-200 dark:from-accent-900/30 dark:via-accent-800/40 dark:to-accent-700/30 p-8 border-b-2 border-accent-300/50 dark:border-accent-600/50 flex-shrink-0">
                   <div className="flex items-center justify-between mb-4">
@@ -733,11 +694,11 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
                               {formatUtcDate(topicPosts[0].date, { month: 'short', day: 'numeric' })}
                             </time>
                           </div>
-                          
+
                           <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover/featured:text-accent-600 dark:group-hover/featured:text-accent-400 transition-colors leading-tight line-clamp-1 mb-1">
                             {topicPosts[0].title}
                           </h3>
-                          
+
                           <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
                             <span className="font-medium">By {siteMetadata.author}</span>
                             {topicPosts[0].readingTime?.minutes && (
@@ -783,7 +744,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
                           <h4 className="text-sm font-semibold text-slate-900 dark:text-white group-hover/post:text-accent-600 dark:group-hover/post:text-accent-400 transition-colors leading-tight line-clamp-2">
                             {post.title}
                           </h4>
-                          
+
                           <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
                             <time className="flex-shrink-0">
                               {formatUtcDate(post.date, { month: 'short', day: 'numeric' })}
@@ -795,22 +756,22 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
                               </>
                             )}
                           </div>
-                          
+
                           {/* Tags */}
                           {post.tags && post.tags.length > 0 && (
                             <div className="flex flex-wrap gap-1 pt-0.5">
                               {post.tags.slice(0, 2).map((tag: string) => (
-                                <Badge 
-                                  key={tag} 
-                                  variant="secondary" 
+                                <Badge
+                                  key={tag}
+                                  variant="secondary"
                                   className="text-xs px-1.5 py-0.5 bg-accent-50/70 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 hover:bg-accent-100 dark:hover:bg-accent-900/50 transition-colors flex-shrink-0"
                                 >
                                   {tag}
                                 </Badge>
                               ))}
                               {post.tags.length > 2 && (
-                                <Badge 
-                                  variant="secondary" 
+                                <Badge
+                                  variant="secondary"
                                   className="text-xs px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex-shrink-0"
                                 >
                                   +{post.tags.length - 2}
@@ -842,7 +803,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
         </motion.div>
 
         {/* Bottom Navigation */}
-        <motion.div 
+        <motion.div
           className="text-center mt-20 pt-12 border-t-2 border-slate-200 dark:border-slate-700"
           variants={itemVariants}
         >
@@ -868,333 +829,310 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
     <div className="relative">
       {/* Newspaper Header */}
       {/* Unified Blog Header */}
+
       {/* Blog Masthead Section - Only shown on index */}
-      <div className="relative z-[90] border-b border-white/5 bg-slate-50 dark:bg-slate-950 pt-10 pb-12 overflow-hidden">
-        {/* Abstract Background Element for Awe-Inspiring effect */}
-        <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl opacity-40 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-80 h-80 bg-accent/20 rounded-full blur-3xl opacity-20 pointer-events-none" />
-
-        <div className="max-w-[min(100%,1600px)] mx-auto px-4 sm:px-6 relative text-center">
+      <div className="relative z-[90] w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-accent-100/40 dark:bg-accent-900/30 backdrop-blur-md border-y border-accent-200/50 dark:border-accent-800/30 shadow-[0_0_40px_-10px_rgba(0,0,0,0.1)] shadow-accent-500/20 dark:shadow-accent-500/10">
+        <div className="max-w-[min(100%,1600px)] mx-auto px-4 sm:px-6 py-5 relative">
           {/* Masthead Content */}
-          <div className="flex flex-col items-center space-y-4">
-            <motion.div 
-              className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.5em] text-accent/70 dark:text-accent/50"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1 }}
-            >
-              Software Engineering & Design
-            </motion.div>
-
-            <div className="relative pt-4 pb-2">
+          <div className="flex flex-col items-start space-y-1">
+            <div className="relative mb-2">
               <motion.div
-                className="mx-auto w-48 sm:w-64 md:w-80 lg:w-96 text-slate-800 dark:text-slate-200 py-6"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
+                className="w-40 sm:w-52 md:w-64 lg:w-72 text-slate-800 dark:text-slate-200"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
                 <Signature />
               </motion.div>
-              <div className="absolute -top-2 -right-8 text-accent opacity-5 select-none animate-float hidden md:block">
-                <Newspaper className="w-20 h-20 lg:w-28 lg:h-28" />
-              </div>
             </div>
 
-            <div className="max-w-2xl mx-auto">
-              {/* Removed dynamic subtitle for simpler low-profile look */}
-            </div>
-            
-            <motion.div 
-              className="text-[10px] uppercase tracking-[0.2em] text-slate-400/60 dark:text-slate-500/60 font-medium pb-2"
+            <motion.div
+              className="flex flex-wrap items-center gap-3 sm:gap-4 pl-1"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
+              transition={{ duration: 1 }}
             >
-              © 2026
+              <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.4em] text-accent-600/80 dark:text-accent-400/80">
+                Software Engineering & Design
+              </span>
+              <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600 hidden sm:block" />
+              <span className="text-[9px] uppercase tracking-[0.2em] text-slate-400/60 dark:text-slate-500/60 font-medium">
+                © 2026
+              </span>
             </motion.div>
           </div>
         </div>
       </div>
 
-      <div className="relative z-10 max-w-[min(100%,1600px)] mx-auto px-3 sm:px-4 py-6 md:py-8">
-        <div className="paper-shell space-y-8">
-        {/* Responsive Search and Controls */}
-        <motion.div 
-          className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8"
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-        >
-          <motion.div variants={itemVariants} className="w-full sm:w-auto flex items-center gap-3">
-            {/* Compact Search - Responsive Width */}
-            <div className="relative flex-1 sm:flex-none">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4 peer-focus:text-accent transition-colors duration-300" />
-              <Input
-                type="text"
-                placeholder="Search..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="peer pl-9 h-10 w-full sm:w-64 text-sm rounded-xl border-slate-300 dark:border-slate-800 focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300"
-              />
-            </div>
+      <div className="relative z-10 max-w-[min(100%,1600px)] mx-auto px-3 sm:px-4 py-8 md:py-12">
+        <div className="space-y-8 md:space-y-12">
+          {/* Responsive Search and Controls */}
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+          >
+            <motion.div variants={itemVariants} className="w-full sm:w-auto flex items-center gap-3">
+              {/* Compact Search - Responsive Width */}
+              <div className="relative flex-1 sm:flex-none">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4 peer-focus:text-accent transition-colors duration-300" />
+                <Input
+                  type="text"
+                  placeholder="Search..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="peer pl-9 h-10 w-full sm:w-64 text-sm rounded-xl border-slate-300 dark:border-slate-700 dark:bg-slate-900 focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300 dark:text-slate-200"
+                />
+              </div>
+            </motion.div>
 
-            {/* Controls integration if top bar is gone */}
-            <div className="flex items-center gap-1 sm:hidden">
-              <HeaderControls showFontSwitcher={false} />
-            </div>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0 no-scrollbar">
-            {/* Compact View Toggles - More space on mobile */}
-            <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-900 rounded-xl p-1">
-              {[
-                { mode: 'newspaper', icon: Newspaper, title: 'Newspaper' },
-                { mode: 'grid', icon: Grid3X3, title: 'Magazine' },
-                { mode: 'list', icon: List, title: 'List' },
-                { mode: 'modules', icon: Layers3, title: 'Modules' }
-              ].map(({ mode, icon: Icon, title }) => (
-                <Button
-                  key={mode}
-                  variant={viewMode === mode ? "default" : "ghost"}
-                  size="sm"
-                  onClick={() => setViewMode(mode as ViewMode)}
-                  className={`rounded-lg px-2 py-1 h-9 min-w-[36px] transition-all duration-300 ${viewMode === mode ? 'shadow-lg shadow-accent-300 dark:shadow-accent-950' : 'hover:bg-accent/10 hover:text-accent'}`}
-                  title={title}
-                >
-                  <Icon className="w-4 h-4" />
-                </Button>
-              ))}
-            </div>
-
-            {/* Filter Toggle */}
-            <Button
-              variant={showFilters ? "default" : "outline"}
-              onClick={() => setShowFilters(!showFilters)}
-              size="sm"
-              className={`rounded-xl h-9 px-4 transition-all duration-300 ${showFilters ? 'shadow-lg shadow-accent-300 dark:shadow-accent-950' : 'hover:bg-accent/10 border-slate-200 dark:border-slate-800'}`}
-            >
-              <Filter className="w-4 h-4 mr-2" />
-              Filters
-              {selectedTags.length > 0 && (
-                <Badge className="ml-2 bg-accent text-white h-5 px-1.5 min-w-[20px] justify-center">
-                  {selectedTags.length}
-                </Badge>
-              )}
-            </Button>
-            
-          </motion.div>
-          
-          {/* Desktop Controls (hidden on mobile search row) */}
-          <motion.div variants={itemVariants} className="hidden sm:flex ml-2 items-center gap-4 z-50">
-            <div className="h-6 w-px bg-slate-200 dark:bg-slate-800" />
-            <HeaderControls showFontSwitcher={false} className="scale-90" />
-          </motion.div>
-
-          {/* Filter Panel */}
-          <AnimatePresence>
-            {showFilters && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 space-y-6"
-              >
-                {/* Sort Options */}
-                <div>
-                  <h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
-                    Sort By
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {[
-                      { value: 'date', label: 'Date', icon: Calendar },
-                      { value: 'title', label: 'Title', icon: TagIcon },
-                      { value: 'readingTime', label: 'Reading Time', icon: Clock },
-                      { value: 'topic', label: 'Topic', icon: TrendingUp }
-                    ].map(({ value, label, icon: Icon }) => (
-                      <Button
-                        key={value}
-                        variant={sortOption === value ? "default" : "outline"}
-                        size="sm"
-                        onClick={() => setSortOption(value as SortOption)}
-                        className="rounded-full"
-                      >
-                        <Icon className="w-3 h-3 mr-1" />
-                        {label}
-                      </Button>
-                    ))}
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-                      className="rounded-full"
-                    >
-                      {sortOrder === 'asc' ? <SortAsc className="w-3 h-3" /> : <SortDesc className="w-3 h-3" />}
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Tag Filter */}
-                {allTags.length > 0 && (
-                  <div>
-                    <h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
-                      <TagIcon className="w-4 h-4" />
-                      Filter by Tags
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {allTags.map(tag => (
-                        <Badge
-                          key={tag}
-                          variant={selectedTags.includes(tag) ? "default" : "outline"}
-                          className="cursor-pointer hover:bg-accent hover:text-white transition-colors"
-                          onClick={() => handleTagToggle(tag)}
-                        >
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Clear Filters */}
-                {(selectedTags.length > 0 || sortOption !== 'date' || sortOrder !== 'desc') && (
+            <motion.div variants={itemVariants} className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0 no-scrollbar">
+              {/* Compact View Toggles - More space on mobile */}
+              <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800/80 rounded-xl p-1 border border-transparent dark:border-slate-700">
+                {[
+                  { mode: 'newspaper', icon: Newspaper, title: 'Newspaper' },
+                  { mode: 'grid', icon: Grid3X3, title: 'Magazine' },
+                  { mode: 'list', icon: List, title: 'List' },
+                  { mode: 'modules', icon: Layers3, title: 'Modules' }
+                ].map(({ mode, icon: Icon, title }) => (
                   <Button
-                    variant="outline"
-                    onClick={() => {
-                      setSelectedTags([])
-                      setSortOption('date')
-                      setSortOrder('desc')
-                    }}
-                    className="w-full rounded-full"
+                    key={mode}
+                    variant={viewMode === mode ? "default" : "ghost"}
+                    size="sm"
+                    onClick={() => setViewMode(mode as ViewMode)}
+                    className={`rounded-lg px-2 py-1 h-9 min-w-[36px] transition-all duration-300 ${viewMode === mode ? 'shadow-lg shadow-accent-300 dark:shadow-accent-950 dark:bg-slate-700' : 'hover:bg-accent/10 hover:text-accent dark:text-slate-400 dark:hover:text-slate-200'}`}
+                    title={title}
                   >
-                    <X className="w-4 h-4 mr-2" />
-                    Clear All Filters
+                    <Icon className="w-4 h-4" />
                   </Button>
-                )}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.div>
-
-      {/* Results Summary */}
-      {(searchTerm || selectedTags.length > 0) && (
-        <motion.div 
-          className="text-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
-          <p className="text-slate-600 dark:text-slate-400">
-            Found {filteredAndSortedPosts.length} article{filteredAndSortedPosts.length !== 1 ? 's' : ''}
-            {searchTerm && ` matching "${searchTerm}"`}
-            {selectedTags.length > 0 && ` with tags: ${selectedTags.join(', ')}`}
-          </p>
-        </motion.div>
-      )}
-
-      {/* Layout Content */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={viewMode}
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          variants={containerVariants}
-          className="min-h-[600px]"
-        >
-          {viewMode === 'grid' && <GridLayout />}
-          {viewMode === 'newspaper' && <NewspaperLayout />}
-          {viewMode === 'list' && <ListLayout />}
-          {viewMode === 'modules' && <ModulesLayout />}
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Today's Highlights - newspaper 3-col with dividers */}
-      <div className="mt-16">
-      <Highlights
-        items={filteredAndSortedPosts.slice(0, 6).map((post) => ({
-          title: post.title,
-          dek: post.summary || 'No summary available',
-          time: typeof post.readingTime?.minutes === 'number'
-            ? `${Math.max(1, Math.round(post.readingTime.minutes))} min read`
-            : '—',
-          href: `/${post.path}`,
-        }))}
-        variant="grid"
-        title="Today's Highlights"
-        rightLabel="Editors' Desk"
-      />
-      </div>
-
-      {/* Newsletter Signup */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-accent-50 to-accent-50 dark:from-accent-900 dark:to-accent-900 border border-accent-300 dark:border-accent-600"
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-accent/5" />
-        <div className="relative text-center py-12 px-6">
-          <div className="max-w-md mx-auto space-y-6">
-            <div className="space-y-3">
-              <h3 className="text-xl lg:text-2xl font-playfair font-semibold text-slate-900 dark:text-white">
-                Stay Updated
-              </h3>
-              <p className="text-slate-600 dark:text-slate-300">
-                Get notified when new posts are published. No spam, just quality content.
-              </p>
-            </div>
-
-            <form onSubmit={handleNewsletterSubmit} className="space-y-4">
-              <div className="flex flex-col sm:flex-row gap-3">
-                <div className="flex-1 relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
-                  <Input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={newsletter.email}
-                    onChange={(e) => setNewsletter(prev => ({ ...prev, email: e.target.value, status: 'idle', message: '' }))}
-                    className="pl-10 h-11 rounded-lg border-slate-300 dark:border-slate-600 focus:ring-2 focus:ring-accent focus:border-transparent hover:shadow-lg hover:shadow-accent-200 dark:hover:shadow-accent-900 focus:shadow-lg focus:shadow-accent-300 dark:focus:shadow-accent-800 transition-all duration-300"
-                    disabled={newsletter.status === 'loading'}
-                  />
-                </div>
-                <Button 
-                  type="submit"
-                  disabled={newsletter.status === 'loading'}
-                  className="px-6 h-11 bg-accent hover:bg-accent text-white rounded-lg font-medium transition-colors disabled:opacity-50"
-                >
-                  {newsletter.status === 'loading' ? 'Subscribing...' : 'Subscribe'}
-                </Button>
+                ))}
               </div>
 
-              {/* Status Message */}
-              <AnimatePresence>
-                {newsletter.message && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className={`flex items-center gap-2 text-sm ${
-                      newsletter.status === 'success' 
-                        ? 'text-green-600 dark:text-green-400'
-                        : 'text-red-600 dark:text-red-400'
-                    }`}
-                  >
-                    {newsletter.status === 'success' ? (
-                      <CheckCircle2 className="w-4 h-4" />
-                    ) : (
-                      <AlertCircle className="w-4 h-4" />
-                    )}
-                    {newsletter.message}
-                  </motion.div>
+              {/* Filter Toggle */}
+              <Button
+                variant={showFilters ? "default" : "outline"}
+                onClick={() => setShowFilters(!showFilters)}
+                size="sm"
+                className={`rounded-xl h-9 px-4 transition-all duration-300 ${showFilters ? 'shadow-lg shadow-accent-300 dark:shadow-accent-950 dark:bg-slate-700' : 'hover:bg-accent/10 border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700'}`}
+              >
+                <Filter className="w-4 h-4 mr-2" />
+                Filters
+                {selectedTags.length > 0 && (
+                  <Badge className="ml-2 bg-accent text-white h-5 px-1.5 min-w-[20px] justify-center">
+                    {selectedTags.length}
+                  </Badge>
                 )}
-              </AnimatePresence>
-            </form>
+              </Button>
+
+            </motion.div>
+
+
+
+            {/* Filter Panel */}
+            <AnimatePresence>
+              {showFilters && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 space-y-6"
+                >
+                  {/* Sort Options */}
+                  <div>
+                    <h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                      <Calendar className="w-4 h-4" />
+                      Sort By
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {[
+                        { value: 'date', label: 'Date', icon: Calendar },
+                        { value: 'title', label: 'Title', icon: TagIcon },
+                        { value: 'readingTime', label: 'Reading Time', icon: Clock },
+                        { value: 'topic', label: 'Topic', icon: TrendingUp }
+                      ].map(({ value, label, icon: Icon }) => (
+                        <Button
+                          key={value}
+                          variant={sortOption === value ? "default" : "outline"}
+                          size="sm"
+                          onClick={() => setSortOption(value as SortOption)}
+                          className={`rounded-full ${sortOption !== value ? 'dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700/50' : ''}`}
+                        >
+                          <Icon className="w-3 h-3 mr-1" />
+                          {label}
+                        </Button>
+                      ))}
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
+                        className="rounded-full dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700/50"
+                      >
+                        {sortOrder === 'asc' ? <SortAsc className="w-3 h-3" /> : <SortDesc className="w-3 h-3" />}
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Tag Filter */}
+                  {allTags.length > 0 && (
+                    <div>
+                      <h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                        <TagIcon className="w-4 h-4" />
+                        Filter by Tags
+                      </h3>
+                      <div className="flex flex-wrap gap-2">
+                        {allTags.map(tag => (
+                          <Badge
+                            key={tag}
+                            variant={selectedTags.includes(tag) ? "default" : "outline"}
+                            className={`cursor-pointer transition-colors ${selectedTags.includes(tag) ? 'dark:bg-slate-700' : 'hover:bg-accent hover:text-white dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700/50'}`}
+                            onClick={() => handleTagToggle(tag)}
+                          >
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Clear Filters */}
+                  {(selectedTags.length > 0 || sortOption !== 'date' || sortOrder !== 'desc') && (
+                    <Button
+                      variant="outline"
+                      onClick={() => {
+                        setSelectedTags([])
+                        setSortOption('date')
+                        setSortOrder('desc')
+                      }}
+                      className="w-full rounded-full"
+                    >
+                      <X className="w-4 h-4 mr-2" />
+                      Clear All Filters
+                    </Button>
+                  )}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Results Summary */}
+          {(searchTerm || selectedTags.length > 0) && (
+            <motion.div
+              className="text-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
+              <p className="text-slate-600 dark:text-slate-400">
+                Found {filteredAndSortedPosts.length} article{filteredAndSortedPosts.length !== 1 ? 's' : ''}
+                {searchTerm && ` matching "${searchTerm}"`}
+                {selectedTags.length > 0 && ` with tags: ${selectedTags.join(', ')}`}
+              </p>
+            </motion.div>
+          )}
+
+          {/* Layout Content */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={viewMode}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={containerVariants}
+              className="min-h-[600px]"
+            >
+              {viewMode === 'grid' && <GridLayout />}
+              {viewMode === 'newspaper' && <NewspaperLayout />}
+              {viewMode === 'list' && <ListLayout />}
+              {viewMode === 'modules' && <ModulesLayout />}
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Today's Highlights - newspaper 3-col with dividers */}
+          <div className="mt-16">
+            <Highlights
+              items={filteredAndSortedPosts.slice(0, 6).map((post) => ({
+                title: post.title,
+                dek: post.summary || 'No summary available',
+                time: typeof post.readingTime?.minutes === 'number'
+                  ? `${Math.max(1, Math.round(post.readingTime.minutes))} min read`
+                  : '—',
+                href: `/${post.path}`,
+              }))}
+              variant="grid"
+              title="Today's Highlights"
+              rightLabel="Editors' Desk"
+            />
           </div>
-        </div>
-      </motion.div>
+
+          {/* Newsletter Signup */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-accent-50 to-accent-50 dark:from-accent-900 dark:to-accent-900 border border-accent-300 dark:border-accent-600"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-accent/5" />
+            <div className="relative text-center py-12 px-6">
+              <div className="max-w-md mx-auto space-y-6">
+                <div className="space-y-3">
+                  <h3 className="text-xl lg:text-2xl font-playfair font-semibold text-slate-900 dark:text-white">
+                    Stay Updated
+                  </h3>
+                  <p className="text-slate-600 dark:text-slate-300">
+                    Get notified when new posts are published. No spam, just quality content.
+                  </p>
+                </div>
+
+                <form onSubmit={handleNewsletterSubmit} className="space-y-4">
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="flex-1 relative">
+                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
+                      <Input
+                        type="email"
+                        placeholder="Enter your email"
+                        value={newsletter.email}
+                        onChange={(e) => setNewsletter(prev => ({ ...prev, email: e.target.value, status: 'idle', message: '' }))}
+                        className="pl-10 h-11 rounded-lg border-slate-300 dark:border-slate-600 focus:ring-2 focus:ring-accent focus:border-transparent hover:shadow-lg hover:shadow-accent-200 dark:hover:shadow-accent-900 focus:shadow-lg focus:shadow-accent-300 dark:focus:shadow-accent-800 transition-all duration-300"
+                        disabled={newsletter.status === 'loading'}
+                      />
+                    </div>
+                    <Button
+                      type="submit"
+                      disabled={newsletter.status === 'loading'}
+                      className="px-6 h-11 bg-accent hover:bg-accent text-white rounded-lg font-medium transition-colors disabled:opacity-50"
+                    >
+                      {newsletter.status === 'loading' ? 'Subscribing...' : 'Subscribe'}
+                    </Button>
+                  </div>
+
+                  {/* Status Message */}
+                  <AnimatePresence>
+                    {newsletter.message && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className={`flex items-center gap-2 text-sm ${newsletter.status === 'success'
+                            ? 'text-green-600 dark:text-green-400'
+                            : 'text-red-600 dark:text-red-400'
+                          }`}
+                      >
+                        {newsletter.status === 'success' ? (
+                          <CheckCircle2 className="w-4 h-4" />
+                        ) : (
+                          <AlertCircle className="w-4 h-4" />
+                        )}
+                        {newsletter.message}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </form>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
-      
+
     </div>
   )
 }
