@@ -552,7 +552,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
 
             {/* More Articles - newspaper highlights style */}
             <motion.section
-              className="paper-shell mt-8"
+              className="mt-8 border border-slate-200/50 dark:border-white/[0.07] rounded-lg overflow-hidden"
               variants={itemVariants}
             >
               <div className="highlights-section-header">
@@ -584,14 +584,14 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
   }
 
   const ListLayout = () => (
-    <div className="max-w-4xl mx-auto">
-      <motion.div className="space-y-6" variants={containerVariants}>
+    <div className="max-w-3xl mx-auto">
+      <motion.div className="divide-y divide-slate-200/40 dark:divide-white/[0.07]" variants={containerVariants}>
         {filteredAndSortedPosts.map((post, index) => (
           <motion.div
             key={post.slug}
             variants={itemVariants}
             custom={index}
-            className="bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 p-6 hover:shadow-lg transition-shadow"
+            className="py-6 first:pt-0 last:pb-0"
           >
             <BlogCard post={post} variant="list" />
           </motion.div>
@@ -612,20 +612,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
     })
 
     return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Magazine Title */}
-        <motion.div
-          className="text-center mb-16"
-          variants={itemVariants}
-        >
-          <h1 className="text-5xl md:text-6xl font-playfair font-bold text-slate-900 dark:text-white mb-6">
-            Magazine
-          </h1>
-          <div className="w-24 h-1 bg-accent mx-auto mb-6"></div>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            Discover our carefully curated collection of articles, insights, and stories organized by topic
-          </p>
-        </motion.div>
+      <div className="max-w-7xl mx-auto px-0 sm:px-2">
 
         {/* Topic Cards Grid */}
         <motion.div
@@ -830,104 +817,84 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
       {/* Newspaper Header */}
       {/* Unified Blog Header */}
 
-      {/* Blog Masthead Section - Only shown on index */}
-      <div className="relative z-[90] w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-accent-100/40 dark:bg-accent-900/30 backdrop-blur-md border-y border-accent-200/50 dark:border-accent-800/30 shadow-[0_0_40px_-10px_rgba(0,0,0,0.1)] shadow-accent-500/20 dark:shadow-accent-500/10">
-        <div className="max-w-[min(100%,1600px)] mx-auto px-4 sm:px-6 py-5 relative">
-          {/* Masthead Content */}
-          <div className="flex flex-col items-start space-y-1">
-            <div className="relative mb-2">
-              <motion.div
-                className="w-40 sm:w-52 md:w-64 lg:w-72 text-slate-800 dark:text-slate-200"
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <Signature />
-              </motion.div>
+      {/* Blog Masthead — minimal strip */}
+      <div className="relative z-[90] w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] border-b border-slate-200/30 dark:border-white/[0.06]">
+        <div className="max-w-[min(100%,1600px)] mx-auto px-4 sm:px-6 py-3.5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          {/* Left: branding */}
+          <div className="flex items-center gap-5">
+            <div className="w-52 sm:w-64 md:w-72 text-slate-800 dark:text-slate-200 opacity-90">
+              <Signature />
+            </div>
+            <span className="hidden sm:block text-[11px] font-bold uppercase tracking-[0.4em] text-slate-400/60 dark:text-slate-500/60">
+              Software Engineering & Design
+            </span>
+            <span className="hidden sm:block w-px h-3 bg-slate-300/40 dark:bg-white/10" />
+            <span className="hidden sm:block text-[11px] uppercase tracking-[0.2em] text-slate-400/40 dark:text-slate-600/60 font-medium">
+              © 2026
+            </span>
+          </div>
+
+          {/* Right: search + view controls */}
+          <div className="flex items-center gap-2">
+            {/* Search */}
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-accent-400/70 dark:text-accent-500/70 w-4 h-4" />
+              <Input
+                type="text"
+                placeholder="Search…"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-9 h-9 w-48 text-sm rounded-lg bg-white/10 dark:bg-white/5 border border-slate-200/60 dark:border-white/10 text-accent-600 dark:text-accent-400 placeholder:text-accent-400/40 dark:placeholder:text-accent-600/60 focus:outline-none focus-visible:ring-1 focus-visible:ring-accent focus-visible:ring-offset-0 focus:border-accent/40 focus:bg-white/20 dark:focus:bg-white/10 transition-all duration-200"
+              />
             </div>
 
-            <motion.div
-              className="flex flex-wrap items-center gap-3 sm:gap-4 pl-1"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1 }}
+            {/* View toggles */}
+            <div className="flex items-center gap-0.5 bg-slate-100/60 dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-lg p-1">
+              {[
+                { mode: 'newspaper', icon: Newspaper, title: 'Newspaper' },
+                { mode: 'grid', icon: Grid3X3, title: 'Magazine' },
+                { mode: 'list', icon: List, title: 'List' },
+                { mode: 'modules', icon: Layers3, title: 'Modules' }
+              ].map(({ mode, icon: Icon, title }) => (
+                <button
+                  key={mode}
+                  onClick={() => setViewMode(mode as ViewMode)}
+                  title={title}
+                  className={`rounded-md h-8 w-8 flex items-center justify-center transition-all duration-150 ${
+                    viewMode === mode
+                      ? 'bg-accent text-white shadow-sm shadow-accent/30'
+                      : 'text-slate-500 dark:text-slate-400 hover:text-accent dark:hover:text-accent-400 hover:bg-white/50 dark:hover:bg-white/10'
+                  }`}
+                >
+                  <Icon className="w-4 h-4" />
+                </button>
+              ))}
+            </div>
+
+            {/* Filter toggle */}
+            <button
+              onClick={() => setShowFilters(!showFilters)}
+              className={`inline-flex items-center gap-1.5 h-9 px-3 text-sm font-medium rounded-lg border transition-all duration-150 ${
+                showFilters
+                  ? 'bg-accent text-white border-accent shadow-sm shadow-accent/30'
+                  : 'bg-white/10 dark:bg-white/5 border-slate-200/50 dark:border-white/10 text-slate-600 dark:text-slate-300 hover:text-accent dark:hover:text-accent-400 hover:border-accent/30 dark:hover:border-accent/30'
+              }`}
             >
-              <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.4em] text-accent-600/80 dark:text-accent-400/80">
-                Software Engineering & Design
-              </span>
-              <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600 hidden sm:block" />
-              <span className="text-[9px] uppercase tracking-[0.2em] text-slate-400/60 dark:text-slate-500/60 font-medium">
-                © 2026
-              </span>
-            </motion.div>
+              <Filter className="w-4 h-4" />
+              <span className="hidden sm:inline">Filter</span>
+              {selectedTags.length > 0 && (
+                <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-white/20 text-[11px] font-bold">
+                  {selectedTags.length}
+                </span>
+              )}
+            </button>
           </div>
         </div>
       </div>
 
       <div className="relative z-10 max-w-[min(100%,1600px)] mx-auto px-3 sm:px-4 py-8 md:py-12">
         <div className="space-y-8 md:space-y-12">
-          {/* Responsive Search and Controls */}
-          <motion.div
-            className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8"
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-          >
-            <motion.div variants={itemVariants} className="w-full sm:w-auto flex items-center gap-3">
-              {/* Compact Search - Responsive Width */}
-              <div className="relative flex-1 sm:flex-none">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4 peer-focus:text-accent transition-colors duration-300" />
-                <Input
-                  type="text"
-                  placeholder="Search..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="peer pl-9 h-10 w-full sm:w-64 text-sm rounded-xl border-slate-300 dark:border-slate-700 dark:bg-slate-900 focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300 dark:text-slate-200"
-                />
-              </div>
-            </motion.div>
-
-            <motion.div variants={itemVariants} className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0 no-scrollbar">
-              {/* Compact View Toggles - More space on mobile */}
-              <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800/80 rounded-xl p-1 border border-transparent dark:border-slate-700">
-                {[
-                  { mode: 'newspaper', icon: Newspaper, title: 'Newspaper' },
-                  { mode: 'grid', icon: Grid3X3, title: 'Magazine' },
-                  { mode: 'list', icon: List, title: 'List' },
-                  { mode: 'modules', icon: Layers3, title: 'Modules' }
-                ].map(({ mode, icon: Icon, title }) => (
-                  <Button
-                    key={mode}
-                    variant={viewMode === mode ? "default" : "ghost"}
-                    size="sm"
-                    onClick={() => setViewMode(mode as ViewMode)}
-                    className={`rounded-lg px-2 py-1 h-9 min-w-[36px] transition-all duration-300 ${viewMode === mode ? 'shadow-lg shadow-accent-300 dark:shadow-accent-950 dark:bg-slate-700' : 'hover:bg-accent/10 hover:text-accent dark:text-slate-400 dark:hover:text-slate-200'}`}
-                    title={title}
-                  >
-                    <Icon className="w-4 h-4" />
-                  </Button>
-                ))}
-              </div>
-
-              {/* Filter Toggle */}
-              <Button
-                variant={showFilters ? "default" : "outline"}
-                onClick={() => setShowFilters(!showFilters)}
-                size="sm"
-                className={`rounded-xl h-9 px-4 transition-all duration-300 ${showFilters ? 'shadow-lg shadow-accent-300 dark:shadow-accent-950 dark:bg-slate-700' : 'hover:bg-accent/10 border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700'}`}
-              >
-                <Filter className="w-4 h-4 mr-2" />
-                Filters
-                {selectedTags.length > 0 && (
-                  <Badge className="ml-2 bg-accent text-white h-5 px-1.5 min-w-[20px] justify-center">
-                    {selectedTags.length}
-                  </Badge>
-                )}
-              </Button>
-
-            </motion.div>
-
-
+          <motion.div initial="hidden" animate="visible" variants={containerVariants}>
 
             {/* Filter Panel */}
             <AnimatePresence>
@@ -936,7 +903,7 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 space-y-6"
+                  className="rounded-xl border border-slate-200/60 dark:border-white/[0.08] bg-slate-50/50 dark:bg-white/[0.03] p-5 space-y-5"
                 >
                   {/* Sort Options */}
                   <div>
