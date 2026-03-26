@@ -815,41 +815,39 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
   return (
     <div className="relative">
       {/* Newspaper Header */}
-      {/* Unified Blog Header */}
-
-      {/* Blog Masthead — minimal strip */}
+      {/* Unified Blog He      {/* Blog Masthead — minimal strip */}
       <div className="relative z-[90] w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] border-b border-slate-200/30 dark:border-white/[0.06]">
-        <div className="max-w-[min(100%,1600px)] mx-auto px-4 sm:px-6 py-3.5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+        <div className="max-w-[min(100%,1600px)] mx-auto px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
           {/* Left: branding */}
-          <div className="flex items-center gap-5">
-            <div className="w-52 sm:w-64 md:w-72 text-slate-800 dark:text-slate-200 opacity-90">
+          <div className="flex items-center gap-3 min-w-0 shrink">
+            <div className="w-36 sm:w-44 md:w-52 lg:w-64 text-slate-800 dark:text-slate-200 opacity-90 shrink-0">
               <Signature />
             </div>
-            <span className="hidden sm:block text-[11px] font-bold uppercase tracking-[0.4em] text-slate-400/60 dark:text-slate-500/60">
-              Software Engineering & Design
+            <span className="hidden lg:block text-[11px] font-bold uppercase tracking-[0.4em] text-slate-400/60 dark:text-slate-500/60 whitespace-nowrap">
+              Software Engineering &amp; Design
             </span>
-            <span className="hidden sm:block w-px h-3 bg-slate-300/40 dark:bg-white/10" />
-            <span className="hidden sm:block text-[11px] uppercase tracking-[0.2em] text-slate-400/40 dark:text-slate-600/60 font-medium">
+            <span className="hidden lg:block w-px h-3 bg-slate-300/40 dark:bg-white/10" />
+            <span className="hidden lg:block text-[11px] uppercase tracking-[0.2em] text-slate-400/40 dark:text-slate-600/60 font-medium whitespace-nowrap">
               © 2026
             </span>
           </div>
 
           {/* Right: search + view controls */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
             {/* Search */}
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-accent-400/70 dark:text-accent-500/70 w-4 h-4" />
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 text-accent-400/70 dark:text-accent-500/70 w-3.5 h-3.5" />
               <Input
                 type="text"
                 placeholder="Search…"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-9 h-9 w-48 text-sm rounded-lg bg-white/10 dark:bg-white/5 border border-slate-200/60 dark:border-white/10 text-accent-600 dark:text-accent-400 placeholder:text-accent-400/40 dark:placeholder:text-accent-600/60 focus:outline-none focus-visible:ring-1 focus-visible:ring-accent focus-visible:ring-offset-0 focus:border-accent/40 focus:bg-white/20 dark:focus:bg-white/10 transition-all duration-200"
+                className="pl-8 h-8 w-28 sm:w-36 md:w-32 lg:w-44 text-xs sm:text-sm rounded-lg bg-white/10 dark:bg-white/5 border border-slate-200/60 dark:border-white/10 text-accent-600 dark:text-accent-400 placeholder:text-accent-400/40 dark:placeholder:text-accent-600/60 focus:outline-none focus-visible:ring-1 focus-visible:ring-accent focus-visible:ring-offset-0 focus:border-accent/40 focus:bg-white/20 dark:focus:bg-white/10 transition-all duration-200"
               />
             </div>
 
             {/* View toggles */}
-            <div className="flex items-center gap-0.5 bg-slate-100/60 dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-lg p-1">
+            <div className="flex items-center bg-slate-100/60 dark:bg-white/5 border border-slate-200/50 dark:border-white/10 rounded-lg p-0.5">
               {[
                 { mode: 'newspaper', icon: Newspaper, title: 'Newspaper' },
                 { mode: 'grid', icon: Grid3X3, title: 'Magazine' },
@@ -860,13 +858,13 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
                   key={mode}
                   onClick={() => setViewMode(mode as ViewMode)}
                   title={title}
-                  className={`rounded-md h-8 w-8 flex items-center justify-center transition-all duration-150 ${
+                  className={`rounded-md h-7 w-7 sm:h-8 sm:w-8 flex items-center justify-center transition-all duration-150 ${
                     viewMode === mode
                       ? 'bg-accent text-white shadow-sm shadow-accent/30'
                       : 'text-slate-500 dark:text-slate-400 hover:text-accent dark:hover:text-accent-400 hover:bg-white/50 dark:hover:bg-white/10'
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </button>
               ))}
             </div>
@@ -874,16 +872,16 @@ export function BlogLayoutSystem({ posts }: BlogLayoutSystemProps) {
             {/* Filter toggle */}
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className={`inline-flex items-center gap-1.5 h-9 px-3 text-sm font-medium rounded-lg border transition-all duration-150 ${
+              className={`inline-flex items-center gap-1.5 h-8 sm:h-9 px-2 sm:px-3 text-xs sm:text-sm font-medium rounded-lg border transition-all duration-150 ${
                 showFilters
                   ? 'bg-accent text-white border-accent shadow-sm shadow-accent/30'
                   : 'bg-white/10 dark:bg-white/5 border-slate-200/50 dark:border-white/10 text-slate-600 dark:text-slate-300 hover:text-accent dark:hover:text-accent-400 hover:border-accent/30 dark:hover:border-accent/30'
               }`}
             >
-              <Filter className="w-4 h-4" />
-              <span className="hidden sm:inline">Filter</span>
+              <Filter className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+              <span className="hidden md:inline">Filter</span>
               {selectedTags.length > 0 && (
-                <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-white/20 text-[11px] font-bold">
+                <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-white/20 text-[10px] font-bold">
                   {selectedTags.length}
                 </span>
               )}
