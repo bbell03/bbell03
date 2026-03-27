@@ -9,7 +9,7 @@
     "build": "npm run prebuild && cross-env INIT_CWD=$PWD next build --webpack && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build --webpack",
-    "lint": "eslint pages app components lib layouts scripts --ext .js,.jsx,.ts,.tsx",
+    "lint": "eslint app components lib layouts scripts --ext .js,.jsx,.ts,.tsx",
     "prepare": "husky",
     "sync-notion": "tsx scripts/sync-notion.ts",
     "sync-notion:watch": "tsx scripts/sync-notion.ts --watch"

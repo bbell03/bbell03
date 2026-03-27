@@ -11,11 +11,26 @@ interface FontPreference {
 
 const FontContext = createContext<FontPreference | undefined>(undefined)
 
-function applyFontToRoot(font: FontFamily) {
+export const BLOG_FONT_PREFERENCE_KEY = 'blog-font-preference'
+
+function normalizeFontFamily(value: string | null | undefined): FontFamily {
+  if (value === 'courier' || value === 'garamond') return value
+  return 'default'
+}
+
+export function applyFontToRoot(font: FontFamily) {
   const root = document.documentElement
   root.classList.remove('font-courier', 'font-garamond')
   if (font === 'courier') root.classList.add('font-courier')
   else if (font === 'garamond') root.classList.add('font-garamond')
+}
+
+export function getSavedFontPreference(): FontFamily {
+  return normalizeFontFamily(localStorage.getItem(BLOG_FONT_PREFERENCE_KEY))
+}
+
+export function setSavedFontPreference(font: FontFamily) {
+  localStorage.setItem(BLOG_FONT_PREFERENCE_KEY, font)
 }
 
 export function useFontPreference() {
@@ -23,11 +38,10 @@ export function useFontPreference() {
   if (!context) {
     const [fontFamily, setFontFamily] = useState<FontFamily>('default')
     useEffect(() => {
-      const saved = localStorage.getItem('blog-font-preference')
-      if (saved === 'courier' || saved === 'garamond') setFontFamily(saved)
+      setFontFamily(getSavedFontPreference())
     }, [])
     useEffect(() => {
-      localStorage.setItem('blog-font-preference', fontFamily)
+      setSavedFontPreference(fontFamily)
       applyFontToRoot(fontFamily)
     }, [fontFamily])
     return { fontFamily, setFontFamily }

@@ -1,7 +1,13 @@
 'use client'
 
 import { useState, useEffect, ReactNode } from 'react'
-import { FontContext, FontFamily } from '@/hooks/useFontPreference'
+import {
+  FontContext,
+  FontFamily,
+  applyFontToRoot,
+  getSavedFontPreference,
+  setSavedFontPreference,
+} from '@/hooks/useFontPreference'
 
 interface FontProviderProps {
   children: ReactNode
@@ -14,22 +20,14 @@ export function FontProvider({ children, defaultFont = 'default' }: FontProvider
 
   useEffect(() => {
     setIsHydrated(true)
-    const saved = localStorage.getItem('blog-font-preference')
-    if (saved === 'courier' || saved === 'garamond') {
-      setFontFamily(saved)
-    } else {
-      setFontFamily('default')
-      localStorage.setItem('blog-font-preference', 'default')
-    }
+    const saved = getSavedFontPreference()
+    setFontFamily(saved || 'default')
   }, [])
 
   useEffect(() => {
     if (!isHydrated) return
-    localStorage.setItem('blog-font-preference', fontFamily)
-    const root = document.documentElement
-    root.classList.remove('font-courier', 'font-garamond')
-    if (fontFamily === 'courier') root.classList.add('font-courier')
-    else if (fontFamily === 'garamond') root.classList.add('font-garamond')
+    setSavedFontPreference(fontFamily)
+    applyFontToRoot(fontFamily)
   }, [fontFamily, isHydrated])
 
   const contextValue = {

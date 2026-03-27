@@ -14,7 +14,9 @@
   --font-garamond: var(--font-eb-garamond);
 }
 
-/* Font switching classes - restricted to desktop or non-landing page on mobile to preserve Raleway request */
+/* Font switching classes.
+   Mechanism: `FontProvider` / `font-init` adds `font-courier` or `font-garamond` to <html>.
+   We keep overrides scoped + predictable and avoid conflicting exception rules. */
 @media (min-width: 768px) {
   .font-courier {
     --font-body: var(--font-courier);
@@ -35,23 +37,14 @@
   }
 }
 
-/* Fallback for blog pages even on mobile if switcher is used */
-.blog-page.font-courier * {
+/* Fallback for blog pages even on mobile if switcher is used.
+   (Font class is on <html>, `.blog-page` is on the page container.) */
+.font-courier .blog-page * {
   font-family: var(--font-courier) !important;
 }
 
-.blog-page.font-garamond * {
+.font-garamond .blog-page * {
   font-family: var(--font-garamond) !important;
-}
-
-/* Preserve specific elements that should keep their original fonts */
-.font-courier .font-playfair,
-.font-courier .font-source-serif,
-.font-courier .font-inter,
-.font-garamond .font-playfair,
-.font-garamond .font-source-serif,
-.font-garamond .font-inter {
-  font-family: inherit !important;
 }
 
 /* Keep icons and special elements unchanged */
@@ -67,23 +60,6 @@
 /* Blog uses site font (Raleway) unless switcher has chosen courier/garamond */
 .blog-page {
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-}
-
-/* Specific overrides for better typography hierarchy */
-.font-courier .font-playfair {
-  font-family: var(--font-courier) !important;
-}
-
-.font-courier .font-source-serif {
-  font-family: var(--font-courier) !important;
-}
-
-.font-garamond .font-playfair {
-  font-family: var(--font-garamond) !important;
-}
-
-.font-garamond .font-source-serif {
-  font-family: var(--font-garamond) !important;
 }
 
 /* Dynamic Accent Color Classes */

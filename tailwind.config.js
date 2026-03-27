@@ -23,11 +23,9 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
         display: ["var(--font-sans)", ...fontFamily.sans],
-        accent: ["var(--font-sans)", ...fontFamily.sans],
-        garamond: ["var(--font-sans)", ...fontFamily.sans],
-        playfair: ["var(--font-sans)", ...fontFamily.sans],
-        "source-serif": ["var(--font-sans)", ...fontFamily.sans],
         heading: ["var(--font-sans)", ...fontFamily.sans],
+        accent: ["var(--font-sans)", ...fontFamily.sans],
+        garamond: ["var(--font-garamond)", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
         courier: ["var(--font-courier)", "monospace"],
       },
       colors: {
