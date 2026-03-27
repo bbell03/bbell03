@@ -23,7 +23,8 @@
     --font-heading: var(--font-courier);
   }
 
-  .font-courier * {
+  .font-courier .blog-page *,
+  .font-courier .article-page * {
     font-family: var(--font-courier) !important;
   }
 
@@ -32,7 +33,8 @@
     --font-heading: var(--font-garamond);
   }
 
-  .font-garamond * {
+  .font-garamond .blog-page *,
+  .font-garamond .article-page * {
     font-family: var(--font-garamond) !important;
   }
 }
