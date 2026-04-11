@@ -1,65 +1,10 @@
 @import './cursor.css';
-/* Font Family Classes */
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-courier: 'Courier Prime', 'Courier New', monospace;
-  --font-eb-garamond: 'EB Garamond', 'Garamond', 'Times New Roman', serif;
-  --font-garamond: var(--font-eb-garamond);
-}
-
-/* Font switching classes.
-   Mechanism: `FontProvider` / `font-init` adds `font-courier` or `font-garamond` to <html>.
-   We keep overrides scoped + predictable and avoid conflicting exception rules. */
-@media (min-width: 768px) {
-  .font-courier {
-    --font-body: var(--font-courier);
-    --font-heading: var(--font-courier);
-  }
-
-  .font-courier .blog-page *,
-  .font-courier .article-page * {
-    font-family: var(--font-courier) !important;
-  }
-
-  .font-garamond {
-    --font-body: var(--font-garamond);
-    --font-heading: var(--font-garamond);
-  }
-
-  .font-garamond .blog-page *,
-  .font-garamond .article-page * {
-    font-family: var(--font-garamond) !important;
-  }
-}
-
-/* Fallback for blog pages even on mobile if switcher is used.
-   (Font class is on <html>, `.blog-page` is on the page container.) */
-.font-courier .blog-page * {
-  font-family: var(--font-courier) !important;
-}
-
-.font-garamond .blog-page * {
-  font-family: var(--font-garamond) !important;
-}
-
-/* Keep icons and special elements unchanged */
-.font-courier .lucide,
-.font-courier svg,
-.font-courier [data-lucide],
-.font-garamond .lucide,
-.font-garamond svg,
-.font-garamond [data-lucide] {
-  font-family: inherit !important;
-}
-
-/* Blog uses site font (Raleway) unless switcher has chosen courier/garamond */
+/* Blog uses the site font (Raleway via next/font → --font-sans). */
 .blog-page {
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
@@ -708,10 +653,6 @@
   .accent-text {
     @apply font-accent;
   }
-
-  .font-handwriting {
-    font-family: 'Caveat', cursive !important;
-  }
 }
 
 /* Scrollbar Styles */
@@ -830,8 +771,9 @@
     @apply text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed;
   }
 
-  .article-page .highlights-item .highlights-item-time {
-    @apply font-mono text-[11px] uppercase text-slate-500 dark:text-slate-500 mt-1;
+  .article-page .highlights-item .highlights-item-time,
+  .blog-page .highlights-item .highlights-item-time {
+    @apply font-sans tabular-nums text-[11px] uppercase text-slate-500 dark:text-slate-500 mt-1;
   }
 
   .article-page .highlights-section-header,
@@ -1224,7 +1166,7 @@ textarea:focus {
 
   .article-body code {
     @apply bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm;
-    font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
   .article-body pre {

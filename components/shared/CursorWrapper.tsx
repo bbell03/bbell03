@@ -4,8 +4,6 @@ import React from 'react'
 import { CursorProvider as CursorContextProvider } from '@/hooks/useCursorContext'
 import CursorVisualProvider from '@/components/shared/CursorProvider'
 import { useAccentColor } from '@/hooks/useAccentColor'
-import { FontProvider } from '@/components/shared/FontProvider'
-
 interface CursorWrapperProps {
   children: React.ReactNode
 }
@@ -20,11 +18,9 @@ export default function CursorWrapper({ children }: CursorWrapperProps) {
   return (
     <CursorContextProvider>
       <ColorInitializer />
-      <FontProvider>
-        <CursorVisualProvider>
-          {children}
-        </CursorVisualProvider>
-      </FontProvider>
+      <CursorVisualProvider>
+        {children}
+      </CursorVisualProvider>
     </CursorContextProvider>
   )
 }

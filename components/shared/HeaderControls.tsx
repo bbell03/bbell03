@@ -1,13 +1,11 @@
 'use client'
 
-import { FontSwitcher } from './FontSwitcher'
 import ThemeToggle from './theme-toggle'
 import ColorPicker from './ColorPicker'
 
 interface HeaderControlsProps {
   showSubtitle?: boolean
   subtitle?: string
-  showFontSwitcher?: boolean
   showColorPicker?: boolean
   className?: string
 }
@@ -15,7 +13,6 @@ interface HeaderControlsProps {
 export default function HeaderControls({
   showSubtitle = false,
   subtitle,
-  showFontSwitcher = false,
   showColorPicker = true,
   className = '',
 }: HeaderControlsProps) {
@@ -26,7 +23,6 @@ export default function HeaderControls({
           {subtitle}
         </span>
       )}
-      {showFontSwitcher && <FontSwitcher />}
       {showColorPicker && <ColorPicker />}
       <ThemeToggle />
     </div>

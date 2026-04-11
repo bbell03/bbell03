@@ -1,13 +1,11 @@
 import type React from "react"
 import type { Metadata } from "next"
-import Script from "next/script"
 import { Raleway } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/shared/theme-provider"
 import CursorWrapper from "@/components/shared/CursorWrapper"
 import siteMetadata from "@/data/siteMetadata"
 
-// Primary site font. Font switcher (Courier/Garamond) preserved for blog in font-init script + globals.css.
 const raleway = Raleway({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -46,24 +44,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${raleway.variable} ${raleway.className}`}>
-        <Script
-          id="font-init"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const saved = localStorage.getItem('blog-font-preference');
-                  const root = document.documentElement;
-                  root.classList.remove('font-courier', 'font-garamond');
-                  if (saved === 'courier' || saved === 'garamond') {
-                    root.classList.add('font-' + saved);
-                  }
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <CursorWrapper>
             {children}

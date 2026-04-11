@@ -64,7 +64,7 @@ export default function BlogLayout({
                 <LiveClock />
               </div>
             </div>
-            <HeaderControls showFontSwitcher={false} className="scale-90 origin-right" />
+            <HeaderControls className="scale-90 origin-right" />
           </div>
         </header>
       )}

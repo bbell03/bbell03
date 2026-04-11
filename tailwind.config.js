@@ -25,8 +25,6 @@ module.exports = {
         display: ["var(--font-sans)", ...fontFamily.sans],
         heading: ["var(--font-sans)", ...fontFamily.sans],
         accent: ["var(--font-sans)", ...fontFamily.sans],
-        garamond: ["var(--font-garamond)", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
-        courier: ["var(--font-courier)", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
